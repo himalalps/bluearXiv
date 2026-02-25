@@ -93,6 +93,24 @@
             padding-bottom: 8px;
             border-bottom: 1px solid #eee;
         }
+        .section-back-to-top {
+            display: inline-block;
+            opacity: 0;
+            transition: opacity 0.2s;
+            color: #4a6fa5;
+            text-decoration: none;
+            font-size: 0.55em;
+            font-weight: normal;
+            margin-left: 10px;
+            padding: 2px 8px;
+            border: 1px solid #4a6fa5;
+            border-radius: 10px;
+            vertical-align: middle;
+            background: white;
+        }
+        .section-title:hover .section-back-to-top {
+            opacity: 1;
+        }
         .counter-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
@@ -249,7 +267,7 @@
     
     <!-- 论文统计部分 -->
     <section id="counter" class="section">
-        <h2 class="section-title">📊 论文统计</h2>
+        <h2 class="section-title">📊 论文统计 <a href="#" class="section-back-to-top">↑ 回顶部</a></h2>
         <div class="counter-grid">
             {{COUNTER_SECTION_PLACEHOLDER}}
         </div>
@@ -257,7 +275,7 @@
     
     <!-- 精选论文部分 -->
     <section id="selection" class="section">
-        <h2 class="section-title">⭐ 精选论文</h2>
+        <h2 class="section-title">⭐ 精选论文 <a href="#" class="section-back-to-top">↑ 回顶部</a></h2>
         <div class="paper-list">
             {{SELECTION_SECTION_PLACEHOLDER}}
         </div>
@@ -265,7 +283,7 @@
     
     <!-- 所有论文部分 - 按学科分节 -->
     <section id="papers" class="section">
-        <h2 class="section-title">📄 所有论文</h2>
+        <h2 class="section-title">📄 所有论文 <a href="#" class="section-back-to-top">↑ 回顶部</a></h2>
         
         <!-- 这里将动态生成各个学科的论文小节 -->
         <!-- 格式示例：
@@ -317,7 +335,10 @@
                 anchor.addEventListener('click', function(e) {
                     e.preventDefault();
                     const targetId = this.getAttribute('href');
-                    if (targetId === '#') return;
+                    if (targetId === '#') {
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                        return;
+                    }
                     
                     const targetElement = document.querySelector(targetId);
                     if (targetElement) {
