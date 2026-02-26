@@ -66,17 +66,17 @@
 
 \begin{center}
     %counter_begin
-cs.LG: 91
+cs.LG: 85
 
-cs.AI: 43
+cs.AI: 14
 
-cs.IR: 12
+cs.IR: 7
 
-cs.CL: 34
+cs.CL: 58
 
-cs.DS: 7
+cs.DS: 8
 
-others: 96
+others: 88
 
 %counter_end   
 \end{center}
@@ -88,1424 +88,1309 @@ others: 96
 
     %body_begin
 \section{cs.LG}
-\arxivwithtarget{2602.20175}{Tensor Network Generator-Enhanced Optimization for Traveling Salesman Problem}{Ryo Sakai, Chen-Yu Liu}\textbf{cs.LG}, math.OC, quant-ph.
+\arxivwithtarget{2602.21221}{Latent Context Compilation: Distilling Long Context into Compact Portable Memory}{Zeju Li, Yizhou Zhou, Qiang Xu}\textbf{cs.LG}, cs.AI, cs.CL.
 
-本文提出了一种基于tensor network generator-enhanced optimization (TN-GEO)框架的方法来解决traveling salesman problem (TSP). 该方法使用基于自动可微matrix product states (MPS)的tensor network Born machine作为生成模型, 并通过自回归采样与掩码技术确保生成有效的路径. 实验表明, 该方法在TSPLIB基准测试上能超越一些经典启发式算法.
+本文提出了一种名为Latent Context Compilation的框架, 用于将长上下文信息高效地压缩到LLM中. 该方法通过一个可丢弃的LoRA模块将长上下文编译成紧凑的、可移植的buffer tokens, 无需修改基础模型权重或依赖合成数据.
 
 
-\arxivwithtarget{2602.20191}{MoBiQuant: Mixture-of-Bits Quantization for Token-Adaptive Elastic LLMs}{Dongwei Wang, Jinhee Kim, Seokho Han, Denis Gudovskiy, Yohei Nakata, Tomoyuki Okuno, KhayTze Peong, Kang Eun Jeon, Jong Hwan Ko, Yiran Chen, Huanrui Yang}\textbf{cs.LG}, cs.AI, cs.CL.
+\arxivwithtarget{2602.21231}{ACAR: Adaptive Complexity Routing for Multi-Model Ensembles with Auditable Decision Traces}{Ramchand Kumaresan}\textbf{cs.LG}, cs.AI, cs.CL.
 
-本文提出了一种用于弹性大语言模型部署的混合比特量化框架 MoBiQuant. 该框架通过 token-aware router 动态选择权重残差比特切片, 实现了无需重复校准的平滑精度切换.
+本文提出了一个用于多模型编排的测量框架ACAR, 它基于自洽性方差进行任务路由, 并在一个可审计的执行平台上进行了大规模评估. 实验结果表明, 该路由方法在避免完全集成的同时提升了准确率, 并揭示了检索增强、模型一致错误等实际假设的失败案例.
 
 
-\arxivwithtarget{2602.20194}{FedAvg-Based CTMC Hazard Model for Federated Bridge Deterioration Assessment}{Takato Yasuno}\textbf{cs.LG}, stat.ML.
+\arxivwithtarget{2602.21232}{Urban Vibrancy Embedding and Application on Traffic Prediction}{Sumin Han, Jisun An, Dongman Lee}\textbf{cs.LG}, cs.AI.
 
-本文提出了一种基于Federated Averaging (FedAvg)的Continuous-Time Markov Chain (CTMC) hazard model, 用于在保护数据隐私的前提下进行桥梁退化评估. 该方法允许各参与方在不共享原始检查数据的情况下, 通过交换伪梯度向量来协同训练一个共享的基准模型.
+本文提出了一种从实时浮动人口数据中提取Urban Vibrancy embedding的方法, 并将其用于增强交通预测模型. 该方法结合了VAE和LSTM来预测动态embedding, 实验表明其能提升多种交通预测模型的性能.
 
 
-\arxivwithtarget{2602.20197}{Controllable Exploration in Hybrid-Policy RLVR for Multi-Modal Reasoning}{Zhuoxu Huang, Mengxi Jia, Hao Sun, Xuelong Li, Jungong Han}\textbf{cs.LG}, cs.AI.
+\arxivwithtarget{2602.21233}{AngelSlim: A more accessible, comprehensive, and efficient toolkit for large model compression}{Rui Cen, QiangQiang Hu, Hong Huang, Hong Liu, Song Liu, Xin Luo, Lin Niu, Yifan Tan, Decheng Wu, Linchuan Xie, Rubing Yang, Guanghua Yu, Jianchen Zhu}\textbf{cs.LG}, cs.AI.
 
-本文提出了一种名为CalibRL的混合策略RLVR框架, 旨在通过可控探索来缓解多模态大语言模型在强化学习训练中遇到的策略退化等问题. 该方法引入了分布感知优势加权和非对称激活函数等机制, 在多个基准测试中取得了稳定的性能提升.
+本文介绍了AngelSlim, 一个用于大模型压缩的综合工具包. 它整合了量化, 推测解码, token剪枝和蒸馏等多种先进算法, 旨在简化从模型压缩到工业部署的流程.
 
 
-\arxivwithtarget{2602.20199}{IMOVNO+: A Regional Partitioning and Meta-Heuristic Ensemble Framework for Imbalanced Multi-Class Learning}{Soufiane Bacha, Laouni Djafri, Sahraoui Dhelim, Huansheng Ning}\textbf{cs.LG}, cs.AI.
+\arxivwithtarget{2602.21269}{Group Orthogonalized Policy Optimization:Group Policy Optimization as Orthogonal Projection in Hilbert Space}{Wang Zixian}\textbf{cs.LG}, cs.AI, stat.ML.
 
-本文提出了一个名为IMOVNO+的两阶段框架, 用于处理分类任务中的数据不平衡, 重叠和噪声问题. 该框架在数据层面进行区域划分和智能过采样, 在算法层面使用元启发式方法修剪集成分类器, 并在多个数据集上展示了性能提升.
+本文提出了一种名为GOPO的新对齐算法, 它将策略优化问题从概率单纯形提升到Hilbert空间$L^2(\pi_k)$中处理. 通过将约束转化为线性正交条件并利用Hilbert投影定理, 算法得到了一个具有常数Hessian曲率和非饱和线性梯度的目标函数, 实验表明其在数学推理任务上具有竞争力.
 
 
-\arxivwithtarget{2602.20207}{Golden Layers and Where to Find Them: Improved Knowledge Editing for Large Language Models Via Layer Gradient Analysis}{Shrestha Datta, Hongfu Liu, Anshuman Chhabra}\textbf{cs.LG}, cs.AI.
+\arxivwithtarget{2602.21276}{Neural network optimization strategies and the topography of the loss landscape}{Jianneng Yu, Alexandre V. Morozov}\textbf{cs.LG}, stat.ML.
 
-本文提出了一种通过分析层梯度来识别大语言模型中知识编辑的"黄金层"的方法. 该方法旨在提高编辑效率, 并在多个基准数据集上验证了其有效性.
+本文对比了随机梯度下降(SGD)与拟牛顿法在神经网络训练中的表现, 通过分析损失景观(loss landscape)的拓扑结构来理解不同优化器的特性. 研究发现SGD倾向于找到更平滑、泛化性更好的区域, 而拟牛顿法则可能陷入更深但更孤立的极小值.
 
 
-\arxivwithtarget{2602.20208}{Model Merging in the Essential Subspace}{Longhua Li, Lei Qi, Qi Tian, Xin Geng}\textbf{cs.LG}, cs.AI.
+\arxivwithtarget{2602.21297}{Robust AI Evaluation through Maximal Lotteries}{Hadi Khalaf, Serena L. Wang, Daniel Halpern, Itai Shapira, Flavio du Pin Calmon, Ariel D. Procaccia}\textbf{cs.LG}.
 
-本文提出了一种名为ESM的模型合并框架, 通过将参数更新投影到由PCA分析得到的essential subspace进行低秩分解, 以减少任务间干扰. 该方法还采用了多级极化缩放策略来增强关键参数, 并在多个任务集上取得了先进的性能.
+本文针对基于 pairwise comparisons 的语言模型评估方法, 指出传统的 Bradley-Terry 排名聚合存在缺陷. 作者提出了 robust lotteries 方法, 以优化最坏情况下的性能, 从而在大型偏好数据集上提供更可靠的胜率保证和稳定的顶级模型集合.
 
 
-\arxivwithtarget{2602.20210}{Multimodal Crystal Flow: Any-to-Any Modality Generation for Unified Crystal Modeling}{Kiyoung Seong, Sungsoo Ahn, Sehui Han, Changyoung Park}\textbf{cs.LG}, cs.AI.
+\arxivwithtarget{2602.21307}{SymTorch: A Framework for Symbolic Distillation of Deep Neural Networks}{Elizabeth S.Z. Tan, Adil Soubki, Miles Cranmer}\textbf{cs.LG}.
 
-本文提出了一种名为Multimodal Crystal Flow (MCFlow)的统一多模态流模型, 用于晶体建模中的多种生成任务. 该方法通过引入层次化排列增强, 在标准Transformer模型中实现了多模态流, 并在多个基准测试中取得了有竞争力的性能.
+本文介绍了SymTorch, 这是一个用于自动化深度神经网络符号蒸馏的框架. 它通过封装网络组件并利用PySR生成可读方程, 旨在降低将符号回归集成到深度学习工作流中的工程障碍.
 
 
-\arxivwithtarget{2602.20217}{KnapSpec: Self-Speculative Decoding via Adaptive Layer Selection as a Knapsack Problem}{Seongjin Cha, Gyuwan Kim, Dongsu Han, Tao Yang, Insu Han}\textbf{cs.LG}, cs.AI.
+\arxivwithtarget{2602.21317}{Shared Nature, Unique Nurture: PRISM for Pluralistic Reasoning via In-context Structure Modeling}{Guancheng Tu, Shiyang Zhang, Tianyu Zhang, Yi Zhang, Diji Yang}\textbf{cs.LG}.
 
-本文提出了一种名为KnapSpec的训练无关框架, 将自推测解码中的草稿模型选择问题建模为背包问题, 以最大化吞吐量. 该方法通过解耦Attention和MLP层并建模其硬件相关延迟, 动态选择最优配置, 在多个基准测试上实现了加速.
+本文提出了一种名为PRISM的方法, 旨在通过动态的即时认知图来增强大型语言模型, 以促进推理的多样性. 该方法在多个创意基准测试中展现了提升新颖性和分布多样性的能力.
 
 
-\arxivwithtarget{2602.20223}{MultiModalPFN: Extending Prior-Data Fitted Networks for Multimodal Tabular Learning}{Wall Kim, Chaeyoung Song, Hanul Kim}\textbf{cs.LG}, cs.AI.
+\arxivwithtarget{2602.21319}{Uncertainty-Aware Diffusion Model for Multimodal Highway Trajectory Prediction via DDIM Sampling}{Marion Neumeier, Niklas Roßberg, Michael Botsch, Wolfgang Utschick}\textbf{cs.LG}, cs.CV, cs.RO.
 
-本文提出了MultiModalPFN, 一种扩展TabPFN以处理多模态表格数据的方法. 它通过模态投影器将非表格数据转换为表格兼容的token, 并在多个数据集上展示了优于现有方法的性能.
+本文提出了一种基于DDIM采样的扩散模型cVMDx, 用于高速公路多模态轨迹预测. 该方法提升了推理效率与预测鲁棒性, 并通过高斯混合模型处理不确定性.
 
 
-\arxivwithtarget{2602.20224}{Exploring Anti-Aging Literature via ConvexTopics and Large Language Models}{Lana E. Yeganova, Won G. Kim, Shubo Tian, Natalie Xie, Donald C. Comeau, W. John Wilbur, Zhiyong Lu}\textbf{cs.LG}, cs.AI, cs.CL.
+\arxivwithtarget{2602.21320}{Tool-R0: Self-Evolving LLM Agents for Tool-Learning from Zero Data}{Emre Can Acikgoz, Cheng Qian, Jonas Hübotter, Heng Ji, Dilek Hakkani-Tür, Gokhan Tur}\textbf{cs.LG}.
 
-本文提出了一种基于凸优化的聚类算法, 用于从生物医学文献中生成稳定且可解释的主题. 该方法在约12,000篇衰老相关文献上进行了应用和验证, 其可复现性和可解释性优于K-means, LDA等方法.
+本文提出了一个名为Tool-R0的框架, 用于从零数据开始训练通用工具调用智能体. 该框架通过自我对弈强化学习, 协同进化任务生成器和求解器, 在多个工具使用基准测试中取得了显著性能提升.
 
 
-\arxivwithtarget{2602.20232}{Coupled Cluster con MōLe: Molecular Orbital Learning for Neural Wavefunctions}{Luca Thiede, Abdulrahman Aldossary, Andreas Burger, Jorge Arturo Campos-Gonzalez-Angulo, Ning Wang, Alexander Zook, Melisa Alkan, Kouhei Nakaji, Taylor Lee Patti, Jérôme Florian Gonthier, Mohammad Ghazi Vakili, Alán Aspuru-Guzik}\textbf{cs.LG}, physics.chem-ph.
+\arxivwithtarget{2602.21321}{Dynamic Symmetric Point Tracking: Tackling Non-ideal Reference in Analog In-memory Training}{Quan Xiao, Jindan Li, Zhaoxian Wu, Tayfun Gokmen, Tianyi Chen}\textbf{cs.LG}, cs.AR, math.OC.
 
-本文提出了一种名为Molecular Orbital Learning (MōLe)的等变机器学习架构, 用于预测Coupled-Cluster理论中的激发振幅. 该模型展示了良好的数据效率和泛化能力, 旨在加速高精度波函数计算.
+本文针对Analog in-memory computing (AIMC)训练中因器件非理想特性导致的权重更新偏差问题, 提出了一种动态对称点跟踪方法. 该方法无需昂贵的预校准, 通过在线估计和修正偏差来保证训练收敛, 并通过数值实验验证了其有效性.
 
 
-\arxivwithtarget{2602.20271}{Uncertainty-Aware Delivery Delay Duration Prediction via Multi-Task Deep Learning}{Stefan Faulkner, Reza Zandehshahvar, Vahid Eghbal Akhlaghi, Sebastien Ouellet, Carsten Jordan, Pascal Van Hentenryck}\textbf{cs.LG}, cs.AI, math.OC, stat.AP.
+\arxivwithtarget{2602.21327}{Equitable Evaluation via Elicitation}{Elbert Du, Cynthia Dwork, Lunjia Hu, Reid McIlroy-Young, Han Shao, Linjun Zhang}\textbf{cs.LG}, cs.AI, cs.CY.
 
-本文提出了一种用于预测物流配送延迟时间的多任务深度学习模型, 旨在处理数据高度不平衡(延迟案例稀少)的挑战. 该模型采用分类-回归的端到端训练策略, 在包含超过1000万条真实货运记录的数据集上验证, 其预测性能优于传统的机器学习基线方法.
+本文提出了一种用于技能评估的交互式AI系统, 旨在通过"激发"(elicitation)方式更准确地获取个人技能信息, 同时允许个体保持其自然的表达风格. 该系统通过使用LLM生成合成人类数据进行训练, 并引入一个严格的数学公平性概念来减少评估误差与自我呈现风格之间的协方差, 以同时缓解内生偏见和系统性模型偏见.
 
 
-\arxivwithtarget{2602.20273}{The Truthfulness Spectrum Hypothesis}{Zhuofan Josh Ying, Shauli Ravfogel, Nikolaus Kriegeskorte, Peter Hase}\textbf{cs.LG}.
+\arxivwithtarget{2602.21328}{Efficient Opportunistic Approachability}{Teodor Vanislavov Marinov, Mehryar Mohri, Princewill Okoroafor, Jon Schneider, Julian Zimmert}\textbf{cs.LG}, cs.GT.
 
-本文提出了"真实性谱假设", 认为大语言模型(Large Language Models, LLMs)的表征空间中存在从广泛领域通用到狭窄领域特定的真实性方向. 通过系统评估线性探针(linear probe)在多种真实性类型和说谎类型上的泛化能力, 并结合几何分析和因果干预, 验证了不同通用性程度的真实性方向共存于表征空间, 且后训练(post-training)会重塑其几何结构.
+本文研究了opportunistic approachability问题, 这是Blackwell approachability的一种推广, 旨在当对手限制其行动空间时获得更强的保证. 作者提出了一种高效算法, 实现了$O(T^{-1/4})$的收敛速率, 避免了之前方法中所需的在线校准步骤. 对于对手行动集维度不超过2的情况, 作者证明了可以达到最优的$O(T^{-1/2})$速率.
 
 
-\arxivwithtarget{2602.20293}{Discrete Diffusion with Sample-Efficient Estimators for Conditionals}{Karthik Elamvazhuthi, Abhijith Jayakumar, Andrey Y. Lokhov}\textbf{cs.LG}, stat.ML.
+\arxivwithtarget{2602.21340}{HiPPO Zoo: Explicit Memory Mechanisms for Interpretable State Space Models}{Jack Goffinet, Casey Hanks, David E. Carlson}\textbf{cs.LG}.
 
-本文提出了一种用于离散状态空间生成建模的扩散框架, 它结合了单点条件概率的高效估计器与循环加噪去噪动态. 该方法在合成Ising模型, MNIST等数据集上的实验表明, 其在多个指标上优于现有的基于比率的方法.
+本文提出了一个名为"HiPPO zoo"的统一框架, 通过五种显式扩展来增强HiPPO框架, 使其支持自适应内存分配和联想记忆等现代状态空间模型(SSMs)的能力, 同时保持其在正交多项式(OP)基上的可解释性. 这些模型可以在线调整内存并进行高效的流式训练, 作者通过一系列合成序列建模任务展示了其行为与优势.
 
 
-\arxivwithtarget{2602.20296}{Learning to Solve Complex Problems via Dataset Decomposition}{Wanru Zhao, Lucas Caccia, Zhengyan Shi, Minseon Kim, Weijia Xu, Alessandro Sordoni}\textbf{cs.LG}.
+\arxivwithtarget{2602.21342}{Archetypal Graph Generative Models: Explainable and Identifiable Communities via Anchor-Dominant Convex Hulls}{Nikolaos Nakis, Chrysoula Kosma, Panagiotis Promponas, Michail Chatzianastasis, Giannis Nikolentzos}\textbf{cs.LG}, stat.ML.
 
-本文提出了一种基于数据集分解的逆向课程学习方法, 通过一个具备逐步推理能力的教师模型递归地将复杂样本分解为更简单的版本, 从而构建训练课程. 该方法在数学和代码生成数据集上取得了优于标准训练的效果.
+本文提出了一种名为GraphHull的可解释图生成模型. 该模型使用双层凸包结构来表示网络, 旨在同时实现高性能和预测的可解释性.
 
 
-\arxivwithtarget{2602.20306}{Shape-informed cardiac mechanics surrogates in data-scarce regimes via geometric encoding and generative augmentation}{Davide Carrara, Marc Hirschvogel, Francesca Bonizzoni, Stefano Pagani, Simone Pezzuto, Francesco Regazzoni}\textbf{cs.LG}, cs.AI, math.NA.
+\arxivwithtarget{2602.21368}{Black-Box Reliability Certification for AI Agents via Self-Consistency Sampling and Conformal Calibration}{Charafeddine Mouzouni}\textbf{cs.LG}, cs.AI, cs.CL, stat.ML.
 
-本文提出了一种用于数据稀缺条件下心脏力学建模的两步框架, 将几何表示与物理响应学习解耦. 该方法利用几何编码和生成式数据增强来构建形状感知的代理模型, 并在理想化和患者特异性数据集上验证了其预测准确性和泛化能力.
+本文提出了一种通过 self-consistency sampling 和 conformal calibration 来为黑盒 AI agent 提供可靠性认证的方法. 该方法为每个系统-任务对输出一个具有有限样本、无分布保证的可靠性数值, 并在多个基准测试和模型上进行了验证.
 
 
-\arxivwithtarget{2602.20307}{In-context Pre-trained Time-Series Foundation Models adapt to Unseen Tasks}{Shangqing Xu, Harshavardhan Kamarthi, Haoxin Liu, B. Aditya Prakash}\textbf{cs.LG}.
+\arxivwithtarget{2602.21371}{Interleaved Head Attention}{Sai Surya Duvvuri, Chanakya Ekbote, Rachit Bansal, Rishabh Tiwari, Devvrit Khatri, David Brandfonbrener, Paul Liang, Inderjit Dhillon, Manzil Zaheer}\textbf{cs.LG}.
 
-本文提出了一种增强时间序列基础模型(TSFMs)的方法, 通过引入In-Context Learning (ICL)能力使其能在不进行微调的情况下适应未见任务. 该方法重构了预训练数据, 使模型能够根据上下文动态调整, 实验表明其在未见任务上的性能提升了约11.4%.
+本文提出了一种名为 Interleaved Head Attention (IHA) 的新注意力机制, 旨在解决标准 Multi-Head Attention (MHA) 中注意力头之间缺乏交互的问题. 通过在原始查询、键、值的基础上构造伪头并进行线性组合, IHA 允许跨头混合, 从而在多项合成任务和真实世界推理基准上展现出性能提升.
 
 
-\arxivwithtarget{2602.20309}{QuantVLA: Scale-Calibrated Post-Training Quantization for Vision-Language-Action Models}{Jingxuan Zhang, Yunta Hsieh, Zhongwei Wang, Haokun Lin, Xin Wang, Ziqi Wang, Yingtie Lei, Mi Zhang}\textbf{cs.LG}.
+\arxivwithtarget{2602.21372}{The Mean is the Mirage: Entropy-Adaptive Model Merging under Heterogeneous Domain Shifts in Medical Imaging}{Sameer Ambekar, Reza Nasirigerdeh, Peter J. Schuffler, Lina Felsner, Daniel M. Lang, Julia A. Schnabel}\textbf{cs.LG}, cs.AI.
 
-本文提出了QuantVLA, 一个用于Vision-Language-Action (VLA) 模型的免训练后量化框架. 该方法通过选择性量化布局, attention温度匹配和输出头平衡等技术, 在保持模型架构不变的情况下, 有效降低了模型的内存占用并提升了推理速度.
+本文提出了一种用于医学影像领域在未见过的测试分布偏移下进行模型融合的熵自适应在线方法. 该方法通过仅使用前向传播来生成针对特定批次的融合模型, 并解耦了编码器和分类头以缓解不匹配问题. 在多个数据集上的实验表明, 该方法在保持单模型推理的同时, 性能优于现有基线.
 
 
-\arxivwithtarget{2602.20329}{CaDrift: A Time-dependent Causal Generator of Drifting Data Streams}{Eduardo V. L. Barboza, Jean Paul Barddal, Robert Sabourin, Rafael M. O. Cruz}\textbf{cs.LG}, cs.DB.
+\arxivwithtarget{2602.21381}{VCDF: A Validated Consensus-Driven Framework for Time Series Causal Discovery}{Gene Yu, Ce Guo, Wayne Luk}\textbf{cs.LG}, cs.AI, cs.CE.
 
-本文提出了一个基于Structural Causal Models (SCMs)的时间依赖性合成数据生成框架CaDrift. 该框架通过使SCM中的映射函数发生漂移来模拟各种分布和协变量偏移, 可用于评估数据流变化下的机器学习方法.
+本文提出了一种用于时间序列因果发现的验证共识驱动框架(VCDF), 该框架作为一个与基础算法无关的附加层, 通过评估因果关系在分块时间子集上的稳定性来提高鲁棒性. 实验表明, VCDF能有效提升多种方法在合成和模拟数据上的性能与稳定性.
 
 
-\arxivwithtarget{2602.20338}{Emergent Manifold Separability during Reasoning in Large Language Models}{Alexandre Polo, Chanwoo Chun, SueYeon Chung}\textbf{cs.LG}.
+\arxivwithtarget{2602.21390}{Defensive Generation}{Gabriele Farina, Juan Carlos Perdomo}\textbf{cs.LG}, stat.ML.
 
-本文应用 Manifold Capacity Theory (MCT) 分析大型语言模型在 Chain-of-Thought (CoT) 推理过程中的表征几何动态. 研究发现, 推理表现为一个瞬时的几何脉冲, 概念流形在计算前被解开为线性可分的子空间, 随后迅速压缩. 这与线性探针的持续高准确率形成对比, 揭示了信息可检索性与几何处理准备状态之间的区别.
+本文提出了一种名为"Defensive Generation"的在线生成方法, 旨在高效地产生无法被预设计算测试所证伪的生成模型. 该方法基于在线高维多校准与变分不等式问题的联系, 能够处理非伯努利结果, 并在样本数量上具有近线性的时间复杂度.
 
 
-\arxivwithtarget{2602.20344}{Hierarchical Molecular Representation Learning via Fragment-Based Self-Supervised Embedding Prediction}{Jiele Wu, Haozhe Ma, Zhihan Guo, Thanh Vinh Vo, Tze Yun Leong}\textbf{cs.LG}, cs.AI, q-bio.QM.
+\arxivwithtarget{2602.21399}{FedVG: Gradient-Guided Aggregation for Enhanced Federated Learning}{Alina Devkota, Jacob Thrasher, Donald Adjeroh, Binod Bhattarai, Prashnna K. Gyawali}\textbf{cs.LG}, cs.AI, cs.CV.
 
-本文提出了一种名为GraSPNet的层次化自监督学习框架, 用于分子图表示学习. 该方法通过将分子图分解为化学片段并进行多层级掩码语义预测, 在多个分子性质预测基准上取得了优于现有方法的表现.
+本文提出了一种名为FedVG的联邦学习聚合框架, 它利用一个全局验证集来指导优化过程. 该方法通过计算客户端模型在验证集上的分层梯度范数来评估其泛化能力, 并据此进行自适应聚合, 实验表明其在异构数据场景下能提升性能.
 
 
-\arxivwithtarget{2602.20360}{Momentum Guidance: Plug-and-Play Guidance for Flow Models}{Runlong Liao, Jian Yu, Baiyu Su, Chi Zhang, Lizhang Chen, Qiang Liu}\textbf{cs.LG}, cs.CV.
+\arxivwithtarget{2602.21408}{Generative Bayesian Computation as a Scalable Alternative to Gaussian Process Surrogates}{Nick Polson, Vadim Sokolov}\textbf{cs.LG}, stat.AP, stat.CO, stat.ME, stat.ML.
 
-本文提出了一种名为 Momentum Guidance (MG) 的新引导方法, 用于提升基于 flow 的生成模型在采样时的质量. 该方法通过利用 ODE 轨迹的历史速度信息进行外推, 在不增加额外计算成本的情况下改善了样本的细节和保真度.
+本文提出了一种名为Generative Bayesian Computation (GBC)的新代理模型框架, 使用Implicit Quantile Networks (IQNs)来克服传统Gaussian process (GP)代理模型在计算成本、平稳性假设和预测分布方面的限制. 该方法通过学习条件分位数函数来生成预测分布, 在多个基准测试中展现了优于GP方法的性能, 特别是在处理非平稳数据和扩展到大训练集时.
 
 
-\arxivwithtarget{2602.20370}{Quantitative Approximation Rates for Group Equivariant Learning}{Jonathan W. Siegel, Snir Hordan, Hannah Lawrence, Ali Syed, Nadav Dym}\textbf{cs.LG}, math.NA.
+\arxivwithtarget{2602.21415}{Benchmarking State Space Models, Transformers, and Recurrent Networks for US Grid Forecasting}{Sunki Hong, Jisoo Lee, Yuanyuan Shi}\textbf{cs.LG}, eess.SY.
 
-本文研究了具有群等变性的神经网络架构的定量逼近速率. 对于包括 Deep Sets, Sumformer, Transformer 以及基于 frame averaging 的不变网络在内的多种架构, 证明了它们与同等大小的 ReLU MLP 在逼近等变函数时具有同等的表达能力.
+本文对几种深度学习模型在美国电网预测任务上的表现进行了基准测试. 结果表明, 没有一种模型在所有情况下都是最优的, 其性能高度依赖于具体的数据环境和预测任务.
 
 
-\arxivwithtarget{2602.20396}{cc-Shapley: Measuring Multivariate Feature Importance Needs Causal Context}{Jörg Martin, Stefan Haufe}\textbf{cs.LG}, stat.ME.
+\arxivwithtarget{2602.21420}{Overconfident Errors Need Stronger Correction: Asymmetric Confidence Penalties for Reinforcement Learning}{Yuanda Xu, Hejian Sang, Zhengze Zhou, Ran He, Zhipeng Wang}\textbf{cs.LG}, cs.AI.
 
-本文指出了传统Shapley值在衡量多变量特征重要性时, 由于仅考虑特征的观测关联(observational context) 而可能产生误导性结果, 例如由对撞偏倚(collider bias) 和抑制效应(suppression) 引起的虚假关联. 作者提出了cc-Shapley方法, 这是一种利用数据因果结构知识的干预性修改, 旨在特征的真实因果背景(causal context) 中分析其重要性. 理论分析和在合成及真实数据集上的实验表明, 该方法可以消除对撞偏倚导致的虚假关联, 其评估结果与传统Shapley值相比可能发生反转.
+本文提出了一种非对称置信度感知错误惩罚方法(ACE), 用于解决强化学习可验证奖励(RLVR)中因均匀惩罚错误而导致的探索受限问题. 该方法通过置信度偏移量动态调整负优势, 并在多个模型和基准测试上验证了其提升Pass@k性能的有效性.
 
 
-\arxivwithtarget{2602.20399}{GeoPT: Scaling Physics Simulation via Lifted Geometric Pre-Training}{Haixu Wu, Minghao Guo, Zongyi Li, Zhiyang Dou, Mingsheng Long, Kaiming He, Wojciech Matusik}\textbf{cs.LG}.
+\arxivwithtarget{2602.21424}{On the Structural Non-Preservation of Epistemic Behaviour under Policy Transformation}{Alexander Galozy}\textbf{cs.LG}, cs.AI.
 
-本文提出了一种名为GeoPT的预训练模型, 通过引入合成动力学来增强静态几何数据, 从而在无需物理标签的情况下实现动力学感知的自监督学习. 该方法在多个工业级物理仿真基准测试中有效减少了标注数据需求并加速了收敛.
+本文研究了部分可观测环境下强化学习智能体的行为依赖性, 将其定义为在固定观测下, 动作选择随内部信息(如记忆或推断的潜在上下文)的变化. 作者提出了基于探测的行为等价概念和度量探测敏感性的行为距离, 并证明了关于凸聚合下行为依赖性集合非封闭性等三个结构性结果. 通过简单的赌博机和网格世界实验验证了这些机制, 表明在特定条件下, 常见策略变换无法保持基于探测的行为分离.
 
 
-\arxivwithtarget{2602.20400}{Three Concrete Challenges and Two Hopes for the Safety of Unsupervised Elicitation}{Callum Canavan, Aditya Shrivastava, Allison Qi, Jonathan Michala, Fabien Roger}\textbf{cs.LG}, cs.AI.
+\arxivwithtarget{2602.21426}{Proximal-IMH: Proximal Posterior Proposals for Independent Metropolis-Hastings with Approximate Operators}{Youguang Chen, George Biros}\textbf{cs.LG}, stat.CO.
 
-本文通过构建具有特定挑战性的数据集, 对无监督引导和从易到难泛化技术进行了压力测试. 研究发现现有技术在面对数据不平衡、特征显著性差异或答案定义模糊等现实挑战时表现不可靠, 未来工作需要优先解决这些问题.
+本文提出了一种名为Proximal-IMH的采样方法, 用于从贝叶斯反问题的后验分布中采样. 该方法通过一个辅助优化问题来校正来自近似后验的样本, 从而在计算效率和准确性之间取得平衡.
 
 
-\arxivwithtarget{2602.20403}{Wasserstein Distributionally Robust Online Learning}{Guixian Chen, Salar Fattahi, Soroosh Shafiee}\textbf{cs.LG}, math.OC, stat.ML.
+\arxivwithtarget{2602.21429}{Provably Safe Generative Sampling with Constricting Barrier Functions}{Darshan Gadginmath, Ahmed Allibhoy, Fabio Pasqualetti}\textbf{cs.LG}, cs.AI, eess.SY, math.OC.
 
-本文研究了Wasserstein分布鲁棒在线学习问题, 提出了一种在线鞍点博弈框架, 并针对分段凹损失函数设计了高效算法.
+本文提出了一种用于流式生成模型的安全过滤框架, 通过在线修正采样过程来保证生成样本满足硬约束. 该方法利用收缩型安全管和控制屏障函数(CBF)设计凸二次规划(QP), 在最小化分布偏移的同时实现可证明的安全采样.
 
 
-\arxivwithtarget{2602.20404}{$κ$-Explorer: A Unified Framework for Active Model Estimation in MDPs}{Xihe Gu, Urbashi Mitra, Tara Javidi}\textbf{cs.LG}.
+\arxivwithtarget{2602.21441}{Causal Decoding for Hallucination-Resistant Multimodal Large Language Models}{Shiwei Tan, Hengyi Wang, Weiyi Qin, Qi Xu, Zhigang Hua, Hao Wang}\textbf{cs.LG}, cs.AI, cs.CV.
 
-本文提出了一个用于MDPs中主动模型估计的统一框架$\kappa$-Explorer. 该框架通过一个参数化的凹目标函数$U_\kappa$来平衡内在估计复杂性和外在访问频率, 并设计了高效的在线优化算法. 实验表明, 该方法在基准MDPs上优于现有的探索策略.
+本文提出了一种因果解码框架, 用于减少多模态大语言模型(MLLMs)中的物体幻觉问题. 该方法通过在生成过程中进行有针对性的因果干预来抑制虚假物体提及, 在多个基准测试中有效降低了幻觉率.
 
 
-\arxivwithtarget{2602.20418}{CITED: A Decision Boundary-Aware Signature for GNNs Towards Model Extraction Defense}{Bolin Shen, Md Shamim Seraj, Zhan Cheng, Shayok Chakraborty, Yushun Dong}\textbf{cs.LG}.
+\arxivwithtarget{2602.21442}{MINAR: Mechanistic Interpretability for Neural Algorithmic Reasoning}{Jesse He, Helen Jenne, Max Vargas, Davis Brown, Gal Mishne, Yusu Wang, Henry Kvinge}\textbf{cs.LG}, cs.AI.
 
-本文提出了一种名为CITED的决策边界感知签名方法, 用于防御针对图神经网络(GNNs)的模型提取攻击. 该方法通过在嵌入和标签两个层面进行所有权验证, 旨在保护部署在机器学习即服务(MLaaS)平台上的GNN模型.
+本文提出了一种名为MINAR的工具箱, 用于在神经算法推理(NAR)的图神经网络(GNN)中进行机制可解释性分析. 该工具箱将归因修补等方法适配到GNN中, 并通过案例研究展示了其发现神经元级计算电路的能力.
 
 
-\arxivwithtarget{2602.20419}{CREDIT: Certified Ownership Verification of Deep Neural Networks Against Model Extraction Attacks}{Bolin Shen, Zhan Cheng, Neil Zhenqiang Gong, Fan Yao, Yushun Dong}\textbf{cs.LG}.
+\arxivwithtarget{2602.21454}{When Learning Hurts: Fixed-Pole RNN for Real-Time Online Training}{Alexander Morgan, Ummay Sumaya Khan, Lingjia Liu, Lizhong Zheng}\textbf{cs.LG}.
 
-本文提出了一种名为CREDIT的认证所有权验证方法, 用于防御针对深度神经网络的模型提取攻击. 该方法通过互信息量化模型相似性, 设定验证阈值, 并在多个数据集上验证了其有效性.
+本文分析了在数据受限的实时学习场景中, 学习RNN的recurrent poles(极点) 为何收效甚微. 研究表明, 固定极点的架构能产生更稳定、条件更好的状态表示, 从而以更低的训练复杂度实现更优的性能.
 
 
-\arxivwithtarget{2602.20427}{GauS: Differentiable Scheduling Optimization via Gaussian Reparameterization}{Yaohui Cai, Vesal Bakhtazad, Cunxi Yu, Zhiru Zhang}\textbf{cs.LG}, cs.AR.
+\arxivwithtarget{2602.21462}{Effects of Training Data Quality on Classifier Performance}{Alan F. Karr, Regina Ruane}\textbf{cs.LG}, q-bio.GN, stat.ML.
 
-本文提出了一种名为GauS的可微分调度优化框架, 它将算子调度建模为使用Gaussian分布的随机松弛问题. 该方法将调度表示为连续的Gaussian变量, 从而捕捉了时间的顺序性并大幅减少了优化空间.
+本文通过数值实验研究了训练数据质量对分类器性能的影响, 特别关注了在宏基因组组装背景下, 多种数据降质机制对四种分类器的影响. 研究发现, 随着数据质量下降, 所有分类器都表现出类似的性能崩溃模式, 其决策趋于退化且一致性增加.
 
 
-\arxivwithtarget{2602.20442}{Imputation of Unknown Missingness in Sparse Electronic Health Records}{Jun Han, Josue Nassar, Sanjit Singh Batra, Aldo Cordova-Palomera, Vijay Nori, Robert E. Tillman}\textbf{cs.LG}, cs.AI.
+\arxivwithtarget{2602.21466}{Asymptotically Fast Clebsch-Gordan Tensor Products with Vector Spherical Harmonics}{YuQing Xie, Ameya Daigavane, Mit Kotak, Tess Smidt}\textbf{cs.LG}, physics.comp-ph.
 
-本文提出了一种基于transformer的去噪神经网络, 用于处理电子健康记录(EHR)中"未知缺失"的二元数据. 该方法通过自适应阈值恢复预测的缺失值, 在真实EHR数据集上相比现有插补方法提高了准确性, 并提升了下游任务(如预测再入院)的性能.
+本文提出了一种用于计算Clebsch-Gordan tensor products的完整算法, 实现了从$O(L^6)$到$O(L^4\log^2 L)$的渐进加速. 该方法通过推广基于快速傅里叶变换的卷积, 并引入tensor spherical harmonics来弥补先前Gaunt tensor product在表达完整性上的不足.
 
 
-\arxivwithtarget{2602.20449}{Protein Language Models Diverge from Natural Language: Comparative Analysis and Improved Inference}{Anna Hart, Chi Han, Jeonghwan Kim, Huimin Zhao, Heng Ji}\textbf{cs.LG}, cs.AI, cs.CL, q-bio.BM.
+\arxivwithtarget{2602.21467}{Geometric Priors for Generalizable World Models via Vector Symbolic Architecture}{William Youngwoo Chung, Calvin Yeung, Hansen Jin Lillemark, Zhuowen Zou, Xiangjian Liu, Mohsen Imani}\textbf{cs.LG}.
 
-本文比较了蛋白质语言模型(PLMs)与自然语言模型在信息分布上的差异, 并引入了一种早期退出(early-exit)技术. 该方法通过为特定任务和蛋白质自动选择PLMs的中间层表示, 在蛋白质非结构属性预测任务中同时提高了准确性和效率.
+本文提出了一种基于Vector Symbolic Architecture (VSA)的可泛化世界模型, 通过引入几何先验来提升模型的解释性、样本效率和泛化能力. 模型使用可学习的Fourier Holographic Reduced Representation (FHRR)编码器将状态和动作映射到具有学习到的群结构的高维复向量空间, 并使用逐元素复数乘法来建模状态转移. 在离散网格世界环境中的实验表明, 该模型在未见过的状态-动作对上实现了高零样本准确率, 并在多步预测和抗噪性方面显著优于MLP基线.
 
 
-\arxivwithtarget{2602.20457}{Oracle-Robust Online Alignment for Large Language Models}{Zimeng Li, Mudit Gaur, Vaneet Aggarwal}\textbf{cs.LG}, stat.ML.
+\arxivwithtarget{2602.21469}{D-Flow SGLD: Source-Space Posterior Sampling for Scientific Inverse Problems with Flow Matching}{Meet Hemant Parikh, Yaqin Chen, Jian-Xun Wang}\textbf{cs.LG}.
 
-本文研究了在偏好反馈存在误设情况下的在线大语言模型对齐问题. 作者引入了一个点式预言机不确定性集, 将问题表述为一个鲁棒优化问题. 对于对数线性策略, 该目标可以分解为原始损失函数加一个显式的敏感性惩罚项, 并提出了相应的随机优化算法.
+本文提出了一种用于科学反问题的源空间后验采样方法 D-Flow SGLD. 该方法基于 Flow Matching 先验, 通过结合可微分的源推断与预处理的随机梯度 Langevin 动力学, 实现了对新测量算子的高效后验探索.
 
 
-\arxivwithtarget{2602.20461}{Nonparametric Teaching of Attention Learners}{Chen Zhang, Jianghui Wang, Bingyang Cheng, Zhongtao Chen, Wendong XU, Cong Wang, Marco Canini, Francesco Orabona, Yik Chung WU, Ngai Wong}\textbf{cs.LG}.
+\arxivwithtarget{2602.21472}{The Design Space of Tri-Modal Masked Diffusion Models}{Louis Bethune, Victor Turrisi, Bruno Kacper Mlodozeniec, Pau Rodriguez Lopez, Lokesh Boominathan, Nikhil Bhendawade, Amitis Shidani, Joris Pelemans, Theo X. Olausson, Devon Hjelm, Paul Dixon, Joao Monteiro, Pierre Ablin, Vishnu Banna, Arno Blaas, Nick Henderson, Kari Noriy, Dan Busbridge, Josh Susskind, Marco Cuturi, Irina Belousova, Luca Zappella, Russ Webb, Jason Ramapuram}\textbf{cs.LG}.
 
-本文提出了一种名为Attention Neural Teaching (AtteNT)的新范式, 通过非参数教学视角来加速注意力模型(如Transformer) 的训练. 该方法通过选择训练数据子集来提升学习效率, 在多个任务上实现了训练时间的显著减少且不损失精度.
+本文提出了一种三模态掩码扩散模型, 并在文本、图文和音频文本数据上从头开始预训练. 通过系统分析多模态缩放规律、混合比例和噪声调度等, 提供了优化的推理采样默认设置, 并基于SDE重新参数化消除了对最优批大小的调优需求. 最后, 作者预训练了一个30亿参数的初步模型, 在文本生成、文生图和文生语音任务上取得了良好结果.
 
 
-\arxivwithtarget{2602.20463}{A Long-Short Flow-Map Perspective for Drifting Models}{Zhiqi Li, Bo Zhu}\textbf{cs.LG}.
+\arxivwithtarget{2602.21492}{GradAlign: Gradient-Aligned Data Selection for LLM Reinforcement Learning}{Ningyuan Yang, Weihua Du, Weiwei Sun, Sean Welleck, Yiming Yang}\textbf{cs.LG}, cs.AI, cs.CL.
 
-本文从半群一致的长-短流映射分解角度重新阐释了 Drifting Model. 提出了一种新的似然学习框架, 将长-短流映射分解与输运下的密度演化对齐, 并通过理论分析和基准测试进行了验证.
+本文提出了一种名为GradAlign的数据选择方法, 用于大语言模型(LLM) 的强化学习训练. 该方法通过利用一个小的可信验证集, 优先选择那些策略梯度与验证集梯度方向一致的问题, 从而构建一个自适应课程. 实验表明, 该方法在多种具有挑战性的数据场景下优于现有基线, 提升了训练的稳定性和最终性能.
 
 
-\arxivwithtarget{2602.20467}{Elimination-compensation pruning for fully-connected neural networks}{Enrico Ballini, Luca Muscarnera, Alessio Fumagalli, Anna Scotti, Francesco Regazzoni}\textbf{cs.LG}, cs.AI.
+\arxivwithtarget{2602.21498}{Learning Recursive Multi-Scale Representations for Irregular Multivariate Time Series Forecasting}{Boyuan Li, Zhen Liu, Yicheng Luo, Qianli Ma}\textbf{cs.LG}.
 
-本文提出了一种针对全连接神经网络的新型剪枝方法, 称为"消除-补偿剪枝". 该方法在移除权重时, 会计算并应用对其相邻偏置项的最优扰动以补偿性能损失. 通过自动微分高效计算这些补偿量, 实验表明该方法在不同机器学习场景中具有内在效率.
+本文提出了一种用于不规则多元时间序列预测的递归多尺度建模方法ReIMTS. 该方法通过递归分割样本并利用原始时间戳来保留采样模式信息, 从而捕捉全局到局部的依赖关系.
 
 
-\arxivwithtarget{2602.20468}{CGSTA: Cross-Scale Graph Contrast with Stability-Aware Alignment for Multivariate Time-Series Anomaly Detection}{Zhongpeng Qi, Jun Zhang, Wei Li, Zhuoxuan Liang}\textbf{cs.LG}.
+\arxivwithtarget{2602.21508}{WaterVIB: Learning Minimal Sufficient Watermark Representations via Variational Information Bottleneck}{Haoyuan He, Yu Zheng, Jie Zhou, Jiwen Lu}\textbf{cs.LG}, cs.CR, cs.CV.
 
-本文提出了一个用于多元时间序列异常检测的框架CGSTA. 它通过构建跨尺度的动态图并进行稳定性感知的对齐学习, 以抑制噪声并提升检测性能.
+本文提出了一种名为WaterVIB的鲁棒水印框架, 通过Variational Information Bottleneck原理来学习消息的最小充分统计量, 以抵抗基于生成的攻击. 该方法旨在过滤掉容易在生成过程中被改变的冗余封面细节, 从而提升水印的鲁棒性.
 
 
-\arxivwithtarget{2602.20480}{VINA: Variational Invertible Neural Architectures}{Shubhanshu Shekhar, Mohammad Javad Khojasteh, Ananya Acharya, Tony Tohme, Kamal Youcef-Toumi}\textbf{cs.LG}, cs.AI.
+\arxivwithtarget{2602.21515}{Training Generalizable Collaborative Agents via Strategic Risk Aversion}{Chengrui Qu, Yizhou Zhang, Nicholas Lanzetti, Eric Mazumdar}\textbf{cs.LG}, cs.AI, cs.MA.
 
-本文提出了一个基于变分无监督损失函数的统一框架, 用于分析 Invertible Neural Networks (INNs) 和 Normalizing Flows (NFs). 该框架在比先前工作更弱、更实际的假设下, 为 INNs 的后验推断和 NFs 的分布建模提供了理论性能保证. 作者通过案例研究提炼了设计原则, 并在一个海洋声学反演问题上验证了方法的有效性.
+本文提出了一种基于 strategic risk aversion 的多智能体强化学习算法, 旨在提升智能体与未见过的合作伙伴进行协作时的泛化能力. 该方法在多个协作基准测试中表现出更可靠的合作性能.
 
 
-\arxivwithtarget{2602.20492}{Wireless Federated Multi-Task LLM Fine-Tuning via Sparse-and-Orthogonal LoRA}{Nuocheng Yang, Sihua Wang, Ouwen Huan, Mingzhe Chen, Tony Q. S. Quek, Changchuan Yin}\textbf{cs.LG}, cs.AI.
+\arxivwithtarget{2602.21545}{Muon+: Towards Better Muon via One Additional Normalization Step}{Ruijie Zhang, Yequan Zhao, Ziyue Liu, Zhengyang Wang, Zheng Zhang}\textbf{cs.LG}.
 
-本文提出了一种稀疏正交LoRA方法, 用于无线去中心化联邦学习场景下的多任务大语言模型微调. 该方法通过正交化更新方向, 设计集群拓扑以及引入隐式MoE机制, 旨在解决数据异构导致的灾难性遗忘, 通信效率低下以及推理时知识干扰等问题.
+本文提出了一种对Muon优化器的简单改进Muon+, 它在正交化步骤后增加了一个归一化步骤. 实验表明, 该方法在多种模型规模和架构的预训练中, 相比原版Muon能持续提升训练和验证困惑度(perplexity).
 
 
-\arxivwithtarget{2602.20527}{A Generalized Apprenticeship Learning Framework for Capturing Evolving Student Pedagogical Strategies}{Md Mirajul Islam, Xi Yang, Adittya Soukarjya Saha, Rajesh Debnath, Min Chi}\textbf{cs.LG}, cs.AI.
+\arxivwithtarget{2602.21546}{Mamba Meets Scheduling: Learning to Solve Flexible Job Shop Scheduling with Efficient Sequence Modeling}{Zhi Cao, Cong Zhang, Yaoxin Wu, Yaqing Hou, Hongwei Ge}\textbf{cs.LG}.
 
-本文提出了一个名为THEMES的广义学徒学习框架, 用于从专家演示中推断奖励函数并推导决策策略. 该框架旨在捕捉学生教学策略的时变复杂性, 并在智能导学系统环境中通过有限轨迹实现了较高的预测性能.
+本文提出了一种基于Mamba状态空间模型的架构来解决Flexible Job Shop Scheduling Problem (FJSP). 该方法通过一个包含dual Mamba block的encoder和一个cross-attention decoder来分别提取operation和machine的特征并学习它们的交互嵌入, 在多个基准测试中实现了更快的求解速度并超越了现有基于学习的方法.
 
 
-\arxivwithtarget{2602.20530}{Memory-guided Prototypical Co-occurrence Learning for Mixed Emotion Recognition}{Ming Li, Yong-Jin Liu, Fang Liu, Huankun Sheng, Yeying Fan, Yixiang Wei, Minnan Luo, Weizhan Zhang, Wenping Wang}\textbf{cs.LG}, cs.SD, eess.AS.
+\arxivwithtarget{2602.21550}{Extending Sequence Length is Not All You Need: Effective Integration of Multimodal Signals for Gene Expression Prediction}{Zhao Yang, Yi Duan, Jiwei Zhu, Ying Ba, Chuan Cao, Bing Su}\textbf{cs.LG}, q-bio.GN.
 
-本文提出了一个用于混合情感识别的记忆引导原型共现学习框架, 通过多尺度关联记忆融合多模态信号, 并构建情感原型记忆库以捕获跨模态语义关系. 该模型利用记忆检索策略提取情感类别间的语义级共现关联, 从而学习更具信息量的表示以进行情感分布预测, 在两个公开数据集上取得了优于现有方法的结果.
+本文指出, 在基因表达预测任务中, 单纯延长输入DNA序列长度会降低模型性能, 而整合近端多模态表观基因组信号更为关键. 作者提出了Prism框架, 通过学习高维特征组合来表征不同的染色质背景状态, 并利用后门调整来减轻混杂效应, 从而在使用短序列的情况下取得了先进的预测性能.
 
 
-\arxivwithtarget{2602.20532}{Actor-Curator: Co-adaptive Curriculum Learning via Policy-Improvement Bandits for RL Post-Training}{Zhengyao Gu, Jonathan Light, Raul Astudillo, Ziyu Ye, Langzhou He, Henry Peng Zou, Wei Cheng, Santiago Paternain, Philip S. Yu, Yisong Yue}\textbf{cs.LG}, cs.AI, cs.CL.
+\arxivwithtarget{2602.21551}{From Basis to Basis: Gaussian Particle Representation for Interpretable PDE Operators}{Zhihao Li, Yu Feng, Zhilu Lai, Wei Wang}\textbf{cs.LG}, cs.AI.
 
-本文提出了一种名为ACTOR-CURATOR的自动化课程学习框架, 用于大规模语言模型(LLM) 的强化学习后训练. 该框架通过一个神经策展人动态选择训练问题, 旨在直接优化策略性能的期望提升, 并在多个推理基准测试中展现了优于均匀采样和其他基线方法的性能.
+本文提出了一种基于Gaussian basis的表示方法, 用于学习PDE算子. 该方法通过可学习的Gaussian粒子来表示场, 并设计了一个具有近线性复杂度的算子, 在标准基准测试中取得了有竞争力的结果.
 
 
-\arxivwithtarget{2602.20549}{Sample-efficient evidence estimation of score based priors for model selection}{Frederic Wang, Katherine L. Bouman}\textbf{cs.LG}, cs.CV, stat.ME.
+\arxivwithtarget{2602.21565}{Training-free Composition of Pre-trained GFlowNets for Multi-Objective Generation}{Seokwon Yoon, Youngbin Choi, Seunghyuk Cho, Seungbeom Lee, MoonJeong Park, Dongwoo Kim}\textbf{cs.LG}.
 
-本文提出了一种名为\method的估计器, 用于评估基于扩散模型先验的模型证据$p(y \mid M)$. 该方法利用后验采样过程中产生的时间边缘样本来实现高效估计, 并在多个非线性逆问题中验证了其有效性.
+本文提出了一种无需训练即可组合预训练 GFlowNets 的混合策略, 用于多目标生成任务. 该方法支持从线性标量化到非线性逻辑算子的多种奖励组合, 并在合成与真实分子生成任务中验证了其有效性.
 
 
-\arxivwithtarget{2602.20557}{GENSR: Symbolic Regression Based in Equation Generative Space}{Qian Li, Yuxiao Hu, Juncheng Liu, Yuntian Chen}\textbf{cs.LG}, cs.SC.
+\arxivwithtarget{2602.21585}{Duel-Evolve: Reward-Free Test-Time Scaling via LLM Self-Preferences}{Sweta Karlekar, Carolina Zheng, Magnus Saebo, Nicolas Beltran-Velez, Shuyang Yu, John Bowlan, Michal Kucer, David Blei}\textbf{cs.LG}.
 
-本文提出了一种基于生成式隐空间的符号回归方法GenSR. 该方法通过训练一个条件变分自编码器来构建一个具有连续性的方程隐空间, 并在此空间中进行搜索以发现数据背后的方程.
+本文提出了一种名为 Duel-Evolve 的进化优化算法, 用于在测试时优化大型语言模型(LLM)的输出. 该方法利用 LLM 自身产生的成对偏好比较来引导搜索, 无需外部奖励模型或真实标签, 并在数学和代码生成基准上取得了优于现有方法的效果.
 
 
-\arxivwithtarget{2602.20567}{Stability and Generalization of Push-Sum Based Decentralized Optimization over Directed Graphs}{Yifei Liang, Yan Sun, Xiaochun Cao, Li Shen}\textbf{cs.LG}, math.OC, stat.ML.
+\arxivwithtarget{2602.21588}{ABM-UDE: Developing Surrogates for Epidemic Agent-Based Models via Scientific Machine Learning}{Sharv Murgai, Utkarsh Utkarsh, Kyle C. Nguyen, Alan Edelman, Erin C. S. Acquesta, Christopher Vincent Rackauckas}\textbf{cs.LG}, cs.CE.
 
-本文研究了基于Push-Sum的分布式优化算法在有向图上的稳定性与泛化性能. 通过建立统一的均匀稳定性分析框架, 揭示了网络拓扑结构(如稳态分布不平衡参数$\delta$和谱隙$1-\lambda$) 对算法统计性能的影响.
+本文提出了一种名为ABM-UDE的方法, 通过Universal Differential Equations (UDEs)为基于智能体的流行病模型(ABMs)构建快速替代模型. 该方法结合了multiple shooting和prediction-error method (PEM)来稳定训练, 并保证了模型的正定性和质量守恒, 从而实现了在普通硬件上快速进行情景规划.
 
 
-\arxivwithtarget{2602.20573}{Benchmarking GNN Models on Molecular Regression Tasks with CKA-Based Representation Analysis}{Rajan, Ishaan Gupta}\textbf{cs.LG}.
+\arxivwithtarget{2602.21593}{Breaking Semantic-Aware Watermarks via LLM-Guided Coherence-Preserving Semantic Injection}{Zheng Gao, Xiaoyu Li, Zhicheng Bao, Xiaoyan Feng, Jiaojiao Jiang}\textbf{cs.LG}, cs.CR, cs.CV.
 
-本文系统评估了四种GNN架构在多个分子性质预测数据集上的表现, 并提出了一个结合分子指纹的层次融合框架. 研究发现融合框架性能更优, 并通过CKA分析揭示了GNN与指纹嵌入表征的独立性以及不同GNN架构间的收敛性差异.
+本文提出了一种针对语义感知水印的攻击方法, 利用LLM引导的语义注入在保持图像整体连贯性的同时破坏水印信号. 该方法通过约束嵌入空间的相似性来实现视觉-语义的一致性, 从而有效诱导水印检测器误判.
 
 
-\arxivwithtarget{2602.20574}{GATES: Self-Distillation under Privileged Context with Consensus Gating}{Alex Stein, Furong Huang, Tom Goldstein}\textbf{cs.LG}, cs.CL.
+\arxivwithtarget{2602.21597}{NGDB-Zoo: Towards Efficient and Scalable Neural Graph Databases Training}{Zhongwei Xie, Jiaxin Bai, Shujie Liu, Haoyu Huang, Yufei Li, Yisen Gao, Hong Ting Tsang, Yangqiu Song}\textbf{cs.LG}.
 
-本文提出了一种在监督不可靠情况下的自蒸馏方法 GATES, 该方法通过采样多个基于文档的推理轨迹并利用其一致性来生成可靠的学习信号, 从而在文档问答任务中提升了无文档学生模型的性能.
+本文提出了一个名为NGDB-Zoo的统一框架, 旨在提升神经图数据库的训练效率和表达能力. 它通过解耦逻辑运算符与查询拓扑, 实现了算子级训练和动态调度的数据流执行, 从而提高了训练吞吐量. 此外, 该框架整合了预训练文本编码器的语义先验, 以缓解混合神经符号推理中的表示摩擦.
 
 
-\arxivwithtarget{2602.20578}{Upper-Linearizability of Online Non-Monotone DR-Submodular Maximization over Down-Closed Convex Sets}{Yiyang Lu, Haresh Jadav, Mohammad Pedramfar, Ranveer Singh, Vaneet Aggarwal}\textbf{cs.LG}, math.OC, stat.ML.
+\arxivwithtarget{2602.21601}{Deep Clustering based Boundary-Decoder Net for Inter and Intra Layer Stress Prediction of Heterogeneous Integrated IC Chip}{Kart Leong Lim, Ji Lin}\textbf{cs.LG}, cs.CE.
 
-本文针对在线非单调DR-submodular函数在向下闭凸集上的最大化问题, 提出了一种新的结构分析. 通过指数重参数化等方法, 将问题约简为在线线性优化, 从而在多种反馈模型下获得了改进的遗憾界.
+本文提出了一种结合 boundary-decoder net 与 deep clustering 的方法, 用于预测异构集成 IC 芯片的层间与层内应力. 该方法在模拟的应力图像数据集上取得了优于基线和其他变体的训练与测试误差.
 
 
-\arxivwithtarget{2602.20593}{Is the Trigger Essential? A Feature-Based Triggerless Backdoor Attack in Vertical Federated Learning}{Yige Liu, Yiwei Lou, Che Wang, Yongzhi Cao, Hanpin Wang}\textbf{cs.LG}, cs.CR.
+\arxivwithtarget{2602.21634}{AgentLTV: An Agent-Based Unified Search-and-Evolution Framework for Automated Lifetime Value Prediction}{Chaowei Wu, Huazhu Chen, Congde Yuan, Qirui Yang, Guoqing Song, Yue Gao, Li Luo, Frank Youhua Chen, Mengzhuo Guo}\textbf{cs.LG}, cs.MA.
 
-本文提出了一种在vertical federated learning (VFL) 中无需植入触发器的后门攻击方法. 该方法在更严格的安全假设下, 通过特征操作实现攻击, 并在多种数据集和防御策略下表现出高有效性和鲁棒性.
+本文提出了一个基于智能体的统一搜索与进化框架 AgentLTV, 用于自动化 Lifetime Value (LTV) 预测建模. 该框架通过 LLM 驱动的智能体生成和评估候选解决方案, 结合了 Monte Carlo Tree Search (MCTS) 和 Evolutionary Algorithm (EA) 两阶段搜索策略, 并在实验和在线部署中验证了其有效性.
 
 
-\arxivwithtarget{2602.20629}{QEDBENCH: Quantifying the Alignment Gap in Automated Evaluation of University-Level Mathematical Proofs}{Santiago Gonzalez, Alireza Amiri Bavandpour, Peter Ye, Edward Zhang, Ruslans Aleksejevs, Todor Antić, Polina Baron, Sujeet Bhalerao, Shubhrajit Bhattacharya, Zachary Burton, John Byrne, Hyungjun Choi, Nujhat Ahmed Disha, Koppany István Encz, Yuchen Fang, Robert Joseph George, Ebrahim Ghorbani, Alan Goldfarb, Jing Guo, Meghal Gupta, Stefano Huber, Annika Kanckos, Minjung Kang, Hyun Jong Kim, Dino Lorenzini, Levi Lorenzo, Tianyi Mao, Giovanni Marzenta, Ariane M. Masuda, Lukas Mauth, Ana Mickovic, Andres Miniguano-Trujillo, Antoine Moulin, Wenqi Ni, Tomos Parry, Kevin Ren, Hossein Roodbarani, Mathieu Rundström, Manjil Saikia, Detchat Samart, Rebecca Steiner, Connor Stewart, Dhara Thakkar, Jeffrey Tse, Vasiliki Velona, Yunhai Xiang, Sibel Yalçın, Jun Yan, Ji Zeng, Arman Cohan, Quanquan C. Liu}\textbf{cs.LG}.
+\arxivwithtarget{2602.21648}{Multimodal Survival Modeling and Fairness-Aware Clinical Machine Learning for 5-Year Breast Cancer Risk Prediction}{Toktam Khatibi}\textbf{cs.LG}, q-bio.QM.
 
-本文介绍了QEDBench, 一个用于量化大型语言模型在评估大学水平数学证明时与人类专家对齐差距的基准. 研究发现, 当前先进的评估模型在特定领域(如离散数学) 存在显著的评分偏差和性能下降.
+本文提出了一个用于乳腺癌5年总生存期预测的多模态机器学习框架, 整合了临床变量与高维转录组和拷贝数变异特征. 该框架比较了弹性网络正则化的Cox模型(CoxNet)和基于XGBoost的梯度提升生存树模型, 并评估了其预测性能与跨亚组的公平性.
 
 
-\arxivwithtarget{2602.20643}{TrajGPT-R: Generating Urban Mobility Trajectory with Reinforcement Learning-Enhanced Generative Pre-trained Transformer}{Jiawei Wang, Chuang Yang, Jiawei Yong, Xiaohang Xu, Hongjun Wang, Noboru Koshizuka, Shintaro Fukushima, Ryosuke Shibasaki, Renhe Jiang}\textbf{cs.LG}, cs.AI.
+\arxivwithtarget{2602.21674}{Error-awareness Accelerates Active Automata Learning}{Loes Kruger, Sebastian Junges, Jurriaan Rot}\textbf{cs.LG}, cs.LO.
 
-本文提出了一种基于强化学习增强的生成式预训练Transformer模型, 用于生成城市移动轨迹. 该框架通过两阶段训练整合了离线强化学习和逆强化学习, 旨在解决轨迹生成中的稀疏奖励和长期信用分配问题, 并在多个数据集上验证了其可靠性和多样性.
+本文针对Active automata learning (AAL)在系统输入空间大时难以扩展的问题, 提出了一种利用可观测错误(observable errors)信息来加速学习的方法. 作者根据对"哪些输入在哪些状态下不会产生错误"这一领域知识的不同掌握程度, 对现有算法L#进行了相应改进, 实验表明这些改进能显著提升学习效率.
 
 
-\arxivwithtarget{2602.20651}{Sparse Bayesian Deep Functional Learning with Structured Region Selection}{Xiaoxian Zhu, Yingmeng Li, Shuangge Ma, Mengyun Wu}\textbf{cs.LG}, stat.AP, stat.ML.
+\arxivwithtarget{2602.21680}{Hierarchical Lead Critic based Multi-Agent Reinforcement Learning}{David Eckel, Henri Meeß}\textbf{cs.LG}, cs.MA.
 
-本文提出了一种稀疏贝叶斯深度函数神经网络(sBayFDNN), 用于处理具有复杂结构的连续数据. 该方法结合了深度学习的非线性建模能力和贝叶斯框架的可解释性区域选择, 并通过理论和实验验证了其有效性.
+本文提出了一种用于合作式多智能体强化学习(MARL)的层次化训练架构HLC, 它通过结合局部与全局视角来提升学习效率和策略鲁棒性. 实验表明该方法在多个基准测试上优于单层次基线, 并能适应智能体数量增加和任务难度提升.
 
 
-\arxivwithtarget{2602.20671}{Bikelution: Federated Gradient-Boosting for Scalable Shared Micro-Mobility Demand Forecasting}{Antonios Tziorvas, Andreas Tritsarolis, Yannis Theodoridis}\textbf{cs.LG}.
+\arxivwithtarget{2602.21693}{TiMi: Empower Time Series Transformers with Multimodal Mixture of Experts}{Jiafeng Lin, Yuxuan Wang, Huakun Luo, Zhongyi Pei, Jianmin Wang}\textbf{cs.LG}.
 
-本文提出了一种基于联邦学习和梯度提升树的共享单车需求预测方法 Bikelution, 该方法在保护数据隐私的同时, 实现了与集中式机器学习相当的预测精度. 在三个真实数据集上的实验验证了其有效性, 并探讨了联邦学习与集中式方法之间的权衡.
+本文提出了一种名为TiMi的多模态时间序列预测方法, 它利用LLMs生成关于未来发展的推理来指导预测. 通过引入一个轻量级的Multimodal Mixture-of-Experts模块, 该方法无需显式的表征对齐即可整合外生因子和时间序列数据. 实验表明, TiMi在多个真实世界基准上取得了先进的性能.
 
 
-\arxivwithtarget{2602.20677}{UrbanFM: Scaling Urban Spatio-Temporal Foundation Models}{Wei Chen, Yuqian Wu, Junle Chen, Xiaofang Zhou, Yuxuan Liang}\textbf{cs.LG}, cs.AI.
+\arxivwithtarget{2602.21701}{Learning Complex Physical Regimes via Coverage-oriented Uncertainty Quantification: An application to the Critical Heat Flux}{Michele Cazzola, Alberto Ghione, Lucia Sargentini, Julien Nespoulous, Riccardo Finotello}\textbf{cs.LG}, physics.data-an, stat.ML.
 
-本文提出了UrbanFM, 一个用于城市时空数据的基础模型框架. 它通过构建大规模数据集WorldST, 设计新的计算单元MiniST和简约的注意力架构, 旨在提升模型在不同城市和任务上的零样本泛化能力.
+本文针对Critical Heat Flux (CHF)预测这一多物理场问题, 比较了不同的uncertainty quantification (UQ)方法在科学机器学习中的应用. 研究表明, coverage-oriented的学习方法比post-hoc的conformal prediction更能使模型适应复杂的物理机制, 从而获得更可靠的预测和不确定性估计.
 
 
-\arxivwithtarget{2602.20698}{High-Dimensional Robust Mean Estimation with Untrusted Batches}{Maryam Aliakbarpour, Vladimir Braverman, Yuhan Liu, Junze Yin}\textbf{cs.LG}.
+\arxivwithtarget{2602.21717}{C$^{2}$TC: A Training-Free Framework for Efficient Tabular Data Condensation}{Sijia Xu, Fan Li, Xiaoyang Wang, Zhengyi Yang, Xuemin Lin}\textbf{cs.LG}, cs.DB.
 
-本文研究了高维鲁棒均值估计问题, 其中数据由多个用户以批次形式提供, 部分用户可能是恶意的. 作者提出了基于Sum-of-Squares的算法来处理这种双层损坏模型, 并达到了最优的误差率.
+本文提出了一个名为C$^{2}$TC的训练免费表格数据压缩框架. 它通过将压缩问题重新表述为类别自适应聚类分配问题, 并设计了高效的启发式局部搜索算法, 显著提升了压缩效率.
 
 
-\arxivwithtarget{2602.20714}{WeirNet: A Large-Scale 3D CFD Benchmark for Geometric Surrogate Modeling of Piano Key Weirs}{Lisa Lüddecke, Michael Hohmann, Sebastian Eilermann, Jan Tillmann-Mumm, Pezhman Pourabdollah, Mario Oertel, Oliver Niggemann}\textbf{cs.LG}, cs.CE.
+\arxivwithtarget{2602.21750}{From Words to Amino Acids: Does the Curse of Depth Persist?}{Aleena Siji, Amir Mohammad Karimi Mamaghan, Ferdinand Kapl, Tobias Höppe, Emmanouil Angelis, Andrea Dittadi, Maurice Brenner, Michael Heinzinger, Karl Henrik Johansson, Kaitlin Maile, Johannes von Oswald, Stefan Bauer}\textbf{cs.LG}.
 
-本文提出了一个名为WeirNet的大规模3D CFD基准数据集, 用于钢琴键堰几何代理建模. 该数据集包含数千个参数化几何体及其在不同工况下的模拟结果, 并评估了多种代理模型的性能, 为数据驱动的水力建模提供了可复现的框架.
+本文分析了六种流行的protein language models (PLMs)在不同训练目标下的深度效率问题. 研究发现, 与large language models (LLMs)类似, PLMs的深层网络贡献度也存在递减现象, 这为设计更高效的架构提供了动机.
 
 
-\arxivwithtarget{2602.20729}{Fuz-RL: A Fuzzy-Guided Robust Framework for Safe Reinforcement Learning under Uncertainty}{Xu Wan, Chao Yang, Cheng Yang, Jie Song, Mingyang Sun}\textbf{cs.LG}.
+\arxivwithtarget{2602.21757}{Learning from Yesterday's Error: An Efficient Online Learning Method for Traffic Demand Prediction}{Xiannan Huang, Quan Yuan, Chao Yang}\textbf{cs.LG}, cs.AI.
 
-本文提出了一种名为Fuz-RL的模糊测度引导的鲁棒框架, 用于处理不确定性下的安全强化学习. 该框架通过引入基于Choquet积分的新型模糊Bellman算子来估计鲁棒值函数, 并在实验中验证了其能提升安全性和控制性能.
+本文提出了一种名为FORESEE的轻量级在线适应框架, 用于交通需求预测. 该方法通过结合指数平滑和专家混合机制来校正预测误差, 无需更新基础模型参数, 从而在动态环境中实现高效且稳健的预测.
 
 
-\arxivwithtarget{2602.20730}{Rethink Efficiency Side of Neural Combinatorial Solver: An Offline and Self-Play Paradigm}{Zhenxing Xu, Zeyuan Ma, Weidong Bao, Hui Yan, Yan Zheng, Ji Wang}\textbf{cs.LG}.
+\arxivwithtarget{2602.21765}{Generalisation of RLHF under Reward Shift and Clipped KL Regularisation}{Kenton Tang, Yuzhu Chen, Fengxiang He}\textbf{cs.LG}, cs.AI, stat.ML.
 
-本文提出了一种名为ECO的离线自博弈学习范式, 用于提升神经组合优化(NCO)的效率. 该方法采用监督预热与直接偏好优化(DPO)的两阶段离线训练, 并设计了基于Mamba的架构以提高效率, 在TSP和CVRP问题上取得了与前沿基线相当的性能.
+本文为RLHF(Reinforcement Learning from Human Feedback)在奖励偏移和KL(Kullback-Leibler)剪枝正则化下的泛化性提供了理论分析. 研究探讨了奖励模型与策略优化之间的分布偏移问题, 并给出了包含采样误差、奖励偏移误差和KL剪枝误差的泛化界.
 
 
-\arxivwithtarget{2602.20758}{Deep unfolding of MCMC kernels: scalable, modular & explainable GANs for high-dimensional posterior sampling}{Jonathan Spence, Tobías I. Liaudat, Konstantinos Zygalakis, Marcelo Pereyra}\textbf{cs.LG}.
+\arxivwithtarget{2602.21773}{Easy to Learn, Yet Hard to Forget: Towards Robust Unlearning Under Bias}{JuneHyoung Kwon, MiHyeon Kim, Eunju Lee, Yoonji Lee, Seunghoon Lee, YoungBin Kim}\textbf{cs.LG}, cs.CV.
 
-本文提出了一种通过深度展开Langevin MCMC算法来设计GAN架构的新方法, 用于高维后验采样. 该方法将迭代算法映射为模块化神经网络, 提高了计算效率并保持了MCMC策略的可解释性.
+本文针对存在数据偏见的机器学习模型, 提出了一个名为CUPID的遗忘学习框架. 该框架通过分析损失景观的锐度来区分因果与偏见样本, 并分别更新对应的模型参数, 以缓解模型在遗忘特定数据时出现的"捷径遗忘"问题.
 
 
-\arxivwithtarget{2602.20782}{On Electric Vehicle Energy Demand Forecasting and the Effect of Federated Learning}{Andreas Tritsarolis, Gil Sampaio, Nikos Pelekis, Yannis Theodoridis}\textbf{cs.LG}.
+\arxivwithtarget{2602.21798}{Excitation: Momentum For Experts}{Sagi Shaier}\textbf{cs.LG}, cs.AI.
 
-本文比较了多种时间序列预测方法(包括ARIMA, XGBoost, GRU/LSTM)在电动汽车充电设施能量需求预测问题上的表现, 并在集中式和联邦学习两种范式下进行了评估. 实验表明XGBoost在预测精度和能效上表现更优, 而联邦学习模型在预测保真度, 隐私保护和能耗开销之间取得了平衡.
+本文提出了一种名为Excitation的新型优化框架, 旨在加速Mixture-of-Experts (MoEs)等稀疏架构的学习. 该框架通过动态调整基于专家利用率的更新, 提高了模型的收敛速度和最终性能.
 
 
-\arxivwithtarget{2602.20791}{Understanding the Role of Rehearsal Scale in Continual Learning under Varying Model Capacities}{JinLi He, Liang Bai, Xian Yang}\textbf{cs.LG}.
+\arxivwithtarget{2602.21824}{DocDjinn: Controllable Synthetic Document Generation with VLMs and Handwriting Diffusion}{Marcel Lamott, Saifullah Saifullah, Nauman Riaz, Yves-Noel Weweler, Tobias Alt-Veit, Ahmad Sarmad Ali, Muhammad Armaghan Shakir, Adrian Kalwa, Momina Moetesum, Andreas Dengel, Sheraz Ahmed, Faisal Shafait, Ulrich Schwanecke, Adrian Ulges}\textbf{cs.LG}.
 
-本文从理论角度分析了 rehearsal scale 在持续学习中对模型性能的影响. 研究揭示了 rehearsal 可能损害模型适应性, 且增加 rehearsal 数据量并不总能提升记忆保持.
+本文提出了DocDjinn框架, 利用Vision-Language Models (VLMs)和基于扩散的手写生成技术, 从无标注的种子样本中生成可控的合成文档. 该方法通过聚类选择种子和参数化采样来生成视觉逼真、语义一致的文档, 并在多个文档理解任务上进行了评估.
 
 
-\arxivwithtarget{2602.20796}{Exploring the Impact of Parameter Update Magnitude on Forgetting and Generalization of Continual Learning}{JinLi He, Liang Bai, Xian Yang}\textbf{cs.LG}.
+\arxivwithtarget{2602.21844}{JSAM: Privacy Straggler-Resilient Joint Client Selection and Incentive Mechanism Design in Differentially Private Federated Learning}{Ruichen Xu, Ying-Jun Angela Zhang, Jianwei Huang}\textbf{cs.LG}, cs.DC, cs.GT.
 
-本文从参数更新幅度的角度形式化了持续学习中的遗忘现象, 将其定义为参数空间中任务特定漂移导致的知识退化. 通过推导最小化遗忘的最优更新幅度, 该工作在一个约束参数更新的优化框架下统一了冻结训练和初始化训练两种代表性范式.
+本文提出了一种名为JSAM的机制, 用于在差分隐私联邦学习中联合优化客户端选择和隐私补偿. 该机制旨在提升训练效率并控制成本.
 
 
-\arxivwithtarget{2602.20804}{Probing Dec-POMDP Reasoning in Cooperative MARL}{Kale-ab Tessera, Leonard Hinckeldey, Riccardo Zamboni, David Abel, Amos Storkey}\textbf{cs.LG}, cs.MA.
+\arxivwithtarget{2602.21845}{xai-cola: A Python library for sparsifying counterfactual explanations}{Lin Zhu, Lei You}\textbf{cs.LG}, cs.AI, cs.CY.
 
-本文通过一个诊断套件评估了合作多智能体强化学习(MARL)基准任务对Dec-POMDP推理的实际需求. 研究发现, 在许多流行场景中, 简单的反应式策略与基于记忆的策略表现相当, 表明当前基准可能未能充分测试Dec-POMDP的核心假设.
+本文介绍了一个名为 xai-cola 的 Python 库, 它提供了一个端到端的流程, 用于对任意生成器产生的反事实解释进行稀疏化处理. 该库旨在减少冗余的特征修改, 同时保持解释的有效性, 并提供了可视化和比较功能.
 
 
-\arxivwithtarget{2602.20809}{Regret-Guided Search Control for Efficient Learning in AlphaZero}{Yun-Jui Tsai, Wei-Yu Chen, Yan-Ru Ju, Yu-Hung Chang, Ti-Rong Wu}\textbf{cs.LG}, cs.AI.
+\arxivwithtarget{2602.21910}{The Error of Deep Operator Networks Is the Sum of Its Parts: Branch-Trunk and Mode Error Decompositions}{Alexander Heinlein, Johannes Taraz}\textbf{cs.LG}, math.NA.
 
-本文提出了一种名为Regret-Guided Search Control (RGSC)的方法来改进AlphaZero的训练效率. 该方法通过一个regret network识别高regret状态, 并将其用于重启训练, 在多个棋盘游戏中取得了优于基准的表现.
+本文分析了经典DeepONet架构的性能限制, 指出当内部维度足够大时, 其近似误差主要由分支网络主导, 并且学习的trunk基函数通常可以被经典基函数替代. 通过用训练解矩阵的左奇异向量替换trunk网络, 研究进一步揭示了分支网络存在谱偏差, 以及模式间在参数空间中存在强耦合等问题.
 
 
-\arxivwithtarget{2602.20904}{Transcoder Adapters for Reasoning-Model Diffing}{Nathan Hu, Jake Ward, Thomas Icard, Christopher Potts}\textbf{cs.LG}.
+\arxivwithtarget{2602.21919}{Learning in the Null Space: Small Singular Values for Continual Learning}{Cuong Anh Pham, Praneeth Vepakomma, Samuel Horváth}\textbf{cs.LG}, cs.CV.
 
-本文提出了一种称为transcoder adapters的方法, 用于学习并解释模型在微调前后MLP计算差异的可解释近似. 该方法应用于分析Qwen2.5-Math-7B及其推理蒸馏变体DeepSeek-R1-Distill-Qwen-7B之间的差异, 发现适配器特征具有稀疏激活和可解释性.
+本文提出了一种名为NESS的continual learning方法, 它利用神经网络层输入表示的小奇异值(small singular values)来构建近似零空间(null space), 并将任务特定的参数更新约束在该子空间内. 该方法旨在通过直接在权重空间而非梯度空间施加正交性约束来缓解灾难性遗忘(catastrophic forgetting), 并在多个基准数据集上展示了稳定的性能.
 
 
-\arxivwithtarget{2602.20911}{From Isolation to Integration: Building an Adaptive Expert Forest for Pre-Trained Model-based Class-Incremental Learning}{Ruiqi Liu, Boyu Diao, Hangda Liu, Zhulin An, Fei Wang, Yongjun Xu}\textbf{cs.LG}, cs.CV.
+\arxivwithtarget{2602.21928}{Learning Unknown Interdependencies for Decentralized Root Cause Analysis in Nonlinear Dynamical Systems}{Ayush Mohanty, Paritosh Ramanan, Nagi Gebraeel}\textbf{cs.LG}, stat.ML.
 
-本文提出了一种名为SAEF的方法, 用于组织预训练模型在类增量学习中的适配器. 该方法通过构建层次化的专家森林来整合任务知识, 并在多个基准数据集上取得了先进的性能.
+本文提出了一种用于非线性动态系统中去中心化根因分析的方法, 该方法在特征分区且客户端模型固定的联邦学习框架下学习未知的跨客户端依赖关系. 通过引入编码依赖关系的本地ML模型并利用模型残差进行RCA, 该方法在保护隐私的同时避免了修改专有模型或访问原始数据的需求.
 
 
-\arxivwithtarget{2602.20921}{On the Generalization Behavior of Deep Residual Networks From a Dynamical System Perspective}{Jinshu Huang, Mingfei Sun, Chunlin Wu}\textbf{cs.LG}.
+\arxivwithtarget{2602.21948}{Bayesian Generative Adversarial Networks via Gaussian Approximation for Tabular Data Synthesis}{Bahrul Ilmi Nasution, Mark Elliot, Richard Allmendinger}\textbf{cs.LG}, stat.ML.
 
-本文结合Rademacher complexity, dynamical system的flow maps以及ResNet在深层极限下的收敛行为, 为离散和连续时间ResNet建立了泛化误差界. 得到的界关于训练样本数$S$为$O(1/\sqrt{S})$阶, 并包含一个结构相关的负项, 从而在更温和的假设下得到了深度一致和渐近的泛化界.
+本文提出了一种名为GACTGAN的方法, 通过将Stochastic Weight Averaging-Gaussian (SWAG)这一贝叶斯后验近似技术集成到CTGAN生成器中, 用于合成表格数据. 该方法在训练后降低了计算开销, 并在保持数据结构与统计推断方面表现优于CTGAN, 同时降低了隐私风险.
 
 
-\arxivwithtarget{2602.20932}{Hierarchic-EEG2Text: Assessing EEG-To-Text Decoding across Hierarchical Abstraction Levels}{Anupam Sharma, Harish Katti, Prajwal Singh, Shanmuganathan Raman, Krishna Miyapuram}\textbf{cs.LG}, cs.HC, eess.SP.
+\arxivwithtarget{2602.21959}{Estimation and Optimization of Ship Fuel Consumption in Maritime: Review, Challenges and Future Directions}{Dusica Marijan, Hamza Haruna Mohammed, Bakht Zaman}\textbf{cs.LG}.
 
-本文提出了一种基于EEG信号解码文本的层次化分析方法, 通过引入WordNet构建具有可变类别和不同抽象层次的"episodes"进行评估. 在大型数据集PEERS上, 实验表明当分类类别来自语义层次中更高抽象级别时, 模型性能倾向于提升. 这项工作强调了抽象深度是EEG解码中一个未被充分探索的维度.
+本文对海运船舶燃油消耗的估计与优化方法进行了全面的综述. 文章将估计方法分类为基于物理的模型、机器学习模型和混合模型, 并讨论了数据融合、可解释AI等新兴方向, 同时指出了数据质量、实时优化等关键挑战和未来研究方向.
 
 
-\arxivwithtarget{2602.20937}{Extending $μ$P: Spectral Conditions for Feature Learning Across Optimizers}{Akshita Gupta, Marieme Ngom, Sam Foreman, Venkatram Vishwanath}\textbf{cs.LG}.
+\arxivwithtarget{2602.21961}{Robustness in sparse artificial neural networks trained with adaptive topology}{Bendegúz Sulyok, Gergely Palla, Filippo Radicchi, Santo Fortunato}\textbf{cs.LG}, physics.soc-ph.
 
-本文提出了一种基于 spectral conditions 的新框架, 用于将 $\mu$P (maximal update parameterization) 推广到 AdamW, LAMB, Sophia 等一系列优化器上. 该框架绕过了复杂的 tensor programming, 并在多个基准模型上验证了学习率在不同模型宽度间的零样本迁移能力.
+本文研究了一种采用自适应拓扑训练的高稀疏度人工神经网络的鲁棒性. 该网络结构简单, 在图像分类任务上取得了有竞争力的准确率. 通过实验分析了网络在多种扰动下的性能表现.
 
 
-\arxivwithtarget{2602.20947}{Estimation of Confidence Bounds in Binary Classification using Wilson Score Kernel Density Estimation}{Thorbjørn Mosekjær Iversen, Zebin Duan, Frederik Hagelskjær}\textbf{cs.LG}, cs.CV.
+\arxivwithtarget{2602.21965}{Compact Circulant Layers with Spectral Priors}{Joseph Margaryan, Thomas Hamelryck}\textbf{cs.LG}.
 
-本文提出了一种基于Wilson Score的核密度估计方法, 用于估计二元分类中的置信边界. 该方法在选择性分类任务中进行了评估, 展示了其作为特征提取器分类头的实用性, 并在较低计算复杂度下取得了与高斯过程分类相当的性能.
+本文研究了在频域参数化的紧凑循环卷积层, 通过施加谱结构先验和进行结构化变分推断, 实现了内存高效的神经网络构建. 实验表明, 这些层在多种任务上能以更少的参数达到与基线相当的性能, 并提供更严格的Lipschitz保证.
 
 
-\arxivwithtarget{2602.20971}{Does Order Matter : Connecting The Law of Robustness to Robust Generalization}{Himadri Mandal, Vishnu Varadarajan, Jaee Ponde, Aritra Das, Mihir More, Debayan Gupta}\textbf{cs.LG}, cs.AI.
+\arxivwithtarget{2602.22003}{Neural solver for Wasserstein Geodesics and optimal transport dynamics}{Hailiang Liu, Yan-Han Chen}\textbf{cs.LG}, math.OC, stat.ML.
 
-本文探讨了鲁棒性定律与鲁棒泛化之间的联系. 研究通过引入鲁棒泛化误差的概念, 并将其转化为诱导鲁棒损失类期望Rademacher复杂度的下界, 从而将两者联系起来. 实验部分在MNIST数据集上验证了理论预测的Lipschitz常数缩放规律.
+本文提出了一种基于神经网络的求解器, 用于计算源分布与目标分布之间的Wasserstein测地线及其相关的速度场. 该方法基于最优传输(OT)的动态形式, 通过深度神经网络近似相关函数, 将约束优化问题转化为极小极大问题进行求解.
 
 
-\arxivwithtarget{2602.20974}{MAST: A Multi-fidelity Augmented Surrogate model via Spatial Trust-weighting}{Ahmed Mohamed Eisa Nasr, Haris Moazam Sheikh}\textbf{cs.LG}.
+\arxivwithtarget{2602.22015}{Function-Space Empirical Bayes Regularisation with Student's t Priors}{Pengcheng Hao, Ercan Engin Kuruoglu}\textbf{cs.LG}.
 
-本文提出了一种名为MAST的多保真度增强代理模型, 它通过空间信任加权来融合不同保真度的数据. 该方法在合成基准测试中表现优于现有技术, 并在不同预算和保真度差距下保持稳健性能.
+本文提出了一种基于Student's $t$先验的函数空间经验贝叶斯正则化框架ST-FS-EB, 用于贝叶斯深度学习. 该方法通过变分推断进行近似, 并在多个任务上展示了稳健的性能.
 
 
-\arxivwithtarget{2602.21020}{Matching Multiple Experts: On the Exploitability of Multi-Agent Imitation Learning}{Antoine Bergerault, Volkan Cevher, Negar Mehr}\textbf{cs.LG}, cs.GT, cs.MA.
+\arxivwithtarget{2602.22018}{Disease Progression and Subtype Modeling for Combined Discrete and Continuous Input Data}{Sterre de Jonge, Elisabeth J. Vinke, Meike W. Vernooij, Daniel C. Alexander, Alexandra L. Young, Esther E. Bron}\textbf{cs.LG}.
 
-本文研究了多智能体模仿学习(MA-IL)中学习策略的可利用性问题. 作者证明了在一般$n$-player Markov Games中学习低可利用性策略的困难性, 并分析了在专家均衡满足特定策略优势假设下的理论保证.
+本文提出了一种名为Mixed Events model的新方法, 用于处理混合了离散和连续数据类型的疾病进展建模. 该方法被整合到SuStaIn框架中, 形成Mixed-SuStaIn, 并在模拟数据和阿尔茨海默病神经影像学倡议的真实数据上验证了其有效性.
 
 
-\arxivwithtarget{2602.21043}{T1: One-to-One Channel-Head Binding for Multivariate Time-Series Imputation}{Dongik Park, Hyunwoo Ryu, Suahn Bae, Keondo Park, Hyung-Sin Kim}\textbf{cs.LG}.
+\arxivwithtarget{2602.22055}{Physics-Informed Machine Learning for Vessel Shaft Power and Fuel Consumption Prediction: Interpretable KAN-based Approach}{Hamza Haruna Mohammed, Dusica Marijan, Arnbjørn Maressa}\textbf{cs.LG}, cs.AI.
 
-本文提出了一种名为T1的CNN-Transformer混合架构, 用于多元时间序列的缺失值插补. 该方法通过Channel-Head Binding机制, 在CNN通道和注意力头之间建立一一对应关系, 从而在极端稀疏条件下实现了优于现有方法的性能.
+本文提出了一种用于预测船舶轴功率和燃油消耗的物理信息Kolmogorov-Arnold网络(PI-KAN). 该方法结合了可解释的特征变换与物理约束, 在多个货船数据集上超越了传统多项式方法和神经网络基线, 在保持物理一致性的同时实现了更高的预测精度.
 
 
-\arxivwithtarget{2602.21046}{PIME: Prototype-based Interpretable MCTS-Enhanced Brain Network Analysis for Disorder Diagnosis}{Kunyu Zhang, Yanwu Yang, Jing Zhang, Xiangjie Shi, Shujian Yu}\textbf{cs.LG}.
+\arxivwithtarget{2602.22066}{DualWeaver: Synergistic Feature Weaving Surrogates for Multivariate Forecasting with Univariate Time Series Foundation Models}{Jinpeng Li, Zhongyi Pei, Huaze Xue, Bojian Zheng, Chen Wang, Jianmin Wang}\textbf{cs.LG}, cs.AI.
 
-本文提出了一种名为PIME的可解释性框架, 用于基于fMRI的功能连接网络进行疾病诊断. 该框架结合了prototype-based classification和consistency training, 并利用Monte Carlo Tree Search (MCTS)来提取解释性子图, 在多个基准数据集上取得了先进的性能.
+本文提出了一种名为 DualWeaver 的新框架, 用于将单变量时间序列基础模型 (Uni-TSFMs) 适配到多变量预测任务中. 该方法通过生成一对结构对称的代理序列来捕获变量间的依赖关系, 并利用正则化项提升鲁棒性, 在多个真实数据集上取得了优于现有方法的表现.
 
 
-\arxivwithtarget{2602.21072}{Localized Dynamics-Aware Domain Adaption for Off-Dynamics Offline Reinforcement Learning}{Zhangjie Xia, Yu Yang, Pan Xu}\textbf{cs.LG}, cs.AI, cs.RO.
+\arxivwithtarget{2602.22101}{On Imbalanced Regression with Hoeffding Trees}{Pantia-Marina Alchirch, Dimitrios I. Diochnos}\textbf{cs.LG}, cs.AI.
 
-本文提出了一种名为LoDADA的方法, 用于解决off-dynamics offline reinforcement learning中的领域适应问题. 该方法通过聚类和域判别来利用局部动态不匹配, 以更精细地筛选和重用源数据.
+本文探讨了在数据流环境下处理不平衡回归任务的方法. 作者将批处理学习中的核密度估计(KDE)方法适配到流式场景, 并将其与层次收缩(HS)方法结合到增量决策树模型中. 实验表明, KDE在数据流早期阶段有益, 而HS则几乎无法带来性能提升.
 
 
-\arxivwithtarget{2602.21078}{ProxyFL: A Proxy-Guided Framework for Federated Semi-Supervised Learning}{Duowen Chen, Yan Wang}\textbf{cs.LG}, cs.CV.
+\arxivwithtarget{2602.22107}{Don't stop me now: Rethinking Validation Criteria for Model Parameter Selection}{Andrea Apicella, Francesco Isgrò, Andrea Pollastro, Roberto Prevete}\textbf{cs.LG}, cs.AI.
 
-本文提出了一个名为ProxyFL的代理引导框架, 用于解决联邦半监督学习(FSSL)中的数据异构性问题. 该框架通过一个统一的"代理"(分类器的可学习权重)来同时缓解客户端间和客户端内的数据分布差异.
+本文通过系统性的实证研究, 比较了在神经网络分类器中, 使用不同的验证集准则(如准确率或损失函数)进行模型参数选择(特别是早停策略)对测试性能的影响. 研究发现, 基于验证集准确率的早停策略表现最差, 而基于损失函数的验证准则能带来更稳定和可比的测试性能.
 
 
-\arxivwithtarget{2602.21081}{Scaling Vision Transformers: Evaluating DeepSpeed for Image-Centric Workloads}{Huy Trinh, Rebecca Ma, Zeqi Yu, Tahsin Reza}\textbf{cs.LG}, eess.SP.
+\arxivwithtarget{2602.22130}{Sample Complexity Bounds for Robust Mean Estimation with Mean-Shift Contamination}{Ilias Diakonikolas, Giannis Iakovidis, Daniel M. Kane, Sihan Liu}\textbf{cs.LG}, cs.DS.
 
-本文评估了使用DeepSpeed分布式训练框架来提升Vision Transformers (ViTs)在图像任务中可扩展性的效果. 通过在不同GPU配置和数据集上的实验, 分析了数据并行对训练速度与通信开销的影响.
+本文研究了在均值偏移污染模型下的一般基分布均值估计问题. 通过引入Fourier witness等工具, 在基分布特征函数满足温和谱条件时, 给出了样本高效的估计算法及其匹配的下界.
 
 
-\arxivwithtarget{2602.21092}{Probing Graph Neural Network Activation Patterns Through Graph Topology}{Floriano Tori, Lorenzo Bini, Marco Sorbi, Stéphane Marchand-Maillet, Vincent Ginis}\textbf{cs.LG}, cs.AI.
+\arxivwithtarget{2602.22136}{SigmaQuant: Hardware-Aware Heterogeneous Quantization Method for Edge DNN Inference}{Qunyou Liu, Pengbo Yu, Marina Zapater, David Atienza}\textbf{cs.LG}, cs.AR.
 
-本文通过引入Massive Activations的概念, 探究了graph topology与Graph Neural Networks (GNNs) 学习偏好之间的相互作用. 研究发现, 在分子基准和Long Range Graph Benchmark上, 极端激活值并不集中于曲率极值点, 并且全局注意力机制会加剧拓扑瓶颈, 导致负曲率增加.
+本文提出了一种名为SigmaQuant的自适应层间异构量化框架, 旨在为不同的边缘设备环境高效平衡模型精度与资源使用, 而无需进行穷举搜索. 该方法通过为不同层分配不同的量化位宽来缓解均匀量化在低比特下的精度损失或资源利用不佳问题.
 
 
-\arxivwithtarget{2602.21104}{Ski Rental with Distributional Predictions of Unknown Quality}{Qiming Cui, Michael Dinitz}\textbf{cs.LG}, cs.DS.
+\arxivwithtarget{2602.22146}{Provable Last-Iterate Convergence for Multi-Objective Safe LLM Alignment via Optimistic Primal-Dual}{Yining Li, Peizhong Ju, Ness Shroff}\textbf{cs.LG}, cs.AI.
 
-本文研究了ski rental问题在"带预测的算法"框架下的分布预测版本. 作者提出了一种算法, 其期望成本相对于最优策略的期望成本, 其附加损失上界为$O(\min(\max(\eta, 1) \cdot \sqrt{b}, b \log b))$, 其中$\eta$是预测分布与真实分布之间的Earth Mover's距离. 该算法无需预先知道预测误差$\eta$, 并证明了相应的下界表明该结果基本是紧的.
+本文提出了一个用于安全RLHF的通用primal-dual框架, 统一了多种现有对齐算法. 基于此框架, 作者引入了一种optimistic primal-dual算法, 并为其在distributional policy空间和parameterized policy下的收敛性提供了理论保证.
 
 
-\arxivwithtarget{2602.21133}{SOM-VQ: Topology-Aware Tokenization for Interactive Generative Models}{Alessandro Londei, Denise Lanzieri, Matteo Benati}\textbf{cs.LG}, stat.ML.
+\arxivwithtarget{2602.22179}{Learning and Naming Subgroups with Exceptional Survival Characteristics}{Mhd Jawad Al Rahwanji, Sascha Xu, Nils Philipp Walter, Jilles Vreeken}\textbf{cs.LG}.
 
-本文提出了一种结合向量量化与自组织映射的离散表示学习方法, 旨在为生成模型提供具有明确低维拓扑结构的codebook. 该方法通过保持邻域结构, 使得潜在空间中的邻近token对应语义相似的状态, 从而支持直观的几何操控. 在人体运动生成等领域的实验表明, 该方法能实现更易学习的token序列, 并为交互式生成任务提供可导航的code空间.
+本文提出了一种名为Sysurv的非参数方法, 用于识别具有异常生存特征的亚组. 该方法利用随机生存森林学习个体生存曲线, 并自动生成可解释的规则, 在多个数据集上进行了实证评估.
 
 
-\arxivwithtarget{2602.21158}{SELAUR: Self Evolving LLM Agent via Uncertainty-aware Rewards}{Dengjia Zhang, Xiaoou Liu, Lu Cheng, Yaqing Wang, Kenton Murray, Hua Wei}\textbf{cs.LG}, cs.CL.
+\arxivwithtarget{2602.22188}{Surrogate models for Rock-Fluid Interaction: A Grid-Size-Invariant Approach}{Nathalie C. Pinheiro, Donghu Guo, Hannah P. Menke, Aniket C. Joshi, Claire E. Heaney, Ahmed H. ElSheikh, Christopher C. Pain}\textbf{cs.LG}, cs.AI, physics.flu-dyn.
 
-本文提出了一种名为SELAUR的强化学习框架, 通过将LLM的内在不确定性直接整合到奖励设计中, 来提升多步决策智能体的性能. 该方法在ALFWorld和WebShop基准测试中显示出优于基线模型的成功率.
+本文针对多孔介质中流体流动预测问题, 开发了八种替代模型(surrogate models). 其中四种为基于神经网络的降阶模型(ROM), 另外四种是具有网格尺寸不变性(grid-size invariance)的单神经网络模型. 研究比较了UNet和UNet++架构, 并展示了网格尺寸不变性方法在减少训练内存消耗方面的优势.
 
 
-\arxivwithtarget{2602.21168}{Sequential Counterfactual Inference for Temporal Clinical Data: Addressing the Time Traveler Dilemma}{Jingya Cheng, Alaleh Azhir, Jiazi Tian, Hossein Estiri}\textbf{cs.LG}.
+\arxivwithtarget{2602.22190}{GUI-Libra: Training Native GUI Agents to Reason and Act with Action-aware Supervision and Partially Verifiable RL}{Rui Yang, Qianhui Wu, Zhaoyang Wang, Hanyang Chen, Ke Yang, Hao Cheng, Huaxiu Yao, Baoling Peng, Huan Zhang, Jianfeng Gao, Tong Zhang}\textbf{cs.LG}, cs.AI, cs.CL.
 
-本文针对临床数据中的时序反事实推断问题, 提出了一个 Sequential Counterfactual Framework. 该方法通过区分不可变特征与可控特征, 并建模干预的时序传播, 解决了传统方法在纵向数据上的局限性, 并在COVID-19患者数据上验证了其生物合理性.
-
-
-\arxivwithtarget{2602.21185}{The Diffusion Duality, Chapter II: $Ψ$-Samplers and Efficient Curriculum}{Justin Deschenaux, Caglar Gulcehre, Subham Sekhar Sahoo}\textbf{cs.LG}.
-
-本文针对 uniform-state discrete diffusion models 在 ancestral samplers 下采样质量随步数增加而停滞的问题, 提出了一族适用于任意噪声过程的 Predictor-Corrector (PC) samplers. 该方法在语言和图像建模任务上超越了 ancestral sampling, 并且其性能随采样步数增加而持续提升. 此外, 作者还提出了一种用于 Gaussian relaxation training phase 的高效训练课程, 显著降低了训练时间和内存消耗.
-
-
-\arxivwithtarget{2602.21189}{Why Pass@k Optimization Can Degrade Pass@1: Prompt Interference in LLM Post-training}{Anas Barakat, Souradip Chakraborty, Khushbu Pahwa, Amrit Singh Bedi}\textbf{cs.LG}, cs.AI.
-
-本文研究了在大型语言模型后训练中, 直接优化 pass@k 指标可能导致 pass@1 性能下降的现象. 作者通过理论分析指出, 这种权衡源于 prompt interference 引起的梯度冲突.
-
-
-\arxivwithtarget{2602.21191}{Statistical Query Lower Bounds for Smoothed Agnostic Learning}{Ilias Diakonikolas, Daniel M. Kane}\textbf{cs.LG}, cs.DS, stat.ML.
-
-本文研究了平滑不可知学习(smoothed agnostic learning) 的复杂度, 特别是针对子高斯分布下学习半空间(halfspaces) 的任务. 作者通过建立统计查询(SQ) 下界, 证明了现有基于$L_1$多项式回归的上界$d^{\tilde{O}(1/\sigma^2) \log(1/\epsilon)}$接近最优.
-
-
-\arxivwithtarget{2602.21196}{Untied Ulysses: Memory-Efficient Context Parallelism via Headwise Chunking}{Ravi Ghadia, Maksim Abraham, Sergei Vorobyov, Max Ryabinin}\textbf{cs.LG}, cs.DC.
-
-本文提出了一种名为UPipe的context parallelism技术, 通过attention head级别的细粒度分块来显著降低self-attention的activation memory使用. 该方法在保持训练速度的同时, 支持了更长的上下文长度.
-
-
-\arxivwithtarget{2602.21198}{Learning from Trials and Errors: Reflective Test-Time Planning for Embodied LLMs}{Yining Hong, Huang Huang, Manling Li, Li Fei-Fei, Jiajun Wu, Yejin Choi}\textbf{cs.LG}, cs.AI, cs.CL, cs.CV, cs.RO.
-
-本文提出了一种名为 Reflective Test-Time Planning 的方法, 用于增强具身 LLMs (Embodied LLMs) 在机器人任务中的表现. 该方法结合了行动中反思 (reflection-in-action) 和行动后反思 (reflection-on-action) 两种模式, 通过在测试时生成并评估多个候选动作, 并在执行后更新内部模型, 以减少错误重复并积累经验. 在长视野家庭任务和 MuJoCo 模拟环境中的实验表明, 该方法能有效提升任务性能.
-
-
-\arxivwithtarget{2602.21204}{Test-Time Training with KV Binding Is Secretly Linear Attention}{Junchen Liu, Sven Elflein, Or Litany, Zan Gojcic, Ruilong Li}\textbf{cs.LG}, cs.AI, cs.CV.
-
-本文重新审视了Test-Time Training (TTT) 的机制, 指出其核心并非测试时记忆, 而是一种学习到的线性注意力 (linear attention) 算子. 这一视角统一了多种TTT变体, 并带来了架构简化和效率提升.
+本文提出了一种名为GUI-Libra的专门训练方法, 用于提升原生GUI智能体在长视野导航任务中的性能. 该方法通过构建高质量的动作对齐推理数据集, 并设计了结合动作感知监督学习和针对部分可验证性问题的强化学习策略, 有效改善了智能体的推理与执行能力.
 
 
 \section{cs.AI}
-\arxivwithtarget{2602.20303}{Multilevel Determinants of Overweight and Obesity Among U.S. Children Aged 10-17: Comparative Evaluation of Statistical and Machine Learning Approaches Using the 2021 National Survey of Children's Health}{Joyanta Jyoti Mondal}\textbf{cs.AI}, cs.LG.
+\arxivwithtarget{2602.21268}{A Dynamic Survey of Soft Set Theory and Its Extensions}{Takaaki Fujita, Florentin Smarandache}\textbf{cs.AI}.
 
-本文使用多种统计和机器学习模型分析了美国青少年超重和肥胖的多层次决定因素. 研究发现, 模型复杂性的增加相比逻辑回归带来的性能提升有限, 且不同种族和贫困群体间的预测差异持续存在.
+本文是一篇关于soft set theory及其扩展的动态综述, 涵盖了从基础概念到多种变体(如hypersoft sets, TreeSoft sets等)的发展, 并讨论了其在拓扑学等领域的应用.
 
 
-\arxivwithtarget{2602.20324}{An artificial intelligence framework for end-to-end rare disease phenotyping from clinical notes using large language models}{Cathy Shyr, Yan Hu, Rory J. Tinker, Thomas A. Cassini, Kevin W. Byram, Rizwan Hamid, Daniel V. Fabbri, Adam Wright, Josh F. Peterson, Lisa Bastarache, Hua Xu}\textbf{cs.AI}, cs.CL, cs.LG.
+\arxivwithtarget{2602.21351}{A Hierarchical Multi-Agent System for Autonomous Discovery in Geoscientific Data Archives}{Dmitrii Pantiukhin, Ivan Kuznetsov, Boris Shapkin, Antonia Anna Jost, Thomas Jung, Nikolay Koldunov}\textbf{cs.AI}, cs.IR, cs.MA.
 
-本文提出了一个名为RARE-PHENIX的端到端人工智能框架, 用于从临床文本中提取罕见病表型. 该框架整合了基于大语言模型的表型提取、基于本体的标准化以及有监督的排序模块, 并在真实临床数据上验证了其优于现有基准方法的性能.
+本文提出了一个用于地球科学数据自主发现的分层多智能体系统PANGAEA-GPT. 该系统通过协调的agent工作流来查询和分析异构数据, 以减少人工干预.
 
 
-\arxivwithtarget{2602.20333}{DMCD: Semantic-Statistical Framework for Causal Discovery}{Samarth KaPatel, Sofia Nikiforova, Giacinto Paolo Saggese, Paul Smith}\textbf{cs.AI}.
+\arxivwithtarget{2602.21496}{Beyond Refusal: Probing the Limits of Agentic Self-Correction for Semantic Sensitive Information}{Umid Suleymanov, Zaur Rajabov, Emil Mirzazada, Murat Kantarcioglu}\textbf{cs.AI}.
 
-本文提出了一个名为DMCD的两阶段因果发现框架, 它结合了基于LLM的语义草稿生成和基于观测数据的统计验证. 该框架在多个真实世界基准测试中展现出竞争力, 表明语义先验与统计验证的结合是一种有效的因果结构学习方法.
+本文提出了一个名为SemSIEdit的推理时框架, 旨在处理大语言模型中的语义敏感信息泄露问题. 该框架通过一个代理"编辑器"进行迭代式批判与重写, 在降低信息泄露的同时, 尝试保持文本的叙事流畅性与实用性.
 
 
-\arxivwithtarget{2602.20422}{Diffusion Modulation via Environment Mechanism Modeling for Planning}{Hanping Zhang, Yuhong Guo}\textbf{cs.AI}, cs.LG.
+\arxivwithtarget{2602.21534}{ARLArena: A Unified Framework for Stable Agentic Reinforcement Learning}{Xiaoxuan Wang, Han Zhang, Haixin Wang, Yidan Shi, Ruoyan Li, Kaiqiao Han, Chenyi Tong, Haoran Deng, Renliang Sun, Alexander Taylor, Yanqiao Zhu, Jason Cong, Yizhou Sun, Wei Wang}\textbf{cs.AI}.
 
-本文提出了一种名为DMEMM的扩散模型方法, 用于离线强化学习中的轨迹规划. 该方法通过建模环境机制(如转移动态和奖励函数)来调制扩散过程, 以生成更符合真实环境一致性的轨迹.
+本文提出了ARLArena框架和SAMPO方法, 旨在解决Agentic Reinforcement Learning (ARL) 训练不稳定的问题. 该工作通过分解policy gradient的核心维度进行系统性分析, 为构建稳定的LLM-based agent训练流程提供了实用指导.
 
 
-\arxivwithtarget{2602.20424}{Implicit Intelligence -- Evaluating Agents on What Users Don't Say}{Ved Sirdeshmukh, Marc Wetter}\textbf{cs.AI}.
+\arxivwithtarget{2602.21556}{Power and Limitations of Aggregation in Compound AI Systems}{Nivasini Ananthakrishnan, Meena Jagadeesan}\textbf{cs.AI}, cs.GT.
 
-本文提出了一个名为"Implicit Intelligence"的评估框架, 用于测试AI智能体是否能理解用户请求中未言明的隐含约束. 该框架通过模拟交互环境来评估模型在隐私、风险等复杂场景下的推理能力, 实验表明当前最先进的模型在此类任务上仍有很大提升空间.
+本文在 principal-agent 框架下研究了复合 AI 系统中聚合(aggregation) 方法的能力与局限. 分析表明, 聚合通过几种机制扩展了可激发(elicitable) 输出的集合, 并提供了刻画这种扩展的充要条件.
 
 
-\arxivwithtarget{2602.20426}{Learning to Rewrite Tool Descriptions for Reliable LLM-Agent Tool Use}{Ruocheng Guo, Kaiwen Dong, Xiang Gao, Kamalika Das}\textbf{cs.AI}.
+\arxivwithtarget{2602.21745}{The ASIR Courage Model: A Phase-Dynamic Framework for Truth Transitions in Human and AI Systems}{Hyo Jin Kim}\textbf{cs.AI}, cs.CY.
 
-本文提出了一个名为Trace-Free+的课程学习框架, 旨在优化LLM-agent所使用的工具描述, 以提升其在无执行轨迹或大规模候选工具集场景下的可靠性与泛化能力. 该方法通过构建大规模数据集并进行实验验证, 表明工具接口优化是agent微调的有效补充.
+本文提出了一个用于描述人类与AI系统中"真相披露"行为的相动力学框架. 该模型将真相表达视为一个状态跃迁过程, 并分析了促进力与抑制力之间的平衡条件.
 
 
-\arxivwithtarget{2602.20459}{PreScience: A Benchmark for Forecasting Scientific Contributions}{Anirudh Ajith, Amanpreet Singh, Jay DeYoung, Nadav Kunievsky, Austin C. Kozlowski, Oyvind Tafjord, James Evans, Daniel S. Weld, Tom Hope, Doug Downey}\textbf{cs.AI}, cs.CL.
+\arxivwithtarget{2602.21746}{fEDM+: A Risk-Based Fuzzy Ethical Decision Making Framework with Principle-Level Explainability and Pluralistic Validation}{Abeer Dyoub, Francesca A. Lisi}\textbf{cs.AI}.
 
-本文提出了一个名为 PreScience 的科学预测基准, 它将研究过程分解为四个生成任务, 并构建了一个包含近10万篇AI论文的数据集. 研究为每个任务建立了基线评估, 发现前沿大语言模型在预测科学贡献方面仍有很大提升空间.
+本文提出了一个名为fEDM+的扩展模糊伦理决策框架. 它在原有fEDM的基础上, 增加了基于原则的解释模块和面向多利益相关者的验证机制.
 
 
-\arxivwithtarget{2602.20494}{KairosVL: Orchestrating Time Series and Semantics for Unified Reasoning}{Haotian Si, Changhua Pei, Xiao He, Zeyan Li, Zhe Xie, Zexin Wang, Jiyao Hu, Zhaoyang Yu, Tieying Zhang, Dan Pei, Jianhui Li, Gaogang Xie}\textbf{cs.AI}.
+\arxivwithtarget{2602.21814}{Prompt Architecture Determines Reasoning Quality: A Variable Isolation Study on the Car Wash Problem}{Heejin Jo}\textbf{cs.AI}, cs.CL.
 
-本文提出了一个结合语义理解的时间序列推理任务, 并引入了一个两轮强化学习框架来增强模型对时序基元和语义条件推理的感知能力. 所提出的KairosVL模型在合成与真实任务中展现了竞争力, 并通过实验验证了其泛化能力.
+本文通过变量隔离实验研究了提示架构对解决"洗车问题"这一推理基准的影响. 研究发现, 采用STAR推理框架能显著提升大型语言模型的准确率, 而添加上下文检索的增益相对较小.
 
 
-\arxivwithtarget{2602.20502}{ActionEngine: From Reactive to Programmatic GUI Agents via State Machine Memory}{Hongbin Zhong, Fazle Faisal, Luis França, Tanakorn Leesatapornwongsa, Adriana Szekeres, Kexin Rong, Suman Nath}\textbf{cs.AI}, cs.LG.
+\arxivwithtarget{2602.21857}{Distill and Align Decomposition for Enhanced Claim Verification}{Jabez Magomere, Elena Kochkina, Samuel Mensah, Simerjot Kaur, Fernando Acero, Arturo Oncevay, Charese H. Smiley, Xiaomo Liu, Manuela Veloso}\textbf{cs.AI}, cs.CL, cs.LG.
 
-本文提出了ActionEngine, 一个无需训练的双智能体框架, 用于图形用户界面(GUI)自动化. 它通过离线探索构建可更新的状态机记忆, 并利用该记忆合成完整的可执行程序, 从而将交互模式从反应式执行转变为程序化规划, 显著提升了任务成功率和执行效率.
+本文提出了一种基于强化学习的方法, 通过联合优化分解质量与验证器对齐来增强复杂声明的验证. 该方法在多个评估设置中提升了下游验证性能, 使较小的语言模型能够达到先进的验证水平.
 
 
-\arxivwithtarget{2602.20517}{Inner Speech as Behavior Guides: Steerable Imitation of Diverse Behaviors for Human-AI coordination}{Rakshit Trivedi, Kartik Sharma, David C Parkes}\textbf{cs.AI}, cs.CL, cs.LG.
+\arxivwithtarget{2602.21858}{ProactiveMobile: A Comprehensive Benchmark for Boosting Proactive Intelligence on Mobile Devices}{Dezhi Kong, Zhengzhao Feng, Qiliang Liang, Hao Wang, Haofei Sun, Changpeng Yang, Yang Li, Peng Zhou, Shuai Nie, Hongzhen Wang, Linfeng Zhou, Hao Jia, Jiaming Xu, Runyu Shi, Ying Huang}\textbf{cs.AI}.
 
-本文提出了一种利用内部语言指导AI智能体模仿人类行为的方法, 通过结合视觉-语言模型和条件变分自编码器来生成行为意图的语言表示, 并使用扩散策略进行行为克隆. 该方法在机器人操作和人机协作任务中展示了提升行为多样性和可操控性的潜力.
+本文提出了一个名为 ProactiveMobile 的综合性基准测试, 旨在评估和提升移动设备上多模态大语言模型(MLLMs)的主动智能能力. 该基准通过模拟真实世界的复杂场景, 要求模型根据上下文推断用户潜在意图并生成可执行的API序列.
 
 
-\arxivwithtarget{2602.20558}{From Logs to Language: Learning Optimal Verbalization for LLM-Based Recommendation in Production}{Yucheng Shi, Ying Li, Yu Wang, Yesu Feng, Arjun Rao, Rein Houthooft, Shradha Sehgal, Jin Wang, Hao Zhen, Ninghao Liu, Linas Baltrunas}\textbf{cs.AI}, cs.IR.
+\arxivwithtarget{2602.21889}{2-Step Agent: A Framework for the Interaction of a Decision Maker with AI Decision Support}{Otto Nyberg, Fausto Carcassi, Giovanni Cinà}\textbf{cs.AI}, cs.LG.
 
-本文提出了一种基于强化学习的数据驱动框架, 用于优化大型语言模型(LLM)推荐系统中的"verbalization"过程, 即将结构化的用户交互日志转化为有效的自然语言输入. 实验表明, 该方法在工业流式数据集上显著提升了新物品推荐的准确性.
+本文提出了一个名为"2-Step Agent"的计算框架, 用于建模AI辅助决策的影响. 该框架结合了Bayesian因果推断, 模拟了AI预测如何更新决策者的信念, 并进而影响其决策与结果.
 
 
-\arxivwithtarget{2602.20571}{CausalReasoningBenchmark: A Real-World Benchmark for Disentangled Evaluation of Causal Identification and Estimation}{Ayush Sawarni, Jiyuan Tan, Vasilis Syrgkanis}\textbf{cs.AI}.
+\arxivwithtarget{2602.22067}{Semantic Partial Grounding via LLMs}{Giuseppe Canonaco, Alberto Pozanco, Daniel Borrajo}\textbf{cs.AI}.
 
-本文提出了一个名为CausalReasoningBenchmark的基准测试, 用于评估因果推理系统. 该基准将因果识别与估计两个步骤分开评估, 有助于诊断系统在因果推理与数值执行上的具体错误.
+本文提出SPG-LLM方法, 利用LLMs分析PDDL描述, 在grounding前启发式地识别可能无关的对象、动作和谓词, 从而显著减小grounded任务的规模. 在多个基准测试中, 该方法实现了更快的grounding速度, 有时甚至快几个数量级.
 
 
-\arxivwithtarget{2602.20624}{Physics-based phenomenological characterization of cross-modal bias in multimodal models}{Hyeongmo Kim, Sohyun Kang, Yerin Choi, Seungyeon Ji, Junhyuk Woo, Hyunsuk Chung, Soyeon Caren Han, Kyungreem Han}\textbf{cs.AI}, cond-mat.stat-mech.
+\arxivwithtarget{2602.22070}{Language Models Exhibit Inconsistent Biases Towards Algorithmic Agents and Human Experts}{Jessica Y. Bo, Lillio Mok, Ashton Anderson}\textbf{cs.AI}.
 
-本文提出了一种基于物理的替代模型来分析多模态大语言模型(MLLMs)中的跨模态偏差. 作者认为传统的表征层面分析不足以捕捉复杂的模态交互动力学, 并通过扰动实验和动力学分析支持其观点.
+本文通过行为经济学实验范式, 研究了大型语言模型(LLMs)在决策任务中如何权衡来自人类专家和算法代理的信息. 研究发现, LLMs在直接评估信任度时偏向人类专家, 但在基于绩效的激励性选择中却更倾向于选择算法代理, 揭示了其对信息源存在不一致的偏见, 并强调了任务呈现格式对模型评估的重要性.
 
 
-\arxivwithtarget{2602.20628}{When can we trust untrusted monitoring? A safety case sketch across collusion strategies}{Nelson Gardner-Challis, Jonathan Bostock, Georgiy Kozhevnikov, Morgan Sinclaire, Joan Velja, Alessandro Abate, Charlie Griffin}\textbf{cs.AI}.
+\arxivwithtarget{2602.22094}{Petri Net Relaxation for Infeasibility Explanation and Sequential Task Planning}{Nguyen Cong Nhat Le, John G. Rogers, Claire N. Bonial, Neil T. Dantam}\textbf{cs.AI}.
 
-本文探讨了在AI系统中使用不可信监控(untrusted monitoring) 时的安全性问题. 作者放宽了先前研究中关于AI合谋策略的假设, 提出了一种涵盖多种合谋类型的分类法, 并构建了一个安全案例框架来论证其安全性条件.
-
-
-\arxivwithtarget{2602.20638}{Identifying two piecewise linear additive value functions from anonymous preference information}{Vincent Auriau, Khaled Belahcene, Emmanuel Malherbe, Vincent Mousseau, Marc Pirlot}\textbf{cs.AI}.
-
-本文提出了一种从匿名偏好信息中同时识别两个决策者分段线性加性价值函数的 elicitation 方法. 该方法在已知边际价值函数断点的前提下, 通过一系列查询来区分并确定两个不同的偏好模型.
-
-
-\arxivwithtarget{2602.20639}{Grounding LLMs in Scientific Discovery via Embodied Actions}{Bo Zhang, Jinfeng Zhou, Yuxuan Chen, Jianing Yin, Minlie Huang, Hongning Wang}\textbf{cs.AI}.
-
-本文提出了EmbodiedAct框架, 将科学软件转化为具身智能体, 通过紧密的感知-执行循环让LLMs在具身行动中扎根. 该框架在MATLAB中实现, 并在复杂工程设计和科学建模任务上进行了评估.
-
-
-\arxivwithtarget{2602.20659}{Recursive Belief Vision Language Model}{Vaidehi Bagaria, Bijo Sebastian, Nirav Patel}\textbf{cs.AI}.
-
-本文提出了一种基于信念(belief)的视觉语言动作模型RB-VLA, 用于解决部分可观测环境下的长时程操作任务. 该模型通过维护一个紧凑的潜在状态来编码任务历史与动态, 从而提升了任务成功率并降低了推理延迟.
-
-
-\arxivwithtarget{2602.20687}{How Foundational Skills Influence VLM-based Embodied Agents:A Native Perspective}{Bo Peng, Pi Bu, Keyu Pan, Xinrun Xu, Yinxiu Zhao, Miao Chen, Yang Du, Lin Li, Jun Song, Tong Xu}\textbf{cs.AI}.
-
-本文提出了一个名为NativeEmbodied的基准测试, 用于评估基于视觉语言模型(VLM)的具身智能体. 该基准在统一、原生的低级动作空间下, 通过高低层次任务的联合评估, 揭示了当前VLM在多项基础技能上的不足及其对高层任务性能的限制.
-
-
-\arxivwithtarget{2602.20696}{PromptCD: Test-Time Behavior Enhancement via Polarity-Prompt Contrastive Decoding}{Baolong Bi, Yuyao Ge, Shenghua Liu, Yuchen He, Siqian Tong, Lizhe Chen, Lingrui Mei, Zehao Li, Yiwei Wang, Yujun Cai, Ming-Hsuan Yang, Xueqi Cheng}\textbf{cs.AI}.
-
-本文提出了一种名为PromptCD的测试时行为控制方法, 通过构建极性提示对并对比模型响应来增强AI系统的行为. 该方法无需额外训练, 可应用于大语言模型和视觉语言模型, 在"3H"对齐目标和视觉问答任务上展示了性能提升.
-
-
-\arxivwithtarget{2602.20706}{Online Algorithms with Unreliable Guidance}{Julien Dallot, Yuval Emek, Yuval Gil, Maciej Pacut, Stefan Schmid}\textbf{cs.AI}, cs.DS.
-
-本文提出了一个名为"在线算法与不可靠指导"(OAG)的新模型, 用于机器学习增强的在线决策. 该模型将预测组件与算法组件完全分离, 提供了一个统一的分析框架. 作者还介绍了一种名为"丢弃或盲目信任"(DTB)的编译器方法, 可以将任何在线算法转化为OAG模型下的学习增强算法, 并在缓存等经典问题上获得了有吸引的理论保证.
-
-
-\arxivwithtarget{2602.20708}{ICON: Indirect Prompt Injection Defense for Agents based on Inference-Time Correction}{Che Wang, Fuyao Zhang, Jiaming Zhang, Ziqi Zhang, Yinghui Wang, Longtao Huang, Jianbo Gao, Zhong Chen, Wei Yang Bryan Lim}\textbf{cs.AI}, cs.CR.
-
-本文提出了一种名为ICON的框架, 用于防御LLM智能体面临的间接提示注入(IPI)攻击. 该方法通过在推理时探测潜在空间中的攻击特征并进行注意力修正, 在降低攻击成功率的同时, 显著提升了任务执行的效用.
-
-
-\arxivwithtarget{2602.20710}{Counterfactual Simulation Training for Chain-of-Thought Faithfulness}{Peter Hase, Christopher Potts}\textbf{cs.AI}, cs.CL.
-
-本文提出了一种名为 Counterfactual Simulation Training (CST) 的训练方法, 旨在提升大型语言模型中 Chain-of-Thought (CoT) 推理的忠实性. 该方法通过奖励那些能让模拟器准确预测模型在反事实输入下输出的 CoT 来实现这一目标.
-
-
-\arxivwithtarget{2602.20722}{Buffer Matters: Unleashing the Power of Off-Policy Reinforcement Learning in Large Language Model Reasoning}{Xu Wan, Yansheng Wang, Wenqi Huang, Mingyang Sun}\textbf{cs.AI}.
-
-本文提出了一种名为Batch Adaptation Policy Optimization (BAPO)的off-policy强化学习框架, 旨在提升大语言模型后训练阶段的数据效率. 该方法通过动态选择历史样本进行训练, 在多个推理任务上取得了优于基线方法的效果.
-
-
-\arxivwithtarget{2602.20723}{Modality-Guided Mixture of Graph Experts with Entropy-Triggered Routing for Multimodal Recommendation}{Ji Dai, Quan Fang, Dengsheng Cai}\textbf{cs.AI}.
-
-本文提出了一种名为MAGNET的多模态推荐模型, 旨在解决多模态信号融合中的异质性与冲突问题. 该模型通过模态引导的专家混合与熵触发路由机制, 增强了融合过程的可控性与可解释性.
-
-
-\arxivwithtarget{2602.20728}{Balancing Multiple Objectives in Urban Traffic Control with Reinforcement Learning from AI Feedback}{Chenyang Zhao, Vinny Cahill, Ivana Dusparic}\textbf{cs.AI}.
-
-本文探讨了将RLAIF范式扩展到多目标自适应系统的方法. 研究展示了多目标RLAIF能够生成反映不同用户优先级的平衡策略, 为具有内在冲突目标的领域提供了一条可扩展的用户对齐策略学习路径.
-
-
-\arxivwithtarget{2602.20732}{CHESS: Context-aware Hierarchical Efficient Semantic Selection for Long-Context LLM Inference}{Chao Fei, Guozhong Li, Chenxi Liu, Panos Kalnis}\textbf{cs.AI}.
-
-本文提出了一种名为CHESS的算法-系统协同设计方法, 用于管理大型语言模型推理过程中的KV缓存. 该方法通过上下文感知的分层语义选择策略, 在显著减少缓存使用的同时维持了生成质量, 并实现了推理速度的提升.
-
-
-\arxivwithtarget{2602.20739}{PyVision-RL: Forging Open Agentic Vision Models via RL}{Shitian Zhao, Shaoheng Lin, Ming Li, Haoquan Zhang, Wenshuo Peng, Kaipeng Zhang, Chen Wei}\textbf{cs.AI}, cs.CV.
-
-本文提出了PyVision-RL, 一个用于训练开放权重多模态智能体模型的强化学习框架. 该框架通过特定的采样与奖励策略来维持多轮交互, 并开发了用于图像和视频理解的模型, 在视频任务中采用了按需构建上下文的方法以提高效率.
-
-
-\arxivwithtarget{2602.20770}{Pipeline for Verifying LLM-Generated Mathematical Solutions}{Varvara Sazonova, Dmitri Shmelkin, Stanislav Kikot, Vasily Motolygin}\textbf{cs.AI}.
-
-本文提出了一种用于验证大语言模型(LLM)生成的数学解答的自动化与交互式验证流程(pipeline). 该流程旨在替代仅检查最终答案的现有基准测试方法, 并可作为生成正确解答(包括形式化与非形式化语言)的工具.
-
-
-\arxivwithtarget{2602.20810}{POMDPPlanners: Open-Source Package for POMDP Planning}{Yaacov Pariente, Vadim Indelman}\textbf{cs.AI}.
-
-本文介绍了一个用于POMDP规划算法实证评估的开源Python软件包. 该工具集成了多种先进算法、基准环境以及自动化超参数优化等功能, 旨在促进不确定性下决策研究的可扩展性与可复现性.
-
-
-\arxivwithtarget{2602.20812}{Qwen-BIM: developing large language model for BIM-based design with domain-specific benchmark and dataset}{Jia-Rui Lin, Yun-Hong Cai, Xiang-Rui Ni, Shaojie Zhou, Peng Pan}\textbf{cs.AI}.
-
-本文针对建筑信息模型(BIM)领域缺乏专用数据集与评估基准的问题, 提出了一个包含评估基准、数据生成方法和微调策略的框架, 并基于此开发了领域大语言模型Qwen-BIM. 实验表明, 该模型在特定任务上性能显著提升, 能以较小参数量达到通用大模型的水平.
-
-
-\arxivwithtarget{2602.20813}{Pressure Reveals Character: Behavioural Alignment Evaluation at Depth}{Nora Petrova, John Burden}\textbf{cs.AI}.
-
-本文提出了一个用于评估语言模型行为对齐的基准测试, 包含904个跨六个类别(Honesty, Safety, Non-Manipulation, Robustness, Corrigibility, Scheming)的多轮压力测试场景. 通过评估24个前沿模型, 研究发现即使表现最佳的模型也存在特定类别的缺陷, 并且对齐性表现出类似认知研究中g因子的统一结构.
-
-
-\arxivwithtarget{2602.20878}{Diagnosing Causal Reasoning in Vision-Language Models via Structured Relevance Graphs}{Dhita Putri Pratama, Soyeon Caren Han, Yihao Ding}\textbf{cs.AI}.
-
-本文提出了Vision-Language Causal Graphs (VLCGs)这一结构化表示方法, 用于诊断Vision-Language Models的因果推理能力. 基于此构建的ViLCaR基准测试表明, 为模型注入结构化关联信息能显著提升其因果归因和推理的一致性.
-
-
-\arxivwithtarget{2602.20918}{Predicting Sentence Acceptability Judgments in Multimodal Contexts}{Hyewon Jang, Nikolai Ilinykh, Sharid Loáiciga, Jey Han Lau, Shalom Lappin}\textbf{cs.AI}, cs.CL.
-
-本文研究了视觉图像作为上下文对大型语言模型(LLM)和人类进行句子可接受性判断的影响. 实验发现, 与文本上下文不同, 视觉上下文对人类判断影响甚微, 但会影响LLM的内部表示与预测之间的一致性.
-
-
-\arxivwithtarget{2602.20926}{HELP: HyperNode Expansion and Logical Path-Guided Evidence Localization for Accurate and Efficient GraphRAG}{Yuqi Huang, Ning Liao, Kai Yang, Anning Hu, Shengchao Hu, Xiaoxing Wang, Junchi Yan}\textbf{cs.AI}.
-
-本文提出了一种名为HELP的GraphRAG框架, 旨在平衡知识密集型任务中的准确性与效率. 它通过HyperNode Expansion构建连贯的推理路径, 并利用Logical Path-Guided Evidence Localization进行高效检索, 避免了昂贵的图遍历. 实验表明该方法在保持性能的同时显著提升了检索速度.
-
-
-\arxivwithtarget{2602.20934}{Architecting AgentOS: From Token-Level Context to Emergent System-Level Intelligence}{ChengYou Li, XiaoDong Liu, XiangBao Meng, XinYu Zhao}\textbf{cs.AI}.
-
-本文提出了一个名为AgentOS的框架, 将LLM重新定义为由结构化操作系统原则管理的"推理内核". 其核心是深度上下文管理, 将上下文窗口概念化为可寻址的语义空间, 并引入了语义切片和时间对齐等机制.
-
-
-\arxivwithtarget{2602.21044}{LogicGraph : Benchmarking Multi-Path Logical Reasoning via Neuro-Symbolic Generation and Verification}{Yanrui Wu, Lingling Zhang, Xinyu Zhang, Jiayu Chang, Pengyu Li, Xu Jiang, Jingtao Hu, Jun Liu}\textbf{cs.AI}.
-
-本文提出了一个名为LogicGraph的基准测试, 用于评估大语言模型在多路径逻辑推理上的表现. 该基准通过神经符号框架生成包含多个有效证明路径和逻辑干扰的问题, 并采用无参考评估框架来衡量模型在收敛和发散推理模式下的性能.
-
-
-\arxivwithtarget{2602.21061}{Tool Building as a Path to "Superintelligence"}{David Koplow, Tomer Galanti, Tomaso Poggio}\textbf{cs.AI}.
-
-本文设计了一个基准来评估LLMs在逻辑分布外推理中的单步成功率$\gamma$, 任务涉及GF(2)电路重构. 分析表明, 前沿模型在该任务上表现出部分鲁棒性, 并且精确的工具调用是实现成功推理的关键.
-
-
-\arxivwithtarget{2602.21064}{Motivation is Something You Need}{Mehdi Acheli, Walid Gaaloul}\textbf{cs.AI}, cs.CV, cs.LG.
-
-本文提出了一种受情感神经科学启发的新型训练范式, 设计了一个双模型框架. 该框架通过间歇性激活更大的"动机模型"来模拟高好奇心状态, 在图像分类任务上实现了对基础模型的有效增强, 同时保持了较低的训练成本.
-
-
-\arxivwithtarget{2602.21066}{The Initial Exploration Problem in Knowledge Graph Exploration}{Claire McNamara, Lucy Hederman, Declan O'Sullivan}\textbf{cs.AI}.
-
-本文提出了知识图谱(Knowledge Graph, KG)探索中的"初始探索问题"(Initial Exploration Problem, IEP), 并对其进行了理论化. 作者分析了该问题的三个相互关联的障碍, 并指出当前许多KG交互界面在设计上存在结构性缺陷, 缺乏有效支持初始探索的交互原语.
-
-
-\arxivwithtarget{2602.21143}{A Benchmark for Deep Information Synthesis}{Debjit Paul, Daniel Murphy, Milan Gritta, Ronald Cardenas, Victor Prokhorov, Lena Sophia Bolliger, Aysim Toker, Roy Miles, Andreea-Maria Oncescu, Jasivan Alex Sivakumar, Philipp Borchert, Ismail Elezi, Meiru Zhang, Ka Yiu Lee, Guchun Zhang, Jun Wang, Gerasimos Lampouras}\textbf{cs.AI}, cs.CL, cs.IR, cs.LG.
-
-本文提出了一个名为DEEPSYNTH的新基准测试, 用于评估基于大语言模型的智能体在复杂信息综合任务上的能力. 该基准包含跨多个领域的真实任务, 测试结果表明当前最先进的模型在该基准上表现不佳.
-
-
-\arxivwithtarget{2602.21154}{CG-DMER: Hybrid Contrastive-Generative Framework for Disentangled Multimodal ECG Representation Learning}{Ziwei Niu, Hao Sun, Shujun Bian, Xihong Yang, Lanfen Lin, Yuxin Liu, Yueming Jin}\textbf{cs.AI}.
-
-本文提出了一种结合对比学习和生成学习的混合框架CG-DMER, 用于学习解耦的多模态心电图(ECG)表示. 该方法通过空间-时间掩码建模来捕捉ECG信号的细粒度时空依赖性, 并使用表示解耦与对齐策略来减少模态间的特定偏差. 在三个公开数据集上的实验表明, 该框架在多种下游任务上取得了先进的性能.
-
-
-\arxivwithtarget{2602.21172}{NoRD: A Data-Efficient Vision-Language-Action Model that Drives without Reasoning}{Ishaan Rawal, Shubh Gupta, Yihan Hu, Wei Zhan}\textbf{cs.AI}, cs.CV.
-
-本文提出了一种名为NoRD的Vision-Language-Action模型, 旨在减少自动驾驶中对大规模数据和密集推理标注的依赖. 该模型通过结合Dr. GRPO算法来克服训练中的困难偏差, 在仅使用少量数据和无推理标注的情况下, 在Waymo和NAVSIM基准上取得了有竞争力的性能.
-
-
-\arxivwithtarget{2602.21201}{Aletheia tackles FirstProof autonomously}{Tony Feng, Junehyuk Jung, Sang-hyun Kim, Carlo Pagano, Sergei Gukov, Chiang-Chiang Tsai, David Woodruff, Adel Javanmard, Aryan Mokhtari, Dawsen Hwang, Yuri Chervonyi, Jonathan N. Lee, Garrett Bingham, Trieu H. Trinh, Vahab Mirrokni, Quoc V. Le, Thang Luong}\textbf{cs.AI}, cs.CL, cs.LG.
-
-本文报告了人工智能数学研究代理 Aletheia 在首届 FirstProof 挑战赛中的表现. 该代理在限定时间内自主解决了10个问题中的6个.
+本文提出了一种基于Petri net reachability relaxation的方法, 用于在sequential task planning中检测不可行性并提供解释. 该方法利用增量约束求解器支持目标和约束的更新, 在实验中表现出良好的不可行性检测和序列规划更新性能.
 
 
 \section{cs.IR}
-\arxivwithtarget{2602.20507}{Indaleko: The Unified Personal Index}{William Anthony Mason}\textbf{cs.IR}, cs.HC.
+\arxivwithtarget{2602.21456}{Revisiting Text Ranking in Deep Research}{Chuan Meng, Litu Ou, Sean MacAvaney, Jeff Dalton}\textbf{cs.IR}, cs.AI, cs.CL.
 
-本文提出了一种名为Unified Personal Index (UPI)的、与人类记忆机制对齐的个人信息检索架构, 并开发了原型系统Indaleko. 该系统通过整合时间、空间和活动等多维度元数据到一个统一的图数据库中, 支持基于自然语言描述的上下文查询, 解决了现有跨平台搜索系统在基于记忆线索检索时的不足.
-
-
-\arxivwithtarget{2602.20676}{PRECTR-V2:Unified Relevance-CTR Framework with Cross-User Preference Mining, Exposure Bias Correction, and LLM-Distilled Encoder Optimization}{Shuzhi Cao, Rong Chen, Ailong He, Shuguang Han, Jufeng Chen}\textbf{cs.IR}, cs.AI.
-
-本文提出了一个用于搜索系统的统一框架PRECTR-V2, 旨在协同优化相关性匹配和点击率预测. 它通过挖掘跨用户偏好来缓解冷启动问题, 并引入噪声注入和成对损失来校正曝光偏差. 此外, 模型使用基于LLM知识蒸馏的轻量级Transformer编码器替代了原有的冻结BERT模块, 以更好地适应下游任务.
+本文在深度研究任务中, 系统性地复现并评估了信息检索文本排序方法的关键发现与最佳实践. 研究通过固定语料库数据集, 从检索单元、流程配置和查询特性三个角度, 分析了不同检索器与重排序器的表现, 发现代理生成的类网页搜索查询更偏好词汇和稀疏检索方法, 而将查询转化为自然语言问题能有效弥合训练数据与使用场景的差异.
 
 
-\arxivwithtarget{2602.20704}{IntRR: A Framework for Integrating SID Redistribution and Length Reduction}{Zesheng Wang, Longfei Xu, Weidong Deng, Huimin Yan, Kaikui Liu, Xiangxiang Chu}\textbf{cs.IR}.
+\arxivwithtarget{2602.21553}{Revisiting RAG Retrievers: An Information Theoretic Benchmark}{Wenqing Zheng, Dmitri Kalaev, Noah Fatsi, Daniel Barcklow, Owen Reinert, Igor Melnyk, Senthil Kumar, C. Bayan Bruss}\textbf{cs.IR}, cs.AI, cs.LG.
 
-本文提出了一个名为IntRR的框架, 用于整合生成式推荐中的SID重分配与长度缩减. 它通过利用UID作为协作锚点来动态调整分层语义ID的权重, 并采用递归处理固定序列长度, 从而提升了推荐的准确性与效率.
-
-
-\arxivwithtarget{2602.20735}{RMIT-ADM+S at the MMU-RAG NeurIPS 2025 Competition}{Kun Ran, Marwah Alaofi, Danula Hettiachchi, Chenglong Ma, Khoi Nguyen Dinh Anh, Khoi Vo Nguyen, Sachin Pathiyan Cherumanal, Lida Rashidi, Falk Scholer, Damiano Spina, Shuoqi Sun, Oleg Zendel}\textbf{cs.IR}, cs.AI, cs.CL.
-
-本文介绍了在NeurIPS 2025 MMU-RAG竞赛中获奖的RMIT-ADM+S系统. 该系统提出了一种名为Routing-to-RAG (R2RAG)的检索增强生成架构, 通过轻量级组件动态调整检索策略, 并能在消费级GPU上高效运行.
+本文提出了一个基于互信息的RAG检索器分析框架MIGRASCOPE, 用于系统性地评估不同检索机制的质量、冗余度与协同效应. 通过该框架对主流检索器进行分析, 发现精心组合的检索器集成方案可以超越任何单一检索器, 为构建鲁棒的RAG系统提供了实用指导.
 
 
-\arxivwithtarget{2602.20800}{Mitigating Preference Leakage via Strict Estimator Separation for Normative Generative Ranking}{Dalia Nahhas, Xiaohao Cai, Imran Razzak, Shoaib Jameel}\textbf{cs.IR}.
+\arxivwithtarget{2602.21598}{Retrieval Challenges in Low-Resource Public Service Information: A Case Study on Food Pantry Access}{Touseef Hasan, Laila Cure, Souvika Sarkar}\textbf{cs.IR}, cs.AI.
 
-本文针对Generative Information Retrieval (GenIR)中的偏好泄露问题, 提出了一个严格分离监督与评估的两阶段框架. 该方法在一个新的文化故事基准上验证了其有效性, 并表明经过蒸馏的密集编码器能在无泄露评估中超越其监督模型.
-
-
-\arxivwithtarget{2602.20877}{E-MMKGR: A Unified Multimodal Knowledge Graph Framework for E-commerce Applications}{Jiwoo Kang, Yeon-Chang Lee}\textbf{cs.IR}, cs.AI.
-
-本文提出了一个名为E-MMKGR的统一多模态知识图谱框架, 用于电子商务应用. 该框架通过构建特定的知识图谱并利用图神经网络学习统一的物品表示, 从而提升了推荐和搜索任务的性能.
+本文针对公共服务信息检索中的低资源环境挑战, 以食品储藏室访问为例, 开发了一个基于AI的对话式检索系统. 该系统采用RAG (Retrieval-Augmented Generation) 管道处理自然语言查询, 并通过试点评估揭示了其在处理不明确查询和不一致知识库时的局限性.
 
 
-\arxivwithtarget{2602.20986}{Naver Labs Europe @ WSDM CUP | Multilingual Retrieval}{Thibault Formal, Maxime Louis, Hervé Déjean, Stéphane Clinchant}\textbf{cs.IR}.
+\arxivwithtarget{2602.21600}{AQR-HNSW: Accelerating Approximate Nearest Neighbor Search via Density-aware Quantization and Multi-stage Re-ranking}{Ganap Ashit Tewary, Nrusinga Charan Gantayat, Jeff Zhang}\textbf{cs.IR}.
 
-本文介绍了团队在WSDM Cup 2026多语言文档检索任务中的工作, 主要评估了其提出的SPLARE稀疏检索模型. 通过结合Qwen3-Reranker-4B重排序等轻量级改进, 结果表明SPLARE在跨语言场景下优于Qwen3-8B-Embed等先进的稠密检索基线.
-
-
-\arxivwithtarget{2602.20995}{Generative Pseudo-Labeling for Pre-Ranking with LLMs}{Junyu Bi, Xinting Niu, Daixuan Cheng, Kun Yuan, Tao Wang, Binbin Cao, Jian Wu, Yuning Jiang}\textbf{cs.IR}, cs.CL.
-
-本文提出了一种名为Generative Pseudo-Labeling (GPL)的框架, 用于缓解推荐系统预排序阶段的训练-服务偏差问题. 该方法利用大型语言模型(LLMs)为未曝光项目生成伪标签, 从而提升模型在线上服务时的泛化能力.
+本文提出了一种名为AQR-HNSW的新框架, 通过结合密度感知的自适应量化、多阶段重排序和量化优化的SIMD实现, 显著提升了HNSW算法的查询速度和内存效率. 实验表明, 该方法在保持高召回率的同时, 实现了数倍的查询性能提升和内存占用降低.
 
 
-\arxivwithtarget{2602.21009}{HiSAC: Hierarchical Sparse Activation Compression for Ultra-long Sequence Modeling in Recommenders}{Kun Yuan, Junyu Bi, Daixuan Cheng, Changfa Wu, Shuwen Xiao, Binbin Cao, Jian Wu, Yuning Jiang}\textbf{cs.IR}, cs.CL.
+\arxivwithtarget{2602.21677}{Trie-Aware Transformers for Generative Recommendation}{Zhenxiang Xu, Jiawei Chen, Sirui Chen, Yong He, Jieyu Yang, Chuan Yuan, Ke Ding, Can Wang}\textbf{cs.IR}, cs.LG.
 
-本文提出了一种用于推荐系统中超长序列建模的层级稀疏激活压缩框架. 该方法通过构建全局层级码本和稀疏激活个性化兴趣代理来高效聚合历史行为, 在保持性能的同时显著降低了计算和存储成本.
-
-
-\arxivwithtarget{2602.21052}{Position-Aware Sequential Attention for Accurate Next Item Recommendations}{Timur Nabiev, Evgeny Frolov}\textbf{cs.IR}, cs.AI, cs.LG.
-
-本文提出了一种新的位置感知自注意力机制, 用于序列推荐任务. 该方法通过解耦位置信息与语义信息, 并利用可学习的位置核直接调制注意力权重, 从而改进了对序列模式的建模能力.
+本文提出了一种名为TrieRec的生成式推荐方法, 通过引入两种位置编码(绝对与相对)将item tokenization形成的trie(前缀树)结构信息融入Transformer模型. 该方法在多个数据集和骨干模型上取得了显著的性能提升.
 
 
-\arxivwithtarget{2602.21099}{Turning Semantics into Topology: LLM-Driven Attribute Augmentation for Collaborative Filtering}{Junjie Meng, Ranxu zhang, Wei Wu, Rui Zhang, Chuan Qin, Qi Zhang, Qi Liu, Hui Xiong, Chao Wang}\textbf{cs.IR}.
+\arxivwithtarget{2602.21756}{Offline Reasoning for Efficient Recommendation: LLM-Empowered Persona-Profiled Item Indexing}{Deogyong Kim, Junseong Lee, Jeongeun Lee, Changhoe Kim, Junguel Lee, Jungseok Lee, Dongha Lee}\textbf{cs.IR}, cs.LG.
 
-本文提出了一种名为TAGCF的推荐系统框架, 它利用LLM从用户-物品对中推断交互意图和因果关系, 并将这些语义知识转化为拓扑连接, 构建一个增强的User-Attribute-Item图. 通过提出的自适应关系加权图卷积(ARGC)来建模异构关系, 实验表明该框架能有效提升多种协同过滤基线的性能.
+本文提出了一种名为Persona4Rec的推荐系统框架, 它利用LLM在离线阶段从物品评论中推理出代表不同用户动机的"persona"表示, 从而构建一个可解释的物品索引. 在线阶段则通过轻量级的用户-人物对齐模型进行快速相关性计算, 避免了昂贵的在线LLM推理, 在保持性能的同时显著降低了延迟.
 
 
-\arxivwithtarget{2602.21202}{Multi-Vector Index Compression in Any Modality}{Hanxiang Qin, Alexander Martin, Rohan Jha, Chunsheng Zuo, Reno Kriz, Benjamin Van Durme}\textbf{cs.IR}, cs.CL, cs.CV.
+\arxivwithtarget{2602.21957}{Learning to Collaborate via Structures: Cluster-Guided Item Alignment for Federated Recommendation}{Yuchun Tu, Zhiwei Li, Bingli Sun, Yixuan Li, Xiao Song}\textbf{cs.IR}, cs.LG.
 
-本文研究了跨模态检索中多向量索引的压缩问题, 提出了几种查询无关的压缩方法, 包括一种新颖的注意力引导聚类(AGC)方法. 实验表明, AGC在文本、视觉文档和视频检索任务上能有效压缩索引并保持竞争力.
+本文提出了一种联邦推荐框架CGFedRec, 通过传输紧凑的聚类标签而非完整的高维物品嵌入来促进跨客户端的协作. 该方法在保持推荐精度的同时, 显著提升了通信效率.
 
 
 \section{cs.CL}
-\arxivwithtarget{2601.12815}{Multimodal Multi-Agent Empowered Legal Judgment Prediction}{Zhaolu Kang, Junhao Gong, Qingxi Chen, Hao Zhang, Jiaxin Liu, Rong Fu, Zhiyuan Feng, Yuan Wang, Simon Fong, Kaiyue Zhou}\textbf{cs.CL}, cs.AI, cs.CY, cs.MA.
+\arxivwithtarget{2602.21212}{Disaster Question Answering with LoRA Efficiency and Accurate End Position}{Takato Yasuno}\textbf{cs.CL}, cs.IR, cs.LG.
 
-本文提出了一个用于法律判决预测(LJP)的多模态多智能体框架JurisMMA, 并构建了一个包含文本和视频文本数据的大规模数据集JurisMM. 实验表明该框架在多个基准测试上有效, 为法律应用提供了新的视角.
+本文提出了一种针对日本灾害情境的问答系统, 采用基于BERT的架构并结合LoRA进行高效优化, 在端位置准确率上取得了不错的结果. 该系统旨在为灾害响应提供可靠的信息支持, 并探讨了未来在基准数据集构建和轻量化部署方面的挑战.
 
 
-\arxivwithtarget{2602.20162}{Talking to Yourself: Defying Forgetting in Large Language Models}{Yutao Sun, Mingshuai Chen, Tiancheng Zhao, Phillip Miao, Zilun Zhang, Haozhan Shen, Ruizhe Zhu, Jianwei Yin}\textbf{cs.CL}, cs.AI.
+\arxivwithtarget{2602.21215}{Inference-time Alignment via Sparse Junction Steering}{Runyi Hu, Jie Zhang, Shiqian Zhao, Jiale Meng, Jiwei Li, Jason Zeng, Ming Wu, Michael Heinrich, Yonggang Wen, Tianwei Zhang}\textbf{cs.CL}, cs.AI.
 
-本文提出了一种名为SA-SFT的轻量级自增强方法, 通过在微调前让大语言模型生成自对话数据并与任务数据混合, 来缓解灾难性遗忘问题. 该方法无需外部数据或额外调优, 在多种评估场景中有效保持了模型的通用能力.
+本文提出了一种名为Sparse Inference-time Alignment (SIA)的方法, 用于在推理时对大型语言模型进行对齐控制. 该方法仅在生成轨迹的关键决策点进行稀疏干预, 而非在每个解码步骤都进行密集干预, 从而在保持生成质量的同时显著降低了计算开销. 实验表明, 仅干预20%到80%的token即可实现优越的对齐效率权衡.
 
 
-\arxivwithtarget{2602.20164}{Benchmarking Distilled Language Models: Performance and Efficiency in Resource-Constrained Settings}{Sachin Gopal Wani, Eric Page, Ajay Dholakia, David Ellison}\textbf{cs.CL}, cs.LG.
+\arxivwithtarget{2602.21216}{EQ-5D Classification Using Biomedical Entity-Enriched Pre-trained Language Models and Multiple Instance Learning}{Zhyar Rzgar K Rostam, Gábor Kertész}\textbf{cs.CL}, cs.AI.
 
-本文通过基准测试比较了蒸馏模型与原始模型及专有模型在性能和计算成本上的差异. 研究发现, 知识蒸馏能显著提升小型语言模型在资源受限环境下的性能-计算效率曲线.
+本文提出了一种结合生物医学实体信息与预训练语言模型的方法, 用于从文献摘要中自动检测EQ-5D相关研究. 通过使用scispaCy模型提取实体来增强句子表示, 并采用Multiple Instance Learning框架在文章层面进行预测, 该方法在性能上超越了传统基线模型.
 
 
-\arxivwithtarget{2602.20166}{ConceptRM: The Quest to Mitigate Alert Fatigue through Consensus-Based Purity-Driven Data Cleaning for Reflection Modelling}{Yongda Yu, Lei Zhang, Xinxin Guo, Minghui Yu, Zhengqi Zhuang, Guoping Rong, Haifeng Shen, Zhengfeng Li, Boge Wang, Guoan Zhang, Bangyu Xiang, Xiaobin Xu}\textbf{cs.CL}, cs.AI.
+\arxivwithtarget{2602.21217}{Applied Sociolinguistic AI for Community Development (ASA-CD): A New Scientific Paradigm for Linguistically-Grounded Social Intervention}{S M Ruhul Alam, Rifa Ferzana}\textbf{cs.CL}, cs.AI, cs.CY.
 
-本文提出了一种名为ConceptRM的方法, 用于从用户反馈中构建高质量的训练语料, 以训练能够有效过滤虚假警报的reflection model. 该方法利用少量专家标注作为锚点, 通过生成不同噪声比例的数据集和协同训练多个模型来分析共识, 从而从噪声数据中识别可靠的负样本. 实验表明, ConceptRM能以较低的标注成本显著提升虚假警报的拦截效果.
+本文提出了一个名为ASA-CD的新范式, 旨在利用基于语言分析的AI技术来辅助社区发展. 它引入了几个核心概念, 并通过概念验证研究展示了其潜在应用.
 
 
-\arxivwithtarget{2602.20294}{InterviewSim: A Scalable Framework for Interview-Grounded Personality Simulation}{Yu Li, Pranav Narayanan Venkit, Yada Pruksachatkun, Chien-Sheng Wu}\textbf{cs.CL}, cs.AI, cs.CY.
+\arxivwithtarget{2602.21218}{EPSVec: Efficient and Private Synthetic Data Generation via Dataset Vectors}{Amin Banayeeanzade, Qingchuan Yang, Deqing Fu, Spencer Hong, Erin Babinsky, Alfy Samuel, Anoop Kumar, Robin Jia, Sai Praneeth Karimireddy}\textbf{cs.CL}, cs.AI, cs.CR, cs.LG.
 
-本文提出了一个基于真实访谈数据的大规模人格模拟评估框架 InterviewSim. 该框架通过四个互补的指标来评估生成内容与真实访谈记录在内容、事实、人格和知识保留上的一致性. 实验表明, 基于访谈数据的方法优于仅依赖传记或模型参数知识的方法, 并揭示了检索增强方法与按时间顺序使用方法在不同评估指标上的权衡.
+本文提出了一种名为EPSVec的高效隐私保护合成数据生成方法. 该方法通过提取并净化一次性的"数据集向量"来引导大语言模型生成, 从而将隐私成本与生成过程解耦, 显著提升了效率. 实验表明, 该方法在低数据量下仍能保持良好的分布对齐和下游任务效用.
 
 
-\arxivwithtarget{2602.20300}{What Makes a Good Query? Measuring the Impact of Human-Confusing Linguistic Features on LLM Performance}{William Watson, Nicole Cho, Sumitra Ganesh, Manuela Veloso}\textbf{cs.CL}, cs.AI.
+\arxivwithtarget{2602.21219}{Reasoning-Based Personalized Generation for Users with Sparse Data}{Bo Ni, Branislav Kveton, Samyadeep Basu, Subhojyoti Mukherjee, Leyao Wang, Franck Dernoncourt, Sungchul Kim, Seunghyun Yoon, Zichao Wang, Ruiyi Zhang, Puneet Mathur, Jihyung Kil, Jiuxiang Gu, Nedim Lipka, Yu Wang, Ryan A. Rossi, Tyler Derr}\textbf{cs.CL}, cs.AI.
 
-本文通过构建一个包含22个语言学特征的查询向量, 分析了查询的句法复杂性和语义特性对大型语言模型(LLM)产生幻觉的影响. 研究发现, 诸如深层子句嵌套等特征与更高的幻觉倾向相关, 而清晰的意图和可回答性则与较低的幻觉率相关.
+本文提出了一个名为GraSPer的框架, 用于解决在用户交互数据稀疏场景下的个性化文本生成问题. 该框架通过预测用户未来可能交互的项目并生成相应的合成文本来增强上下文, 从而提升大型语言模型(LLM)的个性化生成效果.
 
 
-\arxivwithtarget{2602.20332}{No One Size Fits All: QueryBandits for Hallucination Mitigation}{Nicole Cho, William Watson, Alec Koppel, Sumitra Ganesh, Manuela Veloso}\textbf{cs.CL}, cs.AI, cs.LG.
+\arxivwithtarget{2602.21220}{Field-Theoretic Memory for AI Agents: Continuous Dynamics for Context Preservation}{Subhadip Mitra}\textbf{cs.CL}, cs.AI, cs.LG.
 
-本文提出了一个名为 QueryBandits 的模型无关的上下文赌博机框架, 用于缓解大型语言模型中的幻觉问题. 该框架通过在线学习自适应地选择最优的查询重写策略, 并在多个问答场景中验证了其有效性.
+本文提出了一种基于连续场论的AI智能体记忆系统, 将记忆视为由偏微分方程控制的连续场而非离散条目. 该方法在长上下文基准测试中表现出性能提升, 并通过场耦合实现了多智能体场景下的高效协作.
 
 
-\arxivwithtarget{2602.20336}{Natural Language Processing Models for Robust Document Categorization}{Radoslaw Roszczyk, Pawel Tecza, Maciej Stodolski, Krzysztof Siwek}\textbf{cs.CL}.
+\arxivwithtarget{2602.21222}{Task-Aware LoRA Adapter Composition via Similarity Retrieval in Vector Databases}{Riya Adsul, Balachandra Devarangadi Sunil, Isha Nalawade, Sudharshan Govindan}\textbf{cs.CL}, cs.AI, cs.LG.
 
-本文评估了Naive Bayes, BiLSTM和BERT等模型在文本分类任务上的表现, 重点关注分类准确率与计算效率的平衡. 实验表明BERT准确率最高但计算成本大, BiLSTM在准确率和效率间取得了较好的平衡, 而Naive Bayes速度最快但准确率最低. 研究还实现了一个演示系统来验证自动化文档分类的实用性.
+本文提出了一种基于向量数据库相似性检索的动态LoRA适配器组合框架, 用于提升大语言模型在未见NLP任务上的零样本泛化能力. 该方法通过检索相似训练示例并动态融合相关适配器, 在多个任务上取得了与单任务微调相当或更优的性能.
 
 
-\arxivwithtarget{2602.20372}{How communicatively optimal are exact numeral systems? Once more on lexicon size and morphosyntactic complexity}{Chundra Cathcart, Arne Rubehn, Katja Bocklage, Luca Ciucci, Kellen Parker van Dam, Alžběta Kučerová, Jekaterina Mažara, Carlo Y. Meloni, David Snee, Johann-Mattis List}\textbf{cs.CL}.
+\arxivwithtarget{2602.21223}{Measuring Pragmatic Influence in Large Language Model Instructions}{Yilin Geng, Omri Abend, Eduard Hovy, Lea Frermann}\textbf{cs.CL}, cs.AI.
 
-本文通过分析52种语言的数词系统数据, 重新审视了"精确递归数词系统通过平衡词库大小与平均形态句法复杂度来优化交际效率"的假说. 研究指出, 许多语言的实际效率显著低于理论预期, 这对语言演化研究具有启示意义.
+本文研究了在给大型语言模型(LLM)下达指令时, 如何措辞(即语用框架) 会影响模型的行为, 即使任务内容本身不变. 作者提出了一个包含指令-框架分解、分类体系和基于优先级的测量方法的框架, 用以系统性地量化这种影响. 实验表明, 不同的语用框架策略能在多个LLM中引起一致且结构化的指令优先级变化.
 
 
-\arxivwithtarget{2602.20379}{Case-Aware LLM-as-a-Judge Evaluation for Enterprise-Scale RAG Systems}{Mukul Chhabra, Luigi Medrano, Arush Verma}\textbf{cs.CL}, cs.AI.
+\arxivwithtarget{2602.21224}{Make Every Draft Count: Hidden State based Speculative Decoding}{Yuetao Chen, Xuliang Wang, Xinzhou Zheng, Ming Li, Peng Wang, Hong Xu}\textbf{cs.CL}, cs.AI, cs.DC, cs.LG.
 
-本文提出了一个面向企业级多轮RAG系统的、基于案例感知的LLM-as-a-Judge评估框架. 该框架通过八个基于实际操作的指标来评估系统性能, 旨在解决现有评估方法在企业特定场景下的不足.
+本文提出了一种基于隐藏状态的推测解码系统, 旨在回收传统推测解码中被丢弃的草稿计算. 通过设计一种基于自回归隐藏状态的草稿模型架构和高效的令牌信息注入机制, 该系统能将验证失败的草稿转化为可重用的令牌, 从而提升硬件利用率和推理速度.
 
 
-\arxivwithtarget{2602.20433}{Disentangling Geometry, Performance, and Training in Language Models}{Atharva Kulkarni, Jacob Mitchell Springer, Arjun Subramonian, Swabha Swayamdipta}\textbf{cs.CL}.
+\arxivwithtarget{2602.21225}{Architecture-Agnostic Curriculum Learning for Document Understanding: Empirical Evidence from Text-Only and Multimodal}{Mohammed Hamdan, Vincenzo Dentamaro, Giuseppe Pirlo, Mohamed Cheriet}\textbf{cs.CL}, cs.AI, cs.LG.
 
-本文通过系统实验研究了语言模型中unembedding matrix的几何性质(特别是effective rank)与下游任务性能之间的关系. 研究发现, 几何指标主要反映训练超参数的选择, 并不能可靠地预测模型性能.
+本文通过实验研究了渐进式课程学习策略在不同架构的文档理解模型上的效果. 实验表明, 该策略能稳定地减少约33%的训练时间, 但其带来的额外性能提升取决于模型容量与任务复杂度的交互.
 
 
-\arxivwithtarget{2602.20513}{From Performance to Purpose: A Sociotechnical Taxonomy for Evaluating Large Language Model Utility}{Gavin Levinson, Keith Feldman}\textbf{cs.CL}.
+\arxivwithtarget{2602.21226}{IslamicLegalBench: Evaluating LLMs Knowledge and Reasoning of Islamic Law Across 1,200 Years of Islamic Pluralist Legal Traditions}{Ezieddin Elmahjub, Junaid Qadir, Abdullah Mushtaq, Rafay Naeem, Ibrahim Ghaznavi, Waleed Iqbal}\textbf{cs.CL}, cs.AI.
 
-本文提出了一个名为LUX的综合分类框架, 用于评估大型语言模型(LLM)在现实应用中的效用. 该框架超越了传统的性能指标, 从性能、交互、运营和治理四个领域构建了层次化的评估维度, 并提供了配套的在线工具以连接具体度量指标.
+本文提出了首个评估大型语言模型在伊斯兰法学领域知识和推理能力的基准IslamicLegalBench, 覆盖了七个法学流派和13个不同复杂度的任务. 评估结果显示, 现有模型在需要精确知识的任务上表现不佳, 且存在较高的幻觉率, 表明基于提示的方法无法弥补其基础知识的缺失.
 
 
-\arxivwithtarget{2602.20528}{Stop-Think-AutoRegress: Language Modeling with Latent Diffusion Planning}{Justin Lovelace, Christian Belardi, Sofian Zalouk, Adhitya Polavaram, Srivatsa Kundurthy, Kilian Q. Weinberger}\textbf{cs.CL}, cs.LG.
+\arxivwithtarget{2602.21227}{Budget-Aware Agentic Routing via Boundary-Guided Training}{Caiqi Zhang, Menglin Xia, Xuchao Zhang, Daniel Madrigal, Ankur Mallick, Samuel Kessler, Victor Ruehle, Saravan Rajmohan}\textbf{cs.CL}, cs.AI.
 
-本文提出了一种结合 latent diffusion planning 与 autoregressive generation 的语言模型 STAR-LDM. 它在生成过程中引入一个“思考”阶段, 先在连续语义空间进行全局规划, 再生成离散 token, 在语言理解和叙事连贯性任务上表现优于同类模型.
+本文提出了一种面向预算约束的智能体路由方法, 通过边界引导训练在每一步选择廉价或昂贵模型以优化成本-成功率边界. 该方法利用边界策略构建难度分类并引导稀疏奖励下的学习, 结合合成数据与策略优化. 实验表明该方法能以更低成本匹配基线性能, 并能泛化到严格的推理时预算约束.
 
 
-\arxivwithtarget{2602.20580}{Personal Information Parroting in Language Models}{Nishant Subramani, Kshitish Ghate, Mona Diab}\textbf{cs.CL}, cs.AI, cs.CR, cs.LG.
+\arxivwithtarget{2602.21228}{ImpRIF: Stronger Implicit Reasoning Leads to Better Complex Instruction Following}{Yuancheng Yang, Lin Yang, Xu Wang, Chao Tong, Haihua Yang}\textbf{cs.CL}, cs.AI.
 
-本文开发了R&R检测器套件来识别语言模型训练数据中的个人身份信息(PI), 并评估了Pythia模型系列对PI的记忆程度. 研究发现模型规模和预训练数据量均与记忆率呈正相关, 建议对预训练数据进行严格的过滤和匿名化处理.
+本文提出了一种名为ImpRIF的方法, 旨在通过增强大语言模型对指令中隐含推理结构的理解来提升其遵循复杂指令的能力. 该方法将复杂指令形式化为可验证的推理图, 并利用合成数据进行微调和强化学习.
 
 
-\arxivwithtarget{2602.20634}{Enhancing Hate Speech Detection on Social Media: A Comparative Analysis of Machine Learning Models and Text Transformation Approaches}{Saurabh Mishra, Shivani Thakur, Radhika Mamidi}\textbf{cs.CL}, cs.AI.
+\arxivwithtarget{2602.21230}{TRACE: Trajectory-Aware Comprehensive Evaluation for Deep Research Agents}{Yanyu Chen, Jiyue Jiang, Jiahong Liu, Yifei Zhang, Xiao Guo, Irwin King}\textbf{cs.CL}.
 
-本文比较了多种机器学习模型在社交媒体仇恨言论检测中的性能, 并探索了文本转换技术的中和作用. 研究发现, 基于深度上下文理解的BERT等先进模型具有较高准确性, 而混合模型在某些场景下表现更佳.
+本文提出了一个名为TRACE的轨迹感知综合评估框架, 用于评估深度研究智能体. 该框架通过分层轨迹效用函数量化推理过程的质量与效率, 并引入支架式能力评估协议来测量智能体的潜在能力.
 
 
-\arxivwithtarget{2602.20647}{Semantic Novelty at Scale: Narrative Shape Taxonomy and Readership Prediction in 28,606 Books}{W. Frederick Zimmerman}\textbf{cs.CL}.
+\arxivwithtarget{2602.21257}{Structured Prompt Language: Declarative Context Management for LLMs}{Wen G. Gong}\textbf{cs.CL}, cs.DB, cs.PL.
 
-本文提出了一种基于语义新颖性(semantic novelty)的度量, 用于在大规模语料库中分析叙事结构. 通过分析28,606本书籍, 研究发现叙事形状与体裁、历史时期相关, 并且新颖性轨迹的方差是预测读者参与度的最强指标.
+本文提出了一种名为SPL的声明式语言, 用于管理LLM的上下文窗口. 该语言集成了token预算管理, 查询优化和RAG等功能, 并展示了其在多模型路由和智能文档处理等方面的应用潜力.
 
 
-\arxivwithtarget{2602.20648}{CARE: An Explainable Computational Framework for Assessing Client-Perceived Therapeutic Alliance Using Large Language Models}{Anqi Li, Chenxiao Wang, Yu Lu, Renjun Xu, Lizhi Ma, Zhenzhong Lan}\textbf{cs.CL}.
+\arxivwithtarget{2602.21262}{Under the Influence: Quantifying Persuasion and Vigilance in Large Language Models}{Sasha Robinson, Kerem Oktar, Katherine M. Collins, Ilia Sucholutsky, Kelsey R. Allen}\textbf{cs.CL}, cs.LG, cs.MA.
 
-本文提出了一个基于大语言模型的框架CARE, 用于从心理咨询对话文本中自动预测客户感知的治疗联盟多维评分并生成可解释的理由. 该框架在特定数据集上进行了微调, 实验表明其在预测准确性和生成理由质量上优于现有方法.
+本文通过一个简单的多轮解谜游戏 Sokoban 来研究大型语言模型的说服能力和理性警惕性. 研究发现, 模型的任务表现、说服能力和警惕性是相互分离的, 即使明确提示存在欺骗可能, 模型也未必能有效识别误导.
 
 
-\arxivwithtarget{2602.20670}{CAMEL: Confidence-Gated Reflection for Reward Modeling}{Zirui Zhu, Hailun Xu, Yang Luo, Yong Liu, Kanchan Sarkar, Kun Xu, Yang You}\textbf{cs.CL}, cs.AI.
+\arxivwithtarget{2602.21265}{ToolMATH: A Math Tool Benchmark for Realistic Long-Horizon Multi-Tool Reasoning}{Hyeonje Choi, Jeongsoo Lee, Hyojun Lee, Jay-Yoon Lee}\textbf{cs.CL}, cs.LG, cs.SE.
 
-本文提出了一种用于奖励建模的置信度门控反思框架CAMEL, 它首先进行轻量级的单令牌偏好决策, 然后仅对低置信度实例选择性地调用反思过程. 该方法在多个基准测试上取得了最先进的性能, 并在效率与准确性之间建立了更优的帕累托前沿.
+本文提出了一个名为ToolMATH的数学工具基准测试, 用于评估语言模型在需要调用多种工具进行多步推理的现实场景中的表现. 该基准包含大量问题和工具, 旨在诊断工具增强型智能体在复杂环境下的失败模式.
 
 
-\arxivwithtarget{2602.20727}{ID-LoRA: Efficient Low-Rank Adaptation Inspired by Matrix Interpolative Decomposition}{Xindian Ma, Rundong Kong, Peng Zhang, Ruoxiang Huang, Yongyu Jiang}\textbf{cs.CL}.
+\arxivwithtarget{2602.21346}{Alignment-Weighted DPO: A principled reasoning approach to improve safety alignment}{Mengxuan Hu, Vivek V. Datla, Anoop Kumar, Zihan Guan, Sheng Li, Alfy Samuel, Daben Liu}\textbf{cs.CL}, cs.AI.
 
-本文提出了一种名为ID-LoRA的新型参数高效微调框架, 旨在减少可训练参数数量而不牺牲模型性能. 该方法通过复用预训练权重矩阵中的聚类参数组来构建多个共享同一可训练矩阵的低秩分量. 实验表明, ID-LoRA在多个基准测试上优于标准LoRA及其变体, 同时显著减少了参数量.
+本文提出了一种名为Alignment-Weighted DPO的方法, 旨在通过增强推理能力来提升大语言模型的安全性. 该方法构建了一个包含逐步推理过程的数据集进行微调, 并改进了偏好优化算法, 以针对输出中的不同部分进行更精细的调整. 实验表明, 该方法能有效提升模型对多种越狱攻击的鲁棒性.
 
 
-\arxivwithtarget{2602.20743}{Adaptive Text Anonymization: Learning Privacy-Utility Trade-offs via Prompt Optimization}{Gabriel Loiseau, Damien Sileo, Damien Riquet, Maxime Meyer, Marc Tommasi}\textbf{cs.CL}.
+\arxivwithtarget{2602.21374}{Small Language Models for Privacy-Preserving Clinical Information Extraction in Low-Resource Languages}{Mohammadreza Ghaffarzadeh-Esfahani, Nahid Yousefian, Ebrahim Heidari-Farsani, Ali Akbar Omidvarian, Sepehr Ghahraei, Atena Farangi, AmirBahador Boroumand}\textbf{cs.CL}, cs.AI, cs.LG.
 
-本文提出了自适应文本匿名化任务, 通过提示优化框架自动生成适应特定隐私-效用需求的匿名化指令. 该方法在多个数据集上超越了现有基线, 实现了更好的隐私-效用权衡, 并能发现新的匿名化策略.
+本文评估了一个结合翻译模型与多个小型语言模型的两步流程, 用于从低资源语言的医疗文本中提取临床信息. 研究在波斯语癌症护理转录本上测试了多个模型, 发现较大模型在敏感性和整体性能上表现更好, 并证明了翻译策略的利弊, 为资源受限的临床NLP应用提供了一个隐私保护的可行方案.
 
 
-\arxivwithtarget{2602.20749}{Explicit Grammar Semantic Feature Fusion for Robust Text Classification}{Azrin Sultana, Firoz Ahmed}\textbf{cs.CL}.
+\arxivwithtarget{2602.21377}{Beyond Subtokens: A Rich Character Embedding for Low-resource and Morphologically Complex Languages}{Felix Schneider, Maria Gogolev, Sven Sickert, Joachim Denzler}\textbf{cs.CL}.
 
-本文提出了一种将显式语法规则与语义信息融合的轻量级文本分类方法. 该方法通过构建语法向量来编码句子结构, 并与冻结的上下文嵌入结合, 在多个深度学习模型上取得了优于基线模型的效果.
+本文提出了一种基于字符的Rich Character Embeddings (RCE)方法, 用于解决传统tokenization方法在形态丰富或低资源语言中捕捉orthographic相似性和morphological变化不足的问题. 该方法可直接从字符序列生成词向量, 并可与现有模型架构结合使用, 在多项评测任务中表现优于传统方法.
 
 
-\arxivwithtarget{2602.20751}{SibylSense: Adaptive Rubric Learning via Memory Tuning and Adversarial Probing}{Yifei Xu, Guilherme Potje, Shivam Shandilya, Tiancheng Yuan, Leonardo de Oliveira Nunes, Rakshanda Agarwal, Saeid Asgari, Adam Atkinson, Emre Kıcıman, Songwu Lu, Ranveer Chandra, Tusher Chakraborty}\textbf{cs.CL}, cs.AI, cs.LG.
+\arxivwithtarget{2602.21379}{MrBERT: Modern Multilingual Encoders via Vocabulary, Domain, and Dimensional Adaptation}{Daniel Tamayo, Iñaki Lacunza, Paula Rivera-Hidalgo, Severino Da Dalt, Javier Aula-Blasco, Aitor Gonzalez-Agirre, Marta Villegas}\textbf{cs.CL}, cs.AI, cs.LG.
 
-本文提出了一种名为SibylSense的推理时学习方法, 用于自适应地改进开放式生成任务的评估准则(rubric) . 该方法通过一个可调的记忆库来更新准则生成器, 并结合对抗性策略来生成满足准则的答案, 从而提升强化学习后训练的效果. 实验表明, 该方法能产生更具区分性的准则, 并优于静态和非自适应的基线.
+本文提出了MrBERT模型系列, 基于ModernBERT架构, 在35种语言和代码上进行预训练. 该模型通过词汇、领域和维度适应, 在特定语言任务和专业领域(如生物医学和法律)上取得了优异性能, 并利用Matryoshka Representation Learning实现了灵活的向量表示以降低推理和存储成本.
 
 
-\arxivwithtarget{2602.20759}{Overton Pluralistic Reinforcement Learning for Large Language Models}{Yu Fu, Seongho Son, Ilija Bogunovic}\textbf{cs.CL}.
+\arxivwithtarget{2602.21461}{VecGlypher: Unified Vector Glyph Generation with Language Models}{Xiaoke Huang, Bhavul Gauri, Kam Woh Ng, Tony Ng, Mengmeng Xu, Zhiheng Liu, Weiming Ren, Zhaochong An, Zijian Zhou, Haonan Qiu, Yuyin Zhou, Sen He, Ziheng Wang, Tao Xiang, Xiao Han}\textbf{cs.CL}.
 
-本文提出了OP-GRPO, 一个用于训练大语言模型生成多元化响应的强化学习框架. 该方法通过一个双奖励系统来平衡观点覆盖的广度与独特性, 实验表明较小的模型也能实现较好的观点覆盖效果.
+本文提出了一种名为VecGlypher的多模态语言模型, 用于直接从文本描述或图像示例生成可编辑的矢量字形(SVG路径). 该方法通过两阶段训练策略, 在跨字体评估中取得了优于现有基准的性能.
 
 
-\arxivwithtarget{2602.20816}{Don't Ignore the Tail: Decoupling top-K Probabilities for Efficient Language Model Distillation}{Sayantan Dasgupta, Trevor Cohn, Timothy Baldwin}\textbf{cs.CL}, cs.LG.
+\arxivwithtarget{2602.21485}{Evaluating the Usage of African-American Vernacular English in Large Language Models}{Deja Dunlap, R. Thomas McCoy}\textbf{cs.CL}, cs.HC.
 
-本文提出了一种新的tail-aware divergence用于语言模型蒸馏, 它通过解耦teacher模型top-K概率与低概率预测的贡献, 在保持与KL散度相同计算开销的同时, 增强了分布尾部信息的影响. 实验表明该方法在各种数据集上的预训练和监督蒸馏中取得了有竞争力的性能.
+本文通过分析人类语料库和模型生成文本, 比较了大型语言模型(LLMs)对非裔美国人白话英语(AAVE)的使用情况. 研究发现, 模型不仅使用不足且误用AAVE的语法特征, 还复制了关于非裔美国人的刻板印象.
 
 
-\arxivwithtarget{2602.20859}{FinAnchor: Aligned Multi-Model Representations for Financial Prediction}{Zirui He, Huopu Zhang, Yanguang Liu, Sirui Wu, Mengnan Du}\textbf{cs.CL}.
+\arxivwithtarget{2602.21543}{Enhancing Multilingual Embeddings via Multi-Way Parallel Text Alignment}{Barah Fazili, Koustava Goswami}\textbf{cs.CL}, cs.AI, cs.IR.
 
-本文提出了一个名为FinAnchor的轻量级框架, 用于整合多个LLM的embeddings以进行金融预测. 该方法通过选择anchor embedding space并学习线性映射来对齐不同模型的representations, 从而提升下游任务的性能.
+本文提出了一种利用多语言平行语料库进行对比学习来增强多语言预训练模型跨语言对齐能力的方法. 该方法在多个NLU任务上提升了模型在已见和未见语言上的性能.
 
 
-\arxivwithtarget{2602.20892}{Exa-PSD: a new Persian sentiment analysis dataset on Twitter}{Seyed Himan Ghaderi, Saeed Sarbazi Azad, Mohammad Mehdi Jaziriyan, Ahmad Akbari}\textbf{cs.CL}.
+\arxivwithtarget{2602.21608}{MixSarc: A Bangla-English Code-Mixed Corpus for Implicit Meaning Identification}{Kazi Samin Yasar Alam, Md Tanbir Chowdhury, Tamim Ahmed, Ajwad Abrar, Md Rafid Haque}\textbf{cs.CL}.
 
-本文介绍了一个新的波斯语情感分析数据集Exa-PSD, 该数据集包含从Twitter收集的12,000条推文, 并由人工标注为积极、中性和消极三类. 作者使用预训练的ParsBERT和RoBERTa模型对该数据集进行了基准评估, 取得了79.87的Macro F1分数.
+本文构建了首个公开的孟加拉语-英语语码混合语料库MixSarc, 用于隐式含义识别. 该语料库包含9,087个手工标注的句子, 并基于此对多种模型进行了基准测试.
 
 
-\arxivwithtarget{2602.20945}{The Art of Efficient Reasoning: Data, Reward, and Optimization}{Taiqiang Wu, Zenan Zu, Bo Zhou, Ngai Wong}\textbf{cs.CL}, cs.AI.
+\arxivwithtarget{2602.21619}{When More Is Less: A Systematic Analysis of Spatial and Commonsense Information for Visual Spatial Reasoning}{Muku Akasaka, Soyeon Caren Han}\textbf{cs.CL}.
 
-本文系统研究了大型语言模型的高效推理机制, 提出了更细粒度的评估指标, 并通过大量实验揭示了训练过程遵循"长度适应"和"推理精炼"的两阶段范式. 研究发现, 在相对简单的提示上进行训练可以避免长度塌缩, 并且习得的长度偏好具有跨领域泛化能力.
+本文通过系统实验分析了在视觉空间推理任务中注入额外信息(如空间线索、常识知识)的效果. 研究发现, 并非信息越多越好, 选择性且与任务对齐的信息注入更为有效.
 
 
-\arxivwithtarget{2602.20966}{Blackbird Language Matrices: A Framework to Investigate the Linguistic Competence of Language Models}{Paola Merlo, Chunyang Jiang, Giuseppe Samo, Vivi Nastase}\textbf{cs.CL}.
+\arxivwithtarget{2602.21628}{RuCL: Stratified Rubric-Based Curriculum Learning for Multimodal Large Language Model Reasoning}{Yukun Chen, Jiaming Li, Longze Chen, Ze Gong, Jingpeng Li, Zhen Qin, Hengyu Chang, Ancheng Xu, Zhihao Yang, Hamid Alinejad-Rokny, Qiang Qu, Bo Zheng, Min Yang}\textbf{cs.CL}.
 
-本文提出了一个受智力测试启发的语言任务框架 Blackbird Language Matrices (BLM), 用于评估语言模型的语言能力. 通过构建结构化的多选数据集, 实验表明基线模型和定制模型能在一定程度上解决该任务, 并揭示了模型对语言对象和跨句子系统模式的利用.
+本文提出了一种基于分层评分标准的课程学习框架RuCL, 用于提升多模态大语言模型的推理能力. 该方法通过动态调整评分权重来引导模型学习, 在多个视觉推理基准上取得了显著的性能提升.
 
 
-\arxivwithtarget{2602.20973}{Linear Reasoning vs. Proof by Cases: Obstacles for Large Language Models in FOL Problem Solving}{Yuliang Ji, Fuchen Shen, Jian Wu, Qiujie Xie, Yue Zhang}\textbf{cs.CL}.
+\arxivwithtarget{2602.21638}{Multi-dimensional Assessment and Explainable Feedback for Counselor Responses to Client Resistance in Text-based Counseling with LLMs}{Anqi Li, Ruihan Wang, Zhaoming Chen, Yuqian Chen, Yu Lu, Yi Zhu, Yuan Xie, Zhenzhong Lan}\textbf{cs.CL}.
 
-本文构建了一个专注于 case-based reasoning 的 first-order logic 数据集 PC-FOL, 用于评估大语言模型的数学推理能力. 实验发现模型在 case-based reasoning 问题上表现显著差于 linear reasoning, 并通过基于 graphical model 的理论分析解释了这一差距.
+本文提出了一种用于评估心理咨询中咨询师应对来访者阻抗的文本干预的多维评估与可解释反馈管道. 该方法基于理论框架分解咨询师回应, 构建专家标注数据集, 并通过指令微调大语言模型来生成细粒度评估和解释. 实验表明该模型在评估质量和生成解释方面优于现有大模型, 并能有效提升咨询师的干预能力.
 
 
-\arxivwithtarget{2602.20976}{Evaluating Proactive Risk Awareness of Large Language Models}{Xuan Luo, Yubin Chen, Zhiyu Hou, Linpu Yu, Geng Tu, Jing Li, Ruifeng Xu}\textbf{cs.CL}, cs.CY.
+\arxivwithtarget{2602.21646}{Scalable Multilingual Multimodal Machine Translation with Speech-Text Fusion}{Yexing Du, Youcheng Pan, Zekun Wang, Zheng Chu, Yichong Huang, Kaiyuan Liu, Bo Yang, Yang Xiang, Ming Liu, Bing Qin}\textbf{cs.CL}.
 
-本文提出了一个评估大语言模型(LLM)主动风险意识的框架, 并构建了Butterfly数据集在环境生态领域进行测试. 实验发现, 当前模型在响应长度受限、跨语言及多模态物种保护方面存在显著的意识盲区.
+本文提出了一种融合语音与文本输入的Speech-guided Machine Translation (SMT)框架, 利用Multimodal Large Language Models (MLLMs)提升翻译质量. 通过引入Self-Evolution Mechanism生成并利用合成语音数据, 该框架在Multi30K和FLORES-200等基准测试中取得了先进的性能.
 
 
-\arxivwithtarget{2602.21082}{Beyond the Star Rating: A Scalable Framework for Aspect-Based Sentiment Analysis Using LLMs and Text Classification}{Vishal Patil, Shree Vaishnavi Bacha, Revanth Yamani, Yidan Sun, Mayank Kejriwal}\textbf{cs.CL}.
+\arxivwithtarget{2602.21647}{Mitigating Structural Noise in Low-Resource S2TT: An Optimized Cascaded Nepali-English Pipeline with Punctuation Restoration}{Tangsang Chongbang, Pranesh Pyara Shrestha, Amrit Sarki, Anku Jaiswal}\textbf{cs.CL}, cs.AI, cs.LG.
 
-本文提出了一种结合LLMs进行aspect identification和传统机器学习方法进行sentiment classification的混合框架, 用于大规模客户评论的aspect-based sentiment analysis. 该框架在餐饮评论数据集上进行了验证, 表明其能有效自动化分析并解释整体评分的方差.
+本文针对低资源尼泊尔语到英语的语音翻译任务, 提出并评估了一个优化的级联系统. 通过引入一个标点恢复模块来缓解自动语音识别引入的结构噪声, 实验表明该模块显著提升了最终翻译的质量.
 
 
-\arxivwithtarget{2602.21103}{Prompt-Level Distillation: A Non-Parametric Alternative to Model Fine-Tuning for Efficient Reasoning}{Sanket Badhe, Deep Shah}\textbf{cs.CL}, cs.IR.
+\arxivwithtarget{2602.21652}{Sparsity Induction for Accurate Post-Training Pruning of Large Language Models}{Minhao Jiang, Zhikai Li, Xuewen Liu, Jing Zhang, Mengjuan Chen, Qingyi Gu}\textbf{cs.CL}, cs.AI.
 
-本文提出了一种名为Prompt-Level Distillation (PLD)的方法, 旨在替代模型微调以实现高效推理. 该方法通过从教师模型中提取推理模式并组织成结构化指令, 使小型学生模型在保持低延迟的同时提升性能.
+本文提出了一种名为Sparsity Induction的方法, 用于提升大型语言模型在训练后剪枝中的表现. 该方法通过在剪枝前从分布和特征两个层面诱导模型产生更高的稀疏性, 从而减少直接剪枝对模型状态的破坏. 实验表明, 该方法能有效提升剪枝性能.
 
 
-\arxivwithtarget{2602.21165}{PVminer: A Domain-Specific Tool to Detect the Patient Voice in Patient Generated Data}{Samah Fodeh, Linhai Ma, Yan Wang, Srivani Talakokkul, Ganesh Puthiaraju, Afshan Khan, Ashley Hagaman, Sarah Lowe, Aimee Roundtree}\textbf{cs.CL}, cs.AI.
+\arxivwithtarget{2602.21669}{DWA-KD: Dual-Space Weighting and Time-Warped Alignment for Cross-Tokenizer Knowledge Distillation}{Duc Trung Vu, Pham Khanh Chi, Dat Phi Van, Linh Ngo Van, Sang Dinh, Trung Le}\textbf{cs.CL}.
 
-本文提出了一个名为PVminer的领域特定NLP工具, 用于从患者生成的文本数据中检测"患者之声". 该框架整合了领域适应的BERT编码器与无监督主题建模, 以多标签分类任务的形式对患者沟通行为和社会健康决定因素进行结构化分析.
+本文提出了一种名为DWA-KD的跨分词器知识蒸馏框架. 它通过双空间熵加权和基于Soft-DTW的序列对齐来改进token级和序列级的蒸馏效果.
 
 
-\arxivwithtarget{2602.21193}{On Data Engineering for Scaling LLM Terminal Capabilities}{Renjie Pi, Grace Lam, Mohammad Shoeybi, Pooya Jannaty, Bryan Catanzaro, Wei Ping}\textbf{cs.CL}.
+\arxivwithtarget{2602.21720}{Evaluating the relationship between regularity and learnability in recursive numeral systems using Reinforcement Learning}{Andrea Silvi, Ponrawee Prasertsom, Jennifer Culbertson, Devdatt Dubhashi, Moa Johansson, Kenny Smith}\textbf{cs.CL}, cs.AI.
 
-本文研究了提升大型语言模型终端代理能力的数据工程策略. 作者提出了一个轻量级的合成任务生成流程 Terminal-Task-Gen, 并构建了大规模开源数据集 Terminal-Corpus. 基于此训练的 Nemotron-Terminal 模型系列在 Terminal-Bench 2.0 基准上取得了显著性能提升.
+本文使用 Reinforcement Learning 方法评估了递归数字系统中规律性与可学习性之间的关系. 研究发现, 高度规律的系统更容易学习, 而高度不规律系统的可学习性则受信号长度影响.
+
+
+\arxivwithtarget{2602.21728}{Explore-on-Graph: Incentivizing Autonomous Exploration of Large Language Models on Knowledge Graphs with Path-refined Reward Modeling}{Shiqi Yan, Yubo Chen, Ruiqi Zhou, Zhengxi Yao, Shuai Chen, Tianyi Zhang, Shijie Zhang, Wei Qiang Zhang, Yongfeng Huang, Haixin Duan, Yunqi Zhang}\textbf{cs.CL}.
+
+本文提出了一个名为Explore-on-Graph (EoG)的新框架, 旨在激励大型语言模型(LLMs)在知识图谱(KGs)上进行自主探索以增强推理. 该方法通过引入强化学习, 并利用路径信息作为额外的奖励信号来优化探索过程. 实验表明, 该框架在多个知识图谱问答基准数据集上取得了先进的性能.
+
+
+\arxivwithtarget{2602.21741}{Robust Long-Form Bangla Speech Processing: Automatic Speech Recognition and Speaker Diarization}{MD. Sagor Chowdhury, Adiba Fairooz Chowdhury}\textbf{cs.CL}, cs.LG, cs.SD.
+
+本文针对孟加拉语长音频处理, 结合了经过微调的 Whisper 模型、声源分离和静音感知分块技术, 在自动语音识别任务上取得了较低的词错误率. 同时, 通过替换说话人日志系统中的分割模型并使用特定嵌入与聚类方法, 显著降低了说话人日志错误率.
+
+
+\arxivwithtarget{2602.21763}{Improving Implicit Discourse Relation Recognition with Natural Language Explanations from LLMs}{Heng Wang, Changxing Wu}\textbf{cs.CL}.
+
+本文提出了一种利用大语言模型(LLM)生成的自然语言解释来增强隐式篇章关系识别(IDRR)模型性能与可解释性的方法. 该方法通过一个联合的分类-生成框架, 将LLM的推理能力蒸馏到轻量级模型中, 并在PDTB数据集上验证了其有效性.
+
+
+\arxivwithtarget{2602.21786}{D-COT: Disciplined Chain-of-Thought Learning for Efficient Reasoning in Small Language Models}{Shunsuke Ubukata}\textbf{cs.CL}.
+
+本文提出了一种名为D-CoT的新框架, 通过引入控制标签来结构化小语言模型(SLM)的思维链推理过程, 以抑制“过度思考”并减少计算开销. 实验表明, 该方法在少量训练数据下显著提升了模型在多个基准上的性能.
+
+
+\arxivwithtarget{2602.21854}{FewMMBench: A Benchmark for Multimodal Few-Shot Learning}{Mustafa Dogan, Ilker Kesen, Iacer Calixto, Aykut Erdem, Erkut Erdem}\textbf{cs.CL}.
+
+本文提出了一个名为FewMMBench的基准测试, 用于评估多模态大语言模型在少样本学习场景下的性能. 该基准覆盖了从属性识别到时序推理等多种任务, 并对26个开源模型进行了系统评估.
+
+
+\arxivwithtarget{2602.21862}{Personalized Graph-Empowered Large Language Model for Proactive Information Access}{Chia Cheng Chang, An-Zi Yen, Hen-Hsen Huang, Hsin-Hsi Chen}\textbf{cs.CL}.
+
+本文提出了一个结合个人知识图谱与大型语言模型(LLM)的框架, 用于主动信息访问以帮助用户回忆遗忘的经历. 该框架具有灵活性, 实验表明其能有效识别被遗忘的事件.
+
+
+\arxivwithtarget{2602.21887}{ExpLang: Improved Exploration and Exploitation in LLM Reasoning with On-Policy Thinking Language Selection}{Changjiang Gao, Zixian Huang, Kaichen Yang, Jiajun Chen, Jixing Li, Shujian Huang}\textbf{cs.CL}.
+
+本文提出了一种名为ExpLang的LLM后训练方法, 通过引入多语言思维链的在线策略选择来改进强化学习中的探索与利用. 实验表明, 该方法在相同训练预算下稳定优于仅使用英语的训练, 并展现出良好的语言遵从性.
+
+
+\arxivwithtarget{2602.21933}{Small Wins Big: Comparing Large Language Models and Domain Fine-Tuned Models for Sarcasm Detection in Code-Mixed Hinglish Text}{Bitan Majumder, Anirban Sen}\textbf{cs.CL}.
+
+本文比较了大型语言模型与经过领域微调的DistilBERT模型在代码混合Hinglish文本中进行讽刺检测的性能. 研究发现, 在零样本和少样本设置下, 经过微调的小型模型在低资源场景中表现更优.
+
+
+\arxivwithtarget{2602.21941}{MERRY: Semantically Decoupled Evaluation of Multimodal Emotional and Role Consistencies of Role-Playing Agents}{Zhenyu Wang, Xiaofen Xing, Yirong Chen, Xiangmin Xu}\textbf{cs.CL}.
+
+本文提出了一个名为MERRY的评估框架, 用于解耦语义并评估多模态角色扮演代理在情感和角色一致性方面的表现. 该框架通过引入新的度量标准和改进的LLM-as-Judge任务来提升评估的客观性, 并基于此进行了广泛的实证分析.
+
+
+\arxivwithtarget{2602.21947}{Large Language Models are Algorithmically Blind}{Sohan Venkatesh, Ashish Mahendran Kurapath, Tejas Melkote}\textbf{cs.CL}.
+
+本文评估了八个前沿LLMs在因果发现任务中预测算法性能的能力, 发现它们存在系统性失败. 作者将这种无法根据算法描述进行校准预测的现象称为"algorithmic blindness".
+
+
+\arxivwithtarget{2602.21950}{MEDSYN: Benchmarking Multi-EviDence SYNthesis in Complex Clinical Cases for Multimodal Large Language Models}{Boqi Chen, Xudong Liu, Jiachuan Peng, Marianne Frey-Marti, Bang Zheng, Kyle Lam, Lin Li, Jianing Qiu}\textbf{cs.CL}.
+
+本文提出了一个名为MEDSYN的多语言、多模态基准测试, 用于评估多模态大语言模型在整合多种临床证据进行复杂病例诊断时的能力. 研究发现, 尽管模型在生成鉴别诊断方面表现良好, 但在综合异质证据以确定最终诊断方面存在显著不足.
+
+
+\arxivwithtarget{2602.21951}{RADAR: Reasoning as Discrimination with Aligned Representations for LLM-based Knowledge Graph Reasoning}{Bo Xue, Yuan Jin, Luoyi Fu, Jiaxin Ding, Xinbing Wang}\textbf{cs.CL}.
+
+本文提出了一种名为RADAR的方法, 将基于大语言模型的知识图谱推理从生成式范式重新表述为判别式实体选择问题. 该方法利用强化学习增强实体表示的可分离性, 并直接在表示空间中进行推理, 在多个基准测试上取得了性能提升.
+
+
+\arxivwithtarget{2602.21978}{CxMP: A Linguistic Minimal-Pair Benchmark for Evaluating Constructional Understanding in Language Models}{Miyu Oba, Saku Sugawara}\textbf{cs.CL}.
+
+本文提出了一个基于Construction Grammar的基准测试CxMP, 用于评估语言模型对"构式"(form-meaning pairings)的理解能力. 该基准通过九种构式的最小对比对进行测试, 结果表明大型语言模型在整合形式与意义方面仍存在不足.
+
+
+\arxivwithtarget{2602.22014}{A Diversity Diet for a Healthier Model: A Case Study of French ModernBERT}{Louis Estève, Christophe Servan, Thomas Lavergne, Agata Savary}\textbf{cs.CL}.
+
+本文通过多样性驱动的采样算法研究了预训练数据多样性对ModernBERT模型性能的影响. 实验表明, 在特定任务上, 使用多样性采样的小规模数据集(1.5亿token)训练的模型, 其性能可媲美甚至超越使用随机采样的大规模数据集(24亿token)训练的模型.
+
+
+\arxivwithtarget{2602.22045}{DLT-Corpus: A Large-Scale Text Collection for the Distributed Ledger Technology Domain}{Walter Hernandez Cruz, Peter Devine, Nikhil Vadgama, Paolo Tasca, Jiahua Xu}\textbf{cs.CL}.
+
+本文介绍了DLT-Corpus, 一个用于分布式账本技术(DLT)研究的大规模领域特定文本集合, 包含科学文献、专利和社交媒体数据. 作者通过分析技术涌现模式和市场创新相关性, 展示了该语料库的实用性, 并发布了领域适应模型LedgerBERT及相关工具.
+
+
+\arxivwithtarget{2602.22072}{Understanding Artificial Theory of Mind: Perturbed Tasks and Reasoning in Large Language Models}{Christian Nickel, Laura Schrewe, Florian Mai, Lucie Flek}\textbf{cs.CL}, cs.AI.
+
+本文通过扰动错误信念任务来评估大语言模型(Large Language Models, LLMs)的Theory of Mind (ToM)鲁棒性, 并研究了Chain-of-Thought prompting (CoT)的影响. 研究发现, 所有被评估的LLMs在任务扰动下ToM能力急剧下降, 且CoT提示在某些扰动类型中反而会降低准确性.
+
+
+\arxivwithtarget{2602.22090}{Confidence-Driven Multi-Scale Model Selection for Cost-Efficient Inference}{Bo-Wei Chen, Chung-Chi Chen, An-Zi Yen}\textbf{cs.CL}.
+
+本文提出了一种基于置信度估计的动态模型选择策略, 用于在大型语言模型(LLM)推理中平衡性能与计算成本. 该方法通过评估模型对任务处理的置信度及其回答的准确性, 将简单任务分配给较小模型, 而将复杂任务委托给较大模型, 从而在保持高准确率的同时显著降低了计算开销和API调用成本.
+
+
+\arxivwithtarget{2602.22125}{IndicIFEval: A Benchmark for Verifiable Instruction-Following Evaluation in 14 Indic Languages}{Thanmay Jayakumar, Mohammed Safi Ur Rahman Khan, Raj Dabre, Ratish Puduppully, Anoop Kunchukuttan}\textbf{cs.CL}.
+
+本文提出了一个用于评估14种印度语言中大型语言模型遵循指令能力的基准IndicIFEval. 该基准包含两个互补的子集, 并对多个主流模型进行了全面评估, 揭示了模型在跨语言任务上的显著不足.
+
+
+\arxivwithtarget{2602.22157}{Dynamic Personality Adaptation in Large Language Models via State Machines}{Leon Pielage, Ole Hätscher, Mitja Back, Bernhard Marschall, Benjamin Risse}\textbf{cs.CL}, cs.HC, cs.LG.
+
+本文提出了一个与模型无关的框架, 用于实现大型语言模型(LLM) 的动态人格模拟. 该框架利用状态机(state machine) 来表征潜在的人格状态, 并通过一个模块化的人格评分管道来调整对话行为.
+
+
+\arxivwithtarget{2602.22175}{DySCO: Dynamic Attention-Scaling Decoding for Long-Context LMs}{Xi Ye, Wuwei Zhang, Fangcong Yin, Howard Yen, Danqi Chen}\textbf{cs.CL}.
+
+本文提出了一种名为DySCO的动态解码算法, 用于提升语言模型在长上下文中的推理能力. 该方法通过检索头识别相关上下文并进行动态注意力缩放, 无需额外训练即可应用.
+
+
+\arxivwithtarget{2602.22182}{LiCQA : A Lightweight Complex Question Answering System}{Sourav Saha, Dwaipayan Roy, Mandar Mitra}\textbf{cs.CL}, cs.IR.
+
+本文提出了一种名为LiCQA的轻量级无监督问答系统, 用于处理答案分散在多个文档中的复杂问题. 该系统主要基于语料库证据, 避免了依赖知识图谱或需要大量训练资源的神经模型, 并在基准测试中表现出更低的延迟和更好的性能.
+
+
+\arxivwithtarget{2602.22193}{Improving Parametric Knowledge Access in Reasoning Language Models}{Melody Ma, John Hewitt}\textbf{cs.CL}.
+
+本文研究了如何提升语言模型通过推理来访问其内部存储的世界知识的能力. 研究发现, 简单的提示可以改善知识召回, 并提出了基于强化学习的训练方法, 在多个问答数据集上取得了性能提升.
+
+
+\arxivwithtarget{2602.22200}{SumTablets: A Transliteration Dataset of Sumerian Tablets}{Cole Simmons, Richard Diehl Martinez, Dan Jurafsky}\textbf{cs.CL}.
+
+本文构建并发布了首个将苏美尔楔形文字Unicode表示与拉丁转写系统化配对的大规模数据集SumTablets, 并基于此数据集评估了两种自动转写基线方法. 该数据集旨在促进自然语言处理技术在古代文字转写任务中的应用.
+
+
+\arxivwithtarget{2602.22207}{Recovered in Translation: Efficient Pipeline for Automated Translation of Benchmarks and Datasets}{Hanna Yukhymenko, Anton Alexandrov, Martin Vechev}\textbf{cs.CL}, cs.AI, cs.LG.
+
+本文提出了一个用于自动化翻译评测基准和数据集的高效流程. 该框架通过采用测试时计算缩放策略, 如Universal Self-Improvement (USI)和提出的T-RANK方法, 旨在提升翻译质量, 减少语义漂移和上下文丢失. 作者将该方法应用于多个东欧和南欧语言, 并发布了改进后的基准以促进多语言AI发展.
 
 
 \section{cs.DS}
-\arxivwithtarget{2602.20376}{Exploiting Low-Rank Structure in Max-K-Cut Problems}{Ria Stevens, Fangshuo Liao, Barbara Su, Jianqiang Li, Anastasios Kyrillidis}\textbf{cs.DS}.
+\arxivwithtarget{2602.20376}{Exploiting Low-Rank Structure in Max-K-Cut Problems}{Ria Stevens, Fangshuo Liao, Barbara Su, Jianqiang Li, Anastasios Kyrillidis}\textbf{cs.DS}, cs.LG, math.OC, quant-ph.
 
-本文针对Max-3-Cut问题, 提出了一种利用目标矩阵低秩结构的新算法. 该方法通过枚举一个大小为$O\left(n^{2r-1}\right)$的候选解集来最大化复值二次型, 并在目标为低秩矩阵时保证找到精确解. 实验表明该算法性能与现有方法相当, 且具有高度的可扩展性.
-
-
-\arxivwithtarget{2602.20762}{Turing Completeness of GNU find: From mkdir-assisted Loops to Standalone Computation}{Keigo Oka}\textbf{cs.DS}.
-
-本文证明了GNU find命令与mkdir命令的组合是Turing complete的, 通过将计算状态编码为目录路径并模拟2-tag systems来实现. 研究揭示了这一常见命令行工具背后隐藏的计算复杂性.
+本文针对Max-3-Cut问题, 提出了一种利用目标矩阵低秩结构的新算法. 该方法通过枚举一个候选解集来最大化复值二次型, 其规模与矩阵的秩相关, 并在理论上保证了低秩情况下的最优性. 实验表明该算法具有良好的可扩展性和与现有方法相当的性能.
 
 
-\arxivwithtarget{2602.20833}{DRESS: A Continuous Framework for Structural Graph Refinement}{Eduar Castrillo Velilla}\textbf{cs.DS}, cs.LG.
+\arxivwithtarget{2602.21312}{Precedence-Constrained Decision Trees and Coverings}{Michał Szyfelbein, Dariusz Dereniowski}\textbf{cs.DS}, cs.LG.
 
-本文提出了一个名为DRESS的连续动力学系统框架, 用于图的结构性细化. 该框架通过推广到Motif-DRESS和Delta-DRESS, 在区分某些强正则图(Strongly Regular Graphs)时, 经验上超越了计算代价高昂的3-WL (Weisfeiler-Lehman)方法.
-
-
-\arxivwithtarget{2602.20854}{Adversarial Robustness on Insertion-Deletion Streams}{Elena Gribelyuk, Honghao Lin, David P. Woodruff, Huacheng Yu, Samson Zhou}\textbf{cs.DS}.
-
-本文研究了在插入-删除流(也称为旋转门流)中对抗性鲁棒算法的设计问题. 它提出了一种新颖的估计器-校正器-学习器框架, 结合多个线性草图, 首次在亚线性空间内实现了对$F_2$矩等函数的鲁棒近似.
+本文研究了带优先约束的Optimal Decision Tree和Set Cover问题, 引入了最大密度优先闭子族等中间问题, 并通过算法归约建立了它们之间的联系. 作者为这些问题提供了$\mathcal{O}^*(\sqrt{m})$-近似算法, 并给出了$o(m^{1/12-\epsilon})$的不可近似性下界, 对于outforests和inforests等特殊优先结构则给出了紧的对数多项式近似结果.
 
 
-\arxivwithtarget{2602.20949}{A $2$-branching construction for the $χ\leq 2r$ bound}{Vinicius Tikara Venturi Date, Leandro Miranda Zatesko}\textbf{cs.DS}.
+\arxivwithtarget{2602.21557}{DRESS and the WL Hierarchy: Climbing One Deletion at a Time}{Eduar Castrillo Velilla}\textbf{cs.DS}, cs.DM.
 
-本文研究了字符串重复性度量 $\chi$ 和 $r$ 之间的关系, 聚焦于已知上界 $\chi \leq 2r$ 的紧性. 作者引入了“2-branching”字符串的概念, 并利用其构造得到了 $\chi/r$ 比值的闭式表达式. 对于特定阶数和字母表大小, 该构造将比值与上界2的差距从 $O(1/\sigma)$ 缩小到了 $O(1/\sigma^2)$.
-
-
-\arxivwithtarget{2602.21088}{A Space-space Trade-off for Directed st-Connectivity}{Roman Edenhofer}\textbf{cs.DS}, cs.CC.
-
-本文在 catalytic space 模型中研究了有向 st-连通性问题, 证明了空间与空间之间的权衡. 对于任意整数 $k \leq n$, 算法使用 $O(\log n \cdot \log k+\log n)$ 常规工作空间和 $O\left(\frac{n}{k} \cdot \log^2 n\right)$ 位催化内存来判定连通性. 该结果在 Savitch 算法的经典 $O(\log^2 n)$ 空间界与一个使用 $O(\log n)$ 工作空间和 $O(n\cdot \log^2 n)$ 催化内存的端点之间进行了插值.
+本文提出了一种名为$\Delta^\ell$-DRESS的图同构判别方法, 该方法通过在DRESS框架中迭代删除节点来提升判别能力. 实验表明, 该方法在CFI基准图族上能系统地达到更高层级的Weisfeiler-Leman算法判别力, 且计算复杂度对于固定的删除层数$\ell$是多项式级的.
 
 
-\arxivwithtarget{2602.21089}{Frontier Space-Time Algorithms Using Only Full Memory}{Petr Chmel, Aditi Dudeja, Michal Koucký, Ian Mertz, Ninad Rajgopal}\textbf{cs.DS}, cs.CC.
+\arxivwithtarget{2602.21700}{Maximal Biclique Enumeration with Improved Worst-Case Time Complexity Guarantee: A Partition-Oriented Strategy}{Kaixin Wang, Kaiqiang Yu, Cheng Long}\textbf{cs.DS}, cs.DB.
 
-本文针对算法设计中的几个基本问题, 提出了在多项式时间内运行、仅使用$\mathcal{O}(\log(n))$工作空间并利用亚线性催化空间的催化算法. 这些算法在催化空间的使用上达到了非催化多项式时间算法的最佳已知空间界限.
+本文提出了一种新的分支定界算法 IPS, 用于枚举二分图中的极大 biclique. 该算法通过放宽终止条件和改进 pivot 选择策略, 改善了最坏情况时间复杂度.
+
+
+\arxivwithtarget{2602.21827}{Delayed-Clairvoyant Flow Time Scheduling via a Borrow Graph Analysis}{Alexander Lindermayr, Jens Schlöter}\textbf{cs.DS}.
+
+本文研究了在单机上在线调度作业以最小化总流时间的问题, 引入了一个介于clairvoyant和non-clairvoyant模型之间的$\alpha$-clairvoyant模型. 通过融合两种传统算法, 提出了一个竞争比为$\mathcal{O}(\frac{1}{1-\alpha})$的调度规则, 并给出了一个匹配的随机下界.
+
+
+\arxivwithtarget{2602.21937}{Instance-optimal estimation of L2-norm}{Tomer Adar}\textbf{cs.DS}.
+
+本文提出了一种用于估计分布$L_2$范数的无偏估计算法, 其样本复杂度达到了实例特定的二阶矩分析下界. 同时, 论文证明了$\Omega(1/(\varepsilon \|\mu\|_2))$是采样估计分布范数的一个逐实例下界.
+
+
+\arxivwithtarget{2602.22108}{Tight Bounds for Online Scheduling in the One-Fast-Many-Slow Machines Setting}{John Jeang, Vladimir Podolskii}\textbf{cs.DS}.
+
+本文研究了One-Fast-Many-Slow在线调度问题中的Eventually-committing和Never-committing模型, 给出了这两个模型中竞争比(competitive ratio)的紧界(tight bounds). 对于Eventually-committing模型, 作者设计了一个算法, 其竞争比达到了已知下界$\frac{1+\sqrt{5}}{2}$, 从而证实了Kuszmaul和Westover的猜想. 对于Never-committing模型, 作者构造了一个任务到达过程(TAP), 将竞争比的下界提升到了1.5, 与已知上界匹配.
+
+
+\arxivwithtarget{2602.22110}{Robust Permutation Flowshops Under Budgeted Uncertainty}{Noam Goldberg, Danny Hermelin, Dvir Shabtay}\textbf{cs.DS}, cs.DM, math.OC.
+
+本文研究了在预算不确定性模型下的鲁棒置换流水车间问题, 其中每台机器上最多有给定数量的作业处理时间可能偏离. 作者证明了该问题的解可以通过求解多项式数量的对应标称问题实例来确定. 这一结果意味着, 对于两台机器的情况, 该鲁棒问题可以在多项式时间内求解; 对于任意固定数量的机器, 可以在多项式时间内获得近似解. 主要结果的推导采用了与 Bertsimas 和 Sim (2003) 类似的分析, 但将对偶化应用于 min-max 目标函数的项, 而非线性目标函数. 对于两台和三台机器的情况, 本文还展示了相对于直接归约到标称问题的朴素方法, 整体运行时间有对数因子的改进.
 
 
 \section{others}
-\arxivwithtarget{2306.00554}{ShaRP: Shape-Regularized Multidimensional Projections}{Alister Machado, Alexandru Telea, Michael Behrisch}\textbf{cs.HC}, cs.AI, cs.LG.
+\arxivwithtarget{2602.21214}{Toward Effective Multi-Domain Rumor Detection in Social Networks Using Domain-Gated Mixture-of-Experts}{Mohadeseh Sheikhqoraei, Zainabolhoda Heshmati, Zeinab Rajabi, Leila Rabiei}\textbf{cs.SI}, cs.CL, cs.IR.
 
-本文提出了一种名为ShaRP的新型多维投影方法, 允许用户显式控制生成散点图的视觉特征. 该方法能较好地处理高维和大规模定量数据集, 在保证投影质量的同时提供了对投影形状的灵活调控.
+本文提出了一个用于社交媒体多领域谣言检测的模型, 它使用了一个 domain gate 来动态整合由 Mixture-of-Experts 方法提取的多种特征表示. 该模型结合了 CNN 和 BiLSTM 来捕获文本特征, 并在一个包含 8,034 条标注帖子的新数据集上取得了先进的性能.
 
 
-\arxivwithtarget{2310.15741}{Interpretable Medical Image Classification using Prototype Learning and Privileged Information}{Luisa Gallee, Meinrad Beer, Michael Goetz}\textbf{cs.CV}, cs.AI.
+\arxivwithtarget{2602.21229}{Forecasting Future Language: Context Design for Mention Markets}{Sumin Kim, Jihoon Kwon, Yoon Kim, Nicole Kagan, Raffi Khatchadourian, Wonbin Ahn, Alejandro Lopez-Lira, Jaewon Lee, Yoontae Hwang, Oscar Levy, Yongjae Lee, Chanyeol Choi}\textbf{q-fin.GN}, cs.CL, cs.LG.
 
-本文提出了一种结合 capsule networks, prototype learning 和 privileged information 的医学图像分类方法 Proto-Caps. 该方法在 LIDC-IDRI 数据集上实现了较高的预测准确率, 同时通过原型表示提供了可解释的案例推理.
+本文研究了在基于关键词提及的预测市场中, 如何为大语言模型(LLM)设计输入上下文以生成更准确的概率预测. 实验表明, 提供更丰富的上下文信息以及提出的Market-Conditioned Prompting (MCP)方法能改善预测性能.
 
 
-\arxivwithtarget{2602.18431}{SMaRT: Online Reusable Resource Assignment and an Application to Mediation in the Kenyan Judiciary}{Shafkat Farabi, Didac Marti Pinto, Wei Lu, Manuel Ramos-Maqueda, Sanmay Das, Antoine Deeb, Anja Sautmann}\textbf{cs.CY}, cs.LG, cs.MA.
+\arxivwithtarget{2602.21247}{PiPNN: Ultra-Scalable Graph-Based Nearest Neighbor Indexing}{Tobias Rubel, Richard Wen, Laxman Dhulipala, Lars Gottesbüren, Rajesh Jayaram, Jakub Łącki}\textbf{cs.DB}, cs.DC, cs.IR.
 
-本文针对肯尼亚司法系统中的调解员分配问题, 提出了一个在线可重用资源分配框架 SMaRT. 该框架将问题形式化为一个带软容量约束的二次规划, 并结合多臂老虎机学习未知的调解员质量, 在模拟和真实数据上均优于基线方法.
+本文提出了一种名为PiPNN的超大规模图构建算法, 用于近似最近邻搜索(ANN). 其核心创新是HashPrune在线剪枝算法, 通过分区和批量距离计算显著提升了索引构建速度, 能在单机上于20分钟内处理十亿级数据集.
 
 
-\arxivwithtarget{2602.20163}{Graph Modelling Analysis of Speech-Gesture Interaction for Aphasia Severity Estimation}{Navya Martin Kollapally, Christa Akers, Renjith Nelson Joseph}\textbf{cs.SD}, cs.CL, eess.AS.
+\arxivwithtarget{2602.21251}{AgenticTyper: Automated Typing of Legacy Software Projects Using Agentic AI}{Clemens Pohle}\textbf{cs.SE}, cs.AI, cs.MA, cs.PL.
 
-本文提出了一种基于graph neural network的框架, 用于从自发言语中自动评估失语症严重程度. 该方法将话语建模为包含词汇和手势节点的multimodal graph, 并使用GraphSAGE学习整体表示, 结果表明言语与手势的结构化交互比孤立的词汇特征更能编码严重程度信息.
+本文提出了一种基于LLM的智能体系统AgenticTyper, 用于自动化地为遗留JavaScript项目添加TypeScript类型. 该系统通过迭代的错误修正和转译比较来确保行为正确性, 并在大规模代码库上进行了评估.
 
 
-\arxivwithtarget{2602.20165}{VISION-ICE: Video-based Interpretation and Spatial Identification of Arrhythmia Origins via Neural Networks in Intracardiac Echocardiography}{Dorsa EPMoghaddam, Feng Gao, Drew Bernard, Kavya Sinha, Mehdi Razavi, Behnaam Aazhang}\textbf{cs.CV}, cs.LG.
+\arxivwithtarget{2602.21252}{INTACT: Intent-Aware Representation Learning for Cryptographic Traffic Violation Detection}{Rahul D Ray}\textbf{cs.CR}, cs.LG.
 
-本文提出了一种基于AI的框架VISION-ICE, 利用心腔内超声(ICE)视频数据, 通过3D卷积神经网络将心律失常起源定位建模为一个三分类任务. 该模型在交叉验证中表现优于随机基线, 展示了结合深度学习与ICE进行自动化定位的临床潜力.
+本文提出了一种名为INTACT的意图感知表示学习框架, 用于加密流量违规检测. 该框架将违规检测重新定义为条件约束学习, 通过融合行为编码和意图编码来生成违规评分, 在真实和合成数据集上展示了良好的性能.
 
 
-\arxivwithtarget{2602.20168}{Benchmarking Early Deterioration Prediction Across Hospital-Rich and MCI-Like Emergency Triage Under Constrained Sensing}{KMA Solaiman, Joshua Sebastian, Karma Tobden}\textbf{cs.CY}, cs.AI, cs.LG.
+\arxivwithtarget{2602.21255}{A General Equilibrium Theory of Orchestrated AI Agent Systems}{Jean-Philippe Garnier}\textbf{cs.GT}, cs.AI, math.OC.
 
-本文提出了一个用于早期病情恶化预测的基准测试框架, 该框架考虑了现实世界中信息受限的急诊分诊场景. 通过比较医院资源充足和仅凭生命体征的两种分诊模式, 研究发现早期生理测量数据保留了重要的临床信号, 模型性能下降有限.
+本文在Arrow-Debreu一般均衡理论框架下, 为集中编排的大型语言模型(LLM)智能体系统建立了理论模型. 它将每个LLM智能体视为一个生产可行轨迹的“厂商”, 而编排者作为“消费者”进行资源分配, 并证明了均衡的存在性、Pareto最优性等相关福利定理.
 
 
-\arxivwithtarget{2602.20169}{Autonomous AI and Ownership Rules}{Frank Fagan}\textbf{cs.CY}, cs.AI.
+\arxivwithtarget{2602.21267}{A Systematic Review of Algorithmic Red Teaming Methodologies for Assurance and Security of AI Applications}{Shruti Srivastava, Kiranmayee Janardhan, Shaurya Jauhari}\textbf{cs.CR}, cs.AI.
 
-本文探讨了AI生成内容的归属问题, 分析了AI输出可追溯与不可追溯两种情形下的所有权分配规则. 当AI变得不可追溯时, 文章建议采用先占规则, 并讨论了为应对策略性所有权解散而提出的激励措施.
+本文是一篇关于AI应用安全中自动化红队测试方法的系统性综述. 它整合了现有研究, 讨论了相关方法, 工具, 优势与局限, 并指出了未来的研究方向.
 
 
-\arxivwithtarget{2602.20170}{CAGE: A Framework for Culturally Adaptive Red-Teaming Benchmark Generation}{Chaeyun Kim, YongTaek Lim, Kihyun Kim, Junghwan Kim, Minwoo Kim}\textbf{cs.CY}, cs.AI.
+\arxivwithtarget{2602.21272}{Counterdiabatic Hamiltonian Monte Carlo}{Reuben Cohn-Gordon, Uroš Seljak, Dries Sels}\textbf{stat.ML}, cs.LG, stat.CO.
 
-本文提出了一个名为CAGE的框架, 用于生成适应不同文化的红队测试基准. 该方法通过分离提示的对抗性结构和文化内容, 能够创建更贴合本地社会技术环境的评估数据集, 并以韩语基准KoRSET为例展示了其有效性.
+本文提出了一种名为Counterdiabatic Hamiltonian Monte Carlo (CHMC)的新采样方法, 它通过在学习到的Hamiltonian中添加一个counterdiabatic项, 来加速对多模态分布的采样. 该方法可以被视为一种更高效的Sequential Monte Carlo (SMC)采样器, 并在简单基准问题上进行了验证.
 
 
-\arxivwithtarget{2602.20176}{Cross-Chirality Generalization by Axial Vectors for Hetero-Chiral Protein-Peptide Interaction Design}{Ziyi Yang, Zitong Tian, Yinjun Jia, Tianyi Zhang, Jiqing Zheng, Hao Wang, Yubu Su, Juncai He, Lei Liu, Yanyan Lan}\textbf{q-bio.BM}, cs.LG.
+\arxivwithtarget{2602.21315}{The Instability of all Backoff Protocols}{Leslie Ann Goldberg, John Lapinskas}\textbf{math.PR}, cs.DM, cs.DS, cs.IT, cs.NI.
 
-本文提出了一种通过引入轴向向量特征来实现从同手性训练数据到异手性设计任务的跨手性泛化的方法. 该方法在隐扩散模型中实现, 用于设计D-肽结合剂, 并在湿实验中得到验证.
+本文证明了Aldous在1987年提出的猜想: 对于任何正到达率, 不存在稳定的退避协议. 该研究在Kelly模型下, 通过分析退避协议的发送序列, 最终确认了所有此类协议的不稳定性.
 
 
-\arxivwithtarget{2602.20177}{Enhancing Heat Sink Efficiency in MOSFETs using Physics Informed Neural Networks: A Systematic Study on Coolant Velocity Estimation}{Aniruddha Bora, Isabel K. Alvarez, Julie Chalfant, Chryssostomos Chryssostomidis}\textbf{cs.NE}, cs.AI, cs.CE, cs.LG, physics.comp-ph.
+\arxivwithtarget{2602.21341}{Scaling View Synthesis Transformers}{Evan Kim, Hyunwoo Ryu, Thomas W. Mitchel, Vincent Sitzmann}\textbf{cs.CV}, cs.AI.
 
-本文提出了一种使用Physics Informed Neural Networks (PINNs) 来估计MOSFET热沉中冷却液所需流速的方法. 该方法通过顺序训练多层结构来解决传统方法难以处理的反问题, 并与实验结果吻合良好.
+本文系统研究了view synthesis transformers的scaling laws, 并提出了训练compute-optimal NVS模型的设计原则. 研究表明, 经过优化的encoder-decoder架构在多个计算水平上都能达到与decoder-only模型相当的scaling效率, 并在真实世界NVS基准上以更少的训练计算量超越了之前的state-of-the-art.
 
 
-\arxivwithtarget{2602.20178}{Data-Driven Deep MIMO Detection:Network Architectures and Generalization Analysis}{Yongwei Yi, Xinping Yi, Wenjin Wang, Xiao Li, Shi Jin}\textbf{eess.SP}, cs.IT, cs.LG.
+\arxivwithtarget{2602.21357}{Conditional neural control variates for variance reduction in Bayesian inverse problems}{Ali Siahkoohi, Hyunwoo Oh}\textbf{stat.ML}, cs.LG.
 
-本文提出了一种基于图神经网络的消息传递检测器GNNSIC, 用于多用户MIMO系统. 该架构通过参数共享减少了可训练参数量, 提升了样本效率和用户泛化能力.
+本文提出了一种基于条件神经控制变量的方法, 用于降低贝叶斯反问题中蒙特卡洛估计的方差. 该方法利用Stein恒等式设计网络架构, 通过联合模型-数据样本进行训练, 并在Darcy流反问题上验证了其有效性.
 
 
-\arxivwithtarget{2602.20181}{Closing the Expertise Gap in Residential Building Energy Retrofits: A Domain-Specific LLM for Informed Decision-Making}{Lei Shu, Armin Yeganeh, Sinem Mollaoglu, Jiayu Zhou, Dong Zhao}\textbf{cs.CY}, cs.AI.
+\arxivwithtarget{2602.21360}{Representation Theorems for Cumulative Propositional Dependence Logics}{Juha Kontinen, Arne Meier, Kai Sauerwald}\textbf{cs.LO}, cs.AI.
 
-本文开发了一个用于住宅能源改造决策的领域特定大语言模型(LLM). 该模型基于大量物理模拟数据进行微调, 能够根据房屋基本特征提供改造建议, 并在评估中表现出较高的准确性.
+本文研究了累积命题依赖逻辑的表示定理. 证明了其系统C的蕴涵关系可由特定的累积模型精确刻画.
 
 
-\arxivwithtarget{2602.20187}{AINet: Anchor Instances Learning for Regional Heterogeneity in Whole Slide Image}{Tingting Zheng, Hongxun Yao, Kui Jiang, Sicheng Zhao, Yi Xiao}\textbf{eess.IV}, cs.AI.
+\arxivwithtarget{2602.21361}{Towards single-shot coherent imaging via overlap-free ptychography}{Oliver Hoidn, Aashwin Mishra, Steven Henke, Albert Vong, Matthew Seaberg}\textbf{physics.optics}, cs.AI, cs.CV, cs.LG, physics.comp-ph.
 
-本文提出了一种用于全切片图像分析的新框架AINet, 通过引入anchor instance的概念和设计dual-level anchor mining与anchor-guided region correction模块, 旨在解决多示例学习中因肿瘤稀疏性和形态多样性导致的区域异质性问题. 该方法在提升性能的同时显著减少了计算复杂度和参数量.
+本文提出了一种名为PtychoPINN的框架, 用于实现无重叠的单次曝光Fresnel相干衍射成像. 该方法将可微分的相干散射前向模型与泊松光子计数似然相结合, 通过基于坐标的分组将实空间重叠作为一个可调参数. 在合成和实验数据上的验证表明, 该方法能够在低光子计数下实现准确重建, 并显著提高了计算吞吐量.
 
 
-\arxivwithtarget{2602.20193}{When Backdoors Go Beyond Triggers: Semantic Drift in Diffusion Models Under Encoder Attacks}{Shenyang Chen, Liuwan Zhu}\textbf{cs.CR}, cs.AI.
+\arxivwithtarget{2602.21365}{Towards Controllable Video Synthesis of Routine and Rare OR Events}{Dominik Schneider, Lalithkumar Seenivasan, Sampath Rapuri, Vishalroshan Anil, Aiza Maksutova, Yiqing Shen, Jan Emily Mangulabnan, Hao Ding, Jose L. Porras, Masaru Ishii, Mathias Unberath}\textbf{cs.CV}, cs.AI, cs.LG, eess.IV.
 
-本文研究了文本到图像模型中的后门攻击, 指出编码器端投毒会导致持续性的语义漂移, 超越了传统基于触发器激活的评估范式. 作者通过基于Jacobian的几何机制分析和提出的SEMAD诊断框架, 量化了这种结构性退化, 揭示了编码器投毒的深层风险.
+本文提出了一种用于手术室视频可控合成的扩散模型框架, 通过几何抽象、条件控制与微调扩散模型来生成常规与罕见事件视频. 该方法在合成常规事件上超越了现有基线, 并展示了生成反事实事件的能力, 其合成的数据可用于训练检测安全临界事件的AI模型.
 
 
-\arxivwithtarget{2602.20195}{OrgFlow: Generative Modeling of Organic Crystal Structures from Molecular Graphs}{Mohammadmahdi Vahediahmar, Matthew A. McDonald, Feng Liu}\textbf{cond-mat.mtrl-sci}, cs.LG.
+\arxivwithtarget{2602.21397}{MMLoP: Multi-Modal Low-Rank Prompting for Efficient Vision-Language Adaptation}{Sajjad Ghiasvand, Haniyeh Ehsani Oskouie, Mahnoosh Alizadeh, Ramtin Pedarsani}\textbf{cs.CV}, cs.LG.
 
-本文提出了一种基于 flow-matching 的生成模型 OrgFlow, 用于直接从分子图预测有机晶体结构. 该方法整合了分子连通性和周期性边界条件, 并通过一个感知化学键的损失函数来引导生成合理的局部化学环境. 实验表明, 该模型在预测成功率上大幅超越现有基线.
+本文提出了一种名为MMLoP的多模态低秩提示方法, 用于高效适应视觉-语言模型. 该方法通过低秩分解参数化视觉和文本提示, 并引入了额外的正则化组件, 在显著减少可训练参数的同时, 在多个基准数据集上取得了有竞争力的性能.
 
 
-\arxivwithtarget{2602.20196}{OpenPort Protocol: A Security Governance Specification for AI Agent Tool Access}{Genliang Zhu, Chu Wang, Ziyuan Wang, Zhida Li, Qiang Li}\textbf{cs.CR}, cs.AI.
+\arxivwithtarget{2602.21401}{The Headless Firm: How AI Reshapes Enterprise Boundaries}{Tassilo Klein, Sebastian Wieczorek}\textbf{cs.GT}, cs.AI, cs.SI.
 
-本文提出了OpenPort Protocol (OPP), 一种用于管理AI agent工具访问的安全治理规范. 该协议通过服务端网关定义了授权、执行和审计的标准化流程, 旨在解决实际部署中的权限控制与滥用防范等问题.
+本文探讨了AI如何通过改变协调成本的结构来重塑企业边界. 作者提出了"Headless Firm"模型, 并分析了其对组织形态和市场结构的影响.
 
 
-\arxivwithtarget{2602.20198}{KEMP-PIP: A Feature-Fusion Based Approach for Pro-inflammatory Peptide Prediction}{Soumik Deb Niloy, Md. Fahmid-Ul-Alam Juboraj, Swakkhar Shatabda}\textbf{q-bio.QM}, cs.LG.
+\arxivwithtarget{2602.21421}{ECHOSAT: Estimating Canopy Height Over Space And Time}{Jan Pauls, Karsten Schrödter, Sven Ligensa, Martin Schwartz, Berkant Turan, Max Zimmer, Sassan Saatchi, Sebastian Pokutta, Philippe Ciais, Fabian Gieseke}\textbf{cs.CV}, cs.AI, cs.LG.
 
-本文提出了一种名为KEMP-PIP的混合机器学习框架, 用于预测促炎肽. 该方法融合了预训练蛋白质语言模型的深度嵌入与多种手工设计的序列特征, 并通过集成平均优化了预测性能. 在标准数据集上的评估表明, 其性能优于现有方法.
+本文提出了一种名为ECHOSAT的全球高分辨率树高动态监测方法, 通过融合多源卫星数据并训练专用的vision transformer模型进行像素级时间序列回归. 该方法利用自监督的生长损失函数来约束预测结果, 使其符合树木的自然生长曲线, 包括渐进增长和因干扰事件导致的骤降. 实验表明, 该方法在单年预测精度上超越了现有技术, 并首次生成了能准确量化全球树木生长与干扰的动态高度图.
 
 
-\arxivwithtarget{2602.20200}{Global Prior Meets Local Consistency: Dual-Memory Augmented Vision-Language-Action Model for Efficient Robotic Manipulation}{Zaijing Li, Bing Hu, Rui Shao, Gongwei Chen, Dongmei Jiang, Pengwei Xie, Jianye Hao, Liqiang Nie}\textbf{cs.RO}, cs.AI, cs.CV.
+\arxivwithtarget{2602.21428}{PSF-Med: Measuring and Explaining Paraphrase Sensitivity in Medical Vision Language Models}{Binesh Sadanandan, Vahid Behzadan}\textbf{cs.CV}, cs.LG.
 
-本文提出了一个名为OptimusVLA的双记忆增强视觉-语言-动作模型, 旨在解决机器人操作任务中动作生成效率低和鲁棒性差的问题. 该模型通过引入全局先验记忆和局部一致性记忆来优化策略, 在多个仿真和现实世界基准测试中取得了性能提升和推理加速.
+本文提出了一个用于评估医学视觉语言模型(VLMs)在医学图像问答任务中对问题重述敏感性的基准PSF-Med. 研究发现, 多个模型存在显著的答案翻转率, 并且低翻转率可能源于对语言先验的依赖而非视觉基础.
 
 
-\arxivwithtarget{2602.20202}{Evaluating the Reliability of Digital Forensic Evidence Discovered by Large Language Model: A Case Study}{Jeel Piyushkumar Khatiwala, Daniel Kwaku Ntiamoah Addai, Weifeng Xu}\textbf{cs.CR}, cs.AI.
+\arxivwithtarget{2602.21436}{Efficient Uncoupled Learning Dynamics with $\tilde{O}\!\left(T^{-1/4}\right)$ Last-Iterate Convergence in Bilinear Saddle-Point Problems over Convex Sets under Bandit Feedback}{Arnab Maiti, Claire Jie Zhang, Kevin Jamieson, Jamie Heather Morgenstern, Ioannis Panageas, Lillian J. Ratliff}\textbf{stat.ML}, cs.GT, cs.LG.
 
-本文提出了一个用于评估由大型语言模型(LLM)发现的数字取证证据可靠性的结构化框架. 该框架结合了自动化提取、LLM分析和基于知识图谱的验证, 并通过案例研究展示了其在提升证据可信度和可审计性方面的有效性.
+本文针对凸集上双线性鞍点问题中的bandit反馈场景, 设计了一种非耦合学习算法. 该算法结合了实验设计和FTRL框架, 证明了以高概率实现最终迭代收敛到Nash均衡, 收敛速率为$\tilde{O}(T^{-1/4})$, 且仅需线性优化预言机.
 
 
-\arxivwithtarget{2602.20204}{Analyzing Latency Hiding and Parallelism in an MLIR-based AI Kernel Compiler}{Javed Absar, Samarth Narang, Muthu Baskaran}\textbf{cs.PL}, cs.AI.
+\arxivwithtarget{2602.21446}{ConformalHDC: Uncertainty-Aware Hyperdimensional Computing with Application to Neural Decoding}{Ziyi Liang, Hamed Poursiami, Zhishun Yang, Keiland Cooper, Akhilesh Jaiswal, Maryam Parsa, Norbert Fortin, Babak Shahbaba}\textbf{stat.ML}, cs.LG.
 
-本文在MLIR编译框架下, 通过基准测试量化分析了向量化(Vec), 多线程(MT)和双缓冲(DB)三种编译器优化技术对AI内核性能的影响. 结果表明, 向量化对带宽敏感型内核增益显著, 多线程在分摊调度开销后能带来大幅提升, 而双缓冲在计算与数据传输可重叠时提供额外收益.
+本文提出了一种结合 conformal prediction 与 Hyperdimensional Computing (HDC) 的统一框架 ConformalHDC, 以解决 HDC 缺乏不确定性量化的问题. 该框架通过两种变体提供了具有统计保证的预测集或点预测, 并在神经解码等任务中展示了其可靠性和对非分布数据的鲁棒性.
 
 
-\arxivwithtarget{2602.20206}{Mitigating "Epistemic Debt" in Generative AI-Scaffolded Novice Programming using Metacognitive Scripts}{Sreecharan Sankaranarayanan}\textbf{cs.SE}, cs.AI, cs.CY, cs.ET, cs.MA.
+\arxivwithtarget{2602.21447}{Adversarial Intent is a Latent Variable: Stateful Trust Inference for Securing Multimodal Agentic RAG}{Inderjeet Singh, Vikas Pahuja, Aishvariya Priya Rathina Sabapathy, Chiara Picardi, Amit Giloni, Roman Vainshtein, Andrés Murillo, Hisashi Kojima, Motoyoshi Sekiya, Yuki Unno, Junichi Suga}\textbf{cs.CR}, cs.AI, cs.CL, cs.LG.
 
-本文探讨了生成式AI辅助编程中新手可能产生的"认知债务"问题. 通过一项对照实验, 作者比较了无限制AI使用与采用"解释门"元认知脚本进行脚手架辅助的效果. 实验结果表明, 无限制使用AI虽然能提高初始生产力, 但会导致后续在AI不可用时的维护任务中表现显著下降.
+本文提出了一种用于保护多模态智能RAG系统的状态化信任推断框架MMA-RAG^T. 该框架将对抗意图建模为潜在变量, 并通过模块化信任代理在推理时进行状态化深度防御, 显著降低了攻击成功率.
 
 
-\arxivwithtarget{2602.20209}{Regressor-guided Diffusion Model for De Novo Peptide Sequencing with Explicit Mass Control}{Shaorong Chen, Jingbo Zhou, Jun Xia}\textbf{q-bio.QM}, cs.LG.
+\arxivwithtarget{2602.21452}{Adversarial Robustness of Deep Learning-Based Thyroid Nodule Segmentation in Ultrasound}{Nicholas Dietrich, David McShannon}\textbf{cs.CV}, cs.AI.
 
-本文提出了一种用于de novo peptide sequencing的regressor-guided diffusion model, 名为DiffuNovo. 该模型通过在训练和推理阶段显式地整合肽段质量约束, 显著降低了预测的质量误差, 提高了预测的物理合理性.
+本文针对甲状腺结节超声图像分割模型, 研究了其在对抗性攻击下的鲁棒性. 提出了两种黑盒攻击方法, 并评估了三种推理时防御策略的效果, 揭示了超声图像对抗鲁棒性评估中的模态特定挑战.
 
 
-\arxivwithtarget{2602.20213}{CodeHacker: Automated Test Case Generation for Detecting Vulnerabilities in Competitive Programming Solutions}{Jingwei Shi, Xinxiang Yin, Jing Huang, Jinman Zhao, Shengyu Tao}\textbf{cs.SE}, cs.AI, cs.CR.
+\arxivwithtarget{2602.21464}{iMiGUE-Speech: A Spontaneous Speech Dataset for Affective Analysis}{Sofoklis Kakouros, Fang Kang, Haoyu Chen}\textbf{eess.AS}, cs.CL.
 
-本文提出了一个名为CodeHacker的自动化代理框架, 用于生成针对性的对抗性测试用例, 以检测代码提交中的潜在漏洞. 该方法模拟了竞技编程中的“hack”机制, 通过多种策略(如压力测试、反哈希攻击等) 来暴露错误解决方案, 并通过校准阶段确保攻击的有效性. 实验表明, 该框架能有效提高现有数据集的真负率, 并生成高质量的对抗性训练数据.
+本文介绍了一个用于情感分析的自发性语音数据集 iMiGUE-Speech, 它扩展了原有的 iMiGUE 数据集, 并提供了语音转录、说话人角色分离等元数据. 该数据集捕捉真实比赛结果中自然产生的情感, 并可用于语音情感识别和基于文本的情感分析等基准任务.
 
 
-\arxivwithtarget{2602.20214}{Right to History: A Sovereignty Kernel for Verifiable AI Agent Execution}{Jing Zhang}\textbf{cs.CR}, cs.AI, cs.OS.
+\arxivwithtarget{2602.21468}{Unsupervised Discovery of Intermediate Phase Order in the Frustrated $J_1$-$J_2$ Heisenberg Model via Prometheus Framework}{Brandon Yee, Wilson Collins, Maximilian Rutkowski}\textbf{cond-mat.str-el}, cond-mat.dis-nn, cs.LG, quant-ph.
 
-本文提出了一种名为"Right to History"的原则, 旨在为在个人硬件上运行的AI agent提供完整且可验证的执行记录. 作者通过一个名为PunkGo的Rust系统实现了该原则, 该系统整合了Merkle树审计日志、基于capability的隔离等机制, 并进行了性能与安全性评估.
+本文应用Prometheus变分自编码器框架, 对正方晶格上自旋-1/2的$J_1$-$J_2$海森堡模型的相图进行了无监督探索. 通过对$4 \times 4$晶格精确对角化基态的分析, 研究了中间相的可能性质.
 
 
-\arxivwithtarget{2602.20219}{An Approach to Combining Video and Speech with Large Language Models in Human-Robot Interaction}{Guanting Shen, Zi Tian}\textbf{cs.RO}, cs.AI.
+\arxivwithtarget{2602.21476}{A Knowledge-Driven Approach to Music Segmentation, Music Source Separation and Cinematic Audio Source Separation}{Chun-wei Ho, Sabato Marco Siniscalchi, Kai Li, Chin-Hui Lee}\textbf{eess.AS}, cs.AI, cs.LG, eess.SP.
 
-本文提出了一种结合视觉-语言模型、语音处理和模糊逻辑的多模态人机交互框架, 用于控制机械臂. 该系统整合了Florence-2, Llama 3.1和Whisper等模型, 通过语音指令实现物体操控, 实验在消费级硬件上达到了75%的指令执行准确率.
+本文提出了一种基于知识和模型的音频分割方法, 用于将音频分割为单一类别和混合类别的片段, 并应用于音源分离. 该方法不依赖于预分割的训练数据, 而是直接从输入音频及其相关知识(如乐谱)中自主构建模型.
 
 
-\arxivwithtarget{2602.20220}{What Matters for Simulation to Online Reinforcement Learning on Real Robots}{Yarden As, Dhruva Tirumala, René Zurbrügg, Chenhao Li, Stelian Coros, Andreas Krause, Markus Wulfmeier}\textbf{cs.RO}, cs.AI.
+\arxivwithtarget{2602.21478}{Efficient Inference after Directionally Stable Adaptive Experiments}{Zikai Shen, Houssam Zenati, Nathan Kallus, Arthur Gretton, Koulik Khamaru, Aurélien Bibaut}\textbf{stat.ML}, cs.LG, math.ST, stat.ME.
 
-本文通过系统性的消融实验, 研究了在真实机器人上实现成功的在线强化学习(RL)所需的具体设计选择. 研究结果表明, 一组稳健且易于采用的标准RL实践设计选择, 能够在不同任务和硬件上实现稳定的学习.
+本文研究了在自适应数据收集(如bandit算法)后对路径可微标量目标进行统计推断的问题. 作者引入了一个新的目标特定条件——方向稳定性(directional stability), 它比之前的目标无关稳定性条件更弱. 在此条件下, 证明了即使在自适应收集的数据轨迹上计算, 那些在i.i.d.数据下有效的估计量仍保持渐近正态性和半参数有效性.
 
 
-\arxivwithtarget{2602.20289}{The Sim-to-Real Gap in MRS Quantification: A Systematic Deep Learning Validation for GABA}{Zien Ma, S. M. Shermer, Oktay Karakuş, Frank C. Langbein}\textbf{eess.SP}, cs.LG, q-bio.QM.
+\arxivwithtarget{2602.21479}{Global Sequential Testing for Multi-Stream Auditing}{Beepul Bharti, Ambar Pal, Jeremias Sulam}\textbf{stat.ML}, cs.LG.
 
-本文研究了使用深度学习模型(CNN和YAE)从MEGA-PRESS MRS数据中量化低浓度代谢物(如GABA)的方法. 通过在大量模拟光谱上进行训练, 并利用包含真实浓度信息的体模数据进行验证, 研究表明经过物理信息数据增强的模型性能优于传统工具LCModel, 但模拟与真实数据之间仍存在性能差距.
+本文针对多流审计中的全局序贯检验问题, 提出了新的检验方法. 通过合并具有不同权衡的检验鞅, 新方法在不同稀疏度的备择假设下改进了期望停止时间.
 
 
-\arxivwithtarget{2602.20292}{Quantifying the Expectation-Realisation Gap for Agentic AI Systems}{Sebastian Lobentanzer}\textbf{cs.SE}, cs.AI.
+\arxivwithtarget{2602.21480}{Both Ends Count! Just How Good are LLM Agents at "Text-to-Big SQL"?}{Germán T. Eizaguirre, Lars Tissen, Marc Sánchez-Artigas}\textbf{cs.DB}, cs.CL, cs.IR.
 
-本文通过回顾软件工程、临床文档和临床决策支持等领域的实证研究, 量化了AI智能体系统的预期与实现之间的差距. 研究发现, 由于工作流整合摩擦、验证负担和测量结构不匹配等因素, 实际效益往往显著低于预期.
+本文针对"Text-to-Big SQL"场景, 指出了现有Text-to-SQL评估指标在应对大数据量时在成本和性能方面的不足. 作者提出了新的评估指标, 并通过实验展示了这些指标在衡量执行效率、成本和数据规模影响方面的有效性.
 
 
-\arxivwithtarget{2602.20297}{Gap-Dependent Bounds for Nearly Minimax Optimal Reinforcement Learning with Linear Function Approximation}{Haochen Zhang, Zhong Zheng, Lingzhou Xue}\textbf{stat.ML}, cs.LG.
+\arxivwithtarget{2602.21501}{A Researcher's Guide to Empirical Risk Minimization}{Lars van der Laan}\textbf{stat.ML}, cs.LG, math.ST.
 
-本文为具有线性函数近似的强化学习算法 LSVI-UCB++ 提供了首个 gap-dependent 的遗憾上界, 改进了对维度$d$和步长$H$的依赖. 同时, 利用该算法的低策略切换特性, 提出了一个多智能体并发版本, 并建立了首个多智能体在线 RL 的 gap-dependent 样本复杂度上界.
+本文为经验风险最小化(ERM)提供了一个模块化的理论分析框架. 它围绕一个三步法(基本不等式, 一致局部集中界, 不动点论证)推导出基于临界半径的高概率遗憾界, 并讨论了在因果推断等领域中带有干扰参数的ERM问题.
 
 
-\arxivwithtarget{2602.20317}{Fast Spectrogram Event Extraction via Offline Self-Supervised Learning: From Fusion Diagnostics to Bioacoustics}{Nathaniel Chen, Kouroche Bouchiat, Peter Steiner, Andrew Rothstein, David Smith, Max Austin, Mike van Zeeland, Azarakhsh Jalalvand, Egemen Kolemen}\textbf{eess.SP}, cs.AI, physics.plasm-ph.
+\arxivwithtarget{2602.21509}{Fair Model-based Clustering}{Jinwon Park, Kunwoong Kim, Jihu Lee, Yongdai Kim}\textbf{stat.ML}, cs.LG, stat.AP.
 
-本文提出了一种基于自监督学习的快速时频谱事件提取框架, 用于从高噪声的时频数据中自动提取相干和瞬态模式. 该方法在DIII-D等托卡马克装置的诊断数据上进行了验证, 并展示了在实时模式识别和大规模数据库生成方面的潜力.
+本文提出了一种基于有限混合模型的公平聚类算法(FMC), 通过优化模型参数而非直接分配每个数据点来满足公平性约束, 从而使得可学习参数数量与样本量无关, 易于扩展并支持小批量学习. 该方法适用于非度量数据, 并提供了理论和实验验证.
 
 
-\arxivwithtarget{2602.20323}{Learning Physical Principles from Interaction: Self-Evolving Planning via Test-Time Memory}{Haoyang Li, Yang You, Hao Su, Leonidas Guibas}\textbf{cs.RO}, cs.AI.
+\arxivwithtarget{2602.21522}{One Brain, Omni Modalities: Towards Unified Non-Invasive Brain Decoding with Large Language Models}{Changli Tang, Shurui Li, Junliang Wang, Qinfan Xiao, Zhonghao Zhai, Lei Bai, Yu Qiao, Bowen Zhou, Wen Wu, Yuanning Li, Chao Zhang}\textbf{q-bio.NC}, cs.AI, cs.CL.
 
-本文提出了一个名为PhysMem的框架, 使VLM机器人规划器能够在测试时通过交互学习物理原理, 而无需更新模型参数. 该框架通过记录经验, 生成假设并进行验证来提升决策, 在真实世界和仿真任务中展示了性能提升.
+本文提出了一种名为NOBEL的神经全模态大脑编码大语言模型, 旨在统一处理非侵入性脑信号(如EEG, MEG和fMRI). 该模型通过一个共享的语义嵌入空间整合了这些异质信号, 并在多项标准任务上展示了其作为通用模型的性能.
 
 
-\arxivwithtarget{2602.20330}{Circuit Tracing in Vision-Language Models: Understanding the Internal Mechanisms of Multimodal Thinking}{Jingcheng Yang, Tianhu Xiong, Shengyi Qian, Klara Nahrstedt, Mingyuan Wu}\textbf{cs.CV}, cs.AI, cs.LG.
+\arxivwithtarget{2602.21531}{LiLo-VLA: Compositional Long-Horizon Manipulation via Linked Object-Centric Policies}{Yue Yang, Shuo Cheng, Yu Fang, Homanga Bharadhwaj, Mingyu Ding, Gedas Bertasius, Daniel Szafir}\textbf{cs.RO}, cs.AI, cs.CV, cs.LG, eess.SY.
 
-本文提出了一个用于分析vision-language models内部多模态推理机制的框架. 该框架通过transcoders, attribution graphs和attention-based methods揭示了模型整合视觉与语义概念的层次化方式.
+本文提出了一个名为LiLo-VLA的模块化机器人操作框架, 用于解决长时程、多步骤的物体操作任务. 该方法将全局移动与局部交互解耦, 并通过动态重规划实现鲁棒的失败恢复, 在仿真和真实世界实验中均取得了优于基线模型的表现.
 
 
-\arxivwithtarget{2602.20361}{Learning During Detection: Continual Learning for Neural OFDM Receivers via DMRS}{Mohanad Obeed, Ming Jian}\textbf{cs.IT}, cs.AI, cs.LG.
+\arxivwithtarget{2602.21533}{Reasoning-Driven Design of Single Atom Catalysts via a Multi-Agent Large Language Model Framework}{Dong Hyeon Mok, Seoin Back, Victor Fung, Guoxiang Hu}\textbf{cond-mat.mtrl-sci}, cs.LG.
 
-本文提出了一种利用DMRS进行在线持续学习的OFDM神经接收机框架, 无需额外开销即可同时完成信号解调和模型适应. 该方法通过并行或前向传递复用的接收机架构, 有效跟踪信道分布的变化.
+本文提出了一个基于多智能体大语言模型(LLM)的框架MAESTRO, 用于自主发现高性能的单原子催化剂. 该框架通过多个具有专门角色的LLM智能体进行协作推理和迭代优化, 成功发现了打破传统标度关系的催化剂.
 
 
-\arxivwithtarget{2602.20383}{Detecting and Mitigating Group Bias in Heterogeneous Treatment Effects}{Joel Persson, Jurriën Bakker, Dennis Bohle, Stefan Feuerriegel, Florian von Wangenheim}\textbf{stat.ME}, cs.LG, econ.EM.
+\arxivwithtarget{2602.21569}{How many asymmetric communities are there in multi-layer directed networks?}{Huan Qing}\textbf{math.ST}, cs.LG, stat.ME, stat.ML.
 
-本文研究了在随机实验中, 将个体层面的条件平均处理效应(CATE)预测聚合到群体层面时可能产生的系统性偏差. 作者提出了一个统一的统计框架来检测和校正这种群体偏差, 并分析了其在利润最大化个性化定向中的经济影响.
+本文针对多层有向网络中社区数量估计的难题, 提出了一种基于拟合优度检验的新方法. 该方法通过分析聚合残差矩阵的最大奇异值, 设计了一种能一致确定发送方和接收方真实社区数量的顺序检验程序.
 
 
-\arxivwithtarget{2602.20394}{Selecting Optimal Variable Order in Autoregressive Ising Models}{Shiba Biswal, Marc Vuffray, Andrey Y. Lokhov}\textbf{stat.ML}, cs.LG.
+\arxivwithtarget{2602.21572}{Goodness-of-Fit Tests for Latent Class Models with Ordinal Categorical Data}{Huan Qing}\textbf{stat.ML}, cs.LG, stat.ME.
 
-本文提出了一种基于底层数据 Markov random field 结构来优化自回归模型变量排序的方法. 该方法通过推断图模型结构来构建优化的变量顺序, 在 Ising 模型上的实验表明, 基于图信息的排序比朴素排序能生成保真度更高的样本.
+本文针对有序分类数据中的潜在类别模型, 提出了一种基于归一化残差矩阵最大奇异值的检验统计量, 用于确定潜在类别的数量. 该统计量在零假设下收敛, 在备择假设下超过正常数, 据此设计的序贯检验算法能一致地估计真实类别数.
 
 
-\arxivwithtarget{2602.20408}{Examining and Addressing Barriers to Diversity in LLM-Generated Ideas}{Yuting Deng, Melanie Brucks, Olivier Toubia}\textbf{cs.CY}, cs.AI, cs.HC.
+\arxivwithtarget{2602.21584}{Exploring Human-Machine Coexistence in Symmetrical Reality}{Zhenliang Zhang}\textbf{cs.HC}, cs.AI.
 
-本文研究了LLM生成想法多样性不足的问题, 并基于认知心理学识别了两种机制: 个体层面的fixation和集体层面的知识统一化. 通过四项研究, 作者发现Chain-of-Thought prompting和ordinary personas prompting两种干预措施可以分别应对这两种机制, 提升想法多样性.
+本文提出了"symmetrical reality"这一新概念, 旨在为跨越物理与虚拟世界的人机和谐共生研究提供一个描述性框架. 它挑战了以人为中心的传统交互范式, 并阐述了该框架的关键特征.
 
 
-\arxivwithtarget{2602.20423}{MedCLIPSeg: Probabilistic Vision-Language Adaptation for Data-Efficient and Generalizable Medical Image Segmentation}{Taha Koleilat, Hojat Asgariandehkordi, Omid Nejati Manzari, Berardino Barile, Yiming Xiao, Hassan Rivaz}\textbf{cs.CV}, cs.CL.
+\arxivwithtarget{2602.21611}{Structurally Aligned Subtask-Level Memory for Software Engineering Agents}{Kangning Shen, Jingyuan Zhang, Chenxi Sun, Wencong Zeng, Yang Yue}\textbf{cs.SE}, cs.AI.
 
-本文提出了MedCLIPSeg, 一个用于数据高效和泛化性医学图像分割的概率视觉语言适应框架. 它通过概率跨模态注意力利用patch-level的CLIP嵌入, 并结合软对比损失, 在多个数据集上展现了优越性能.
+本文提出了一种针对软件工程智能体的 Structurally Aligned Subtask-Level Memory 方法, 旨在解决现有基于实例的粗粒度记忆机制在长程推理中的不足. 通过在 SWE-bench Verified 上的实验表明, 该方法能有效提升智能体在复杂软件工程任务中的表现.
 
 
-\arxivwithtarget{2602.20450}{Heterogeneity-Aware Client Selection Methodology For Efficient Federated Learning}{Nihal Balivada, Shrey Gupta, Shashank Shreedhar Bhatt, Suyash Gupta}\textbf{cs.DC}, cs.LG.
+\arxivwithtarget{2602.21613}{Virtual Biopsy for Intracranial Tumors Diagnosis on MRI}{Xinzhe Luo, Shuai Shao, Yan Wang, Jiangtao Wang, Yutong Bai, Jianguo Zhang}\textbf{cs.CV}, cs.AI.
 
-本文提出了一种名为Terraform的联邦学习客户端选择方法, 旨在解决统计异构性导致的精度下降问题. 该方法利用梯度更新和确定性算法来选择异构客户端进行重训练, 从而提高了全局模型的准确性.
+本文提出了一个基于MRI的颅内肿瘤虚拟活检框架, 包含用于数据标准化的MRI-Processor, 利用视觉语言模型进行弱监督粗到精定位的Tumor-Localizer, 以及融合局部判别特征与全局上下文的Adaptive-Diagnoser. 该方法在新建的公开数据集上取得了超过90%的准确率.
 
 
-\arxivwithtarget{2602.20465}{Prior-Agnostic Incentive-Compatible Exploration}{Ramya Ramalingam, Osbert Bastani, Aaron Roth}\textbf{cs.GT}, cs.LG.
+\arxivwithtarget{2602.21620}{Revisiting the Bertrand Paradox via Equilibrium Analysis of No-regret Learners}{Arnab Maiti, Junyan Liu, Kevin Jamieson, Lillian J. Ratliff}\textbf{cs.GT}, cs.LG.
 
-本文在bandit问题中, 研究了当principal与agents之间存在激励错配时的探索问题. 作者证明了在agents具有不同先验且机制设计者未知这些先验的动态环境中, 满足(加权)swap regret界限足以使agents在近似Bayes Nash均衡中遵循预测.
+本文通过分析 no-regret learners 在重复博弈中的行为, 研究了离散 Bertrand 定价博弈中的 Bertrand paradox. 研究探讨了不同 regret 保证(如 no-external-regret 和 no-swap regret) 如何影响均衡结果, 并辅以实验验证.
 
 
-\arxivwithtarget{2602.20475}{PhyGHT: Physics-Guided HyperGraph Transformer for Signal Purification at the HL-LHC}{Mohammed Rakib, Luke Vaughan, Shivang Patel, Flera Rizatdinova, Alexander Khanov, Atriya Sen}\textbf{hep-ex}, cs.LG.
+\arxivwithtarget{2602.21633}{Self-Correcting VLA: Online Action Refinement via Sparse World Imagination}{Chenyv Liu, Wentao Tan, Lei Zhu, Fengling Li, Jingjing Li, Guoli Yang, Heng Tao Shen}\textbf{cs.RO}, cs.AI, cs.CV.
 
-本文提出了一种用于HL-LHC信号提纯的物理引导超图Transformer模型. 该模型结合了局部图注意力和全局自注意力, 并引入了一个可解释的堆积抑制门来过滤噪声. 在模拟数据集上的实验表明, 该模型在能量和质量校正因子预测上优于现有基线.
+本文提出了一种名为SC-VLA的自我纠正视觉-语言-动作模型, 通过稀疏世界想象实现在线动作优化. 该方法在机器人操作任务中取得了优于现有基准的性能.
 
 
-\arxivwithtarget{2602.20486}{Hybrid LLM-Embedded Dialogue Agents for Learner Reflection: Designing Responsive and Theory-Driven Interactions}{Paras Sharma, YuePing Sha, Janet Shufor Bih Epse Fofang, Brayden Yan, Jess A. Turner, Nicole Balay, Hubert O. Asare, Angela E.B. Stewart, Erin Walker}\textbf{cs.HC}, cs.AI.
+\arxivwithtarget{2602.21650}{PPCR-IM: A System for Multi-layer DAG-based Public Policy Consequence Reasoning and Social Indicator Mapping}{Zichen Song, Weijia Li}\textbf{cs.SI}, cs.AI.
 
-本文设计了一种混合对话系统, 将LLM的响应能力嵌入到基于规则的理论框架中, 以支持学习者的反思. 该系统在机器人夏令营中进行了应用, 研究发现LLM的嵌入能促进更丰富的反思, 但也带来了重复性和提示错位等挑战.
+本文提出了一个名为PPCR-IM的系统, 用于基于多层DAG(有向无环图) 进行公共政策后果推理和社会指标映射. 该系统利用LLM(大语言模型) 生成政策影响的因果图, 并将其映射到固定的社会指标集上, 以结构化地评估政策的广泛社会影响.
 
 
-\arxivwithtarget{2602.20497}{LESA: Learnable Stage-Aware Predictors for Diffusion Model Acceleration}{Peiliang Cai, Jiacheng Liu, Haowen Xu, Xinyu Wang, Chang Zou, Linfeng Zhang}\textbf{cs.CV}, cs.AI.
+\arxivwithtarget{2602.21655}{CCCaption: Dual-Reward Reinforcement Learning for Complete and Correct Image Captioning}{Zhijiang Tang, Linhua Wang, Jiaxin Qi, Weihao Jiang, Peng Hou, Anxiang Zeng, Jianqiang Huang}\textbf{cs.CV}, cs.AI.
 
-本文提出了一种基于可学习阶段感知预测器的扩散模型加速框架LESA, 通过两阶段训练和KAN网络学习时序特征映射, 并采用多阶段多专家架构为不同噪声阶段分配专用预测器, 从而在图像和视频生成任务中实现显著加速并保持高质量输出.
+本文提出了一种名为CCCaption的双奖励强化学习框架, 旨在生成更完整和正确的图像描述. 该方法通过分别优化描述的覆盖度(completeness)和准确性(correctness)来超越对人工标注的简单模仿.
 
 
-\arxivwithtarget{2602.20520}{How Do Inpainting Artifacts Propagate to Language?}{Pratham Yashwante, Davit Abrahamyan, Shresth Grover, Sukruth Rao}\textbf{cs.CV}, cs.AI.
+\arxivwithtarget{2602.21657}{Following the Diagnostic Trace: Visual Cognition-guided Cooperative Network for Chest X-Ray Diagnosis}{Shaoxuan Wu, Jingkun Chen, Chong Ma, Cong Shen, Xiao Zhang, Jun Feng}\textbf{cs.CV}, cs.AI.
 
-本文研究了扩散模型图像修复引入的视觉伪影如何影响视觉语言模型的语言生成. 通过一个两阶段诊断框架, 分析了修复保真度与下游图像描述质量之间的关系, 并观察了模型内部表示和注意力模式的系统性变化.
+本文提出了一种视觉认知引导的协同网络(VCC-Net), 用于胸部X光片的协同诊断. 该方法通过眼动追踪等接口捕获放射科医生的视觉搜索轨迹, 并利用这些信息引导模型定位关键区域, 构建疾病感知图以整合人机推理, 在多个数据集上取得了较好的分类性能.
 
 
-\arxivwithtarget{2602.20541}{Maximin Share Guarantees via Limited Cost-Sensitive Sharing}{Hana Salavcova, Martin Černý, Arpita Biswas}\textbf{cs.GT}, cs.AI.
+\arxivwithtarget{2602.21670}{Hierarchical LLM-Based Multi-Agent Framework with Prompt Optimization for Multi-Robot Task Planning}{Tomoya Kawabe, Rin Takano}\textbf{cs.RO}, cs.AI, cs.MA.
 
-本文研究了允许有限共享下的不可分割物品公平分配问题. 作者提出了共享最大最小份额(SMMS)的概念, 并设计了算法来保证近似MMS分配的存在性. 研究为多智能体环境中允许资源共享的公平分配问题提供了理论见解.
+本文提出了一种基于分层多智能体大语言模型(LLM)的机器人任务规划框架, 结合了提示优化技术. 该框架通过上层分解任务、下层生成PDDL规划问题并使用经典规划器求解, 在任务失败时通过文本梯度更新优化提示, 在基准测试中取得了优于先前方法的成功率.
 
 
-\arxivwithtarget{2602.20547}{What Drives Students' Use of AI Chatbots? Technology Acceptance in Conversational AI}{Griffin Pitts, Sanaz Motamedi}\textbf{cs.HC}, cs.AI, cs.CY, cs.ET.
+\arxivwithtarget{2602.21684}{Primary-Fine Decoupling for Action Generation in Robotic Imitation}{Xiaohan Lei, Min Wang, Wengang Zhou, Xingyu Lu, Houqiang Li}\textbf{cs.RO}, cs.LG.
 
-本文基于Technology Acceptance Model (TAM) 研究了影响学生使用AI聊天机器人的因素. 研究发现, 感知有用性是最强的预测指标, 而感知易用性、信任、主观规范和感知享受也扮演着重要角色.
+本文提出了一种名为PF-DAG的两阶段框架, 用于解决机器人模仿学习中动作序列的多模态分布问题. 该方法将粗粒度动作模式与细粒度变化解耦, 通过离散模式选择和条件生成来提升动作生成的稳定性和保真度.
 
 
-\arxivwithtarget{2602.20555}{Standard Transformers Achieve the Minimax Rate in Nonparametric Regression with $C^{s,λ}$ Targets}{Yanming Lai, Defeng Sun}\textbf{stat.ML}, cs.IT, cs.LG.
+\arxivwithtarget{2602.21703}{Brain Tumor Segmentation with Special Emphasis on the Non-Enhancing Brain Tumor Compartment}{T. Schaffer, A. Brawanski, S. Wein, A. M. Tomé, E. W. Lang}\textbf{cs.CV}, cs.LG.
 
-本文证明了标准Transformer模型能以任意精度逼近Hölder函数空间$C^{s,\lambda}([0,1]^{d\times n})$, 并在此基础上证明了其在非参数回归问题中达到了极小极大最优收敛速率. 研究还引入了刻画模型结构的度量, 并给出了Transformer的Lipschitz常数上界和记忆容量分析.
+本文设计了一种基于U-Net的深度学习架构,用于在多种MRI模态图像上分割脑肿瘤,并特别关注了非增强肿瘤区域的分割. 该区域在近年来的脑肿瘤分割挑战中常被忽略,但作者认为其对于预测患者生存期和肿瘤生长区域具有重要意义.
 
 
-\arxivwithtarget{2602.20585}{Characterizing Online and Private Learnability under Distributional Constraints via Generalized Smoothness}{Moïse Blanchard, Abhishek Shetty, Alexander Rakhlin}\textbf{stat.ML}, cs.LG.
+\arxivwithtarget{2602.21704}{Dynamic Multimodal Activation Steering for Hallucination Mitigation in Large Vision-Language Models}{Jianghao Yin, Qin Chen, Kedi Chen, Jie Zhou, Xingjiao Wu, Liang He}\textbf{cs.CV}, cs.AI.
 
-本文研究了在分布约束下的在线学习和私有学习问题, 引入了广义光滑性(generalized smoothness)的概念来刻画可学习性. 结果表明, 一个分布族允许对所有有限VC维假设类实现VC维依赖的遗憾界, 当且仅当该分布族是广义光滑的.
+本文提出了一种无需训练的幻觉缓解方法, 通过分析模型激活模式, 构建基于语义的真实性导向向量数据库, 并在推理时根据输入动态选择并应用这些向量到关键的 attention heads 上. 实验表明该方法能有效提升多个模型在多个数据集上的性能.
 
 
-\arxivwithtarget{2602.20595}{OptiLeak: Efficient Prompt Reconstruction via Reinforcement Learning in Multi-tenant LLM Services}{Longxiang Wang, Xiang Zheng, Xuhao Zhang, Yao Zhang, Ye Wu, Cong Wang}\textbf{cs.CR}, cs.AI.
+\arxivwithtarget{2602.21706}{SurGo-R1: Benchmarking and Modeling Contextual Reasoning for Operative Zone in Surgical Video}{Guanyi Qin, Xiaozhen Wang, Zhu Zhuo, Chang Han Low, Yuancan Xiao, Yibing Fu, Haofeng Liu, Kai Wang, Chunjiang Li, Yueming Jin}\textbf{cs.CV}, cs.AI.
 
-本文提出了一种名为OptiLeak的强化学习增强框架, 用于优化多租户LLM服务中基于共享Key-Value缓存的提示词泄漏攻击. 该方法通过两阶段微调自动识别领域特定的“困难词元”并利用Direct Preference Optimization来最大化提示词重建效率. 实验表明, 该方法显著降低了攻击所需的平均请求次数, 揭示了缓存隔离在现实部署中的必要性.
+本文提出了一个用于手术视频中安全操作区域识别的基准测试和模型. 该模型通过强化学习优化, 在识别手术阶段后进行上下文相关的推理和区域定位, 性能显著优于通用视觉语言模型.
 
 
-\arxivwithtarget{2602.20610}{SpecMind: Cognitively Inspired, Interactive Multi-Turn Framework for Postcondition Inference}{Cuong Chi Le, Minh V.T Pham, Tung Vu Duy, Cuong Duc Van, Huy N. Phan, Hoang N. Phan, Tien N. Nguyen}\textbf{cs.SE}, cs.CL.
+\arxivwithtarget{2602.21707}{Learning spatially adaptive sparsity level maps for arbitrary convolutional dictionaries}{Joshua Schulz, David Schote, Christoph Kolbitsch, Kostas Papafitsoros, Andreas Kofler}\textbf{eess.IV}, cs.CV, cs.LG, math.OC.
 
-本文提出了一个名为SpecMind的交互式多轮框架, 用于自动推断程序的后置条件(postcondition). 该框架将大型语言模型(LLM)视为交互式的探索性推理器, 通过融入反馈的迭代提示来逐步精炼候选条件, 从而在准确性和完整性上超越了现有方法.
+本文提出了一种改进的基于卷积字典和神经网络推断的空间自适应稀疏度映射的图像重建方法. 该方法通过改进网络设计和训练策略, 实现了滤波器置换不变性, 并允许在推理时更换卷积字典. 在低场MRI上的实验表明, 该方法对数据分布偏移具有更好的鲁棒性.
 
 
-\arxivwithtarget{2602.20611}{Amortized Bayesian inference for actigraph time sheet data from mobile devices}{Daniel Zhou, Sudipto Banerjee}\textbf{stat.ML}, cs.LG, stat.ME.
+\arxivwithtarget{2602.21715}{Two-Stage Active Distribution Network Voltage Control via LLM-RL Collaboration: A Hybrid Knowledge-Data-Driven Approach}{Xu Yang, Chenhui Lin, Xiang Ma, Dong Liu, Ran Zheng, Haotian Liu, Wenchuan Wu}\textbf{eess.SY}, cs.AI.
 
-本文针对移动设备采集的actigraph时间表数据, 提出了一种摊销贝叶斯推断方法. 该方法基于分层动态线性模型, 旨在实现概率性插补并学习解释变量对加速度大小的时变影响.
+本文提出了一种结合大型语言模型(LLM)与强化学习(RL)的混合知识-数据驱动方法, 用于主动配电网(ADN)的两阶段电压控制. 该方法利用LLM处理日前粗粒度预测信息并调度传统设备, 而RL则基于日内精确测量来优化光伏逆变器的无功出力, 并通过自进化与预训练-微调机制提升整体性能.
 
 
-\arxivwithtarget{2602.20616}{Knowing the Unknown: Interpretable Open-World Object Detection via Concept Decomposition Model}{Xueqiang Lv, Shizhou Zhang, Yinghui Xing, Di Xu, Peng Wang, Yanning Zhang}\textbf{cs.CV}, cs.LG.
+\arxivwithtarget{2602.21721}{Private and Robust Contribution Evaluation in Federated Learning}{Delio Jaramillo Velez, Gergely Biczok, Alexandre Graell i Amat, Johan Ostman, Balazs Pejo}\textbf{cs.CR}, cs.GT, cs.LG.
 
-本文提出了一个概念驱动的可解释开放世界目标检测框架(IPOW), 其核心是概念分解模型(CDM). 该模型将Faster R-CNN中的RoI特征显式分解为判别性、共享性和背景性概念, 并利用概念引导修正(CGR)来缓解已知与未知类别间的混淆. 实验表明该方法在提升未知目标召回率的同时, 为预测提供了概念层面的可解释性.
+本文提出了两种与安全聚合兼容的边际差异贡献评估方法, 用于联邦学习中的客户端贡献评估. 这些方法在保护隐私的同时, 提供了公平性、鲁棒性和计算效率的理论保证, 并在多个数据集上验证了其优于现有基线的性能.
 
 
-\arxivwithtarget{2602.20636}{SurgAtt-Tracker: Online Surgical Attention Tracking via Temporal Proposal Reranking and Motion-Aware Refinement}{Rulin Zhou, Guankun Wang, An Wang, Yujie Ma, Lixin Ouyang, Bolin Cui, Junyan Li, Chaowei Zhu, Mingyang Li, Ming Chen, Xiaopin Zhong, Peng Lu, Jiankun Wang, Xianming Liu, Hongliang Ren}\textbf{cs.CV}, cs.AI.
+\arxivwithtarget{2602.21749}{RABot: Reinforcement-Guided Graph Augmentation for Imbalanced and Noisy Social Bot Detection}{Longlong Zhang, Xi Wang, Haotong Du, Yangyi Xu, Zhuo Liu, Yang Liu}\textbf{cs.SI}, cs.LG.
 
-本文提出了一种用于手术注意力跟踪的框架 SurgAtt-Tracker, 它通过时序提议重排序和运动感知优化来建模外科医生的视觉焦点. 该方法在多个数据集上展现了先进的性能, 并提供了一个可用于下游机器人视野规划的信号.
+本文提出了一种名为RABot的图增强框架, 用于解决社交机器人检测中的类别不平衡和拓扑噪声问题. 该方法结合了邻域感知过采样和强化学习驱动的边过滤, 并在多个基准测试中提升了现有GNN模型的性能.
 
 
-\arxivwithtarget{2602.20646}{On the Convergence of Stochastic Gradient Descent with Perturbed Forward-Backward Passes}{Boao Kong, Hengrui Zhang, Kun Yuan}\textbf{math.OC}, cs.LG, stat.ML.
+\arxivwithtarget{2602.21766}{RAMSeS: Robust and Adaptive Model Selection for Time-Series Anomaly Detection Algorithms}{Mohamed Abdelmaksoud, Sheng Ding, Andrey Morozov, Ziawasch Abedjan}\textbf{cs.DB}, cs.LG.
 
-本文分析了在复合优化问题中, 当SGD的前向和后向计算过程均受到扰动时的收敛性. 理论结果解释了深度学习训练中观察到的梯度尖峰现象, 并通过实验验证了分析.
+本文提出了一个用于时间序列异常检测的鲁棒自适应模型选择框架RAMSeS. 该框架包含一个集成学习分支和一个自适应模型选择分支, 旨在提升算法在不同领域数据集上的泛化性能.
 
 
-\arxivwithtarget{2602.20650}{Dataset Color Quantization: A Training-Oriented Framework for Dataset-Level Compression}{Chenyue Yu, Lingao Xiao, Jinhong Deng, Ivor W. Tsang, Yang He}\textbf{cs.CV}, cs.AI.
+\arxivwithtarget{2602.21772}{UniWhisper: Efficient Continual Multi-task Training for Robust Universal Audio Representation}{Yuxuan Chen, Peize He, Haoyuan Xu, Junzi Zhang}\textbf{cs.SD}, cs.AI.
 
-本文提出了一种面向模型训练的数据集级压缩框架Dataset Color Quantization (DCQ). 该方法通过减少图像色彩空间的冗余, 在保持训练所需关键信息的同时, 实现了对大规模视觉数据集的有效压缩.
+本文提出了一个名为UniWhisper的高效持续多任务训练框架, 用于学习通用的音频表示. 该方法将异构音频任务统一为指令-答案格式进行训练, 并在多个音频任务上取得了优于基线模型Whisper的性能.
 
 
-\arxivwithtarget{2602.20652}{DANCE: Doubly Adaptive Neighborhood Conformal Estimation}{Brandon R. Feng, Brian J. Reich, Daniel Beaglehole, Xihaier Luo, David Keetae Park, Shinjae Yoo, Zhechao Huang, Xueyu Mao, Olcay Boz, Jungeum Kim}\textbf{stat.ML}, cs.LG.
+\arxivwithtarget{2602.21779}{Beyond Static Artifacts: A Forensic Benchmark for Video Deepfake Reasoning in Vision Language Models}{Zheyuan Gu, Qingsong Zhao, Yusong Wang, Zhaohong Huang, Xinqi Li, Cheng Yuan, Jiaowei Shao, Chi Zhang, Xuelong Li}\textbf{cs.CV}, cs.AI.
 
-本文提出了一种名为DANCE的局部自适应最近邻conformal算法, 它结合了两种新的nonconformity scores, 直接利用数据的嵌入表示来生成预测集. 该方法在多个数据集上展现了优于现有基线的集合大小效率和鲁棒性.
+本文提出了一个名为Forensic Answer-Questioning (FAQ)的基准测试, 用于评估和增强Vision-Language Models (VLMs)在视频深度伪造检测中的时序推理能力. 该基准通过一个三级层次结构来逐步测试模型, 并基于此生成的指令调优数据集FAQ-IT能有效提升模型在相关任务上的性能.
 
 
-\arxivwithtarget{2602.20658}{Vision-Language Models for Ergonomic Assessment of Manual Lifting Tasks: Estimating Horizontal and Vertical Hand Distances from RGB Video}{Mohammad Sadra Rajabi, Aanuoluwapo Ojelade, Sunwook Kim, Maury A. Nussbaum}\textbf{cs.CV}, cs.AI, cs.HC, cs.LG.
+\arxivwithtarget{2602.21783}{Therapist-Robot-Patient Physical Interaction is Worth a Thousand Words: Enabling Intuitive Therapist Guidance via Remote Haptic Control}{Beatrice Luciani, Alex van den Berg, Matti Lang, Alexandre L. Ratschat, Laura Marchal-Crespo}\textbf{cs.RO}, cs.LG.
 
-本文提出了一种基于vision-language models (VLMs)的方法, 用于从RGB视频中非侵入式地估计手动举升任务中的水平(H)和垂直(V)手部距离. 该方法通过文本引导的检测与分割流程提取视觉特征, 并利用transformer进行时序回归, 在多种相机视角下评估了性能, 结果表明基于分割的多视角流程能有效降低估计误差.
+本文提出了一种用于远程康复训练的触觉遥操作系统, 允许治疗师通过手持触觉设备直观地引导佩戴上肢外骨骼的患者. 实验表明, 与视觉演示相比, 触觉引导能减少运动完成时间并降低言语指令需求.
 
 
-\arxivwithtarget{2602.20684}{Agile V: A Compliance-Ready Framework for AI-Augmented Engineering -- From Concept to Audit-Ready Delivery}{Christopher Koch, Joshua Andreas Wellbrock}\textbf{cs.SE}, cs.AI, cs.MA.
+\arxivwithtarget{2602.21788}{DHP: Efficient Scaling of MLLM Training with Dynamic Hybrid Parallelism}{Yifan Niu, Han Xiao, Dongyi Liu, Wei Zhou, Jia Li}\textbf{cs.DC}, cs.LG.
 
-本文提出了一个名为Agile V的框架, 旨在将独立的验证和审计追踪嵌入到AI辅助的工程任务循环中. 该框架通过一个结合了Agile和V-Model的"Infinity Loop", 并利用专门的AI agent来生成审计就绪的工件, 在一个硬件在环系统的案例研究中展示了其可行性.
+本文提出了一种用于多模态大语言模型(MLLM)训练的Dynamic Hybrid Parallelism(DHP)方法. 该方法通过动态调整并行策略来应对异构数据带来的负载不均衡问题, 从而提升了训练吞吐量和硬件利用率.
 
 
-\arxivwithtarget{2602.20709}{Onboard-Targeted Segmentation of Straylight in Space Camera Sensors}{Riccardo Gallon, Fabian Schiemenz, Alessandra Menicucci, Eberhard Gill}\textbf{cs.CV}, cs.AI.
+\arxivwithtarget{2602.21797}{Neural Learning of Fast Matrix Multiplication Algorithms: A StrassenNet Approach}{Paolo Andreini, Alessandra Bernardi, Monica Bianchini, Barbara Toniella Corradini, Sara Marziali, Giacomo Nunziati, Franco Scarselli}\textbf{math.AG}, cs.LG.
 
-本文提出了一种基于AI的方法, 用于对空间相机传感器中的杂散光进行语义分割. 该方法利用在非空间场景数据集(Flare7k++)上的预训练来提升模型泛化能力, 并设计了面向星载资源受限硬件的轻量级模型.
+本文提出了一种名为StrassenNet的神经网络架构, 用于学习快速矩阵乘法算法. 该网络成功复现了$2\times 2$矩阵乘法的Strassen算法, 并在$3\times 3$乘法上进行了实验, 结果表明秩为23的分解可能具有特殊意义.
 
 
-\arxivwithtarget{2602.20712}{F10.7 Index Prediction: A Multiscale Decomposition Strategy with Wavelet Transform for Performance Optimization}{Xuran Ma, Xuebao Li, Yanfang Zheng, Yongshang Lv, Xiaojia Ji, Jiancheng Xu, Hongwei Ye, Zixian Wu, Shuainan Yan, Liang Dong, Zamri Zainal Abidin, Xusheng Huang, Shunhuang Zhang, Honglei Jin, Tarik Abdul Latef, Noraisyah Mohamed Shah, Mohamadariff Othman, Kamarul Ariffin Noordin}\textbf{astro-ph.IM}, astro-ph.SR, cs.LG.
+\arxivwithtarget{2602.21800}{An Evaluation of Context Length Extrapolation in Long Code via Positional Embeddings and Efficient Attention}{Madhusudan Ghosh, Rishabh Gupta}\textbf{cs.SE}, cs.AI.
 
-本文提出了一种基于wavelet decomposition的F10.7指数预测方法, 将分解后的近似与细节信号与原始序列一同输入iTransformer模型. 该方法在多个数据集上超越了现有基准和业务模型, 并首次将wavelet decomposition应用于该预测任务.
+本文探讨了在长代码序列中通过改进位置编码和优化注意力机制来实现上下文长度外推的零样本方法, 旨在提升大语言模型在代码补全等任务上的表现.
 
 
-\arxivwithtarget{2602.20720}{AdapTools: Adaptive Tool-based Indirect Prompt Injection Attacks on Agentic LLMs}{Che Wang, Jiaming Zhang, Ziqi Zhang, Zijie Wang, Yinghui Wang, Jianbo Gao, Tao Wei, Zhong Chen, Wei Yang Bryan Lim}\textbf{cs.CR}, cs.AI.
+\arxivwithtarget{2602.21819}{SemVideo: Reconstructs What You Watch from Brain Activity via Hierarchical Semantic Guidance}{Minghan Yang, Lan Yang, Ke Li, Honggang Zhang, Kaiyue Pang, Yizhe Song}\textbf{cs.CV}, cs.AI.
 
-本文提出了一个名为AdapTools的自适应工具间接提示注入攻击框架, 用于评估基于大型语言模型的智能体(agent)的安全性. 该方法通过选择隐蔽的攻击工具和生成自适应的攻击提示, 在实验中显著提高了攻击成功率并降低了系统效用.
+本文提出了一种名为SemVideo的fMRI-to-video重建框架, 旨在从大脑活动中重建动态视觉体验. 该框架通过分层语义引导模块SemMiner提取多级语义线索, 并利用语义对齐解码器、运动适应解码器和条件视频渲染器来改善重建视频的外观一致性和时间连贯性. 在CC2017和HCP数据集上的实验表明, 该方法在语义对齐和时间一致性方面优于现有技术.
 
 
-\arxivwithtarget{2602.20731}{Communication-Inspired Tokenization for Structured Image Representations}{Aram Davtyan, Yusuf Sahin, Yasaman Haghighi, Sebastian Stapf, Pablo Acuaviva, Alexandre Alahi, Paolo Favaro}\textbf{cs.CV}, cs.AI, cs.LG.
+\arxivwithtarget{2602.21829}{StoryMovie: A Dataset for Semantic Alignment of Visual Stories with Movie Scripts and Subtitles}{Daniel Oliveira, David Martins de Matos}\textbf{cs.CV}, cs.AI.
 
-本文提出了一种受人类交流启发的结构化图像离散表征学习方法COMiT. 该方法通过迭代观察局部图像块并循环更新其离散表征来构建潜在信息, 最终通过flow-matching解码器重建图像. 实验表明, 该方法能产生以物体为中心的可解释token结构, 并在组合泛化和关系推理方面优于现有方法.
+本文提出了StoryMovie数据集, 用于将视觉故事与电影剧本和字幕进行语义对齐. 通过微调模型, 证明了该数据集能有效提升对话归属等语义关系的生成准确性.
 
 
-\arxivwithtarget{2602.20744}{Voices of the Mountains: Deep Learning-Based Vocal Error Detection System for Kurdish Maqams}{Darvan Shvan Khairaldeen, Hossein Hassani}\textbf{cs.SD}, cs.AI.
+\arxivwithtarget{2602.21841}{Resilient Federated Chain: Transforming Blockchain Consensus into an Active Defense Layer for Federated Learning}{Mario García-Márquez, Nuria Rodríguez-Barroso, M.Victoria Luzón, Francisco Herrera}\textbf{cs.CR}, cs.AI.
 
-本文开发了一个基于深度学习的自动歌唱评估系统, 用于检测库尔德木卡姆演唱中的音高, 节奏和调式稳定性错误. 该方法采用CNN-BiLSTM with attention模型处理log-mel spectrograms, 在特定错误类型上取得了一定效果, 但整体性能仍有提升空间.
+本文提出了一种结合区块链与联邦学习的新框架RFC, 旨在提升联邦学习系统对抗对抗性攻击的鲁棒性. 该框架通过改造共识机制中的冗余计算作为主动防御层, 并引入灵活的评估函数来适应不同攻击策略.
 
 
-\arxivwithtarget{2602.20752}{OrthoDiffusion: A Generalizable Multi-Task Diffusion Foundation Model for Musculoskeletal MRI Interpretation}{Tian Lan, Lei Xu, Zimu Yuan, Shanggui Liu, Jiajun Liu, Jiaxin Liu, Weilai Xiang, Hongyu Yang, Dong Jiang, Jianxin Yin, Dingyu Wang}\textbf{cs.CV}, cs.AI.
+\arxivwithtarget{2602.21846}{Scalable Kernel-Based Distances for Statistical Inference and Integration}{Masha Naslidnyk}\textbf{stat.ML}, cs.LG, math.ST, stat.ME.
 
-本文提出了一个基于扩散模型的统一基础模型 OrthoDiffusion, 用于肌肉骨骼 MRI 的多任务解释. 该模型在多个临床任务上表现出色, 并展示了良好的泛化性和数据效率.
+本文研究了基于核的距离度量在统计推断与集成中的应用, 重点探讨了最大均值差异(MMD)的改进估计方法, 并引入了一类新的核分位数差异(Kernel Quantile Discrepancies)以解决MMD的某些缺陷. 通过理论分析和实证研究, 展示了这些方法在计算效率和性能上的潜力.
 
 
-\arxivwithtarget{2602.20793}{Implicit Decision Diagrams}{Isaac Rudich, Louis-Martin Rousseau}\textbf{math.OC}, cs.DS.
+\arxivwithtarget{2602.21855}{Understanding Annotation Error Propagation and Learning an Adaptive Policy for Expert Intervention in Barrett's Video Segmentation}{Lokesha Rasanjalee, Jin Lin Tan, Dileepa Pitawela, Rajvinder Singh, Hsiang-Ting Chen}\textbf{cs.CV}, cs.AI.
 
-本文提出了一种称为implicit Decision Diagrams的数据结构, 通过隐式存储边来降低构建Decision Diagrams的每层复杂度. 作者证明了该复杂度是最优的, 并展示了其在混合整数规划求解器中的应用.
+本文研究了内窥镜视频标注中错误传播的问题, 并提出了一种学习自适应策略的框架来引入专家干预. 该方法通过平衡人工成本与分割精度, 在特定数据集上展示了优于基线策略的性能.
 
 
-\arxivwithtarget{2602.20805}{Assessing the Impact of Speaker Identity in Speech Spoofing Detection}{Anh-Tuan Dao, Driss Matrouf, Nicholas Evans}\textbf{cs.SD}, cs.LG.
+\arxivwithtarget{2602.21859}{Steiner Forest for $H$-Subgraph-Free Graphs}{Tala Eagling-Vose, David C. Kutner, Felicia Lucke, Dániel Marx, Barnaby Martin, Daniël Paulusma, Erik Jan van Leeuwen}\textbf{math.CO}, cs.CC, cs.DM, cs.DS.
 
-本文研究了说话人身份信息对语音欺骗检测系统的影响, 提出了一个Speaker-Invariant Multi-Task (SInMT)框架. 该框架通过多任务学习和梯度反转层来处理或移除嵌入中的说话人信息, 实验表明其说话人不变模型能显著降低等错误率.
+本文研究了在$H$-subgraph-free graphs上Steiner Forest问题的计算复杂度分类. 通过结合新的算法、硬度证明和图论分析, 作者为每个连通图$H$建立了完整的复杂性二分结果.
 
 
-\arxivwithtarget{2602.20857}{Functional Continuous Decomposition}{Teymur Aghayev}\textbf{eess.SP}, cs.LG.
+\arxivwithtarget{2602.21864}{DynamicGTR: Leveraging Graph Topology Representation Preferences to Boost VLM Capabilities on Graph QAs}{Yanbin Wei, Jiangyue Yan, Chun Kang, Yang Chen, Hua Liu, James Kwok, Yu Zhang}\textbf{cs.CV}, cs.AI, cs.CL, cs.GR.
 
-本文提出了Functional Continuous Decomposition (FCD), 一个基于JAX的框架, 用于对时间序列数据进行参数化连续分解. 该方法通过优化得到具有$C^1$连续性的模态, 可用于信号分析和特征提取.
+本文提出了DynamicGTR框架, 用于提升视觉语言模型在零样本图问答任务上的性能. 该框架通过动态选择最适合的图拓扑表示来生成回答, 并在多种图相关任务上验证了其有效性和可迁移性.
 
 
-\arxivwithtarget{2602.20867}{SoK: Agentic Skills -- Beyond Tool Use in LLM Agents}{Yanna Jiang, Delong Li, Haiyu Deng, Baihe Ma, Xu Wang, Qin Wang, Guangsheng Yu}\textbf{cs.CR}, cs.AI, cs.CE, cs.ET.
+\arxivwithtarget{2602.21873}{GFPL: Generative Federated Prototype Learning for Resource-Constrained and Data-Imbalanced Vision Task}{Shiwei Lu, Yuhang He, Jiashuo Li, Qiang Wang, Yihong Gong}\textbf{cs.CV}, cs.LG.
 
-本文对LLM智能体中的"agentic skills"概念进行了系统梳理, 提出了涵盖其全生命周期的分类体系. 文章分析了基于技能的智能体在安全与治理方面的潜在风险, 并讨论了相关的评估方法与开放挑战.
+本文提出了一种名为GFPL的生成式联邦原型学习框架, 旨在解决联邦学习中数据类别不平衡和通信开销高的问题. 该方法利用Gaussian Mixture Model生成原型, 并通过Bhattacharyya距离进行聚合, 同时使用双分类器架构和混合损失进行优化, 在基准测试中提升了模型精度并降低了通信成本.
 
 
-\arxivwithtarget{2602.20901}{SpatiaLQA: A Benchmark for Evaluating Spatial Logical Reasoning in Vision-Language Models}{Yuechen Xie, Xiaoyan Zhang, Yicheng Shan, Hao Zhu, Rui Tang, Rong Wei, Mingli Song, Yuanyu Wan, Jie Song}\textbf{cs.CV}, cs.LG.
+\arxivwithtarget{2602.21926}{Bridging Through Absence: How Comeback Researchers Bridge Knowledge Gaps Through Structural Re-emergence}{Somyajit Chakraborty, Angshuman Jana, Avijit Gayen}\textbf{cs.SI}, cs.DL, cs.LG, physics.soc-ph.
 
-本文提出了一个名为 SpatiaLQA 的基准测试, 用于评估视觉语言模型在复杂真实场景中的空间逻辑推理能力. 实验表明现有先进模型在此任务上仍面临困难, 作者并提出了一种递归场景图辅助推理的方法来提升模型性能.
+本文研究了"回归研究者"在学术网络中的结构角色与知识转移行为. 通过分析大规模引文数据, 发现这类研究者具有更高的跨社区引用和桥接分数, 其发表轨迹也更具战略影响力.
 
 
-\arxivwithtarget{2602.20924}{Airavat: An Agentic Framework for Internet Measurement}{Alagappan Ramanathan, Eunju Kang, Dongsu Han, Sangeetha Abdu Jyothi}\textbf{cs.NI}, cs.AI, cs.SE.
+\arxivwithtarget{2602.21935}{A Framework for Cross-Domain Generalization in Coronary Artery Calcium Scoring Across Gated and Non-Gated Computed Tomography}{Mahmut S. Gokmen, Moneera N. Haque, Steve W. Leung, Caroline N. Leach, Seth Parker, Stephen B. Hobbs, Vincent L. Sorrell, W. Brent Seales, V. K. Cody Bumgardner}\textbf{cs.CV}, cs.AI.
 
-本文提出了一个名为Airavat的智能体框架, 用于自动化生成和验证互联网测量工作流. 该框架通过多个智能体协作来模仿专家推理, 并利用知识图谱和验证引擎来确保方法论的严谨性.
+本文提出了一个用于冠状动脉钙化(CAC)评分跨域泛化的自动化框架, 该框架能够在门控和非门控CT扫描上运行. 其核心是一个仅使用门控CT数据通过自监督学习训练的Vision Transformer模型, 实验表明该框架在非门控数据集上取得了与直接在非门控数据上训练的模型相当的性能.
 
 
-\arxivwithtarget{2602.20946}{Some Simple Economics of AGI}{Christian Catalini, Xiang Hui, Jane Wu}\textbf{econ.GN}, cs.AI, cs.CY, cs.LG, cs.SI.
+\arxivwithtarget{2602.21939}{Hidden Topics: Measuring Sensitive AI Beliefs with List Experiments}{Maxim Chupilkin}\textbf{cs.CY}, cs.AI.
 
-本文探讨了AGI(Artificial General Intelligence)带来的经济结构转变. 作者认为, 随着AI执行成本趋近于零, 经济增长的关键约束从"智能"转变为人类有限的"验证带宽", 这可能导致"空心化经济"或"增强型经济"两种截然不同的未来.
+本文提出将社会科学中用于规避社会期望偏差的list experiment方法应用于检测大型语言模型(LLM)中隐藏的信念. 实验在多个主流模型上发现了其对大规模监控等敏感议题的隐藏认可, 并通过安慰剂处理验证了方法的有效性.
 
 
-\arxivwithtarget{2602.20951}{See and Fix the Flaws: Enabling VLMs and Diffusion Models to Comprehend Visual Artifacts via Agentic Data Synthesis}{Jaehyun Park, Minyoung Ahn, Minkyu Kim, Jonghyun Lee, Jae-Gil Lee, Dongmin Park}\textbf{cs.CV}, cs.AI.
+\arxivwithtarget{2602.21964}{Optimal Trajectories in Discrete Space with Acceleration Constraints}{Arnaud Casteigts, Matteo De Francesco, Pierre Leone}\textbf{cs.CG}, cs.DS.
 
-本文提出了一种名为ArtiAgent的自动化框架, 用于合成带有视觉伪影(visual artifacts)标注的图像数据. 该方法通过多个智能体(agent)协作, 实现了对真实图像的实体感知, 伪影注入以及数据筛选, 旨在为图像生成模型的伪影缓解研究提供可扩展的数据集.
+本文研究了离散空间中带有加速度约束的轨迹优化问题. 作者改进了已有方法, 证明了在任意固定维度下, 分支代价(Branching Cost)和分支轨迹(Branching Trajectory)问题均可在常数时间内求解. 对于多点轨迹(Multipoint Trajectory)问题, 文章分析了其复杂性并提出了基于动态规划的求解算法.
 
 
-\arxivwithtarget{2602.20958}{EKF-Based Depth Camera and Deep Learning Fusion for UAV-Person Distance Estimation and Following in SAR Operations}{Luka Šiktar, Branimir Ćaran, Bojan Šekoranja, Marko Švaco}\textbf{cs.RO}, cs.AI.
+\arxivwithtarget{2602.21987}{PatchDenoiser: Parameter-efficient multi-scale patch learning and fusion denoiser for medical images}{Jitindra Fartiyal, Pedro Freire, Sergei K. Turitsyn, Sergei G. Solovski}\textbf{cs.CV}, cs.AI.
 
-本文提出了一种融合深度相机测量与单目相机人体距离估计的方法, 用于无人机在搜救任务中对人的跟踪与跟随. 该系统利用YOLO-pose进行深度数据滤波和距离估计, 并通过Extended Kalman Filter (EKF) 进行实时信息融合, 以维持无人机与目标之间的安全距离.
+本文提出了一种轻量级的多尺度图像块去噪框架PatchDenoiser, 用于医学图像处理. 该方法通过局部纹理提取与全局上下文聚合, 在保持细节的同时有效抑制噪声, 并在计算效率和参数数量上显著优于现有方法.
 
 
-\arxivwithtarget{2602.20967}{Training-Free Intelligibility-Guided Observation Addition for Noisy ASR}{Haoyang Li, Changsong Liu, Wei Rao, Hao Shi, Sakriani Sakti, Eng Siong Chng}\textbf{eess.AS}, cs.AI, cs.SD.
+\arxivwithtarget{2602.21995}{Outpatient Appointment Scheduling Optimization with a Genetic Algorithm Approach}{Ana Rodrigues, Rui Rego}\textbf{cs.NE}, cs.LG.
 
-本文提出了一种无需训练的、基于可懂度指导的观测融合方法, 用于提升噪声环境下的自动语音识别性能. 该方法通过后端ASR模型直接估计可懂度来动态融合带噪语音和增强语音, 在多种设置下展现了优于现有基线的鲁棒性和性能提升.
+本文提出了一种用于优化多中心医疗环境中复杂门诊预约调度的遗传算法框架. 该框架旨在自动化安排多项医疗活动, 同时严格遵守程序间的不兼容性规则. 实验表明, 该算法能完全满足约束条件, 并在减少患者等待时间和跨院区行程方面优于基准方法.
 
 
-\arxivwithtarget{2602.20979}{Toward an Agentic Infused Software Ecosystem}{Mark Marron}\textbf{cs.SE}, cs.AI, cs.PL.
+\arxivwithtarget{2602.21997}{Enhancing LLM-Based Test Generation by Eliminating Covered Code}{WeiZhe Xu, Mengyu Liu, Fanxin Kong}\textbf{cs.SE}, cs.AI, cs.LG.
 
-本文探讨了构建一个以AI agents为核心的软件生态系统(AISE)的愿景, 其框架基于三个支柱: AI agents本身, 它们所使用的编程语言与API工具, 以及其运行环境. 作者认为, 必须协同推进这三个方面的发展, 以实现人机协作的软件开发未来.
+本文提出了一种基于LLM的单元测试生成方法, 通过结合静态分析获取上下文信息, 并采用迭代生成与代码消除策略来提升对复杂方法的测试覆盖率. 该方法在开源项目评估中优于现有基于LLM和基于搜索的方法.
 
 
-\arxivwithtarget{2602.20980}{CrystaL: Spontaneous Emergence of Visual Latents in MLLMs}{Yang Zhang, Danyang Li, Yuxuan Li, Xin Zhang, Tianyu Xie, Mingming Cheng, Xiang Li}\textbf{cs.CV}, cs.AI.
+\arxivwithtarget{2602.22026}{RGB-Event HyperGraph Prompt for Kilometer Marker Recognition based on Pre-trained Foundation Models}{Xiaoyu Xian, Shiao Wang, Xiao Wang, Daxin Tian, Yan Tian}\textbf{cs.CV}, cs.AI.
 
-本文提出了CrystaL框架, 通过双路径处理完整与损坏图像并显式对齐其注意力模式与预测分布, 从而在MLLMs的隐式推理过程中自发地结晶出任务相关的视觉语义. 该方法在多个感知密集型基准测试上超越了现有方法, 提升了细粒度视觉理解能力.
+本文提出了一种基于预训练基础模型的RGB-Event超图提示方法, 用于地铁环境中的公里标识别. 该方法整合了事件相机的优势以应对复杂环境, 并构建了一个新的大规模RGB-Event数据集EvMetro5K. 实验验证了该方法的有效性.
 
 
-\arxivwithtarget{2602.20981}{Echoes Over Time: Unlocking Length Generalization in Video-to-Audio Generation Models}{Christian Simon, MAsato Ishii, Wei-Yao Wang, Koichi Saito, Akio Hayakawa, Dongseok Shim, Zhi Zhong, Shuyang Cui, Shusuke Takahashi, Takashi Shibuya, Yuki Mitsufuji}\textbf{cs.CV}, cs.AI.
+\arxivwithtarget{2602.22039}{TG-ASR: Translation-Guided Learning with Parallel Gated Cross Attention for Low-Resource Automatic Speech Recognition}{Cheng-Yeh Yang, Chien-Chun Wang, Li-Wei Chen, Hung-Shin Lee, Hsin-Min Wang, Berlin Chen}\textbf{eess.AS}, cs.AI, cs.CL, cs.SD.
 
-本文提出了一种名为MMHNet的层次化网络结构, 用于解决视频到音频生成任务中的长度泛化问题. 该方法通过整合非因果Mamba模块, 使得在短序列上训练的模型能够生成长达5分钟以上的音频, 并在基准测试中超越了现有方法.
+本文提出了一种用于低资源语音识别的翻译引导学习框架TG-ASR, 其核心是并行门控交叉注意力机制, 用于整合多语言翻译信息以提升目标语言的识别性能. 作者还构建了一个台湾闽南语戏剧语音数据集YT-THDC, 实验表明该方法能有效降低字符错误率.
 
 
-\arxivwithtarget{2602.20991}{Asymptotics of solutions to the linear search problem}{Robin A. Heinonen}\textbf{math.OC}, cs.DS, math.PR.
+\arxivwithtarget{2602.22056}{FlowCorrect: Efficient Interactive Correction of Generative Flow Policies for Robotic Manipulation}{Edgar Welte, Yitian Shi, Rosa Wolf, Maximillian Gilles, Rania Rayyes}\textbf{cs.RO}, cs.LG.
 
-本文研究了对称线性搜索问题解的渐近行为, 证明了对于具有单调且足够正则尾部的正概率密度函数, 其解的精确主导渐近项可以被获得. 该结果也适用于紧区间上的密度函数.
+本文提出了一种名为FlowCorrect的部署时校正框架, 用于在机器人操作任务中, 通过稀疏的人为姿态修正来局部调整生成式策略, 从而将接近成功的失败转化为成功, 而无需重新训练整个策略模型. 该方法在真实机器人上的多个桌面任务中验证了其有效性, 能以极少的演示实现性能提升.
 
 
-\arxivwithtarget{2602.20994}{Multimodal MRI Report Findings Supervised Brain Lesion Segmentation with Substructures}{Yubin Ge, Yongsong Huang, Xiaofeng Liu}\textbf{eess.IV}, cs.AI, cs.CL, cs.CV, cs.LG.
+\arxivwithtarget{2602.22059}{NESTOR: A Nested MOE-based Neural Operator for Large-Scale PDE Pre-Training}{Dengdi Sun, Xiaoya Zhou, Xiao Wang, Hao Si, Wanli Lyu, Jin Tang, Bin Luo}\textbf{cs.CV}, cs.AI.
 
-本文提出了一种名为MS-RSuper的report-supervised学习框架, 用于多模态MRI脑部病灶分割. 该方法通过解析放射学报告中的全局定量和模态定性发现, 引入单边不确定性感知约束, 以利用不完整的报告信息并整合解剖学先验知识.
+本文提出了一种基于嵌套Mixture-of-Experts (MoE)框架的大规模PDE预训练神经算子NESTOR. 该模型通过设计图像级和令牌级的MoE结构来分别捕获全局和局部依赖关系, 并在多个PDE数据集上进行预训练, 实验表明其在下游任务上具有良好的泛化与迁移能力.
 
 
-\arxivwithtarget{2602.21033}{MIP Candy: A Modular PyTorch Framework for Medical Image Processing}{Tianhao Fu, Yucheng Chen}\textbf{cs.CV}, cs.AI, cs.LG, cs.SE.
+\arxivwithtarget{2602.22061}{Learning Quantum Data Distribution via Chaotic Quantum Diffusion Model}{Quoc Hoan Tran, Koki Chinzei, Yasuhiro Endo, Hirotaka Oshima}\textbf{quant-ph}, cs.LG, nlin.CD.
 
-本文介绍了一个名为MIP Candy的、基于PyTorch的模块化医学图像处理框架. 该框架旨在通过提供从数据加载到评估的完整、可定制流水线, 简化研究流程, 并包含一系列内置工具和可扩展的模型生态系统.
+本文提出了一种基于混沌 Hamiltonian 时间演化的量子扩散模型框架, 用于生成量子数据分布. 该方法通过全局、时不变的操控降低了在模拟量子硬件上的实现开销, 并保持了与现有方法相当的精度.
 
 
-\arxivwithtarget{2602.21036}{Empirically Calibrated Conditional Independence Tests}{Milleno Pan, Antoine de Mathelin, Wesley Tansey}\textbf{stat.ME}, cs.LG, stat.ML.
+\arxivwithtarget{2602.22083}{Coarsening Bias from Variable Discretization in Causal Functionals}{Xiaxian Ou, Razieh Nabi}\textbf{stat.ME}, cs.LG, stat.ML.
 
-本文提出了一种经验校准的条件独立性检验(ECCIT)方法, 用于纠正现有检验方法在有限样本或模型误设下的校准错误. 该方法通过优化一个对抗性选择器来量化误校准程度, 并拟合一个单调映射来调整p值, 从而在合成与真实数据基准测试中实现了有效的错误发现率(FDR)控制.
+本文讨论了在因果推断中, 对连续变量进行离散化以简化积分计算时引入的近似偏差问题. 作者提出了一种基于条件均值的偏差缩减方法, 并通过模拟验证了其有效性.
 
 
-\arxivwithtarget{2602.21039}{Is Multi-Distribution Learning as Easy as PAC Learning: Sharp Rates with Bounded Label Noise}{Rafael Hanashiro, Abhishek Shetty, Patrick Jaillet}\textbf{stat.ML}, cs.LG.
+\arxivwithtarget{2602.22086}{MBD-ML: Many-body dispersion from machine learning for molecules and materials}{Evgeny Moerman, Adil Kabylda, Almaz Khabibrakhmanov, Alexandre Tkatchenko}\textbf{physics.chem-ph}, cond-mat.mtrl-sci, cs.LG, physics.comp-ph.
 
-本文研究了多分布学习在有限标签噪声下的样本复杂度. 结果表明, 即使噪声水平恒定, 学习过程也会产生与$k/\epsilon^2$相关的慢速收敛率, 除非对每个分布单独学习. 文章还证明了在与每个分布的最优贝叶斯误差竞争时, 样本复杂度会有一个与$k$相关的乘法惩罚, 这揭示了多源学习的一个基本障碍.
+本文提出了一种名为MBD-ML的预训练消息传递神经网络, 用于直接从原子结构预测原子$C_6$系数和极化率, 从而计算包含多体色散(MBD)的总能量、力和应力张量. 该方法简化了将先进的范德华(vdW)相互作用纳入各种电子结构计算和力场的过程.
 
 
-\arxivwithtarget{2602.21045}{PaperTrail: A Claim-Evidence Interface for Grounding Provenance in LLM-based Scholarly Q&A}{Anna Martin-Boyle, Cara A.C. Leckey, Martha C. Brown, Harmanpreet Kaur}\textbf{cs.HC}, cs.CL.
+\arxivwithtarget{2602.22115}{Slice and Explain: Logic-Based Explanations for Neural Networks through Domain Slicing}{Luiz Fernando Paulino Queiroz, Carlos Henrique Leitão Cavalcante, Thiago Alves Rocha}\textbf{cs.LO}, cs.LG.
 
-本文介绍了一种名为PaperTrail的界面, 用于在基于LLM的学术问答系统中进行细粒度的溯源. 该界面将LLM的回答和源文档分解为离散的声明和证据, 并通过映射来揭示支持、未支持或被省略的信息. 一项用户研究表明, 该界面虽然降低了用户对LLM输出的信任, 但并未显著改变用户依赖LLM生成内容的行为.
+本文提出了一种利用domain slicing来为神经网络生成逻辑解释的方法, 通过切片降低逻辑约束的复杂度, 从而提高了生成解释的效率. 实验表明该方法能减少高达40%的解释时间.
 
 
-\arxivwithtarget{2602.21054}{VAUQ: Vision-Aware Uncertainty Quantification for LVLM Self-Evaluation}{Seongheon Park, Changdae Oh, Hyeong Kyu Choi, Xuefeng Du, Sharon Li}\textbf{cs.CV}, cs.AI, cs.CL.
+\arxivwithtarget{2602.22122}{Probing the Geometry of Diffusion Models with the String Method}{Elio Moreau, Florentin Coeurdoux, Grégoire Ferre, Eric Vanden-Eijnden}\textbf{stat.ML}, cs.LG.
 
-本文提出了一种用于大型视觉语言模型(LVLM)自评估的视觉感知不确定性量化框架VAUQ. 它通过引入图像信息分数(IS)和无监督核心区域掩码策略, 来量化模型输出对视觉证据的依赖程度, 从而更可靠地评估答案的正确性.
+本文提出了一种基于 string method 的框架, 用于探索 diffusion models 所学分布的几何结构. 该方法能在不重新训练模型的情况下, 计算样本间的连续路径, 并在图像和蛋白质结构预测任务中展示了其应用.
 
 
-\arxivwithtarget{2602.21059}{An Expert Schema for Evaluating Large Language Model Errors in Scholarly Question-Answering Systems}{Anna Martin-Boyle, William Humphreys, Martha Brown, Cara Leckey, Harmanpreet Kaur}\textbf{cs.HC}, cs.CL.
+\arxivwithtarget{2602.22124}{SWE-Protégé: Learning to Selectively Collaborate With an Expert Unlocks Small Language Models as Software Engineering Agents}{Patrick Tser Jern Kon, Archana Pradeep, Ang Chen, Alexander P. Ellis, Warren Hunt, Zijian Wang, John Yang, Samuel Thompson}\textbf{cs.SE}, cs.AI, cs.CL, cs.LG.
 
-本文提出了一种用于评估学术问答系统中大语言模型错误的专家模式, 并通过与领域专家的合作进行了验证. 该模式旨在反映科学家在实际评估中的策略, 弥补了现有自动化评估方法在语境和专家判断方面的不足.
+本文提出了一个名为SWE-Protégé的后训练框架, 将软件修复任务重新定义为专家与学徒的协作问题. 该方法让小语言模型学习有选择地向专家模型寻求指导, 从而在SWE-bench基准上取得了显著的性能提升.
 
 
-\arxivwithtarget{2602.21116}{Attention-Based SINR Estimation in User-Centric Non-Terrestrial Networks}{Bruno De Filippo, Alessandro Guidotti, Alessandro Vanelli-Coralli}\textbf{eess.SP}, cs.AI.
+\arxivwithtarget{2602.22144}{NoLan: Mitigating Object Hallucinations in Large Vision-Language Models via Dynamic Suppression of Language Priors}{Lingfeng Ren, Weihao Yu, Runpeng Yu, Xinchao Wang}\textbf{cs.CV}, cs.AI, cs.CL.
 
-本文提出了一种基于多头自注意力机制的低复杂度SINR估计框架, 用于用户中心非地面网络. 该模型直接从信道状态信息或用户位置报告中提取干扰特征, 避免了复杂的MMSE计算, 显著降低了计算开销.
+本文分析了大型视觉语言模型中物体幻觉的来源, 发现语言解码器的强先验是主要原因. 基于此, 作者提出了一种无需训练的推理时解码方法 NoLan, 通过动态抑制语言先验来减少幻觉, 并在多个基准测试上验证了其有效性.
 
 
-\arxivwithtarget{2602.21119}{Cooperative-Competitive Team Play of Real-World Craft Robots}{Rui Zhao, Xihui Li, Yizheng Zhang, Yuzhen Liu, Zhong Zhang, Yufeng Zhang, Cheng Zhou, Zhengyou Zhang, Lei Han}\textbf{cs.RO}, cs.AI.
+\arxivwithtarget{2602.22145}{When AI Writes, Whose Voice Remains? Quantifying Cultural Marker Erasure Across World English Varieties in Large Language Models}{Satyam Kumar Navneet, Joydeep Chandra, Yong Zhang}\textbf{cs.HC}, cs.AI, cs.CL.
 
-本文构建了一个包含仿真、分布式学习框架和实体机器人的综合机器人系统, 并提出了用于在该平台上高效训练合作与竞争策略的强化学习技术. 为应对多智能体仿真到现实迁移的挑战, 文章引入了OODSI方法, 在实验中提升了20%的迁移性能.
+本文通过分析多个大型语言模型对非母语英语变体文本的处理, 提出了"文化幽灵化"的概念, 并引入两个新指标来量化文化标记的擦除. 研究发现模型在保持语义的同时会系统性地消除文化标记, 而明确的提示可以减少这种擦除.
 
 
-\arxivwithtarget{2602.21127}{"Are You Sure?": An Empirical Study of Human Perception Vulnerability in LLM-Driven Agentic Systems}{Xinfeng Li, Shenyu Dai, Kelong Zheng, Yue Xiao, Gelei Deng, Wei Dong, Xiaofeng Wang}\textbf{cs.HC}, cs.AI, cs.CR, cs.SI.
+\arxivwithtarget{2602.22149}{Enhancing Framingham Cardiovascular Risk Score Transparency through Logic-Based XAI}{Emannuel L. de A. Bezerra, Luiz H. T. Viana, Vinícius P. Chagas, Diogo E. Rolim, Thiago Alves Rocha, Carlos H. L. Cavalcante}\textbf{cs.LO}, cs.AI.
 
-本文通过构建HAT-Lab平台并开展大规模实证研究, 首次系统性地评估了人类在LLM驱动的智能体系统中对"Agent-Mediated Deception (AMD)"攻击的感知脆弱性. 研究发现人类用户普遍存在显著的认知漏洞, 且风险意识难以转化为保护行为, 为以人为中心的智能体安全研究提供了实证基础与平台.
+本文提出了一种基于一阶逻辑的 explainer, 用于增强 Framingham 心血管风险评分 (FRS) 的可解释性. 该 explainer 能够识别导致特定风险分类的最小患者属性集, 并生成可操作的干预方案.
 
 
-\arxivwithtarget{2602.21130}{An Enhanced Projection Pursuit Tree Classifier with Visual Methods for Assessing Algorithmic Improvements}{Natalia da Silva, Dianne Cook, Eun-Kyung Lee}\textbf{stat.ML}, cs.LG.
+\arxivwithtarget{2602.22197}{Off-The-Shelf Image-to-Image Models Are All You Need To Defeat Image Protection Schemes}{Xavier Pleimling, Sifat Muhammad Abdullah, Gunjan Balde, Peng Gao, Mainack Mondal, Murtuza Jadliwala, Bimal Viswanath}\textbf{cs.CV}, cs.AI.
 
-本文对 projection pursuit tree classifier 进行了改进, 并提出了可视化诊断方法来评估这些改进在高维数据上的效果. 改进包括允许更多的分割和更灵活的类别分组, 以处理具有不等协方差结构和非线性类别分离的多分类问题. 作者开发了两种可视化诊断方法, 并提供了一个交互式网络应用来探索原始分类器与改进分类器的行为.
-
-
-\arxivwithtarget{2602.21136}{SparkMe: Adaptive Semi-Structured Interviewing for Qualitative Insight Discovery}{David Anugraha, Vishakh Padmakumar, Diyi Yang}\textbf{cs.HC}, cs.AI, cs.CY.
-
-本文提出了一种名为SparkMe的多智能体LLM访谈系统, 它将自适应半结构化访谈建模为一个优化问题, 通过模拟对话推演来选择高预期效用的问题. 实验表明, 该系统在覆盖预设主题和发掘新兴见解方面优于现有基线.
-
-
-\arxivwithtarget{2602.21138}{Complexity of Classical Acceleration for $\ell_1$-Regularized PageRank}{Kimon Fountoulakis, David Martínez-Rubio}\textbf{math.OC}, cs.DS, cs.LG.
-
-本文分析了使用FISTA算法计算$\ell_1$-regularized PageRank的复杂度, 重点关注了加速方法可能破坏局部性(locality) 的问题. 作者通过引入一个边界集$\mathcal{B}$和可验证的约束条件, 给出了包含加速项和边界开销项的复杂度上界.
-
-
-\arxivwithtarget{2602.21142}{LUMEN: Longitudinal Multi-Modal Radiology Model for Prognosis and Diagnosis}{Zhifan Jiang, Dong Yang, Vishwesh Nath, Abhijeet Parida, Nishad P. Kulkarni, Ziyue Xu, Daguang Xu, Syed Muhammad Anwar, Holger R. Roth, Marius George Linguraru}\textbf{cs.CV}, cs.LG.
-
-本文提出了一个名为LUMEN的纵向多模态放射学模型训练框架, 用于胸部X光片的预后和诊断任务. 该框架通过多图像、多任务的指令微调来提升模型在纵向影像分析上的性能.
-
-
-\arxivwithtarget{2602.21144}{Scaling State-Space Models on Multiple GPUs with Tensor Parallelism}{Anurag Dutt, Nimit Shah, Hazem Masarani, Anshul Gandhi}\textbf{cs.DC}, cs.LG.
-
-本文提出了一种针对 selective state-space models (SSMs) 的通信高效 tensor parallelism (TP) 设计, 以解决其在多 GPU 上推理时的内存和带宽瓶颈. 该方法通过优化状态缓存、参数分区和量化通信, 在多个 SSM-based LLM 上实现了显著的推理吞吐量提升.
-
-
-\arxivwithtarget{2602.21160}{Not Just How Much, But Where: Decomposing Epistemic Uncertainty into Per-Class Contributions}{Mame Diarra Toure, David A. Stephens}\textbf{stat.ML}, cs.LG, stat.AP, stat.ME.
-
-本文提出了一种将 epistemic uncertainty 分解为 per-class contributions 的方法, 用于安全关键分类任务. 该方法通过二阶 Taylor 展开分解 mutual information, 并在多个任务上验证了其有效性.
-
-
-\arxivwithtarget{2602.21174}{Efficient Hierarchical Any-Angle Path Planning on Multi-Resolution 3D Grids}{Victor Reijgwart, Cesar Cadena, Roland Siegwart, Lionel Ott}\textbf{cs.RO}, cs.AI.
-
-本文提出了一种利用多分辨率3D网格进行高效分层任意角度路径规划的方法. 该方法结合了任意角度规划器的完备性与最优性, 并通过分层表示提升了大规模环境下的计算效率.
-
-
-\arxivwithtarget{2602.21178}{XMorph: Explainable Brain Tumor Analysis Via LLM-Assisted Hybrid Deep Intelligence}{Sepehr Salem Ghahfarokhi, M. Moein Esfahani, Raj Sunderraman, Vince Calhoun, Mohammed Alser}\textbf{cs.CV}, cs.AI.
-
-本文提出了一个名为XMorph的可解释脑肿瘤分析框架, 结合了深度学习和LLM辅助解释. 它通过一种边界归一化机制和双通道解释模块来提高分类性能与临床可解释性, 在脑肿瘤分类任务上达到了96.0%的准确率.
-
-
-\arxivwithtarget{2602.21203}{Squint: Fast Visual Reinforcement Learning for Sim-to-Real Robotics}{Abdulaziz Almuzairee, Henrik I. Christensen}\textbf{cs.RO}, cs.CV, cs.LG.
-
-本文提出了一种名为Squint的视觉强化学习方法, 旨在解决视觉模拟到现实(sim-to-real) 机器人任务中训练速度慢的问题. 该方法通过结合并行仿真、分布评论家(distributional critic) 和分辨率调整(resolution squinting) 等技术, 在单GPU上实现了快速策略训练, 并在新的机器人操作任务集上验证了其有效性.
+本文发现现成的 image-to-image 生成式 AI 模型可以通过简单的文本提示被重新用作通用的“去噪器”, 从而有效移除多种图像保护方案添加的不可察觉的扰动. 该通用攻击方法在多个案例中超越了现有的专门攻击, 并保持了图像对攻击者的可用性, 揭示了当前图像保护策略中普遍存在的脆弱性.
 
 
 %body_end
