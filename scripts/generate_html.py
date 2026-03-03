@@ -114,7 +114,8 @@ def generate_keywords_html(keywords: List[str]) -> str:
     for keyword in keywords:
         keyword = keyword.strip()
         if keyword:
-            html_items.append(f'<li class="config-item">{keyword}</li>')
+            escaped = escape_html(keyword)
+            html_items.append(f'<li class="config-item keyword-filter" data-keyword="{escaped}">{escaped}</li>')
     
     return "\n".join(html_items)
     

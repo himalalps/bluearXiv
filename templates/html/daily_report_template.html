@@ -78,6 +78,18 @@
             font-size: 0.85em;
             margin: 0 5px 5px 0;
         }
+        .keyword-filter {
+            cursor: pointer;
+            user-select: none;
+            transition: background-color 0.15s, color 0.15s;
+        }
+        .keyword-filter:hover {
+            background-color: #b8d9f0;
+        }
+        .keyword-filter.active {
+            background-color: #4a6fa5;
+            color: white;
+        }
         .section {
             background: white;
             border-radius: 6px;
@@ -347,6 +359,48 @@
                             behavior: 'smooth'
                         });
                     }
+                });
+            });
+
+            // 关键词筛选功能
+            const activeKeywords = new Set();
+
+            function filterPapers() {
+                const papers = document.querySelectorAll('.paper-item');
+
+                if (activeKeywords.size === 0) {
+                    papers.forEach(p => p.style.display = '');
+                    document.querySelectorAll('.category-section').forEach(s => s.style.display = '');
+                    return;
+                }
+
+                const keywordsArray = Array.from(activeKeywords).map(k => k.toLowerCase());
+
+                papers.forEach(paper => {
+                    const text = paper.textContent.toLowerCase();
+                    const matches = keywordsArray.some(kw => text.includes(kw));
+                    paper.style.display = matches ? '' : 'none';
+                });
+
+                // 如果某个学科分类下所有论文都被隐藏，则隐藏该分类
+                document.querySelectorAll('.category-section').forEach(section => {
+                    const visiblePapers = section.querySelectorAll('.paper-item');
+                    const hasVisible = Array.from(visiblePapers).some(p => p.style.display !== 'none');
+                    section.style.display = hasVisible ? '' : 'none';
+                });
+            }
+
+            document.querySelectorAll('.keyword-filter').forEach(kw => {
+                kw.addEventListener('click', function() {
+                    const keyword = this.dataset.keyword;
+                    if (activeKeywords.has(keyword)) {
+                        activeKeywords.delete(keyword);
+                        this.classList.remove('active');
+                    } else {
+                        activeKeywords.add(keyword);
+                        this.classList.add('active');
+                    }
+                    filterPapers();
                 });
             });
         });
