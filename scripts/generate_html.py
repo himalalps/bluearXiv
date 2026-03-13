@@ -484,10 +484,12 @@ def generate_index_html() -> bool:
     # 4. 生成月份筛选标签和日期列表HTML
     # 提取所有出现的月份，保持倒序
     months_seen = []
+    months_seen_set = set()
     for daily_info in daily_files:
         month = daily_info['date'][:7]  # YYYY-MM
-        if month not in months_seen:
+        if month not in months_seen_set:
             months_seen.append(month)
+            months_seen_set.add(month)
 
     month_tabs = []
     month_tabs.append('<button class="month-tab active" data-month="all">全部</button>')
