@@ -224,10 +224,26 @@
 
             // 月份筛选功能
             var tabs = document.querySelectorAll('.month-tab');
+            // 初始化 ARIA 状态，使其与当前 .active 状态保持一致
+            tabs.forEach(function(tab) {
+                if (tab.classList.contains('active')) {
+                    tab.setAttribute('aria-pressed', 'true');
+                } else {
+                    tab.setAttribute('aria-pressed', 'false');
+                }
+            });
+
             tabs.forEach(function(tab) {
                 tab.addEventListener('click', function() {
-                    tabs.forEach(function(t) { t.classList.remove('active'); });
+                    // 更新所有标签的可见状态和 ARIA 状态
+                    tabs.forEach(function(t) {
+                        t.classList.remove('active');
+                        t.setAttribute('aria-pressed', 'false');
+                    });
+                    // 设置当前标签为激活状态，并同步 ARIA
                     tab.classList.add('active');
+                    tab.setAttribute('aria-pressed', 'true');
+
                     var month = tab.getAttribute('data-month');
                     var cards = document.querySelectorAll('.date-card');
                     cards.forEach(function(card) {
