@@ -481,10 +481,27 @@ def generate_index_html() -> bool:
     # 按日期倒序排列（最新的在最上面）
     daily_files.sort(key=lambda x: x['date'], reverse=True)
     
-    # 4. 生成日期列表HTML
+    # 4. 生成月份筛选标签和日期列表HTML
+    # 提取所有出现的月份，保持倒序
+    months_seen = []
+    months_seen_set = set()
+    for daily_info in daily_files:
+        month = daily_info['date'][:7]  # YYYY-MM
+        if month not in months_seen_set:
+            months_seen.append(month)
+            months_seen_set.add(month)
+
+    month_tabs = []
+    month_tabs.append('<button type="button" class="month-tab active" data-month="all">全部</button>')
+    for month in months_seen:
+        display_month = datetime.datetime.strptime(month, "%Y-%m").strftime("%Y年%m月")
+        month_tabs.append(f'<button type="button" class="month-tab" data-month="{month}">{display_month}</button>')
+    month_filter_html = f'<div class="month-filter">{"".join(month_tabs)}</div>'
+
     date_items = []
     for daily_info in daily_files:
         date_str = daily_info['date']
+        month_str = date_str[:7]  # YYYY-MM
         display_date = datetime.datetime.strptime(date_str, "%Y-%m-%d").strftime("%Y年%m月%d日")
         
         # 生成学科统计标签
@@ -494,7 +511,7 @@ def generate_index_html() -> bool:
                 category_tags.append(f'<span class="category-tag">{cat}: {count}</span>')
         
         date_item = f'''
-        <div class="date-card">
+        <div class="date-card" data-month="{month_str}">
             <a href="{daily_info['filename']}" class="date-link">{display_date}</a>
             <div class="stats">
                 <div class="stat-item">总论文数: {daily_info['total_papers']}</div>
@@ -517,6 +534,7 @@ def generate_index_html() -> bool:
     last_update = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     
     replacements = {
+        'MONTH_FILTER_PLACEHOLDER': month_filter_html,
         'DATE_LIST_PLACEHOLDER': date_list_html,
         'CATEGORIES_LIST_PLACEHOLDER': categories_html,
         'KEYWORDS_LIST_PLACEHOLDER': keywords_html,
