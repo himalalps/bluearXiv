@@ -492,10 +492,10 @@ def generate_index_html() -> bool:
             months_seen_set.add(month)
 
     month_tabs = []
-    month_tabs.append('<button class="month-tab active" data-month="all">全部</button>')
+    month_tabs.append('<button type="button" class="month-tab active" data-month="all">全部</button>')
     for month in months_seen:
         display_month = datetime.datetime.strptime(month, "%Y-%m").strftime("%Y年%m月")
-        month_tabs.append(f'<button class="month-tab" data-month="{month}">{display_month}</button>')
+        month_tabs.append(f'<button type="button" class="month-tab" data-month="{month}">{display_month}</button>')
     month_filter_html = f'<div class="month-filter">{"".join(month_tabs)}</div>'
 
     date_items = []
