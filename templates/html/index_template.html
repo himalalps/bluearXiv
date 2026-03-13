@@ -109,6 +109,32 @@
             margin-right: 3px;
             margin-bottom: 3px;
         }
+        .month-filter {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+        .month-tab {
+            padding: 5px 14px;
+            border: 1px solid #4a6fa5;
+            border-radius: 20px;
+            background: white;
+            color: #4a6fa5;
+            font-size: 0.85em;
+            cursor: pointer;
+            transition: background 0.2s, color 0.2s;
+        }
+        .month-tab:hover {
+            background: #d6e4f5;
+        }
+        .month-tab.active {
+            background: #4a6fa5;
+            color: white;
+        }
+        .date-card.hidden {
+            display: none;
+        }
         .footer {
             text-align: left;
             margin-top: 25px;
@@ -162,6 +188,7 @@
         </ul>
     </div>
     
+    {{MONTH_FILTER_PLACEHOLDER}}
     <div class="date-list">
         <!-- 日期列表占位符 - 将在生成时按日期倒序排列 -->
         {{DATE_LIST_PLACEHOLDER}}
@@ -183,14 +210,34 @@
     <script>
         // KaTeX自动渲染配置
         document.addEventListener('DOMContentLoaded', function() {
-            renderMathInElement(document.body, {
-                delimiters: [
-                    {left: '$$', right: '$$', display: true},
-                    {left: '$', right: '$', display: false},
-                    {left: '\\(', right: '\\)', display: false},
-                    {left: '\\[', right: '\\]', display: true}
-                ],
-                throwOnError: false
+            try {
+                renderMathInElement(document.body, {
+                    delimiters: [
+                        {left: '$$', right: '$$', display: true},
+                        {left: '$', right: '$', display: false},
+                        {left: '\\(', right: '\\)', display: false},
+                        {left: '\\[', right: '\\]', display: true}
+                    ],
+                    throwOnError: false
+                });
+            } catch (e) { console.error('KaTeX rendering failed:', e); }
+
+            // 月份筛选功能
+            var tabs = document.querySelectorAll('.month-tab');
+            tabs.forEach(function(tab) {
+                tab.addEventListener('click', function() {
+                    tabs.forEach(function(t) { t.classList.remove('active'); });
+                    tab.classList.add('active');
+                    var month = tab.getAttribute('data-month');
+                    var cards = document.querySelectorAll('.date-card');
+                    cards.forEach(function(card) {
+                        if (month === 'all' || card.getAttribute('data-month') === month) {
+                            card.classList.remove('hidden');
+                        } else {
+                            card.classList.add('hidden');
+                        }
+                    });
+                });
             });
         });
     </script>
