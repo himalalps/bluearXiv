@@ -109,6 +109,32 @@
             margin-right: 3px;
             margin-bottom: 3px;
         }
+        .month-filter {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+        .month-tab {
+            padding: 5px 14px;
+            border: 1px solid #4a6fa5;
+            border-radius: 20px;
+            background: white;
+            color: #4a6fa5;
+            font-size: 0.85em;
+            cursor: pointer;
+            transition: background 0.2s, color 0.2s;
+        }
+        .month-tab:hover {
+            background: #d6e4f5;
+        }
+        .month-tab.active {
+            background: #4a6fa5;
+            color: white;
+        }
+        .date-card.hidden {
+            display: none;
+        }
         .footer {
             text-align: left;
             margin-top: 25px;
@@ -172,10 +198,23 @@
         </ul>
     </div>
     
+    <div class="month-filter"><button type="button" class="month-tab active" data-month="all">全部</button><button type="button" class="month-tab" data-month="2026-03">2026年03月</button><button type="button" class="month-tab" data-month="2026-02">2026年02月</button></div>
     <div class="date-list">
         <!-- 日期列表占位符 - 将在生成时按日期倒序排列 -->
         
-        <div class="date-card">
+        <div class="date-card" data-month="2026-03">
+            <a href="daily_2026-03-16.html" class="date-link">2026年03月16日</a>
+            <div class="stats">
+                <div class="stat-item">总论文数: 273</div>
+                <div class="stat-item">精选论文: 0</div>
+                <div class="category-tags">
+                    <span class="category-tag">cs.LG: 86</span><span class="category-tag">cs.AI: 16</span><span class="category-tag">cs.IR: 13</span><span class="category-tag">cs.CL: 40</span><span class="category-tag">cs.DS: 4</span><span class="category-tag">others: 114</span>
+                </div>
+            </div>
+        </div>
+        
+
+        <div class="date-card" data-month="2026-03">
             <a href="daily_2026-03-13.html" class="date-link">2026年03月13日</a>
             <div class="stats">
                 <div class="stat-item">总论文数: 362</div>
@@ -187,7 +226,7 @@
         </div>
         
 
-        <div class="date-card">
+        <div class="date-card" data-month="2026-03">
             <a href="daily_2026-03-12.html" class="date-link">2026年03月12日</a>
             <div class="stats">
                 <div class="stat-item">总论文数: 351</div>
@@ -199,7 +238,7 @@
         </div>
         
 
-        <div class="date-card">
+        <div class="date-card" data-month="2026-03">
             <a href="daily_2026-03-11.html" class="date-link">2026年03月11日</a>
             <div class="stats">
                 <div class="stat-item">总论文数: 342</div>
@@ -211,7 +250,7 @@
         </div>
         
 
-        <div class="date-card">
+        <div class="date-card" data-month="2026-03">
             <a href="daily_2026-03-10.html" class="date-link">2026年03月10日</a>
             <div class="stats">
                 <div class="stat-item">总论文数: 696</div>
@@ -223,7 +262,7 @@
         </div>
         
 
-        <div class="date-card">
+        <div class="date-card" data-month="2026-03">
             <a href="daily_2026-03-09.html" class="date-link">2026年03月09日</a>
             <div class="stats">
                 <div class="stat-item">总论文数: 267</div>
@@ -235,7 +274,7 @@
         </div>
         
 
-        <div class="date-card">
+        <div class="date-card" data-month="2026-03">
             <a href="daily_2026-03-06.html" class="date-link">2026年03月06日</a>
             <div class="stats">
                 <div class="stat-item">总论文数: 368</div>
@@ -247,7 +286,7 @@
         </div>
         
 
-        <div class="date-card">
+        <div class="date-card" data-month="2026-03">
             <a href="daily_2026-03-05.html" class="date-link">2026年03月05日</a>
             <div class="stats">
                 <div class="stat-item">总论文数: 351</div>
@@ -259,7 +298,7 @@
         </div>
         
 
-        <div class="date-card">
+        <div class="date-card" data-month="2026-03">
             <a href="daily_2026-03-04.html" class="date-link">2026年03月04日</a>
             <div class="stats">
                 <div class="stat-item">总论文数: 341</div>
@@ -271,7 +310,7 @@
         </div>
         
 
-        <div class="date-card">
+        <div class="date-card" data-month="2026-03">
             <a href="daily_2026-03-03.html" class="date-link">2026年03月03日</a>
             <div class="stats">
                 <div class="stat-item">总论文数: 765</div>
@@ -283,7 +322,7 @@
         </div>
         
 
-        <div class="date-card">
+        <div class="date-card" data-month="2026-03">
             <a href="daily_2026-03-02.html" class="date-link">2026年03月02日</a>
             <div class="stats">
                 <div class="stat-item">总论文数: 272</div>
@@ -295,7 +334,7 @@
         </div>
         
 
-        <div class="date-card">
+        <div class="date-card" data-month="2026-03">
             <a href="daily_2026-03-01.html" class="date-link">2026年03月01日</a>
             <div class="stats">
                 <div class="stat-item">总论文数: 395</div>
@@ -307,7 +346,7 @@
         </div>
         
 
-        <div class="date-card">
+        <div class="date-card" data-month="2026-02">
             <a href="daily_2026-02-28.html" class="date-link">2026年02月28日</a>
             <div class="stats">
                 <div class="stat-item">总论文数: 395</div>
@@ -319,7 +358,7 @@
         </div>
         
 
-        <div class="date-card">
+        <div class="date-card" data-month="2026-02">
             <a href="daily_2026-02-27.html" class="date-link">2026年02月27日</a>
             <div class="stats">
                 <div class="stat-item">总论文数: 395</div>
@@ -331,7 +370,7 @@
         </div>
         
 
-        <div class="date-card">
+        <div class="date-card" data-month="2026-02">
             <a href="daily_2026-02-26.html" class="date-link">2026年02月26日</a>
             <div class="stats">
                 <div class="stat-item">总论文数: 260</div>
@@ -343,7 +382,7 @@
         </div>
         
 
-        <div class="date-card">
+        <div class="date-card" data-month="2026-02">
             <a href="daily_2026-02-25.html" class="date-link">2026年02月25日</a>
             <div class="stats">
                 <div class="stat-item">总论文数: 283</div>
@@ -355,7 +394,7 @@
         </div>
         
 
-        <div class="date-card">
+        <div class="date-card" data-month="2026-02">
             <a href="daily_2026-02-24.html" class="date-link">2026年02月24日</a>
             <div class="stats">
                 <div class="stat-item">总论文数: 552</div>
@@ -367,7 +406,7 @@
         </div>
         
 
-        <div class="date-card">
+        <div class="date-card" data-month="2026-02">
             <a href="daily_2026-02-23.html" class="date-link">2026年02月23日</a>
             <div class="stats">
                 <div class="stat-item">总论文数: 231</div>
@@ -379,7 +418,7 @@
         </div>
         
 
-        <div class="date-card">
+        <div class="date-card" data-month="2026-02">
             <a href="daily_2026-02-22.html" class="date-link">2026年02月22日</a>
             <div class="stats">
                 <div class="stat-item">总论文数: 309</div>
@@ -391,7 +430,7 @@
         </div>
         
 
-        <div class="date-card">
+        <div class="date-card" data-month="2026-02">
             <a href="daily_2026-02-21.html" class="date-link">2026年02月21日</a>
             <div class="stats">
                 <div class="stat-item">总论文数: 309</div>
@@ -403,7 +442,7 @@
         </div>
         
 
-        <div class="date-card">
+        <div class="date-card" data-month="2026-02">
             <a href="daily_2026-02-20.html" class="date-link">2026年02月20日</a>
             <div class="stats">
                 <div class="stat-item">总论文数: 309</div>
@@ -415,7 +454,7 @@
         </div>
         
 
-        <div class="date-card">
+        <div class="date-card" data-month="2026-02">
             <a href="daily_2026-02-19.html" class="date-link">2026年02月19日</a>
             <div class="stats">
                 <div class="stat-item">总论文数: 29</div>
@@ -427,7 +466,7 @@
         </div>
         
 
-        <div class="date-card">
+        <div class="date-card" data-month="2026-02">
             <a href="daily_2026-02-18.html" class="date-link">2026年02月18日</a>
             <div class="stats">
                 <div class="stat-item">总论文数: 18</div>
@@ -439,7 +478,7 @@
         </div>
         
 
-        <div class="date-card">
+        <div class="date-card" data-month="2026-02">
             <a href="daily_2026-02-17.html" class="date-link">2026年02月17日</a>
             <div class="stats">
                 <div class="stat-item">总论文数: 60</div>
@@ -453,7 +492,7 @@
     </div>
     
     <div class="footer">
-        <p>- 最后更新 Last Update (UTC) : 2026-03-13 03:49:38</p>
+        <p>- 最后更新 Last Update (UTC) : 2026-03-16 04:10:23</p>
         <p>- 数据来源 Data Source: <a href="https://arXiv.org">arXiv.org</a></p>
         <p>- 本网页的内容由 <a href="https://github.com/vegetablefj/bluearXiv-ai">bluearXiv-ai</a> 自动生成。实际抓取的是 arXiv 中 "new" 页面的数据，即最近的有所在分类论文变动的一天的数据。</p>
         <p>- 感谢 arXiv 提供的服务。评论和精选由 AI 生成，不代表任何人对论文本身的看法。精选依赖于论文与给定关键词的匹配度。</p>
@@ -468,14 +507,50 @@
     <script>
         // KaTeX自动渲染配置
         document.addEventListener('DOMContentLoaded', function() {
-            renderMathInElement(document.body, {
-                delimiters: [
-                    {left: '$$', right: '$$', display: true},
-                    {left: '$', right: '$', display: false},
-                    {left: '\\(', right: '\\)', display: false},
-                    {left: '\\[', right: '\\]', display: true}
-                ],
-                throwOnError: false
+            try {
+                renderMathInElement(document.body, {
+                    delimiters: [
+                        {left: '$$', right: '$$', display: true},
+                        {left: '$', right: '$', display: false},
+                        {left: '\\(', right: '\\)', display: false},
+                        {left: '\\[', right: '\\]', display: true}
+                    ],
+                    throwOnError: false
+                });
+            } catch (e) { console.error('KaTeX rendering failed:', e); }
+
+            // 月份筛选功能
+            var tabs = document.querySelectorAll('.month-tab');
+            // 初始化 ARIA 状态，使其与当前 .active 状态保持一致
+            tabs.forEach(function(tab) {
+                if (tab.classList.contains('active')) {
+                    tab.setAttribute('aria-pressed', 'true');
+                } else {
+                    tab.setAttribute('aria-pressed', 'false');
+                }
+            });
+
+            tabs.forEach(function(tab) {
+                tab.addEventListener('click', function() {
+                    // 更新所有标签的可见状态和 ARIA 状态
+                    tabs.forEach(function(t) {
+                        t.classList.remove('active');
+                        t.setAttribute('aria-pressed', 'false');
+                    });
+                    // 设置当前标签为激活状态，并同步 ARIA
+                    tab.classList.add('active');
+                    tab.setAttribute('aria-pressed', 'true');
+
+                    var month = tab.getAttribute('data-month');
+                    var cards = document.querySelectorAll('.date-card');
+                    cards.forEach(function(card) {
+                        if (month === 'all' || card.getAttribute('data-month') === month) {
+                            card.classList.remove('hidden');
+                        } else {
+                            card.classList.add('hidden');
+                        }
+                    });
+                });
             });
         });
     </script>
