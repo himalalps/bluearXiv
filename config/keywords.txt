@@ -3,5 +3,5 @@ context
 spectral
 Muon
 pretrain
-theory
 agent
+attention
