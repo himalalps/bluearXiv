@@ -17,7 +17,7 @@ on:
       ai_model_name:
         description: 'AI模型名称（可选）'
         required: false
-        default: 'deepseek-chat'
+        default: 'deepseek-v4-flash'
         type: string
       date:
         description: '指定日期（格式：YYYY-MM-DD，默认为今天）'
