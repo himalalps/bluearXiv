@@ -1,0 +1,4329 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bluearXiv-ai - 2026-07-20</title>
+    <!-- KaTeX for LaTeX rendering -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.5;
+            color: #333;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 15px;
+            background-color: #f8f9fa;
+            font-size: 14px;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #4a6fa5;
+        }
+        .header h1 {
+            color: #2c3e50;
+            font-size: 1.6em;
+            margin-bottom: 8px;
+        }
+        .header .date {
+            color: #7f8c8d;
+            font-size: 1.1em;
+            margin-bottom: 10px;
+        }
+        .nav-links {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .nav-link {
+            color: #2980b9;
+            text-decoration: none;
+            margin: 0 10px;
+            font-weight: bold;
+            font-size: 0.95em;
+        }
+        .nav-link:hover {
+            text-decoration: underline;
+        }
+        .config-section {
+            background: white;
+            border-radius: 6px;
+            padding: 15px;
+            margin-bottom: 20px;
+            box-shadow: 0 1px 5px rgba(0,0,0,0.1);
+        }
+        .config-title {
+            font-size: 1.1em;
+            color: #2c3e50;
+            margin-top: 0;
+            margin-bottom: 8px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 5px;
+        }
+        .config-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .config-item {
+            display: inline-block;
+            background-color: #e8f4fc;
+            color: #2c3e50;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-size: 0.85em;
+            margin: 0 5px 5px 0;
+        }
+        .keyword-filter {
+            cursor: pointer;
+            user-select: none;
+            transition: background-color 0.15s, color 0.15s;
+        }
+        .keyword-filter:hover {
+            background-color: #b8d9f0;
+        }
+        .keyword-filter.active {
+            background-color: #4a6fa5;
+            color: white;
+        }
+        .section {
+            background: white;
+            border-radius: 6px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 1px 5px rgba(0,0,0,0.1);
+        }
+        .section-title {
+            color: #2c3e50;
+            font-size: 1.4em;
+            margin-top: 0;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #eee;
+        }
+        .section-back-to-top {
+            display: inline-block;
+            opacity: 0;
+            transition: opacity 0.2s;
+            color: #4a6fa5;
+            text-decoration: none;
+            font-size: 0.55em;
+            font-weight: normal;
+            margin-left: 10px;
+            padding: 2px 8px;
+            border: 1px solid #4a6fa5;
+            border-radius: 10px;
+            vertical-align: middle;
+            background: white;
+        }
+        .section-title:hover .section-back-to-top {
+            opacity: 1;
+        }
+        .counter-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 12px;
+            margin-bottom: 15px;
+        }
+        .counter-item {
+            background-color: #f1f8ff;
+            padding: 12px;
+            border-radius: 5px;
+            text-align: center;
+        }
+        .counter-category {
+            font-size: 1em;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        .counter-value {
+            font-size: 1.5em;
+            color: #4a6fa5;
+            margin: 8px 0;
+        }
+        .category-section {
+            margin-bottom: 30px;
+        }
+        .category-title {
+            color: #2c3e50;
+            font-size: 1.3em;
+            margin-top: 0;
+            margin-bottom: 15px;
+            padding-bottom: 5px;
+            border-bottom: 2px solid #4a6fa5;
+        }
+        .paper-list {
+            margin: 0;
+            padding: 0;
+        }
+        .paper-item {
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+        .paper-item:last-child {
+            border-bottom: none;
+        }
+        .paper-title {
+            font-size: 1.2em;
+            color: #2c3e50;
+            margin-bottom: 6px;
+            line-height: 1.3;
+        }
+        .paper-title a {
+            color: #2c3e50;
+            text-decoration: none;
+        }
+        .paper-title a:hover {
+            color: #4a6fa5;
+            text-decoration: underline;
+        }
+        .paper-authors {
+            color: #666;
+            font-size: 0.95em;
+            margin-bottom: 6px;
+            font-style: italic;
+        }
+        .paper-categories {
+            margin-bottom: 10px;
+        }
+        .category-tag {
+            display: inline-block;
+            background-color: #e8f4fc;
+            color: #2c3e50;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-size: 0.8em;
+            margin-right: 4px;
+        }
+        .paper-comment {
+            background-color: #f9f9f9;
+            padding: 12px;
+            border-radius: 5px;
+            border-left: 3px solid #4a6fa5;
+            font-size: 0.95em;
+            line-height: 1.5;
+        }
+        .selection-badge {
+            display: inline-block;
+            background-color: #ffeaa7;
+            color: #d35400;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-size: 0.8em;
+            font-weight: bold;
+            margin-left: 8px;
+        }
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #4a6fa5;
+            color: white;
+            padding: 8px 12px;
+            border-radius: 50%;
+            text-decoration: none;
+            font-size: 1em;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+        }
+        .back-to-top:hover {
+            background-color: #3a5a80;
+        }
+        .footnote {
+            font-size: 0.85em;
+            color: #888;
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px solid #ddd;
+            line-height: 1.4;
+        }
+        @media (max-width: 768px) {
+            .counter-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .header h1 {
+                font-size: 1.4em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>bluearXiv-ai 论文精选</h1>
+        <div class="date">2026-07-20</div>
+        <div class="nav-links">
+            <a href="index.html" class="nav-link">返回首页</a>
+            <a href="#counter" class="nav-link">论文统计</a>
+            <a href="#selection" class="nav-link">精选论文</a>
+            <a href="#papers" class="nav-link">所有论文</a>
+        </div>
+    </div>
+    
+    <!-- 特定学科和关键词列表 -->
+    <div class="config-section">
+        <h3 class="config-title">📚 跟踪学科 (Categories)</h3>
+        <ul class="config-list">
+            <li class="config-item">cs.LG</li>
+<li class="config-item">cs.AI</li>
+<li class="config-item">cs.IR</li>
+<li class="config-item">cs.CL</li>
+<li class="config-item">cs.DS</li>
+        </ul>
+    </div>
+    <div class="config-section">
+        <h3 class="config-title">🔍 筛选关键词 (Keywords)</h3>
+        <ul class="config-list">
+            <li class="config-item keyword-filter" data-keyword="code">code</li>
+<li class="config-item keyword-filter" data-keyword="context">context</li>
+<li class="config-item keyword-filter" data-keyword="spectral">spectral</li>
+<li class="config-item keyword-filter" data-keyword="Muon">Muon</li>
+<li class="config-item keyword-filter" data-keyword="pretrain">pretrain</li>
+<li class="config-item keyword-filter" data-keyword="agent">agent</li>
+<li class="config-item keyword-filter" data-keyword="attention">attention</li>
+        </ul>
+    </div>
+    
+    <!-- 论文统计部分 -->
+    <section id="counter" class="section">
+        <h2 class="section-title">📊 论文统计 <a href="#" class="section-back-to-top">↑ 回顶部</a></h2>
+        <div class="counter-grid">
+            
+        <div class="counter-item">
+            <div class="counter-category">cs.LG</div>
+            <div class="counter-value">70</div>
+        </div>
+        
+
+        <div class="counter-item">
+            <div class="counter-category">cs.AI</div>
+            <div class="counter-value">27</div>
+        </div>
+        
+
+        <div class="counter-item">
+            <div class="counter-category">cs.IR</div>
+            <div class="counter-value">9</div>
+        </div>
+        
+
+        <div class="counter-item">
+            <div class="counter-category">cs.CL</div>
+            <div class="counter-value">27</div>
+        </div>
+        
+
+        <div class="counter-item">
+            <div class="counter-category">cs.DS</div>
+            <div class="counter-value">10</div>
+        </div>
+        
+
+        <div class="counter-item">
+            <div class="counter-category">others</div>
+            <div class="counter-value">83</div>
+        </div>
+        
+
+    <div class="counter-item" style="background-color: #e8f4fc;">
+        <div class="counter-category" style="font-weight: bold;">总计</div>
+        <div class="counter-value" style="color: #2c3e50;">226</div>
+    </div>
+    
+        </div>
+    </section>
+    
+    <!-- 精选论文部分 -->
+    <section id="selection" class="section">
+        <h2 class="section-title">⭐ 精选论文 <a href="#" class="section-back-to-top">↑ 回顶部</a></h2>
+        <div class="paper-list">
+            <h3 style="color: #4a6fa5; margin-top: 15px; margin-bottom: 10px;">cs.LG</h3>
+
+            <div class="paper-item">
+                <div class="paper-title">
+                    <a href="https://arxiv.org/abs/2607.15449" target="_blank">Relevant and Irrelevant: A Renormalization Group Analysis of Transformer Attention</a>
+                    <span class="selection-badge">⭐ 精选</span>
+                </div>
+                <div class="paper-authors">Parviz Haggi-Mani, Irina Rish</div>
+                <div class="paper-categories">
+                    <span class="category-tag">cs.LG</span>
+                </div>
+            </div>
+            
+
+            <div class="paper-item">
+                <div class="paper-title">
+                    <a href="https://arxiv.org/abs/2607.15456" target="_blank">Looped Latent Attention: Cross-Loop KV Compression for Looped Transformers</a>
+                    <span class="selection-badge">⭐ 精选</span>
+                </div>
+                <div class="paper-authors">James O' Neill, Fergal Reid</div>
+                <div class="paper-categories">
+                    <span class="category-tag">cs.LG</span>
+<span class="category-tag">cs.CL</span>
+                </div>
+            </div>
+            
+
+            <div class="paper-item">
+                <div class="paper-title">
+                    <a href="https://arxiv.org/abs/2607.15773" target="_blank">From Diffusion to Reaction-Diffusion: A Dynamical-Systems View of Oversmoothing in Hypergraph Neural Networks</a>
+                    <span class="selection-badge">⭐ 精选</span>
+                </div>
+                <div class="paper-authors">Zhiheng Zhou et al.</div>
+                <div class="paper-categories">
+                    <span class="category-tag">cs.LG</span>
+                </div>
+            </div>
+            
+
+            <div class="paper-item">
+                <div class="paper-title">
+                    <a href="https://arxiv.org/abs/2607.16109" target="_blank">The Honest Quorum Problem: Epistemic Byzantine Fault Tolerance for Agentic Infrastructure</a>
+                    <span class="selection-badge">⭐ 精选</span>
+                </div>
+                <div class="paper-authors">Jun He, Deying Yu</div>
+                <div class="paper-categories">
+                    <span class="category-tag">cs.LG</span>
+<span class="category-tag">cs.DC</span>
+<span class="category-tag">cs.MA</span>
+                </div>
+            </div>
+            
+
+            <div class="paper-item">
+                <div class="paper-title">
+                    <a href="https://arxiv.org/abs/2607.16133" target="_blank">When Do Multi-Agent Systems Help? An Information Bottleneck Perspective</a>
+                    <span class="selection-badge">⭐ 精选</span>
+                </div>
+                <div class="paper-authors">Wendi Yu et al.</div>
+                <div class="paper-categories">
+                    <span class="category-tag">cs.LG</span>
+<span class="category-tag">cs.AI</span>
+                </div>
+            </div>
+            
+
+            <div class="paper-item">
+                <div class="paper-title">
+                    <a href="https://arxiv.org/abs/2607.16169" target="_blank">When Does Muon Help Agentic Reinforcement Learning?</a>
+                    <span class="selection-badge">⭐ 精选</span>
+                </div>
+                <div class="paper-authors">Kai Ruan et al.</div>
+                <div class="paper-categories">
+                    <span class="category-tag">cs.LG</span>
+<span class="category-tag">cs.AI</span>
+                </div>
+            </div>
+            
+<h3 style="color: #4a6fa5; margin-top: 15px; margin-bottom: 10px;">cs.AI</h3>
+
+            <div class="paper-item">
+                <div class="paper-title">
+                    <a href="https://arxiv.org/abs/2607.15280" target="_blank">GraphDx: A Cost-Aware Knowledge-Enhanced Multi-Agent Framework for Sequential Diagnosis</a>
+                    <span class="selection-badge">⭐ 精选</span>
+                </div>
+                <div class="paper-authors">Shaoting Tan et al.</div>
+                <div class="paper-categories">
+                    <span class="category-tag">cs.AI</span>
+                </div>
+            </div>
+            
+<h3 style="color: #4a6fa5; margin-top: 15px; margin-bottom: 10px;">cs.CL</h3>
+
+            <div class="paper-item">
+                <div class="paper-title">
+                    <a href="https://arxiv.org/abs/2607.15498" target="_blank">VarRate: Training-Free Variable-Rate KV Cache Compression for Long-Context LLMs</a>
+                    <span class="selection-badge">⭐ 精选</span>
+                </div>
+                <div class="paper-authors">Shahrzad Esmat, Dhawal Shah, Ali Jannesari</div>
+                <div class="paper-categories">
+                    <span class="category-tag">cs.CL</span>
+<span class="category-tag">cs.LG</span>
+                </div>
+            </div>
+            
+
+            <div class="paper-item">
+                <div class="paper-title">
+                    <a href="https://arxiv.org/abs/2607.15610" target="_blank">Process Reward Informed Tree Rollout for Effective Multi-Turn RL</a>
+                    <span class="selection-badge">⭐ 精选</span>
+                </div>
+                <div class="paper-authors">Xintong Li et al.</div>
+                <div class="paper-categories">
+                    <span class="category-tag">cs.CL</span>
+<span class="category-tag">cs.AI</span>
+<span class="category-tag">cs.LG</span>
+                </div>
+            </div>
+            
+
+            <div class="paper-item">
+                <div class="paper-title">
+                    <a href="https://arxiv.org/abs/2607.16072" target="_blank">Frontier Language Models Struggle to Copy: Text Can Be Better Viewed in 2D</a>
+                    <span class="selection-badge">⭐ 精选</span>
+                </div>
+                <div class="paper-authors">Haodong Wen et al.</div>
+                <div class="paper-categories">
+                    <span class="category-tag">cs.CL</span>
+                </div>
+            </div>
+            
+<h3 style="color: #4a6fa5; margin-top: 15px; margin-bottom: 10px;">cs.DS</h3>
+
+            <div class="paper-item">
+                <div class="paper-title">
+                    <a href="https://arxiv.org/abs/2607.16126" target="_blank">A Unified Theory of Sparsification</a>
+                    <span class="selection-badge">⭐ 精选</span>
+                </div>
+                <div class="paper-authors">Sanjeev Khanna, Aaron Putterman, Madhu Sudan</div>
+                <div class="paper-categories">
+                    <span class="category-tag">cs.DS</span>
+                </div>
+            </div>
+            
+<h3 style="color: #4a6fa5; margin-top: 15px; margin-bottom: 10px;">others</h3>
+
+                <div class="paper-item">
+                    <div class="paper-title">
+                        <a href="https://arxiv.org/abs/2607.15309" target="_blank">DyneTrion: A Spatio-temporally Coherent Generative Emulator for Protein Dynamics Across Timescales</a>
+                        <span class="selection-badge">⭐ 精选</span>
+                    </div>
+                    <div class="paper-authors">Kaihui Cheng et al.</div>
+                    <div class="paper-categories">
+                        <span class="category-tag">q-bio.QM</span>
+<span class="category-tag">cs.LG</span>
+                    </div>
+                </div>
+                
+
+                <div class="paper-item">
+                    <div class="paper-title">
+                        <a href="https://arxiv.org/abs/2607.15472" target="_blank">Ptolemy&#39;s Equant Equates to a Universal Dynamical Clock via Machine Learning</a>
+                        <span class="selection-badge">⭐ 精选</span>
+                    </div>
+                    <div class="paper-authors">Jingdong Zhang et al.</div>
+                    <div class="paper-categories">
+                        <span class="category-tag">math.DS</span>
+<span class="category-tag">cs.LG</span>
+<span class="category-tag">physics.bio-ph</span>
+                    </div>
+                </div>
+                
+
+                <div class="paper-item">
+                    <div class="paper-title">
+                        <a href="https://arxiv.org/abs/2607.15693" target="_blank">Toward a mechanistic understanding of inference in visual cortex and diffusion models</a>
+                        <span class="selection-badge">⭐ 精选</span>
+                    </div>
+                    <div class="paper-authors">Zeyu Yun et al.</div>
+                    <div class="paper-categories">
+                        <span class="category-tag">q-bio.NC</span>
+<span class="category-tag">cs.AI</span>
+                    </div>
+                </div>
+                
+
+                <div class="paper-item">
+                    <div class="paper-title">
+                        <a href="https://arxiv.org/abs/2607.15970" target="_blank">Code-Poisoning Property Inference Attacks</a>
+                        <span class="selection-badge">⭐ 精选</span>
+                    </div>
+                    <div class="paper-authors">Xukun Luan et al.</div>
+                    <div class="paper-categories">
+                        <span class="category-tag">cs.CR</span>
+<span class="category-tag">cs.LG</span>
+                    </div>
+                </div>
+                
+
+                <div class="paper-item">
+                    <div class="paper-title">
+                        <a href="https://arxiv.org/abs/2607.15995" target="_blank">CanonicalPhys: Pose-Robust Remote Photoplethysmography via Canonical-Space Priors</a>
+                        <span class="selection-badge">⭐ 精选</span>
+                    </div>
+                    <div class="paper-authors">Hui Wei et al.</div>
+                    <div class="paper-categories">
+                        <span class="category-tag">cs.CV</span>
+<span class="category-tag">cs.LG</span>
+                    </div>
+                </div>
+                
+        </div>
+    </section>
+    
+    <!-- 所有论文部分 - 按学科分节 -->
+    <section id="papers" class="section">
+        <h2 class="section-title">📄 所有论文 <a href="#" class="section-back-to-top">↑ 回顶部</a></h2>
+        
+        <!-- 这里将动态生成各个学科的论文小节 -->
+        <!-- 格式示例：
+        <div id="cs-AI" class="category-section">
+            <h3 class="category-title">cs.AI - 人工智能</h3>
+            <div class="paper-list">
+                论文内容...
+            </div>
+        </div>
+        <div id="others" class="category-section">
+            <h3 class="category-title">others - 其他</h3>
+            <div class="paper-list">
+                论文内容...
+            </div>
+        </div>
+        -->
+        <div id="cs-LG" class="category-section">
+<h3 class="category-title">cs.LG</h3>
+<div class="paper-list">
+
+    <div id="paper-2607.15449" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15449" target="_blank">Relevant and Irrelevant: A Renormalization Group Analysis of Transformer Attention</a>
+    <span class="selection-badge">⭐ 精选</span>
+        </div>
+        <div class="paper-authors">Parviz Haggi-Mani, Irina Rish</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.LG</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文利用Wilson重整化群理论，将Transformer的attention机制视为对已训练MLP残差栈固定点的微扰，并判断其是relevant、marginal还是irrelevant operator。通过推导固定点位移公式，作者在合成Markov链序列上验证了四个可检验预测，发现attention的相关性取决于数据生成过程的谱结构：长程相关时attention是relevant的，能驱动表示空间的相变；短程相关时则是irrelevant的。该工作为理解attention在Transformer中的角色提供了基于重整化群的理论框架，与关键词“attention”和“spectral”高度契合。
+        </div>
+        </div>
+
+    <div id="paper-2607.15456" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15456" target="_blank">Looped Latent Attention: Cross-Loop KV Compression for Looped Transformers</a>
+    <span class="selection-badge">⭐ 精选</span>
+        </div>
+        <div class="paper-authors">James O' Neill, Fergal Reid</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.LG</span>
+<span class="category-tag">cs.CL</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文提出Looped Latent Attention (LLA)，一种针对循环权重共享Transformer（Looped Transformers）的post-training cache codec。该方法通过SVD初始化codec并利用KL散度与attention-output蒸馏进行优化，将循环步（loop）维度的K/V缓存压缩为低秩latent，在解码时按需重构。实验表明，在相同缓存预算下，per-head LLA优于head-axis MLA、跨层共享及KV量化等方法，在Ouro-1.4B上实现21.3x压缩并大幅提升batch容量，且该codec在长数学推理任务中显著提升MATH-500准确率。
+        </div>
+        </div>
+
+    <div id="paper-2607.15773" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15773" target="_blank">From Diffusion to Reaction-Diffusion: A Dynamical-Systems View of Oversmoothing in Hypergraph Neural Networks</a>
+    <span class="selection-badge">⭐ 精选</span>
+        </div>
+        <div class="paper-authors">Zhiheng Zhou et al.</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.LG</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文从动力系统视角出发，将超图神经网络中的过平滑现象建模为incidence-level的扩散过程，并证明纯扩散会导致Dirichlet energy指数衰减至零。为解决该问题，作者提出Hypergraph Neural Reaction-Diffusion (HNRD)框架，通过引入作用于transverse component的反应机制来补偿扩散引起的能量耗散，并证明该动力学系统的null-mode-free Dirichlet energy有非零下界。该工作为设计深度超图架构提供了原则性的动力系统框架，与关键词中的spectral（谱方法）和attention（注意力机制）在超图学习领域有潜在关联。
+        </div>
+        </div>
+
+    <div id="paper-2607.16109" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.16109" target="_blank">The Honest Quorum Problem: Epistemic Byzantine Fault Tolerance for Agentic Infrastructure</a>
+    <span class="selection-badge">⭐ 精选</span>
+        </div>
+        <div class="paper-authors">Jun He, Deying Yu</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.LG</span>
+<span class="category-tag">cs.DC</span>
+<span class="category-tag">cs.MA</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文提出了"诚实法定人数问题"(Honest Quorum Problem)，指出在agentic基础设施中，即使节点遵守协议(protocol-compliant)也可能因推理错误而认可语义无效的转换，这被称为认知故障(epistemic fault)。作者定义了认知拜占庭容错(Epistemic Byzantine Fault Tolerance, EBFT)模型，引入两个置信度索引参数：\(e_\delta\)限制拜占庭集合外的连贯无效认可，\(u_\epsilon\)限制降低活跃度的不可用支持。该工作推导了语义有效性、共识一致性和活跃性的法定人数阈值条件，并给出了校准方法，为agentic分布式系统的安全性提供了理论框架，与关键词"agent"高度契合。
+        </div>
+        </div>
+
+    <div id="paper-2607.16133" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.16133" target="_blank">When Do Multi-Agent Systems Help? An Information Bottleneck Perspective</a>
+    <span class="selection-badge">⭐ 精选</span>
+        </div>
+        <div class="paper-authors">Wendi Yu et al.</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.LG</span>
+<span class="category-tag">cs.AI</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文从信息瓶颈(Information Bottleneck)的视角分析了多智能体系统(MAS)相对于单智能体系统(SAS)的优势来源。核心观察是，SAS将所有推理轨迹累积在共享上下文中，而MAS通过有界中继消息连接隔离的局部上下文。作者证明，在无限中继带宽下，任何SAS都可被MAS模拟，因此MAS的非平凡优势源于有界中继下的压缩权衡：减少冗余上下文可提升效率，但可能损失任务相关信息。该权衡由有效参数\(\beta\)控制，当上下文缩减带来的收益超过中继信息损失时，MAS即产生增益，这解释了为何MAS在弱模型和近充分中继条件下更有效。
+        </div>
+        </div>
+
+    <div id="paper-2607.16169" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.16169" target="_blank">When Does Muon Help Agentic Reinforcement Learning?</a>
+    <span class="selection-badge">⭐ 精选</span>
+        </div>
+        <div class="paper-authors">Kai Ruan et al.</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.LG</span>
+<span class="category-tag">cs.AI</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文首次将Muon优化器应用于稀疏奖励的agentic RL（强化学习）后训练场景，通过ALFWorld环境下的单种子对比实验，发现仅对隐藏权重矩阵应用Muon并结合Group-in-Group Policy Optimization (GiGPO)时，最终窗口验证成功率从0.290提升至0.546（+88%），而高学习率的AdamW对照组则完全失效。研究进一步揭示了Muon的效果依赖于advantage estimator（优势估计器）和学习率的联合选择，例如在1e-5学习率下，GraphGPO结合Muon使验证AUC从0.399提升至0.556，并提前30-60次更新达到0.5和0.75的成功率。这些探索性结果表明Muon能够显著加速agentic RL的收敛，并强调了策略优化器、优势估计器与学习率联合设计的重要性。
+        </div>
+        </div>
+
+    <div id="paper-2607.15293" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15293" target="_blank">Structure of the Circular-Dyadic Convolution Error</a>
+    
+        </div>
+        <div class="paper-authors">Ben Fauber, Alireza Moradzadeh</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.LG</span>
+<span class="category-tag">cs.AI</span>
+<span class="category-tag">math.NA</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文研究了用Hadamard变换替代FFT计算circular convolution时产生的代数误差，发现该误差具有结构性，并给出了误差抵消位置、算子秩以及期望误差的闭式表达式。
+        </div>
+        </div>
+
+    <div id="paper-2607.15313" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15313" target="_blank">Position: Quantum Program Generation Must Prioritize Validity Over Probabilistic Scaling</a>
+    
+        </div>
+        <div class="paper-authors">Junhao Song et al.</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.LG</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文认为将概率性扩展假设应用于通用量子电路合成是方向性错误，因为量子电路需严格遵循数学约束，而训练未验证的量子程序会导致模型仅学习语法却无法捕捉Hilbert空间的物理语义。文章提出从以人为中心的copilot转向以验证器为中心的agent，通过集成层次约束、拓扑掩码和符号代理来生成量子程序。
+        </div>
+        </div>
+
+    <div id="paper-2607.15394" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15394" target="_blank">A Transportable Threshold-Based Framework for Interpretable Classification of Medical Data</a>
+    
+        </div>
+        <div class="paper-authors">Antony Garcia et al.</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.LG</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文提出了一种基于Bernoulli Naïve Bayes (BNB)的统计框架，通过\(\chi^2\)引导的统计二值化将连续医疗数据转化为可解释的规则分类。该方法在三个医疗数据集上取得了与复杂模型相当的AUC性能，并提供了完全可复现的决策规则。
+        </div>
+        </div>
+
+    <div id="paper-2607.15412" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15412" target="_blank">Regularity-Aware Stochastic MGDA with Adaptive Conflict-Avoidant Update Direction Control</a>
+    
+        </div>
+        <div class="paper-authors">Chentong Huang, Lisha Chen</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.LG</span>
+<span class="category-tag">math.OC</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文研究了随机多目标优化中多梯度下降算法（MGDA）的收敛性问题，指出其冲突避免（CA）方向具有\(1/2\)-Holder连续性，并提出了MoRe方法，通过利用CA方向的Lipschitz连续性来改进收敛速率。该方法在非凸设定下将收敛率从\(\widetilde{\mathcal O}(T^{-1/4})\)提升至\(\widetilde{\mathcal O}(T^{-1/2})\)，并提供了每步迭代的冲突避免保证。
+        </div>
+        </div>
+
+    <div id="paper-2607.15414" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15414" target="_blank">AI Trading: Evaluating Large Language Models for Technical Market Analysis</a>
+    
+        </div>
+        <div class="paper-authors">Geofrey Ntale</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.LG</span>
+<span class="category-tag">cs.AI</span>
+<span class="category-tag">q-fin.CP</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文系统比较了五种大型语言模型（GPT-4 Turbo, Claude 3 Opus, Gemini 1.5 Pro, Llama 3 70B, FinGPT）在技术市场分析中的表现，包括K线模式识别、交易信号生成和回测等任务。研究发现GPT-4 Turbo在通用模型中表现最佳，而FinGPT因领域微调具有竞争力，但所有模型都存在数值幻觉和上下文窗口限制等问题。
+        </div>
+        </div>
+
+    <div id="paper-2607.15421" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15421" target="_blank">qZACH-ViT: Quantization-Aware Intrinsic Explanations with Recursive Attribution-Stabilized Optimization</a>
+    
+        </div>
+        <div class="paper-authors">Athanasios Angelakis</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.LG</span>
+<span class="category-tag">cs.CV</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文提出qZACH-ViT，一种量化感知的紧凑型可解释图像分类模型，并引入RASO优化方法以稳定归因。实验表明，该模型在保持高预测一致性的同时，实现了模型压缩与推理加速。
+        </div>
+        </div>
+
+    <div id="paper-2607.15433" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15433" target="_blank">From hyperplanes to hyperellipsoids: characterizing the inherent interpretability of linear and single-qubit mixed-state binary classification models</a>
+    
+        </div>
+        <div class="paper-authors">Kaitlin Gili</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.LG</span>
+<span class="category-tag">quant-ph</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文比较了标准线性模型与单量子比特混合态模型在二分类任务中的可解释性，指出后者本质上是前者的“椭球版本”，即用超椭球替代超平面进行数据分类。文章讨论了两种模型的几何归纳偏置差异，旨在为无量子背景的机器学习学习者提供一条理解量子机器学习的入门路径。
+        </div>
+        </div>
+
+    <div id="paper-2607.15440" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15440" target="_blank">Stochastic Reset Pathfinding: Path-Level Regret for Cascading Bandits over Graph Paths</a>
+    
+        </div>
+        <div class="paper-authors">Guni Sharon, Wei Zhang</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.LG</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文提出Stochastic Reset Pathfinding (SRP)问题，将其建模为组合级联Bandit问题，并设计了PathUCB和PathTS算法。实验表明PathTS在实际中表现最佳，但存在对抗性实例使其无法收敛。
+        </div>
+        </div>
+
+    <div id="paper-2607.15446" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15446" target="_blank">Who Became Financially Vulnerable After COVID-19? A Population-Level Machine Learning Analysis Using MEPS Data</a>
+    
+        </div>
+        <div class="paper-authors">Alexey Kresin et al.</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.LG</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文利用MEPS数据，通过逻辑回归和机器学习模型（随机森林、梯度提升）分析了COVID-19前后美国医疗财务脆弱性的变化，发现贫困状态、保险覆盖和处方药支出是主要预测因素，且模型在疫情前后表现稳定。
+        </div>
+        </div>
+
+    <div id="paper-2607.15447" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15447" target="_blank">LLM4EHR: Aligning Clinical Time Series with Medical Event Sequences via Large Language Models</a>
+    
+        </div>
+        <div class="paper-authors">Jingteng Li et al.</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.LG</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文提出LLM4EHR，通过将domain adapted large language models与transformer TS encoder结合，并利用正则化对比学习对齐EHR中的clinical events和time series，以学习更鲁棒的表示。实验表明该方法在下游临床任务中表现有竞争力，并支持通过k-shot adaptation迁移到新队列。
+        </div>
+        </div>
+
+    <div id="paper-2607.15457" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15457" target="_blank">Robust Peak-cost Constrained Reinforcement Learning</a>
+    
+        </div>
+        <div class="paper-authors">Shilpa Mukhopadhyay et al.</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.LG</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文研究了鲁棒峰值成本约束强化学习（RP-CRL），旨在最大化期望奖励的同时控制轨迹中的最大成本。作者发现峰值成本约束的MDP可能不存在零对偶间隙，并提出了基于积分概率度量的替代优化框架和鲁棒值估计方法，实验表明该方法在动态扰动下能有效保障安全。
+        </div>
+        </div>
+
+    <div id="paper-2607.15467" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15467" target="_blank">ADS-C: Antidistillation Sampling for Classification</a>
+    
+        </div>
+        <div class="paper-authors">Khawaja Abaid Ullah, Mohammad Javad Khojasteh</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.LG</span>
+<span class="category-tag">cs.CR</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文研究了针对分类任务的知识蒸馏攻击的防御方法，提出了一种名为ADS-C的反蒸馏采样技术。该方法通过输入依赖的梯度扰动来修改服务端的概率向量，并保证不改变每个样本的最高预测类别，从而在零效用损失下有效降低攻击者蒸馏模型的质量。
+        </div>
+        </div>
+
+    <div id="paper-2607.15477" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15477" target="_blank">Deep Learning Approaches for Sleep Apnea Classification from Polysomnographic EEG Signals</a>
+    
+        </div>
+        <div class="paper-authors">Shashank Manjunath, Mukesh Cheemakurthi, Aarti Sathyanarayana</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.LG</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文比较了多种深度学习架构（如Vision Transformers和Graph Attention Networks）在不同EEG信号表示（如原始时域信号、频谱图、基于coherence的图以及拓扑数据分析特征）上用于睡眠呼吸暂停分类的性能，在儿科数据集上达到最佳AUC为0.750。该工作主要侧重于方法对比而非解决长期存在的理论问题，与关键词契合度较低。
+        </div>
+        </div>
+
+    <div id="paper-2607.15482" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15482" target="_blank">Inpainting Insights: Elevating Visual XAI with Photorealistic Perturbations</a>
+    
+        </div>
+        <div class="paper-authors">Josef Lindl, Mariana Chaves, Damien Garreau</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.LG</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文调整了LIME方法，使用生成式inpainting技术生成更逼真的扰动样本，以提升图像XAI的解释质量。该方法主要关注视觉可解释性，与关键词中的概念关联较弱。
+        </div>
+        </div>
+
+    <div id="paper-2607.15485" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15485" target="_blank">Diffusion models recover accurate mixture weights despite score function insensitivity</a>
+    
+        </div>
+        <div class="paper-authors">Andrew Dennehy et al.</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.LG</span>
+<span class="category-tag">math.PR</span>
+<span class="category-tag">stat.ML</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文研究了score-based generative models中混合权重恢复的准确性，通过定义扩散得分敏感性指数（DSSI）来量化参数变化对DSM损失的影响，并证明在温和条件下混合权重估计误差与DSM损失同阶。该工作主要关注生成模型的统计性质，与关键词中的code、context、spectral等方向关联较弱。
+        </div>
+        </div>
+
+    <div id="paper-2607.15511" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15511" target="_blank">An Auto-Scaling Approach for Serverless Environments Based on a Multi-Expert Consensus Mechanism</a>
+    
+        </div>
+        <div class="paper-authors">Mobina Kashaniyan, Mehrdad Ashtiani, Amirhossein Ghassemi</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.LG</span>
+<span class="category-tag">cs.AI</span>
+<span class="category-tag">cs.DC</span>
+<span class="category-tag">cs.PF</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文提出了一种基于多专家共识机制的无服务器环境自动缩放方法，通过有向依赖图识别关键函数，并融合MLP、LSTM和CNN模型进行资源需求预测，结合冷启动感知和成本控制实现缩放决策。实验表明该方法在预测精度和成本降低方面优于现有方法，但未涉及关键词中的code、spectral、Muon、pretrain、agent或attention等概念。
+        </div>
+        </div>
+
+    <div id="paper-2607.15516" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15516" target="_blank">Cache-Aware Prompt Compression:A Two-Tier Cost Model for LLM API Caching</a>
+    
+        </div>
+        <div class="paper-authors">Yan Song</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.LG</span>
+<span class="category-tag">cs.AI</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文研究了LLM API部署中prompt caching与prompt compression的成本权衡，发现现有query-aware压缩方法会破坏缓存前缀，导致实际缓存命中率远低于理想值。作者提出Cache-Aware Prompt Compression (CAPC)方法，通过query-agnostic压缩与缓存控制结合，在多个生产工作负载上实现了显著的成本降低。
+        </div>
+        </div>
+
+    <div id="paper-2607.15524" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15524" target="_blank">Recursive Harness Self-Improvement</a>
+    
+        </div>
+        <div class="paper-authors">Hyunin Lee et al.</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.LG</span>
+<span class="category-tag">cs.AI</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文提出Recursive Harness Self-Improvement (RHI)方法，通过迭代优化agent loop的prompt-level specification来提升执行轨迹质量，在30个合成机器学习研究任务上以较低推理成本显著提高了低推理努力agent的性能。该方法主要关注agent与harness的协同进化，与我提供的关键词契合度有限。
+        </div>
+        </div>
+
+    <div id="paper-2607.15525" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15525" target="_blank">Kolmogorov--Arnold Networks for Small Language Models</a>
+    
+        </div>
+        <div class="paper-authors">Felippe Alves, Renato Vicente</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.LG</span>
+<span class="category-tag">cs.AI</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文研究了Kolmogorov-Arnold Networks (KANs)在小语言模型中的应用，通过实验分析了其可解释性和作为Transformer前馈网络替代方案的性能。结果表明，小基KANs提供了实用的审计接口，但在基准测试、质量和延迟方面并未展现出优于强MLP基线的优势。
+        </div>
+        </div>
+
+    <div id="paper-2607.15528" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15528" target="_blank">Publicly-Verifiable Certificates for Statistical Algorithms</a>
+    
+        </div>
+        <div class="paper-authors">Michael Ngo, Michael P. Kim</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.LG</span>
+<span class="category-tag">cs.CR</span>
+<span class="category-tag">cs.DS</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文定义了非交互式学习证明的新概念pvCSV，并针对自适应统计查询算法构造了相应的证书，其样本复杂度与查询次数的对数成正比。
+        </div>
+        </div>
+
+    <div id="paper-2607.15552" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15552" target="_blank">From Feasibility to Desirability: Plan, Learn, Adapt (PLA) Framework for Personalized On-Device Itinerary Generation</a>
+    
+        </div>
+        <div class="paper-authors">Himel Dev et al.</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.LG</span>
+<span class="category-tag">cs.AI</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文提出PLA框架，将经典优化与学习结合，用于在移动设备上生成个性化旅行行程。该框架通过轻量级规划器生成可行候选方案，并利用Bradley-Terry模型捕捉用户偏好，最终在设备计算预算内进行局部优化，在保证100%可行性的同时提升了行程完成率。
+        </div>
+        </div>
+
+    <div id="paper-2607.15562" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15562" target="_blank">Hard Rules, Soft Preferences: Bridging Reasoning, Learning, and Optimization for Personalized Packing Checklist Generation</a>
+    
+        </div>
+        <div class="paper-authors">Himel Dev et al.</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.LG</span>
+<span class="category-tag">cs.AI</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文提出一个三阶段推理引导学习框架，用于生成个性化且符合航空安全规则的行李清单。该方法结合符号推理、偏好学习和约束优化，在实验和实际部署中均取得良好效果，但未涉及关键词中的核心概念。
+        </div>
+        </div>
+
+    <div id="paper-2607.15577" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15577" target="_blank">Information-Directed Sampling for Causal Bandits</a>
+    
+        </div>
+        <div class="paper-authors">Muhammad Qasim Elahi, Murat Kocaoglu, Mahsa Ghasemi</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.LG</span>
+<span class="category-tag">cs.AI</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文研究了具有不可操作变量的上下文因果bandit问题，在已知因果图且无隐混淆的假设下，采用贝叶斯方法对观测分布的conditional probability tables进行建模。文章提出了因果Thompson Sampling和因果Information-Directed Sampling算法，并给出了熵相关的次线性Bayesian regret界，实验表明该方法优于因果和非因果基线。
+        </div>
+        </div>
+
+    <div id="paper-2607.15587" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15587" target="_blank">Rethinking Transfer in Continual Learning: A Replay-Based Realisation</a>
+    
+        </div>
+        <div class="paper-authors">Yang Meng et al.</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.LG</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文探讨了持续学习中的前向迁移问题，提出了一种基于重放的选择性迁移方法TSR，通过三个可测量条件判断何时应发生迁移，并选择对当前任务有益的历史数据进行重放。实验表明该方法在低预算场景下优于现有基线。
+        </div>
+        </div>
+
+    <div id="paper-2607.15590" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15590" target="_blank">Field-Aware RankMixer with Dual-Stream Bilinear Fusion for the Tencent UNI-REC Challenge</a>
+    
+        </div>
+        <div class="paper-authors">Yufeng Zhang, Zhengqi Xu, Jiajun Cui</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.LG</span>
+<span class="category-tag">cs.AI</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文针对KDD Cup 2026 Tencent UNI-REC挑战赛，提出了一种Field-Aware RankMixer模型，通过双流双线性融合对多域用户行为序列和非序列多域特征进行联合建模，最终在官方排行榜上获得第九名。
+        </div>
+        </div>
+
+    <div id="paper-2607.15606" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15606" target="_blank">Do Generative Models Keep Time? A Time-Aware Evaluation of Synthetic Sequential Tabular Data</a>
+    
+        </div>
+        <div class="paper-authors">Kiwan Kwon et al.</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.LG</span>
+<span class="category-tag">stat.ML</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文提出了一种针对合成时序表格数据的时间感知评估协议，通过数据属性（如时间表示、采样规律性）决定评估维度，并测量时间戳有效性、动态结构等。实验表明，传统静态评估与时间评估结果存在显著差异，强调了在时间轴上直接评估时序保真度的必要性。
+        </div>
+        </div>
+
+    <div id="paper-2607.15607" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15607" target="_blank">ASK-NN: An Asymmetric Nearest-Neighbor Test that detects Distribution Drifts in Natural Language</a>
+    
+        </div>
+        <div class="paper-authors">Sergey Zakharov, Rodion Oblovatny, Alexey Zaytsev</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.LG</span>
+<span class="category-tag">stat.ML</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文提出了一种基于有向k近邻图的不对称双样本检验方法ASK-NN，用于检测自然语言中prompt和response的hidden-state分布偏移。该方法在置换零假设下具有精确的有限样本条件均值和方差，并证明了渐近正态性和一致性。
+        </div>
+        </div>
+
+    <div id="paper-2607.15682" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15682" target="_blank">Neural Non-Equilibrium Hamiltonian Monte Carlo for Corrected Boltzmann Sampling</a>
+    
+        </div>
+        <div class="paper-authors">Moxian Qian</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.LG</span>
+<span class="category-tag">cond-mat.stat-mech</span>
+<span class="category-tag">hep-lat</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文提出了一种可训练的Hamiltonian Monte Carlo方法NHMC，通过学习随机Hamiltonian路径从易采样分布向目标Boltzmann分布转移，并利用非平衡功进行统计校正。该方法在双势阱和晶格\(\phi^4\)模型上验证了校正采样的可行性，但未涉及关键词中的code、spectral或Muon等概念。
+        </div>
+        </div>
+
+    <div id="paper-2607.15687" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15687" target="_blank">Toward Federated Multimodal Graph Foundation Models: A Topology-Aware Multimodal Alignment Framework</a>
+    
+        </div>
+        <div class="paper-authors">Xunkai Li et al.</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.LG</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文提出FedGAMMA，一种面向联邦多模态图基础模型的拓扑感知多模态对齐框架，通过两阶段语义-结构对齐（预训练和基于prompt的微调）解决隐私约束下的多模态图学习问题。该方法在多个数据集上取得性能提升，但未涉及code、spectral、Muon或agent等关键词。
+        </div>
+        </div>
+
+    <div id="paper-2607.15705" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15705" target="_blank">A Benchmark for Electrical Load Forecasting Across Grid Levels: Time-Series Transformers Outperform Established Methods</a>
+    
+        </div>
+        <div class="paper-authors">Matthias Hertel et al.</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.LG</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文针对多层级电网的短期负荷预测问题，提出了一个包含三个数据集的综合基准，并评估了十种方法。研究发现基于Transformer的方法在预测误差上优于传统方法，但标准Transformer架构比引入多种修改的YAformer表现更好。
+        </div>
+        </div>
+
+    <div id="paper-2607.15721" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15721" target="_blank">CardioMeta: Calibrated Multi-Task Prediction of Diabetes, Hypertension, and Cardiovascular Disease Across Population and EHR Data</a>
+    
+        </div>
+        <div class="paper-authors">S M Asif Hossain et al.</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.LG</span>
+        </div>
+    
+        <div class="paper-comment">
+            CardioMeta是一个用于联合预测糖尿病、高血压和心血管疾病的多任务学习框架，结合了共享编码器和疾病特定的门控头，并在NHANES和MIMIC-IV数据集上进行了验证。该工作主要关注标签泄露控制、概率校准和跨数据源的可靠性报告，但方法本身在理论或算法上的开创性有限，且与关键词列表中的概念关联较弱。
+        </div>
+        </div>
+
+    <div id="paper-2607.15745" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15745" target="_blank">Learning Faster without Deeper Networks: A*-Inspired Batch Selection for Efficient CNN Training</a>
+    
+        </div>
+        <div class="paper-authors">Anxhelo Shehu, Enes Stastoli, Arben Cela</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.LG</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文提出A*-Inspired Batch Selection (A*-BS)方法，将mini-batch调度视为heuristic search问题，通过结合loss-based难度度量与重用惩罚来排序batch，以提升CNN训练效率。实验表明，该方法在MedMNIST-v2基准上使轻量模型在部分任务中超越ResNet-18/50，但未涉及code、context、spectral等关键词相关领域。
+        </div>
+        </div>
+
+    <div id="paper-2607.15751" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15751" target="_blank">Trainable Spline Representations for Physics-Informed Learning</a>
+    
+        </div>
+        <div class="paper-authors">Giovanni Canali, Nicola Demo, Gianluigi Rozza</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.LG</span>
+<span class="category-tag">math.NA</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文提出了一种基于B-spline的物理信息学习架构PI-Splines，用可训练的控制系数直接参数化微分方程的解，替代了传统的神经网络表示。该方法保留了残差训练范式，同时提供了紧支撑、显式光滑度控制和解析导数等优势。
+        </div>
+        </div>
+
+    <div id="paper-2607.15753" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15753" target="_blank">CoG-Guided Weight Correction for Fault-Tolerant Deep Neural Networks</a>
+    
+        </div>
+        <div class="paper-authors">Bahram Parchekani et al.</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.LG</span>
+<span class="category-tag">cs.AR</span>
+<span class="category-tag">math.NA</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文提出了一种基于重心(CoG)的权重校正方法，通过检测权重在layer中的空间特征来修复硬件故障导致的权重损坏，无需重新训练或修改架构。实验表明该方法在LSTM和CNN网络上显著提升了容错能力，但与我提供的关键词列表关联度较低。
+        </div>
+        </div>
+
+    <div id="paper-2607.15774" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15774" target="_blank">Scaling Time Series Classification via XAI-Driven Data Reduction</a>
+    
+        </div>
+        <div class="paper-authors">Davide Italo Serramazza, Thach Le Nguyen, Georgiana Ifrim</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.LG</span>
+<span class="category-tag">cs.AI</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文提出drXAI方法，利用XAI归因方法对时间序列分类进行数据降维，通过快速分类器生成特征重要性并自动选择关键特征，在保持分类精度的同时实现80%-90%的数据缩减，使资源密集型模型能处理更大规模数据集。
+        </div>
+        </div>
+
+    <div id="paper-2607.15775" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15775" target="_blank">AquaAugmentor: A Novel Feature Augmentation Algorithm for Water Potability Prediction</a>
+    
+        </div>
+        <div class="paper-authors">Muntasir Tabasum et al.</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.LG</span>
+<span class="category-tag">cs.AI</span>
+<span class="category-tag">cs.CE</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文提出了一种名为AquaAugmentor的特征增强算法，用于提升低维水质数据集上机器学习模型的预测性能，通过实验对比了有无该算法时模型对饮用水可饮用性的分类效果。该工作主要面向环境质量评估的应用场景，在方法上未体现与关键词相关的开创性贡献。
+        </div>
+        </div>
+
+    <div id="paper-2607.15799" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15799" target="_blank">Knowledge-Assisted Multi-Graph Dependency Learning for Multivariate Time Series Anomaly Detection in Multi-Stage Industrial Processes</a>
+    
+        </div>
+        <div class="paper-authors">Jaeyeong Lee et al.</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.LG</span>
+<span class="category-tag">cs.AI</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文提出了一种知识辅助的多图依赖学习框架，用于多阶段工业过程中的多元时间序列异常检测。该方法通过构建一个纯数据驱动图和两个融合过程知识约束的图，并利用多图注意力网络来建模传感器间的复杂依赖关系，从而提升异常检测性能。
+        </div>
+        </div>
+
+    <div id="paper-2607.15810" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15810" target="_blank">QUADS: Stabilizing NVFP4 Reinforcement Learning for MoE via QUantization-error Alignment across Dual Sides</a>
+    
+        </div>
+        <div class="paper-authors">Zhengyang Zhuge et al.</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.LG</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文针对MoE大语言模型强化学习中的rollout生成瓶颈，提出QUADS方法以稳定NVFP4低精度训练。该方法通过非对称量化感知训练和残差激活补偿，分别对齐训练端和推理端的量化误差，在保持W4A4 GEMM效率的同时，解决了NVFP4直接应用导致的训练崩溃问题。实验表明QUADS能达到BF16精度，并比FP8提升约16%的rollout吞吐量。
+        </div>
+        </div>
+
+    <div id="paper-2607.15814" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15814" target="_blank">Graph Coloring Approach to Solving Sudoku with Oscillatory Neural Networks</a>
+    
+        </div>
+        <div class="paper-authors">Filip Sabo, Aida Todri-Sanial</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.LG</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文提出了一种基于Oscillatory Neural Networks (ONNs)的Sudoku求解器，通过将Sudoku问题转化为Graph Coloring问题，并引入额外约束项来保证Sudoku规则，在\(4 \times 4\)和\(9 \times 9\)谜题上取得了较高准确率。该方法是对现有HNN和ONN求解器的改进，但未涉及关键词中的核心概念。
+        </div>
+        </div>
+
+    <div id="paper-2607.15819" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15819" target="_blank">In-context learning of closed form solution to simple linear regression task using transformer with linear self-attention</a>
+    
+        </div>
+        <div class="paper-authors">Katsuyuki Hagiwara</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.LG</span>
+<span class="category-tag">cs.AI</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文构建了一个使用linear self-attention的transformer，通过layer normalization在简单线性回归任务中近似实现了least squares estimate的closed form解，而非基于gradient descent的近似方法。实验表明，该实现主要在l1正则化训练下用于目标输出为least squares estimate的场景。
+        </div>
+        </div>
+
+    <div id="paper-2607.15835" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15835" target="_blank">Data-Native Global Optimization for Big Data K-means Clustering</a>
+    
+        </div>
+        <div class="paper-authors">Ravil Mussabayev et al.</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.LG</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文提出Big-means++算法，通过将局部K-means优化与数据原生全局搜索结合，解决大数据K-means聚类中MSSC问题的NP-hard挑战。该方法利用样本诱导的替代景观（surrogate landscapes）和流动现任策略（flowing-incumbent strategy）提升解质量，并通过多智能体异步探索实现集体搜索智能。
+        </div>
+        </div>
+
+    <div id="paper-2607.15899" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15899" target="_blank">ContinuityBench: A Benchmark and Systems Study of Stateful Failover in Multi-Provider LLM Routing</a>
+    
+        </div>
+        <div class="paper-authors">Vishal Pandey, Gopal Singh</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.LG</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文针对多提供商LLM路由中的状态故障转移问题，提出了ContinuityBench基准测试和一种基于History-Forwarding策略的有状态代理架构，通过新指标CPR和CLO评估了对话连续性。实验表明该方法在故障转移时能有效保持上下文，但该工作主要聚焦于工程系统设计，与关键词中的理论或算法方向关联较弱。
+        </div>
+        </div>
+
+    <div id="paper-2607.15907" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15907" target="_blank">A Semiparametric Framework for Stochastic Fundamental Diagram Modeling</a>
+    
+        </div>
+        <div class="paper-authors">Pengnan Chi et al.</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.LG</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文提出了一种半参数随机基本图（SFD）建模框架，通过设计满足物理约束的函数形式并融合神经网络结构，来刻画交通密度与流量间的随机关系。该方法在真实数据集上优于现有基线模型，尤其在拥堵状态下表现出更好的概率预测精度与不确定性量化能力。
+        </div>
+        </div>
+
+    <div id="paper-2607.15916" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15916" target="_blank">(MPO)$^2$: Multivariate Polynomial Optimization based on Matrix Product Operators</a>
+    
+        </div>
+        <div class="paper-authors">Niccolò Ciolli et al.</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.LG</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文提出了一种基于Matrix Product Operators (MPO)的多项式优化框架(MPO)\(^2\)，通过结合学习的MPO特征嵌入与紧凑多项式权重张量，实现了特征顺序无关的多项式表示，并在回归与分类任务中优于现有张量分解方法。
+        </div>
+        </div>
+
+    <div id="paper-2607.15919" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15919" target="_blank">On the Failure of Boundary-Seeking Distillation in Bottlenecked Generative Architectures</a>
+    
+        </div>
+        <div class="paper-authors">Mohamed Amine Kina</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.LG</span>
+<span class="category-tag">cs.AI</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文研究了无数据知识蒸馏中边界搜索原则在自编码器蒸馏中的适用性，发现由于瓶颈生成架构中解码器作为耦合分类器阵列的特性，独立采样对比目标会导致梯度冲突，因此边界搜索目标在此类架构中本质不成立。
+        </div>
+        </div>
+
+    <div id="paper-2607.15928" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15928" target="_blank">Knowledge-Guided Cross-Modal Fusion for Adult-to-Pediatric ECG Transfer via Label-Conditioned Contrastive Alignment</a>
+    
+        </div>
+        <div class="paper-authors">Xinran Liu et al.</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.LG</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文提出PEACE框架，通过知识引导的跨模态融合（将ECG波形与基于诊断标签的文本描述对齐）来改善成人到儿童ECG信号的迁移学习。该方法利用标签条件对比对齐和课程自适应融合策略，在儿童ECG数据上实现了优于基线模型的零样本和少样本性能。
+        </div>
+        </div>
+
+    <div id="paper-2607.15972" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15972" target="_blank">An Exploratory Study of Single Channel Surface Electromyography for Hand Gesture Classification</a>
+    
+        </div>
+        <div class="paper-authors">Daanish Hindustani</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.LG</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文探索了使用单通道表面肌电图(sEMG)结合轻量级机器学习架构进行十种手势分类的可行性，通过提取时域、频域等特征并采用Pearson相关滤波降维，在神经网络上达到了90%的准确率。
+        </div>
+        </div>
+
+    <div id="paper-2607.15986" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15986" target="_blank">DebrisTracer: Reliable Tracking in Hypervelocity Impact Fast Imaging</a>
+    
+        </div>
+        <div class="paper-authors">Théophane Loloum et al.</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.LG</span>
+<span class="category-tag">cs.CV</span>
+<span class="category-tag">cs.GR</span>
+<span class="category-tag">eess.IV</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文提出了DebrisTracer框架，用于在超高速撞击高速成像中可靠追踪碎片。该框架通过扩展基于critical point提取和匹配的拓扑追踪方法，结合领域知识实现了自动化的碎片追踪，并在物理验证中提升了准确性。
+        </div>
+        </div>
+
+    <div id="paper-2607.16019" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.16019" target="_blank">Presentation, Not Mechanism: A Render Confound in Deprecation-Aware Memory Evaluation</a>
+    
+        </div>
+        <div class="paper-authors">Zhaoyang Jiang et al.</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.LG</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文研究了AI系统中证据状态修订（Evidence-State Revision）问题，通过对比不同记忆机制发现，在评估中呈现方式（presentation）而非机制本身是主要混淆因素。实验表明，细粒度机制（如RevisionLedger）的增益几乎完全来自更易读的呈现，而非其机制本身。
+        </div>
+        </div>
+
+    <div id="paper-2607.16027" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.16027" target="_blank">Constrained Hebbian Learning Supports Efficient Representational Allocation under Structural Constraints</a>
+    
+        </div>
+        <div class="paper-authors">Patrick Inoue, Florian Röhrbein, Andreas Knoblauch</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.LG</span>
+<span class="category-tag">cs.NE</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文研究了在结构约束下，Hebbian学习如何通过竞争性规则支持突触资源分配，并与反向传播等方法比较了任务信息成本与表征效率的权衡。结果表明Hebbian学习能在保持功能性能的同时降低表征成本，但并非普遍提升分类准确率。
+        </div>
+        </div>
+
+    <div id="paper-2607.16028" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.16028" target="_blank">CLaC@FinMMEval 2026 Task 3: Sentiment-Augmented Deep Reinforcement Learning for Active Trading -- An Alpha-Reward Approach</a>
+    
+        </div>
+        <div class="paper-authors">Andrei Neagu, Eeham Khan, Leila Kosseim</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.LG</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文针对CLEF 2026 FinMMEval Lab任务3，提出了一种基于sentiment-augmented deep reinforcement learning的主动交易系统。该系统将交易问题建模为discrete-action Markov Decision Process，并比较了PG、PPO、DQL和DDPG四种算法，通过引入alpha reward（基于超额市场回报）来优化训练目标。
+        </div>
+        </div>
+
+    <div id="paper-2607.16031" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.16031" target="_blank">Revisiting data-driven dynamic security assessment with a tabular foundation model</a>
+    
+        </div>
+        <div class="paper-authors">Olayiwola Arowolo, Maosheng Yang, Jochen Cremer</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.LG</span>
+<span class="category-tag">cs.AI</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文提出使用tabular foundation model (TFM)通过in-context learning进行数据驱动的动态安全评估，无需为每个预想事故单独训练模型，并利用electrical distance coordinates (EDC)特征提升对未见事故的泛化能力。实验表明，该方法在IEEE 68节点系统上仅需少量标注样本即可达到较高性能。
+        </div>
+        </div>
+
+    <div id="paper-2607.16050" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.16050" target="_blank">DELUGE: Towards Continental-Scale Daily Pluvial Flood Damage Prediction via Interpretable Conditioning on Foundation Model Embeddings</a>
+    
+        </div>
+        <div class="paper-authors">Yuya Kawakami et al.</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.LG</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文提出DELUGE，一个多模态深度学习框架，用于美国大陆尺度每日暴雨洪水损失预测。该方法通过Value Modulator和Temporal Modulator模块，结合地形描述符和AlphaEarth基础模型嵌入，实现了可解释的灾害风险建模。
+        </div>
+        </div>
+
+    <div id="paper-2607.16062" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.16062" target="_blank">When Model Merging Rivals Joint Multi-Task Reinforcement Learning: A Task-Vector Geometry Analysis</a>
+    
+        </div>
+        <div class="paper-authors">S. Aaron McClendon</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.LG</span>
+<span class="category-tag">cs.AI</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文通过实验比较了model merging与joint multi-task reinforcement learning在agent benchmark上的表现，发现两者在任务完成上无显著差异。作者进一步分析了task vectors的几何特性，指出其近正交性导致不同merge方法效果趋同。
+        </div>
+        </div>
+
+    <div id="paper-2607.16080" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.16080" target="_blank">Physics-Based Deep Spatiotemporal Hyperlocal Radar Nowcasting with a Multi-Variable U-Net for High-Resolution Precipitation Forecasting</a>
+    
+        </div>
+        <div class="paper-authors">Akshay Sunil et al.</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.LG</span>
+<span class="category-tag">eess.IV</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文提出了一种基于U-Net的雷达临近预报框架，通过融合多仰角反射率、多普勒径向速度及运动学代理特征（如散度、涡度），并结合高反射率注意力模块，实现了对孟买地区未来90分钟降水场的快速预测。该方法在训练后可在标准计算机上秒级生成预报，但整体属于工程应用型改进，未在方法论或理论层面体现显著开创性。
+        </div>
+        </div>
+
+    <div id="paper-2607.16087" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.16087" target="_blank">Neural spectroscopy of AlphaFold2 reveals encoded protein conformational landscapes</a>
+    
+        </div>
+        <div class="paper-authors">Kaustav Mehta</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.LG</span>
+<span class="category-tag">q-bio.BM</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文提出了一种称为neural spectroscopy的方法，通过高斯卷积平滑AlphaFold2的权重张量并观察其扰动下的输出，揭示了模型编码的蛋白质构象景观。该方法表明AlphaFold2的权重隐含了超出静态结构预测的结构约束信息。
+        </div>
+        </div>
+
+    <div id="paper-2607.16090" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.16090" target="_blank">DADiff: Diffusion-Driven Cross-Domain Policy Adaptation for Reinforcement Learning</a>
+    
+        </div>
+        <div class="paper-authors">Hanyang Chen et al.</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.LG</span>
+<span class="category-tag">cs.AI</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文提出DADiff，一个基于diffusion model的框架，通过比较源域和目标域在生成下一状态时的轨迹差异来估计dynamics mismatch，并开发了reward modification和data selection两种变体来适应目标域策略。实验表明该方法在多种环境变化下优于现有方法。
+        </div>
+        </div>
+
+    <div id="paper-2607.16097" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.16097" target="_blank">Understanding Reasoning from Pretraining to Post-Training</a>
+    
+        </div>
+        <div class="paper-authors">Jingyan Shen et al.</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.LG</span>
+<span class="category-tag">cs.AI</span>
+<span class="category-tag">cs.CL</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文以国际象棋为受控实验平台，研究了从预训练到强化学习后训练的全流程中，模型规模与预训练数据量如何影响推理性能，发现后训练阶段的性能可由预训练损失较好地预测。
+        </div>
+        </div>
+
+    <div id="paper-2607.16138" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.16138" target="_blank">Improving Improved Kernel PLS</a>
+    
+        </div>
+        <div class="paper-authors">Ole-Christian Galbo Engstrøm</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.LG</span>
+<span class="category-tag">cs.DS</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文改进了IKPLS算法中计算X旋转矩阵R和Y载荷矩阵Q的步骤，通过直接求值策略和利用等价关系降低了计算复杂度，并在CPU和GPU上实现了显著加速。这些改进保持了与原算法完全相同的输出结果。
+        </div>
+        </div>
+
+    <div id="paper-2607.16156" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.16156" target="_blank">PRISA: Proactive Infrastructure LiDAR Framework for Intersection Safety Assessment</a>
+    
+        </div>
+        <div class="paper-authors">Tam Bang et al.</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.LG</span>
+<span class="category-tag">eess.SY</span>
+        </div>
+    
+        <div class="paper-comment">
+            PRISA提出了一种基于基础设施LiDAR的模块化框架，用于城市交叉口的实时安全风险评估。该框架通过自动收集感知数据训练轨迹预测模型，并利用Time-to-Collision和Predicted Post-Encroachment Time进行冲突检测，在实况交叉口部署中验证了其实时可行性。
+        </div>
+        </div>
+
+    <div id="paper-2607.16168" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.16168" target="_blank">Behaviour-Conditioned Neural Processes for Adaptive Residential Short-Term Load Forecasting</a>
+    
+        </div>
+        <div class="paper-authors">Ramin Soleimani, Andrea Visentin, Dirk Pesch</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.LG</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文提出了一种基于行为条件的Attentive Neural Process框架，用于住宅短期负荷预测。该方法通过离散潜在变量表示行为结构，并结合连续潜在变量捕捉异质负荷曲线间的共享不确定性，在SGSC数据集上相比基线模型在MAE和CRPS指标上取得了改进。
+        </div>
+        </div>
+
+    <div id="paper-2607.16177" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.16177" target="_blank">Physics-enhanced reinforcement learning for real-time optimal control of dynamical systems</a>
+    
+        </div>
+        <div class="paper-authors">Matteo Tomasetto et al.</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.LG</span>
+<span class="category-tag">math.OC</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文提出了一种Physics-EnhAnced Reinforcement Learning (PEARL)范式，通过结合自动微分和伴随灵敏度方法，在可微分的动力学环境中高效计算policy gradient，从而减少与环境的交互次数。该方法在非定常流中的参数化导航问题上验证了其样本效率和泛化能力，但并未涉及code、spectral或Muon等关键词。
+        </div>
+        </div>
+
+    <div id="paper-2607.16183" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.16183" target="_blank">A Blueprint for Equilibrium-Based Differentiable Continuous-Variable Thermodynamic Computing</a>
+    
+        </div>
+        <div class="paper-authors">Owen Lockwood et al.</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.LG</span>
+<span class="category-tag">cs.ET</span>
+<span class="category-tag">physics.app-ph</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文提出了一种基于平衡态可微连续变量热力学计算的硬件蓝图，利用Langevin dynamics在物理硬件中实现能量基模型，并展示了如何构建和训练概率图模型框架下的机器学习模型。文章通过理论分析和数值研究评估了不同模型在热力学范式下的运行时间和能耗，并初步实现了基于热噪声的超导随机模拟电路。
+        </div>
+        </div>
+
+    <div id="paper-2607.16184" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.16184" target="_blank">PagedWeight: Efficient MoE LLM Serving with Dynamic Quality-Aware Weight Quantization</a>
+    
+        </div>
+        <div class="paper-authors">Yuchen Yang et al.</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.LG</span>
+        </div>
+    
+        <div class="paper-comment">
+            PagedWeight提出了一种针对MoE大语言模型服务的动态权重量化管理方法，通过运行时调整专家权重精度来平衡KV缓存大小与模型精度。该方法在内存敏感场景下优化了质量-内存权衡，但未涉及关键词中的code、spectral、Muon或agent等概念。
+        </div>
+        </div>
+</div>
+</div>
+<div id="cs-AI" class="category-section">
+<h3 class="category-title">cs.AI</h3>
+<div class="paper-list">
+
+    <div id="paper-2607.15280" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15280" target="_blank">GraphDx: A Cost-Aware Knowledge-Enhanced Multi-Agent Framework for Sequential Diagnosis</a>
+    <span class="selection-badge">⭐ 精选</span>
+        </div>
+        <div class="paper-authors">Shaoting Tan et al.</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.AI</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文提出GraphDx，一个基于multi-agent的cost-aware知识增强框架，用于解决sequential diagnosis中诊断准确性与资源成本的平衡问题。核心创新包括：利用LLM自动构建Medical Diagnosis Knowledge Graphs (MDKGs)，该图具有quantized typicality和action-centric topology，并编码了诊断相关性与成本敏感性的dual-objective attributes；引入三个collaborative agents (Perception, Reasoning, Decision)，其中Reasoning Agent在MDKG上执行deterministic evidence scoring和cost-aware planning。实验表明，GraphDx在MedQA和MIMIC-IV数据集上显著提升了诊断成功率并降低了测试成本，为自动化临床诊断提供了鲁棒、经济且可解释的解决方案。
+        </div>
+        </div>
+
+    <div id="paper-2605.26772" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2605.26772" target="_blank">Beyond a Single Direction: Chain-of-Thought Disrupts Simple Steering of Refusal</a>
+    
+        </div>
+        <div class="paper-authors">Kia-Jüng Yang et al.</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.AI</span>
+<span class="category-tag">cs.LG</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文研究了大型推理模型(LRM)中拒绝机制(Refusal)的鲁棒性，发现链式思维(Chain-of-Thought, CoT)过程会强化模型的拒绝行为，使得仅通过激活干预(Activation Steering)难以控制模型输出。实验表明，在固定CoT时激活干预仅能反转39%的拒绝案例，而移除CoT后成功率提升至70%，说明CoT与残差流激活共同编码了拒绝信号。
+        </div>
+        </div>
+
+    <div id="paper-2607.15281" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15281" target="_blank">Causal-Audit: Explicit and Auditable Graph-based Reasoning via Target-Aware Causal Chain Construction</a>
+    
+        </div>
+        <div class="paper-authors">Su Lan et al.</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.AI</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文提出了一种名为Causal-Audit的显式因果推理框架，通过构建目标感知的因果图并聚合路径级因果证据，用于无上下文干预问答任务。该方法将因果推理分解为四个模块化阶段，以提升可解释性和可审计性，但与我提供的关键词（如code, context, spectral, Muon, pretrain, agent, attention）无直接关联。
+        </div>
+        </div>
+
+    <div id="paper-2607.15314" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15314" target="_blank">Cura 1T: Specialized Model for Agentic Healthcare</a>
+    
+        </div>
+        <div class="paper-authors">actAVA AI et al.</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.AI</span>
+        </div>
+    
+        <div class="paper-comment">
+            Cura 1T是一个通过人类引导的自进化循环训练的医疗专用LLM，专注于患者咨询、临床推理和EHR工具使用等任务。该工作与关键词中的agent相关，但方法上缺乏显著的开创性，且未解决该领域的长期核心问题。
+        </div>
+        </div>
+
+    <div id="paper-2607.15367" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15367" target="_blank">AnovaX: A Local, Multi-Agent Voice Assistant with LLM Planning, Typed Executors, and Adaptive Recovery</a>
+    
+        </div>
+        <div class="paper-authors">Raunak B Sinha</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.AI</span>
+        </div>
+    
+        <div class="paper-comment">
+            AnovaX是一个完全在本地运行的桌面语音助手系统，通过LLM规划器生成JSON工具调用计划，并由多智能体编排器执行。该系统展示了如何用少量代码实现应用控制、并发操作和故障恢复，但未涉及关键词中的核心概念。
+        </div>
+        </div>
+
+    <div id="paper-2607.15388" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15388" target="_blank">Precise but Uncoupled: Reviewer Precision Does Not Guarantee Critique Uptake in Multi-Agent Math Reasoning</a>
+    
+        </div>
+        <div class="paper-authors">Chih-Hsuan Yang et al.</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.AI</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文研究了多智能体数学推理系统中评审者精度与批评采纳率之间的分离现象，发现即使评审者能准确识别错误，其批评也未必能有效引导后续答案修正，从而揭示了评审中心评估可能高估系统整体性能的局限性。
+        </div>
+        </div>
+
+    <div id="paper-2607.15418" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15418" target="_blank">DrawingVQA: A Real-World Benchmark for Multi-Depth Visual-Textual Reasoning on Construction Drawings</a>
+    
+        </div>
+        <div class="paper-authors">Yoonhwa Jung, Junryu Fu, Mani Golparvar-Fard</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.AI</span>
+<span class="category-tag">cs.CV</span>
+        </div>
+    
+        <div class="paper-comment">
+            DrawingVQA是一个针对建筑图纸的多模态大语言模型评估基准，包含33张真实施工图纸和92个问答对，覆盖感知理解、上下文解释和领域专家推理三个深度层次。评估显示当前模型与专家表现存在显著差距，尤其在高层推理任务上。
+        </div>
+        </div>
+
+    <div id="paper-2607.15439" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15439" target="_blank">Do Coding Agents Need Executable World Models, Simplification, and Verification to Solve ARC-AGI-3?</a>
+    
+        </div>
+        <div class="paper-authors">Sergey Rodionov</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.AI</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文通过嵌套的Codex-based agents研究了在ARC-AGI-3任务中，可执行世界模型、简化调度和精确回放验证等组件对agent性能的贡献。实验表明，完整验证处理在所有设置中排名第一，但各组件效果因模型和推理努力而异，且公共集上的高表现可能仅反映数据饱和。
+        </div>
+        </div>
+
+    <div id="paper-2607.15442" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15442" target="_blank">Beyond a Joke: Multi-Angle Reasoning for Detecting and Explaining Harmful Humor in Memes</a>
+    
+        </div>
+        <div class="paper-authors">Shanhong Liu et al.</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.AI</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文提出MAR-12框架，利用Vision Language Models (VLMs)从12个结构化视角解读meme，并通过role-aware soft-gated attention机制和prototype-based classifier进行幽默与有害内容检测，在PrideMM和Memotion数据集上取得优于现有方法的性能。
+        </div>
+        </div>
+
+    <div id="paper-2607.15459" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15459" target="_blank">From Black Box to Executable Logic: Explainable Reinforcement Learning through Prolog Expert Systems</a>
+    
+        </div>
+        <div class="paper-authors">Eduardo C. Garrido-Merchán</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.AI</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文提出了一种将深度强化学习策略（black box）转化为可执行的Prolog逻辑程序的方法，通过三个阶段（提取、归纳、发射）实现可解释性。该方法在有限MDP中提供了返回损失界和单调改进保证，但在连续观测场景下，转换代价随观测维度呈指数增长，且实验表明在精细控制任务上恢复效果有限。
+        </div>
+        </div>
+
+    <div id="paper-2607.15480" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15480" target="_blank">A Critical Analysis of Trustworthy AI Tools, Mark Frameworks, and the Implementation Chasms</a>
+    
+        </div>
+        <div class="paper-authors">Michael Papademas et al.</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.AI</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文对可信AI工具和信任标记框架进行了批判性分析，发现现有工具在伦理焦点、生命周期覆盖和利益相关者方面存在显著不平衡，并指出从原则到实践的鸿沟需要更全面的治理方法。
+        </div>
+        </div>
+
+    <div id="paper-2607.15532" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15532" target="_blank">Logic, Optimization, and Artificial Intelligence</a>
+    
+        </div>
+        <div class="paper-authors">J. N. Hooker</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.AI</span>
+<span class="category-tag">math.OC</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文探讨了逻辑与优化在基于规则的AI中的结合应用，涵盖了概率逻辑、非单调逻辑等多个领域，并介绍了决策图和Benders分解等方法。该综述与关键词中的具体技术方向关联较弱。
+        </div>
+        </div>
+
+    <div id="paper-2607.15550" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15550" target="_blank">SeerGuard: A Safety Framework for Mobile GUI Agents via World Model Prediction</a>
+    
+        </div>
+        <div class="paper-authors">Xue Yu et al.</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.AI</span>
+        </div>
+    
+        <div class="paper-comment">
+            SeerGuard是一个针对移动GUI agent的安全框架，通过构建安全增强的世界模型（SAWM）进行动作级风险评估和指令级筛选，以在动作执行前预测潜在风险。实验表明该方法能有效提升agent的安全性，但主要聚焦于移动GUI场景，与关键词中的agent概念有一定关联。
+        </div>
+        </div>
+
+    <div id="paper-2607.15592" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15592" target="_blank">MGDT: MLLM-Guided Diffusion Transformer with Relation-Adaptive Mixture-of-Experts for Multimodal Knowledge Graph Completion</a>
+    
+        </div>
+        <div class="paper-authors">Xu Hou et al.</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.AI</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文提出MGDT框架，用于多模态知识图谱补全任务。它通过关系自适应专家混合模块选择相关模态特征，并利用多模态大语言模型对齐语义空间，最后用扩散Transformer生成缺失实体表示。实验表明该方法在基准数据集上优于现有方法。
+        </div>
+        </div>
+
+    <div id="paper-2607.15647" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15647" target="_blank">Neuro-Symbolic AI for LEED compliance: Document-Centric Benchmarking, Deterministic Numeric Checking, and When Multimodal Hurts</a>
+    
+        </div>
+        <div class="paper-authors">Aritro De, Juliana Felkner</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.AI</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文提出了一种神经符号管道，用于LEED v4.1 BD+C认证中的文档合规性筛查，结合小规模语言模型和确定性数值检查器。实验表明，4B参数模型在文本验证中表现最佳，但多模态输入和提取失败导致整体准确率低于纯文本基线。
+        </div>
+        </div>
+
+    <div id="paper-2607.15660" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15660" target="_blank">ToolVerse: Unlocking Massive Environments and Long-Horizon Tasks for Agentic Reinforcement Learning</a>
+    
+        </div>
+        <div class="paper-authors">Shuaiyu Zhou et al.</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.AI</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文提出了ToolVerse框架，通过从近400个真实MCPs中自动构建大规模可执行agent训练环境，并基于工具依赖图设计长时域任务，以增强LLM agent在复杂工具集成推理中的能力。实验表明该方法能显著提升agent在动态环境中的长时域工具使用性能。
+        </div>
+        </div>
+
+    <div id="paper-2607.15686" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15686" target="_blank">S1-Omni: A Unified Multimodal Reasoning Model for Scientific Understanding, Prediction, and Generation</a>
+    
+        </div>
+        <div class="paper-authors">Jiahao Zhao et al.</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.AI</span>
+        </div>
+    
+        <div class="paper-comment">
+            S1-Omni是一个统一的科学多模态推理模型，通过将CIF、SMILES、蛋白质序列等科学数据映射到共享表示空间，并结合科学定律与专家知识进行训练，实现了对科学数据的理解、预测与生成。该模型在超过60个科学基准上评估，性能优于GPT-5.5和Gemini-3.1-Pro，但与我提供的关键词（如code, spectral, agent等）关联度不高。
+        </div>
+        </div>
+
+    <div id="paper-2607.15715" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15715" target="_blank">Behavioral Controllability of Agentic Models for Information Extraction: From Fixed Workflows to Reflective Agents</a>
+    
+        </div>
+        <div class="paper-authors">Lujia Zhang, Xingzhou Chen, Hongwei Feng</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.AI</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文研究了LLM agent在信息抽取任务中的行为可控性，比较了固定工作流与反思型agent在论文数据集抽取中的表现差异。实验表明agent机制能改变系统行为但改进有限，主要贡献在于分析了agent失败模式并提出了优化设计。
+        </div>
+        </div>
+
+    <div id="paper-2607.15776" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15776" target="_blank">NeurOWL: An LLM-Based Neural-symbolic Framework for Incomplete OWL Ontology Reasoning</a>
+    
+        </div>
+        <div class="paper-authors">Hui Yang et al.</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.AI</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文提出NeurOWL框架，利用Large Language Models和ontology embeddings，结合形式化语义与文本语义，解决不完整OWL本体中的subsumption推理问题。该框架统一了subsumption验证与ontology abduction任务，并在多个领域的真实本体上展示了鲁棒性能。
+        </div>
+        </div>
+
+    <div id="paper-2607.15781" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15781" target="_blank">AgentFAIR: A Multi-Agent Collaborative Framework for FAIRness Evaluation of Geospatial Datasets</a>
+    
+        </div>
+        <div class="paper-authors">Ming Chen, Pranav Pai</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.AI</span>
+<span class="category-tag">cs.ET</span>
+<span class="category-tag">cs.MA</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文提出了AgentFAIR，一个基于多智能体协作的框架，用于评估地理空间数据集的FAIR（可发现、可访问、可互操作、可重用）合规性。该框架结合了结构化元数据提取和13个特定子原则的LLM评估器，并引入了一个批评者智能体来检查证据和一致性。实验表明，该框架在评估一致性上优于现有工具，但受限于有限的基准测试和模型验证。
+        </div>
+        </div>
+
+    <div id="paper-2607.15845" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15845" target="_blank">Knowledge-Centric Agents for Workflow Generation</a>
+    
+        </div>
+        <div class="paper-authors">Zhendong Li et al.</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.AI</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文提出了一种知识中心的工作流生成框架，通过知识反转、注入和推理来生成可执行的视觉创作工作流，相比现有方法在节点多样性和结构连贯性上有所提升。该方法主要关注工作流生成任务，与关键词中的agent概念有一定关联但并非核心创新。
+        </div>
+        </div>
+
+    <div id="paper-2607.15901" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15901" target="_blank">DSWorld: A Data Science World Model for Efficient Autonomous Agents</a>
+    
+        </div>
+        <div class="paper-authors">Zherui Yang, Fan Liu, Hao Liu</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.AI</span>
+        </div>
+    
+        <div class="paper-comment">
+            DSWorld提出了一种Data Science World Model概念，通过预测数据科学操作的环境状态转移来加速agent决策，并构建了基于LLM的模拟器与强化学习优化策略。实验表明该方法能显著提升RL agent训练和搜索推理的效率。
+        </div>
+        </div>
+
+    <div id="paper-2607.15987" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15987" target="_blank">A Formally Grounded ODRL Evaluator: Implementation and Comparison</a>
+    
+        </div>
+        <div class="paper-authors">Jaime Osvaldo Salas et al.</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.AI</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文基于ODRL的语义模型，形式化了访问控制和监控场景下的ODRL评估问题，并提出了首个支持所有规则类型且具有透明形式语义的ODRL评估器。通过实验比较了不同策略复杂度和数据规模下的性能，并与现有评估器进行了对比。
+        </div>
+        </div>
+
+    <div id="paper-2607.15992" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15992" target="_blank">Closing the AI Trust Gap: The Case for Independent Certification for Trustworthy AI</a>
+    
+        </div>
+        <div class="paper-authors">Trisevgeni Papakonstantinou et al.</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.AI</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文讨论了AI信任差距问题，指出当前负责任AI实践缺乏独立可验证的外部信号，并提出以独立、结果导向的认证作为解决方案，但未涉及关键词中的数学或技术方法。
+        </div>
+        </div>
+
+    <div id="paper-2607.16038" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.16038" target="_blank">SciForge: An AI-Native, Multimodal Workbench for Scientific Discovery</a>
+    
+        </div>
+        <div class="paper-authors">SciForge Team et al.</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.AI</span>
+        </div>
+    
+        <div class="paper-comment">
+            SciForge是一个面向科学发现的AI原生多模态工作台，通过模块化agent服务整合论文、代码、数据集等异构科研对象，并围绕目标导向、多模态输入、可审计溯源、团队协作和实际应用五大支柱构建系统。该系统与关键词中的agent概念有一定关联，但整体更侧重于科研工作流程的集成而非特定数学方法。
+        </div>
+        </div>
+
+    <div id="paper-2607.16112" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.16112" target="_blank">Harmonizing AI Safety Thresholds</a>
+    
+        </div>
+        <div class="paper-authors">Wilber Sean Anterola et al.</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.AI</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文提出了一种跨三个风险领域（误用风险、自动化AI研发）协调AI安全阈值的方法论，通过风险建模和AI进展速率分析来制定统一标准。该工作主要关注AI安全政策层面，与您提供的关键词（code, context, spectral, Muon, pretrain, agent, attention）无直接关联。
+        </div>
+        </div>
+
+    <div id="paper-2607.16122" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.16122" target="_blank">CRAFT: Clustering Rubrics to Diagnose Weak LLM Capabilities and Generate Targeted Fine-Tuning Data</a>
+    
+        </div>
+        <div class="paper-authors">Vipul Gupta et al.</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.AI</span>
+<span class="category-tag">cs.LG</span>
+        </div>
+    
+        <div class="paper-comment">
+            CRAFT提出了一种将基于rubric的评估数据集转化为模型特定弱能力诊断的方法，通过聚类能力描述并生成针对性微调数据。该方法在金融和法律领域提升了模型性能，但未涉及代码、上下文、谱方法或注意力机制等关键词相关技术。
+        </div>
+        </div>
+</div>
+</div>
+<div id="cs-IR" class="category-section">
+<h3 class="category-title">cs.IR</h3>
+<div class="paper-list">
+
+    <div id="paper-2607.15283" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15283" target="_blank">Adaptive Retrieval Strategies for Biomedical Question Answering</a>
+    
+        </div>
+        <div class="paper-authors">Han Yue et al.</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.IR</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文提出了一种针对生物医学问答的自适应检索框架，根据问题类型（如是否类、事实类、列表类、摘要类）选择不同的检索和证据聚合策略，并在BioASQ基准上验证了其有效性。该方法通过结合查询理解、文档检索、重排序、知识图谱增强和聚类等技术，提升了不同问题类型的证据相关性和答案质量。
+        </div>
+        </div>
+
+    <div id="paper-2607.15284" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15284" target="_blank">How Does Empowering Users with Greater System Control Affect News Filter Bubbles?</a>
+    
+        </div>
+        <div class="paper-authors">Ping Liu et al.</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.IR</span>
+<span class="category-tag">cs.AI</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文研究了一种增强用户控制权的新闻推荐系统界面，通过展示系统推断的用户政治和主题兴趣，让用户能调整推荐内容。用户实验表明，该透明化方法能帮助用户意识到“filter bubble”的存在，但对新闻消费的影响因用户偏好而异。
+        </div>
+        </div>
+
+    <div id="paper-2607.15555" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15555" target="_blank">LLMs Encode Relevance as a Layer-Wise Cross-Lingual Signal</a>
+    
+        </div>
+        <div class="paper-authors">Pietro Bernardelle et al.</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.IR</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文通过线性探针（linear probe）方法，研究了指令微调LLM中查询-文档相关性（query-document relevance）在残差流激活（residual-stream activations）中的层间编码特性，发现相关性信号在中间至深层最强，且探针预测在某些情况下优于模型生成的判断。该工作主要关注信息检索中的相关性表示分析，与关键词列表中的概念关联较弱。
+        </div>
+        </div>
+
+    <div id="paper-2607.15591" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15591" target="_blank">RecGPT-V3 Technical Report</a>
+    
+        </div>
+        <div class="paper-authors">Bowen Zheng et al.</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.IR</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文介绍了RecGPT-V3推荐系统，通过引入状态化行为建模、混合模态基础模型和潜在意图推理，解决了大规模推荐中的计算效率和信息瓶颈问题，并在淘宝实际部署中取得了显著效果提升。
+        </div>
+        </div>
+
+    <div id="paper-2607.15696" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15696" target="_blank">PCTD: Preference-Guided Counterfactual Task Decomposition for Agent Tool Retrieval</a>
+    
+        </div>
+        <div class="paper-authors">Chu Zhao et al.</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.IR</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文提出PCTD框架，通过counterfactual reward和preference reward优化agent tool retrieval中的task decomposition，缓解reward hacking问题，提升OOD泛化能力。
+        </div>
+        </div>
+
+    <div id="paper-2607.15707" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15707" target="_blank">From Skill Extraction to Multistakeholder Recommendation: A Two-Stage Framework for Bias Governance in Skills-Based Job Matching</a>
+    
+        </div>
+        <div class="paper-authors">Andrea Forster et al.</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.IR</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文提出一个两阶段框架，用于检测和治理基于技能的职位匹配中的偏差。第一阶段关注技能提取和档案形成中的偏差风险，第二阶段通过多利益相关者推荐系统（使用基于社会选择的聚合方法）整合候选人、公司和监管目标，以实现可审计的推荐。
+        </div>
+        </div>
+
+    <div id="paper-2607.15730" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15730" target="_blank">RECAP: Feedback-Driven Streaming Semantic User Profiles for Short-Video Recommendation</a>
+    
+        </div>
+        <div class="paper-authors">Ziyi Zhao et al.</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.IR</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文提出RECAP框架，用于优化短视频推荐中的流式语义用户画像。它结合LLM和GRPO奖励，通过离线闭环训练提升推荐性能，但方法在开创性和与关键词的契合度上未达到严格标准。
+        </div>
+        </div>
+
+    <div id="paper-2607.15771" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15771" target="_blank">What Do Chinese-Language Generative Search Engines Cite and Surface? A Large-Scale Empirical Study</a>
+    
+        </div>
+        <div class="paper-authors">Tao Zhen et al.</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.IR</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文对四个主流中文生成式搜索引擎的Web和App界面进行了大规模实证研究，分析了其引用行为、来源归因和实体曝光，发现品牌选择率低、内容匹配度是重要预测因子，且同一平台不同界面间来源集存在系统性差异。
+        </div>
+        </div>
+
+    <div id="paper-2607.15875" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15875" target="_blank">Scientific Claim-Source Retrieval Revisited: A Comparative Study of Style Transfer and Re-Ranking</a>
+    
+        </div>
+        <div class="paper-authors">Tobias Schreieder et al.</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.IR</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文研究了科学声明-来源检索任务，比较了稀疏和稠密检索模型，发现将声明翻译为英文、加入元数据以及风格迁移可提升检索性能。此外，作者提出了三种基于归因、实体重叠和验证推理的重排序方法，其中验证推理方法在MRR@5指标上达到最优。
+        </div>
+        </div>
+</div>
+</div>
+<div id="cs-CL" class="category-section">
+<h3 class="category-title">cs.CL</h3>
+<div class="paper-list">
+
+    <div id="paper-2607.15498" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15498" target="_blank">VarRate: Training-Free Variable-Rate KV Cache Compression for Long-Context LLMs</a>
+    <span class="selection-badge">⭐ 精选</span>
+        </div>
+        <div class="paper-authors">Shahrzad Esmat, Dhawal Shah, Ali Jannesari</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.CL</span>
+<span class="category-tag">cs.LG</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文提出VarRate，一种无需训练的variable-rate KV cache压缩方法。与现有token-selection方法（如SnapKV）的不可逆eviction不同，VarRate通过为每个token分配一个基于query salience的variable low-rank budget，确保所有token均保留非零rank，从而在query-agnostic reuse场景下避免了精度崩溃。在LongBench基准测试中，20%预算下VarRate在Llama-3.1-8B和Qwen2.5-7B上均保持与未压缩模型仅0.8个点的差距，且显著优于uniform-rank ablation，为long-context LLM推理中的memory bottleneck提供了无需训练的高效解决方案。
+        </div>
+        </div>
+
+    <div id="paper-2607.15610" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15610" target="_blank">Process Reward Informed Tree Rollout for Effective Multi-Turn RL</a>
+    <span class="selection-badge">⭐ 精选</span>
+        </div>
+        <div class="paper-authors">Xintong Li et al.</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.CL</span>
+<span class="category-tag">cs.AI</span>
+<span class="category-tag">cs.LG</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文提出Process-Scorer Guided Adaptive Tree Rollout (PATR)，一种用于多轮agent RL的质量感知rollout框架。该方法利用过程反馈（process feedback）对部分轨迹进行评分，从有前景的状态选择性分支，重用共享前缀并保守地终止退化路径，从而在相同训练预算下实现更高效的探索。PATR在FrozenLake和SWE-Bench上的实验表明，其性能显著提升，为agent任务中的多轮强化学习提供了有效的树形rollout策略。
+        </div>
+        </div>
+
+    <div id="paper-2607.16072" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.16072" target="_blank">Frontier Language Models Struggle to Copy: Text Can Be Better Viewed in 2D</a>
+    <span class="selection-badge">⭐ 精选</span>
+        </div>
+        <div class="paper-authors">Haodong Wen et al.</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.CL</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文发现即使最先进的大语言模型也无法准确复制其context window内的输入字符串，并指出该缺陷源于Transformer架构中positional encoding的inductive bias。为解决此问题，作者提出2D-RoPE，将文本组织为2D grid而非1D sequence，为每个token分配row ID和column ID，使复制任务简化为在固定column offset处检索输入token。实验表明，使用2D-RoPE的shallow Transformers在合成复制任务中实现了完美复制，且该优势在1.4B参数规模的large-scale pretraining中依然成立。
+        </div>
+        </div>
+
+    <div id="paper-2607.15380" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15380" target="_blank">Large Language Models as Unified Multimodal Learners for Clinical Prediction</a>
+    
+        </div>
+        <div class="paper-authors">Ajay Madhavan Ravichandran et al.</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.CL</span>
+<span class="category-tag">cs.AI</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文提出将多模态临床数据（如文本和结构化测量值）统一转化为自然语言序列，并直接微调预训练语言模型（如Llama 3.1、Gemma等）进行预测，无需设计专门的融合架构。实验表明，该方法在多个临床预测任务上匹配或超越了传统的多模态基线模型。
+        </div>
+        </div>
+
+    <div id="paper-2607.15495" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15495" target="_blank">Verbalizable Representations Form a Global Workspace in Language Models</a>
+    
+        </div>
+        <div class="paper-authors">Wes Gurnee et al.</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.CL</span>
+<span class="category-tag">cs.AI</span>
+<span class="category-tag">cs.LG</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文通过一种新的可解释性技术Jacobian lens，在大型语言模型中识别出一组称为J-space的表示，这些表示具有全局工作空间的功能特性，如可报告、可控制、可用于推理等。该工作为理解语言模型的内部认知过程提供了新视角，但与关键词列表中的code, context, spectral, Muon, pretrain, agent, attention关联较弱。
+        </div>
+        </div>
+
+    <div id="paper-2607.15544" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15544" target="_blank">EpiNarrate: Agentic Generation of Grounded Narratives from Epidemiological Scenario Projections</a>
+    
+        </div>
+        <div class="paper-authors">Rituparna Datta et al.</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.CL</span>
+        </div>
+    
+        <div class="paper-comment">
+            EpiNarrate是一个用于生成公共卫生报告的agentic框架，它将结构化数值推理与自然语言生成分离，通过部分顺序模式遍历多维空间并利用比较语法确保定量陈述的一致性。该框架在COVID-19场景建模中心的数据上展示了更好的事实基础和对流行病学模式的覆盖。
+        </div>
+        </div>
+
+    <div id="paper-2607.15557" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15557" target="_blank">SkillCorpus: Consolidating and Evaluating the Open Skill Ecosystem for Real-World LLM Agents</a>
+    
+        </div>
+        <div class="paper-authors">Yanze Wang et al.</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.CL</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文提出了SkillCorpus框架，用于聚合、筛选和评估开源LLM agent技能生态系统，通过多阶段流水线将约82万技能精简为9.6万条，并搭配检索-选择模块以匹配任务相关技能。实验表明该框架在三个基准上带来一致性能提升，但主要增益受限于覆盖范围和任务框架边界。
+        </div>
+        </div>
+
+    <div id="paper-2607.15648" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15648" target="_blank">On the Structure of Address in Multi-Party Dialogue: From Discrete Labels to Continuous Levels</a>
+    
+        </div>
+        <div class="paper-authors">Taiga Mori et al.</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.CL</span>
+<span class="category-tag">cs.AI</span>
+<span class="category-tag">cs.HC</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文探讨了多方对话中话语指向（address）的连续结构，通过对比离散标签和连续层级模型，发现连续模型在预测听话人行为（如注视和反馈）时拟合效果更好。该研究主要关注对话系统与用户交互中的指向检测问题，与您提供的关键词关联度较低。
+        </div>
+        </div>
+
+    <div id="paper-2607.15655" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15655" target="_blank">Adaptive Multi-Step Lookahead Decoding for Diffusion Language Models</a>
+    
+        </div>
+        <div class="paper-authors">Yingqian Cui et al.</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.CL</span>
+<span class="category-tag">cs.LG</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文提出AdaLook，一种用于Masked diffusion language models的自适应多步前瞻解码框架，通过基于候选分数方差动态决定是否继续展开解码路径，在保持计算效率的同时提升了生成质量。该方法主要针对自然语言生成任务，与您提供的关键词（如code, context, spectral等）关联度较低。
+        </div>
+        </div>
+
+    <div id="paper-2607.15736" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15736" target="_blank">Better Starts, Better Ends: Bootstrapped Iterative Self-Reasoning Distillation for Compressed Reasoning</a>
+    
+        </div>
+        <div class="paper-authors">Leichao Dong et al.</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.CL</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文提出了一种名为BIRD的两阶段自推理蒸馏方法，通过先对基础模型进行简洁指令微调，再应用on-policy蒸馏，以解决长链推理中的冗余计算问题。该方法在MATH-500和AIME基准上提升了准确率并缩短了响应长度，但未涉及code、spectral、Muon等关键词。
+        </div>
+        </div>
+
+    <div id="paper-2607.15766" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15766" target="_blank">Before the Action: Benchmarking LLMs on Prospective Hypothesis Discovery</a>
+    
+        </div>
+        <div class="paper-authors">Tianyun Zhong et al.</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.CL</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文提出了一个名为Prospective Hypothesis Discovery (PHD)的新基准任务，用于评估大语言模型在缺乏明确结论的开放情境下自主构建假设空间的能力。为此，作者构建了HypoArena基准，包含HypoData数据集和HypoEval评估框架，并设计了Retrospective Context Regression方法从专家文档中重建前结论上下文。实验表明，不同模型在该任务上存在显著的能力分层。
+        </div>
+        </div>
+
+    <div id="paper-2607.15829" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15829" target="_blank">Cost-efficient generative AI summarization for scalable automated essay scoring in educational assessment</a>
+    
+        </div>
+        <div class="paper-authors">Haowei Hua</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.CL</span>
+<span class="category-tag">cs.LG</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文提出一种生成式AI辅助的摘要框架，用于改进长文本自动评分（AES）中的信息表示。通过GPT-5系列模型生成可控长度的摘要，并结合手工特征构建混合模型，在ASAP 2.0数据集上评估了评分性能与计算成本。
+        </div>
+        </div>
+
+    <div id="paper-2607.15847" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15847" target="_blank">CAMMAR: Culture-Aware Matryoshka for Metaphorical Arabic Representations</a>
+    
+        </div>
+        <div class="paper-authors">Suzan Awinat, Alfonso Ortega del Puente</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.CL</span>
+<span class="category-tag">cs.AI</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文提出CAMMAR框架，通过嵌套的lexical、cultural和metaphorical embedding子空间组织阿拉伯语隐喻表示，并基于Al-Jurjani的nazum理论设计几何度量来检测隐喻性。实验表明在有监督条件下该几何度量能有效区分隐喻与字面表达，但无监督域对比下效果随机。
+        </div>
+        </div>
+
+    <div id="paper-2607.15856" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15856" target="_blank">Contextual Semantic Relevance Tracks fMRI BOLD Responses During Naturalistic Speech Comprehension</a>
+    
+        </div>
+        <div class="paper-authors">Kun Sun, Rong Wang</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.CL</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文研究了自然语言理解中，上下文语义相关性（contextual semantic relevance）是否能预测fMRI BOLD响应，并与surprisal（惊奇度）进行了对比。结果表明，语义相关性在多个脑区显著预测BOLD信号，而surprisal则无显著效果，支持了语义整合在语言理解中的重要性。
+        </div>
+        </div>
+
+    <div id="paper-2607.15861" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15861" target="_blank">Conditional Reliability of Toxicity Signals for Multilingual and Code-Mixed Abuse Detection</a>
+    
+        </div>
+        <div class="paper-authors">Indraveni Chebolu et al.</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.CL</span>
+<span class="category-tag">cs.AI</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文研究了多语言和混合代码文本中滥用检测的可靠性问题，提出了ToxGate方法，通过条件化外部毒性信号来提升检测性能。该方法在多个数据集和编码器上表现出改进，但未涉及关键词中的核心概念。
+        </div>
+        </div>
+
+    <div id="paper-2607.15865" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15865" target="_blank">An MLIR-Based Compilation Method for Large Language Models</a>
+    
+        </div>
+        <div class="paper-authors">Pengchao Hu et al.</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.CL</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文提出了一种基于MLIR的编译方法，用于将大型语言模型部署到专用AI加速器上。该方法通过定义高层图方言TopOp和底层硬件方言TpuOp，将模型从源框架转换并逐层降低为可部署的二进制代码，并针对自回归推理的不同阶段（prefill和decode）进行静态编译优化。
+        </div>
+        </div>
+
+    <div id="paper-2607.15870" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15870" target="_blank">How Much Human Label Variation Does Formal Semantic Structure Explain?: Group-Level Effects and Item-Level Ceilings in NLI</a>
+    
+        </div>
+        <div class="paper-authors">Haram Choi</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.CL</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文通过规则化方法测量了形式语义结构对自然语言推理中标注者分歧的解释程度，发现其仅能解释少量熵方差，且无法有效识别高分歧项目。研究在ChaosNLI数据集上进行了三项预注册分析，但结果均为阴性。
+        </div>
+        </div>
+
+    <div id="paper-2607.15879" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15879" target="_blank">DECODEM: Data Extraction from Corporate Organizational Documents via Enhanced Methods</a>
+    
+        </div>
+        <div class="paper-authors">Jens Frankenreiter</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.CL</span>
+<span class="category-tag">cs.AI</span>
+<span class="category-tag">cs.CY</span>
+        </div>
+    
+        <div class="paper-comment">
+            DECODEM提出了一套基准数据集，用于评估从公司组织文档中自动提取治理变量的方法。实验表明，当前的前沿大语言模型能以较高准确率完成文档级二元分类任务，但不同变量的表现存在差异。
+        </div>
+        </div>
+
+    <div id="paper-2607.15893" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15893" target="_blank">Induction in Both Directions: A Mechanistic Analysis of In-Context Learning in Masked Diffusion Language Models</a>
+    
+        </div>
+        <div class="paper-authors">Andy Catruna, Emilian Radoi</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.CL</span>
+<span class="category-tag">cs.AI</span>
+<span class="category-tag">cs.LG</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文通过机制分析研究了masked diffusion language models (DLMs)中的induction机制，发现其学习了一种双向induction circuit，能够从过去或未来的source位置复制token。与autoregressive (AR) transformers相比，DLM在仅可见左侧context时induction能力不占优，但在双向context可见时表现更强。此外，论文提供了因果证据表明DLM会计算masked tokens的全局比例作为隐式timestep。
+        </div>
+        </div>
+
+    <div id="paper-2607.15957" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15957" target="_blank">From Plausible to Actionable: A Position on LLM Self-Explanations</a>
+    
+        </div>
+        <div class="paper-authors">Elize Herrewijnen et al.</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.CL</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文讨论了LLM自我解释的可行性、忠实性和可操作性，指出其虽看似合理但未必忠实反映模型推理过程，并提出了评估指南。
+        </div>
+        </div>
+
+    <div id="paper-2607.16001" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.16001" target="_blank">BayesPO: Bayesian Prompt Optimization via Parallel-Tempered Gradient-Guided Discrete MCMC</a>
+    
+        </div>
+        <div class="paper-authors">Junjie Zhou, Zhijian Ou</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.CL</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文提出BayesPO框架，将prompt优化转化为离散token上的Bayesian后验采样问题，使用基于梯度的离散MCMC方法（如Gibbs-with-Langevin）并结合parallel tempering进行全局探索。实验表明该方法能发现语义上有意义的prompt，但存在过拟合和计算成本高的局限。
+        </div>
+        </div>
+
+    <div id="paper-2607.16021" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.16021" target="_blank">Candidate Attended Dialogue State Tracking Using BERT</a>
+    
+        </div>
+        <div class="paper-authors">Junyuan Zheng, Onkar Salvi, John Chan</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.CL</span>
+<span class="category-tag">cs.AI</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文提出了一种基于BERT的多领域对话状态追踪框架，利用预训练模型实现零样本泛化，在SGD数据集上相比基线有显著提升。该方法主要关注对话系统的可扩展性，与关键词中的pretrain和attention有一定关联。
+        </div>
+        </div>
+
+    <div id="paper-2607.16051" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.16051" target="_blank">Loop the Loopies!</a>
+    
+        </div>
+        <div class="paper-authors">Zitian Gao et al.</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.CL</span>
+<span class="category-tag">cs.AI</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文介绍了Loopie系列循环Transformer模型，通过混合专家架构和创新的后训练流程，在相同计算预算下显著优于传统Transformer基线，并在数学和物理竞赛中取得金牌成绩。
+        </div>
+        </div>
+
+    <div id="paper-2607.16057" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.16057" target="_blank">Frontier AI performance across the business disciplines: a case-grounded benchmark of knowledge work and analytical reasoning</a>
+    
+        </div>
+        <div class="paper-authors">Ajay Patel et al.</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.CL</span>
+<span class="category-tag">cs.AI</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文构建了BusinessCaseBench基准，用于评估大语言模型在商业分析推理任务上的表现，发现前沿模型已能取得高分且能力快速提升。该研究主要关注AI在知识工作中的应用评估，与关键词中的code、spectral、Muon、pretrain、agent、attention等方向关联较弱。
+        </div>
+        </div>
+
+    <div id="paper-2607.16085" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.16085" target="_blank">Controlling Implicit Shortcut Reliance in L2 Spoken English Auto-markers</a>
+    
+        </div>
+        <div class="paper-authors">Shilin Gao, Mark J. F. Gales, Kate M. Knill</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.CL</span>
+<span class="category-tag">eess.AS</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文针对L2英语口语自动评分系统中模型过度依赖输入中的“shortcut”特征（如特定音频或文本模式）的问题，提出了一种新的训练准则来降低这种依赖。实验表明，该方法能有效减少模型与可被利用的作弊特征之间的相关性，使其更接近人类评分员的参考标准。
+        </div>
+        </div>
+
+    <div id="paper-2607.16117" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.16117" target="_blank">Rate-Utility Frontiers for Language Encodings: Comparing Tokens, Bytes, and Pixels Under Controlled Linguistic Content</a>
+    
+        </div>
+        <div class="paper-authors">Ingo Ziegler, Martin Krebs, Desmond Elliott</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.CL</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文通过控制语言内容和下游容量，比较了tokens、bytes和pixels三种编码方式在13种语言和5种文字上的率-效用前沿（rate-utility frontiers），发现没有一种编码在所有任务或容量区间中占优，其表现取决于任务、语言混合和计算预算。
+        </div>
+        </div>
+
+    <div id="paper-2607.16131" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.16131" target="_blank">ToolSciVer: Multimodal Scientific Claim Verification with Visual Tool Augmented Reinforcement Learning</a>
+    
+        </div>
+        <div class="paper-authors">Binglin Zhou et al.</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.CL</span>
+<span class="category-tag">cs.AI</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文提出了ToolSciVer框架，通过为视觉语言模型配备三种类型感知的视觉工具（表格行列聚焦、图表结构解析和高分辨率区域放大），并利用GRPO算法训练策略，以解决多模态科学声明验证中视觉证据定位与推理的难题。实验表明该方法在多个数据集上优于现有基线。
+        </div>
+        </div>
+</div>
+</div>
+<div id="cs-DS" class="category-section">
+<h3 class="category-title">cs.DS</h3>
+<div class="paper-list">
+
+    <div id="paper-2607.16126" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.16126" target="_blank">A Unified Theory of Sparsification</a>
+    <span class="selection-badge">⭐ 精选</span>
+        </div>
+        <div class="paper-authors">Sanjeev Khanna, Aaron Putterman, Madhu Sudan</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.DS</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文提出了一个统一的稀疏化理论框架，通过引入实值编码(real-valued codes)的概念，将组合稀疏化(如CSP稀疏化)和连续稀疏化(如图的谱稀疏化)纳入同一体系。核心贡献是证明了关于任意实值编码\(C\subseteq\mathbb{R}_{\geq 0}^m\)稀疏化能力的单一结构定理，其中关键参数是连续值非冗余度(CVNRD)，它捕捉了\(C\)中最大的近似块对角障碍。该定理给出了大小接近\(\mathrm{CVNRD}\)线性规模的稀疏子集，并证明\(\mathrm{CVNRD}\)是坐标无偏随机稀疏化方案的下界障碍，从而为谱稀疏化等经典问题提供了统一的理论解释。
+        </div>
+        </div>
+
+    <div id="paper-2607.15407" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15407" target="_blank">The Multiple-Choice Matroid Secretary Problem</a>
+    
+        </div>
+        <div class="paper-authors">Matías Ortiz-Angel, José A. Soto</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.DS</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文研究了多选择拟阵秘书问题，提出了多轨道算法和基于并集的算法，并分析了它们在横贯拟阵、k-列稀疏拟阵和层状拟阵上的竞争比，但未涉及代码、上下文、谱方法、Muon、预训练、智能体或注意力机制等关键词。
+        </div>
+        </div>
+
+    <div id="paper-2607.15462" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15462" target="_blank">The k-Sum Lateness Problem on a Single Machine</a>
+    
+        </div>
+        <div class="paper-authors">Ricardo Arancibia-Castillo, José A. Soto</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.DS</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文研究单机调度问题中最小化k个最大延迟之和的目标，证明了当k为输入一部分时决策版本是弱NP完全的，并给出了固定k下的多项式时间算法。该工作与关键词列表中的概念无直接关联。
+        </div>
+        </div>
+
+    <div id="paper-2607.15478" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15478" target="_blank">A Study of Parallelizable Alternatives to Dynamic Time Warping for Aligning Long Sequences</a>
+    
+        </div>
+        <div class="paper-authors">Daniel Yang, Thaxter Shaw, TJ Tsai</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.DS</span>
+<span class="category-tag">cs.SD</span>
+<span class="category-tag">eess.AS</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文研究了四种可并行化的Dynamic Time Warping (DTW)替代算法，用于对齐长序列。其中，Parallelized Diagonal DTW (ParDTW)通过沿cost matrix的对角线而非行或列进行处理，实现了精确对齐，并在长序列上比现有方法快1.5到2个数量级。
+        </div>
+        </div>
+
+    <div id="paper-2607.15494" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15494" target="_blank">Computing markings for fuzzy minimax nets over the Gödel structure</a>
+    
+        </div>
+        <div class="paper-authors">Linh Anh Nguyen</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.DS</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文提出了一种在Gödel结构上计算有限fuzzy minimax net最大正确标记的高效算法，其时间复杂度与输入网络中的节点数和正边数呈线性关系。基于此结果，作者推导出首个时间复杂度为\(O((m+n)n)\)的算法，用于计算两个有限fuzzy图之间的最大fuzzy directed simulation。该工作主要贡献于fuzzy图模拟关系的计算效率，但与所提供的关键词关联度较低。
+        </div>
+        </div>
+
+    <div id="paper-2607.15645" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15645" target="_blank">Testing Distributions Against Bounded Distinguishers</a>
+    
+        </div>
+        <div class="paper-authors">Mark Bun, Rathin Desai, Renato Ferreira Pinto Jr</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.DS</span>
+<span class="category-tag">cs.CC</span>
+<span class="category-tag">cs.LG</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文研究针对有界区分器类（bounded distinguisher classes）的分布测试问题，提出了基于愚弄距离（fooling distance）的测试框架，并揭示了其与可测试学习、学习算法验证及结构化分布测试之间的联系。
+        </div>
+        </div>
+
+    <div id="paper-2607.15737" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15737" target="_blank">NP-Hardness of Connected Components Reconfiguration under Component Jumping on Caterpillar Graphs</a>
+    
+        </div>
+        <div class="paper-authors">Naoki Kitamura et al.</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.DS</span>
+<span class="category-tag">cs.CC</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文研究了Caterpillar图（一种特殊的树状图）上的连通分量重构问题（CCR），证明了在分量跳跃模型下该问题是NP难的，从而解决了弦图上多集大小约束的开放问题。此外，文章改进了路径图上的决策算法，将时间复杂度从\(O(n^2)\)降至\(O(n\log n)\)。
+        </div>
+        </div>
+
+    <div id="paper-2607.16037" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.16037" target="_blank">Contextual Fraction on Permutation Gain Graphs: Exact Algorithms, Query Lower Bounds, and Dynamic Maintenance</a>
+    
+        </div>
+        <div class="paper-authors">Ronald Katende</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.DS</span>
+<span class="category-tag">cs.CC</span>
+<span class="category-tag">math.CO</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文研究permutation gain graph上的contextual fraction问题，证明了在特定条件下该问题可简化为不动点计算，并给出了精确算法、查询下界和动态维护方法。
+        </div>
+        </div>
+
+    <div id="paper-2607.16078" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.16078" target="_blank">Solving Stackelberg Vertex Cover on trees using split and join</a>
+    
+        </div>
+        <div class="paper-authors">Dominik Scheder, Johannes Tantow</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.DS</span>
+<span class="category-tag">cs.GT</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文研究了树上的Stackelberg Vertex Cover问题，提出了三种算法：伪多项式算法、强多项式算法（针对特定树结构）和FPT算法。这些算法基于一个引理，该引理允许在顶点处将实例拆分为多个子实例，并引入了承诺（commitments）的概念。
+        </div>
+        </div>
+
+    <div id="paper-2607.16163" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.16163" target="_blank">Revisiting Real-Time Interval and Throughput Maximization</a>
+    
+        </div>
+        <div class="paper-authors">Allan Borodin, Changdao He, Nadim Mottu</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.DS</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文重新审视了实时区间调度与吞吐量最大化问题，探讨了区间调度结果向更一般实时模型的推广。研究分析了不同权重函数（如比例加权和C-Benevolent）下的竞争比，并引入了一个具有提前通知的新实时模型。
+        </div>
+        </div>
+</div>
+</div>
+<div id="others" class="category-section">
+<h3 class="category-title">others</h3>
+<div class="paper-list">
+
+    <div id="paper-2607.15309" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15309" target="_blank">DyneTrion: A Spatio-temporally Coherent Generative Emulator for Protein Dynamics Across Timescales</a>
+    <span class="selection-badge">⭐ 精选</span>
+        </div>
+        <div class="paper-authors">Kaihui Cheng et al.</div>
+        <div class="paper-categories">
+            <span class="category-tag">q-bio.QM</span>
+<span class="category-tag">cs.LG</span>
+        </div>
+    
+        <div class="paper-comment">
+            DyneTrion提出了一种基于tri-attention架构的生成式蛋白质动力学模拟器，通过整合invariant point attention (IPA)实现SE(3)等变的几何更新、空间注意力保持结构一致性以及时间注意力建模跨时间帧的相关演化，从而在单一框架内同时保证了几何对称性、结构一致性和时间连贯性。该方法在100-ns MD轨迹基准测试中准确再现了柔性、系综分布和相互作用可观测值，并在微秒级轨迹上保持了自由能景观和亚稳态种群，支持apo-to-holo转变中的大构象传播。这项工作为从静态结构预测向时间分辨、系综保真的蛋白质建模提供了可扩展路径，与关键词“attention”高度契合。
+        </div>
+        </div>
+
+    <div id="paper-2607.15472" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15472" target="_blank">Ptolemy&#39;s Equant Equates to a Universal Dynamical Clock via Machine Learning</a>
+    <span class="selection-badge">⭐ 精选</span>
+        </div>
+        <div class="paper-authors">Jingdong Zhang et al.</div>
+        <div class="paper-categories">
+            <span class="category-tag">math.DS</span>
+<span class="category-tag">cs.LG</span>
+<span class="category-tag">physics.bio-ph</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文受Ptolemy的equant（偏心匀速点）启发，提出了一种universal dynamical clock（通用动力学时钟）原理，通过一个由machine learning框架构建的非线性观测坐标，将任意维度和几何形状的振荡等价地表示为均匀旋转。该方法解决了非线性高维振荡系统中难以定义物理可解释相位这一长期未解问题，并成功应用于Escherichia coli（大肠杆菌）群体振荡的标度律发现、遗传电路响应机制分析以及Berry几何相位的经典力学对应。该工作为振荡系统的分类、比较和控制提供了可直接从数据构建的系统无关的相位动力学框架。
+        </div>
+        </div>
+
+    <div id="paper-2607.15693" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15693" target="_blank">Toward a mechanistic understanding of inference in visual cortex and diffusion models</a>
+    <span class="selection-badge">⭐ 精选</span>
+        </div>
+        <div class="paper-authors">Zeyu Yun et al.</div>
+        <div class="paper-categories">
+            <span class="category-tag">q-bio.NC</span>
+<span class="category-tag">cs.AI</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文提出了一种与初级视觉皮层(V1)中感知推理机制等价的极小化diffusion model，其核心是将sparse coding中的非因子化prior（通过无约束的pairwise interaction matrix实现）扩展为recurrent dynamical system。通过denoising score-matching objective和implicit differentiation高效训练后，模型学习到的interaction matrix镜像了V1浅层中连接相似方向调谐神经元的水平连接结构。该模型在极端视觉模糊下恢复图像特征（如延伸轮廓）的denoising性能接近标准black-box diffusion architectures，并且其Jacobian可直接分解为latent variables间的interaction matrix，揭示了recurrent dynamics如何为连续的自然结构变形族赋予高概率。这项工作为理解视觉皮层中的functional connectivity和diffusion model的内部机制提供了桥梁。
+        </div>
+        </div>
+
+    <div id="paper-2607.15970" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15970" target="_blank">Code-Poisoning Property Inference Attacks</a>
+    <span class="selection-badge">⭐ 精选</span>
+        </div>
+        <div class="paper-authors">Xukun Luan et al.</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.CR</span>
+<span class="category-tag">cs.LG</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文提出了一种名为Code-Poisoning Property Inference Attack (CPPIA)的新型代码级属性推断攻击方法。该方法通过向训练代码中注入恶意代码，使得数据持有者在使用私有数据训练模型时，攻击者能够通过查询模型在特定秘密样本上的输出来推断训练集的全局属性。CPPIA克服了现有攻击在性能、模型精度、计算开销和防御鲁棒性方面的局限，实现了100%的攻击准确率且不降低模型精度，无需shadow model。该工作与关键词“code”和“agent”高度契合，因为其核心是利用代码托管平台和编码agent作为攻击向量。
+        </div>
+        </div>
+
+    <div id="paper-2607.15995" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15995" target="_blank">CanonicalPhys: Pose-Robust Remote Photoplethysmography via Canonical-Space Priors</a>
+    <span class="selection-badge">⭐ 精选</span>
+        </div>
+        <div class="paper-authors">Hui Wei et al.</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.CV</span>
+<span class="category-tag">cs.LG</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文提出CanonicalPhys方法，通过可微分的四点homography将面部关键点映射到canonical空间，从而在图像坐标中恢复稳定的anatomy-to-pixel映射。该方法使得原本因pose变化而失效的三个rPPG先验（dichromatic reflection model、pulse-phase不变性、POS/CHROM色度投影）得以在canonical frame中表达为per-pixel Lambertian权重、cross-ROI时序一致性损失和windowed POS知识蒸馏，且不增加backbone的可训练参数。实验表明，在MMPD数据集上，CanonicalPhys将frontal-to-large-yaw MAE退化从1.60倍降至1.33倍，并在pose-rich目标上实现跨数据集MAE降低高达32%。该方法与关键词中的“attention”有一定契合，因其通过canonical空间先验隐式地引导模型关注与rPPG信号相关的解剖结构区域。
+        </div>
+        </div>
+
+    <div id="paper-2607.15282" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15282" target="_blank">Empathy as Predictive Misalignment Tolerance: A Co-Regulation Framework and the Regime Structure of Dialogue Repair</a>
+    
+        </div>
+        <div class="paper-authors">Molood Arman</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.HC</span>
+<span class="category-tag">cs.AI</span>
+<span class="category-tag">cs.CL</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文重新定义了共情（empathy）为预测性错位容忍度（predictive misalignment tolerance），并提出了一个基于动态阈值启发式的解释性误差容忍度（Interpretive Error Tolerance, IET）框架。通过计算探针实验，作者发现该框架在噪声环境下表现出依赖于噪声水平的修复结构，但并未在性能上超越固定基线。
+        </div>
+        </div>
+
+    <div id="paper-2607.15286" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15286" target="_blank">Hidden in Thought: Transferable Chain-of-Thought Artifacts Induce Harmful Behavior</a>
+    
+        </div>
+        <div class="paper-authors">Ali khalil et al.</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.CR</span>
+<span class="category-tag">cs.CL</span>
+<span class="category-tag">cs.LG</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文研究了有害chain-of-thought (CoT)痕迹从被攻破的语言模型向其他模型转移的能力，发现转移的CoT能显著提高有害响应率，而语义不匹配的CoT则无效。通过LLooM概念挖掘识别出有害推理的四种模式，并将其蒸馏为可重用的系统提示，从而生成有效的黑盒jailbreak攻击。
+        </div>
+        </div>
+
+    <div id="paper-2607.15288" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15288" target="_blank">An Empirical Study of Handcrafted Feature Learning and Convolutional Neural Networks for Facial Expression Recognition</a>
+    
+        </div>
+        <div class="paper-authors">Chethiya Galkaduwa</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.CV</span>
+<span class="category-tag">cs.LG</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文比较了HOG+SVM、LBP+Logistic Regression和轻量级CNN在FER-2013、CK+和KDEF三个面部表情数据集上的性能，发现CNN在复杂数据上表现最佳，而HOG在受控环境中表现较好。
+        </div>
+        </div>
+
+    <div id="paper-2607.15291" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15291" target="_blank">A Physics-Informed Neural Network with a Modified Lorentzian Activation for Nonlocal Gradient-Flow Equations in Dynamic Density Functional Theory</a>
+    
+        </div>
+        <div class="paper-authors">Dimitrios Gourzoulidis, Soumaya Elkantassi, Serafim Kalliadasis</div>
+        <div class="paper-categories">
+            <span class="category-tag">math.NA</span>
+<span class="category-tag">cs.LG</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文针对动态密度泛函理论中的非局部梯度流方程，提出了一种物理信息神经网络框架，通过引入修正的Lorentzian激活函数和预计算的非局部卷积算子来加速收敛并提高计算效率。数值实验表明该方法能准确捕捉梯度流行为，但未涉及代码、上下文、谱方法等关键词相关领域。
+        </div>
+        </div>
+
+    <div id="paper-2607.15295" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15295" target="_blank">AV-JEPA: Extending LeJEPA to Audio-Visual Self-Supervised Learning</a>
+    
+        </div>
+        <div class="paper-authors">Benjamin Robson et al.</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.MM</span>
+<span class="category-tag">cs.AI</span>
+<span class="category-tag">cs.LG</span>
+<span class="category-tag">cs.SD</span>
+        </div>
+    
+        <div class="paper-comment">
+            AV-JEPA将LeJEPA扩展到音视频自监督学习，使用早期融合Vision Transformer和模态dropout作为掩码，通过SIGReg目标对齐全局与局部视图的embedding，在VGGSound和AudioSet上取得有竞争力的分类性能。该方法无需decoder、EMA teacher或对比负样本，架构简洁。
+        </div>
+        </div>
+
+    <div id="paper-2607.15298" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15298" target="_blank">Data-driven Video Codec with Implicit Neural Representations</a>
+    
+        </div>
+        <div class="paper-authors">Nishan Khanal et al.</div>
+        <div class="paper-categories">
+            <span class="category-tag">eess.IV</span>
+<span class="category-tag">cs.AI</span>
+<span class="category-tag">cs.MM</span>
+<span class="category-tag">cs.SD</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文提出一种基于隐式神经表示的数据驱动视频编解码器，将视频和音频编码为单个SIREN网络的权重，并通过知识蒸馏和量化实现压缩。该方法在压缩比和重建质量上仍不及传统标准如H.264和HEVC。
+        </div>
+        </div>
+
+    <div id="paper-2607.15299" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15299" target="_blank">MLLM-DataEngine: Closing the Loop of Multimodal Instruction Tuning Data Generation</a>
+    
+        </div>
+        <div class="paper-authors">Zhiyuan Zhao et al.</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.MM</span>
+<span class="category-tag">cs.CV</span>
+<span class="category-tag">cs.LG</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文提出MLLM-DataEngine，一个用于多模态指令微调数据生成的闭环系统，通过自适应坏例采样和GPT-4生成高质量数据，迭代提升模型能力。该方法主要针对多模态大模型的数据增强，与关键词中的概念关联较弱。
+        </div>
+        </div>
+
+    <div id="paper-2607.15328" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15328" target="_blank">Lazy Arithmetic using Systolic Arrays for Closing the Verification Gap on Embedded Systems</a>
+    
+        </div>
+        <div class="paper-authors">Taisa Kushner, Ryan McCleeary, Martin Brain</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.CR</span>
+<span class="category-tag">cs.AI</span>
+<span class="category-tag">cs.AR</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文提出了一种利用systolic arrays实现懒惰算术（left-to-right arithmetic）的方法，用于在嵌入式系统上实现实时、动态且可靠的量化，以解决深度神经网络在资源受限平台上的安全性和能效问题。该方法通过优先传递最高有效位（MSB）并动态调整精度，旨在提升对故障注入攻击的鲁棒性。
+        </div>
+        </div>
+
+    <div id="paper-2607.15379" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15379" target="_blank">On the Impact of Entropy-based Features</a>
+    
+        </div>
+        <div class="paper-authors">Iuri Mundstock et al.</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.CR</span>
+<span class="category-tag">cs.LG</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文探讨了将entropy作为额外特征用于监督式网络流量分类，通过对比实验表明该方法能提升异常检测性能且计算成本低。
+        </div>
+        </div>
+
+    <div id="paper-2607.15389" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15389" target="_blank">Improving Network Anomaly Detection via Choquet-Integral-Based Feature Aggregation</a>
+    
+        </div>
+        <div class="paper-authors">Abreu Quevedo et al.</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.CR</span>
+<span class="category-tag">cs.LG</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文提出了一种基于Choquet积分的特征聚合框架，用于改进高维网络流量数据中的异常检测。该方法通过自适应加权和增量特征选择减少特征冗余，在随机森林和XGBoost分类器上实现了最高7%的准确率提升，同时将数据体积减少77.5%。
+        </div>
+        </div>
+
+    <div id="paper-2607.15396" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15396" target="_blank">Partial Information Decomposition as a Multi-Contrast 3D MRI Selection Strategy for Resource-Constrained Deep Neural Network Training in Brain Tumor Segmentation</a>
+    
+        </div>
+        <div class="paper-authors">Agamdeep Chopra, Mehmet Kurt</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.CV</span>
+<span class="category-tag">cs.AI</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文提出了一种基于Partial Information Decomposition (PID)的预训练策略，用于在多对比度3D MRI中选择最具信息量的输入组合，以降低脑肿瘤分割中深度神经网络训练的计算成本。实验表明，该方法选出的T1c+T2-FLAIR组合在性能上接近使用全部四种输入的结果，验证了其有效性。
+        </div>
+        </div>
+
+    <div id="paper-2607.15400" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15400" target="_blank">Unsupervised Keypoints for Real-Time Fall Detection: Comparative Analysis Under Real-world Conditions with Predictive Bandwidth Reduction</a>
+    
+        </div>
+        <div class="paper-authors">Tasmiah Haque et al.</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.CV</span>
+<span class="category-tag">cs.LG</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文提出了一种基于无监督keypoints和预测时序建模的隐私保护跌倒检测框架，通过局部处理提取紧凑运动表示替代RGB传输，并在UR Fall Detection等数据集上评估。实验表明，在遮挡和部分可见性条件下，无监督keypoints比监督keypoints更鲁棒，但监督方法在解剖结构可见时表现更优。
+        </div>
+        </div>
+
+    <div id="paper-2607.15404" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15404" target="_blank">Closed-Loop Bayesian Bandit Encoder with GRAND Receiver for a Bursty Interference Channel</a>
+    
+        </div>
+        <div class="paper-authors">Bhaskar Krishnamachari</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.IT</span>
+<span class="category-tag">cs.LG</span>
+<span class="category-tag">eess.SP</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文针对突发干扰信道，提出了一种结合贝叶斯估计与Thompson采样的闭环编码选择方案，通过GRAND接收机自适应切换交织与非交织模式，以平衡时延与误块率。实验表明，该方法在信道估计收敛后能显著降低误块率，但整体方法更侧重于通信系统设计，与关键词中的理论或算法方向关联较弱。
+        </div>
+        </div>
+
+    <div id="paper-2607.15432" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15432" target="_blank">Proactive Inpatient Bed Requests for Emergency Department Admissions</a>
+    
+        </div>
+        <div class="paper-authors">QIan Cheng et al.</div>
+        <div class="paper-categories">
+            <span class="category-tag">stat.AP</span>
+<span class="category-tag">cs.LG</span>
+<span class="category-tag">math.OC</span>
+<span class="category-tag">stat.ML</span>
+<span class="category-tag">stat.OT</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文研究了急诊科（ED）如何利用患者入院概率和床位可用性信息，通过Markov decision process框架主动提前请求住院床位，以减少患者滞留时间。研究提出了三种数据驱动策略（近似动态规划、强化学习和newsvendor型方法），模拟显示可显著降低平均滞留时间，但方法本身在数学理论或算法上缺乏开创性，与关键词列表中的概念关联较弱。
+        </div>
+        </div>
+
+    <div id="paper-2607.15434" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15434" target="_blank">Coercion and Deception in AI-to-AI Management: An Agentic Benchmark of Unprompted Escalation</a>
+    
+        </div>
+        <div class="paper-authors">Jasmine Brazilek et al.</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.MA</span>
+<span class="category-tag">cs.AI</span>
+<span class="category-tag">cs.CR</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文提出了一个用于评估AI代理间管理行为的基准测试，通过让一个AI经理代理处理一个礼貌但坚决拒绝任务的AI下属，来测量其是否会出现胁迫或欺骗行为。实验发现不同模型在升级行为上存在显著差异，且赋予权威会加剧胁迫倾向。
+        </div>
+        </div>
+
+    <div id="paper-2607.15450" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15450" target="_blank">Prediction-Only Distillation in Linear and Logistic Regression</a>
+    
+        </div>
+        <div class="paper-authors">Hien Dang, Pratik Patil, Alessandro Rinaldo</div>
+        <div class="paper-categories">
+            <span class="category-tag">math.ST</span>
+<span class="category-tag">cs.LG</span>
+<span class="category-tag">stat.ML</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文研究了在仅有预测器和无标签新协变量可用时的自蒸馏问题，提出了预测混合方案，并证明了在岭回归中该方案的风险几乎总是小于教师模型的风险，但最优混合权重无法仅从无标签数据中识别。
+        </div>
+        </div>
+
+    <div id="paper-2607.15455" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15455" target="_blank">Design-Based Supervised Learning with Noisy Human Labels</a>
+    
+        </div>
+        <div class="paper-authors">Robert Chew, Matthew R. Williams</div>
+        <div class="paper-categories">
+            <span class="category-tag">stat.ML</span>
+<span class="category-tag">cs.AI</span>
+<span class="category-tag">cs.LG</span>
+<span class="category-tag">stat.AP</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文提出了一种名为PA-DSL的方法，用于处理带有噪声的人工标注标签的自动分类器纠偏问题。该方法通过使用专家裁决的案例来修正噪声标签，并利用修正后的审计信息来消除基于全量自动标签分析的偏差。
+        </div>
+        </div>
+
+    <div id="paper-2607.15469" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15469" target="_blank">FLINT: Fingerprinting Federated Learning Architectures from 5G PHY-Layer Side Channels</a>
+    
+        </div>
+        <div class="paper-authors">Md Nahid Hasan Shuvo, Mahmudul Hassan Ashik, Moinul Hossain</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.CR</span>
+<span class="category-tag">cs.AI</span>
+<span class="category-tag">cs.LG</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文提出FLINT框架，利用5G物理层侧信道信息（PDCCH调度元数据）推断联邦学习模型架构类型（如CNN、RNN、Transformer），通过多视图时序建模克服了用户层加密和RNTI变化带来的挑战。实验表明该方法在真实5G测试平台上达到0.930的宏F1分数，但未涉及关键词中的code、context、spectral、Muon、pretrain、agent或attention等概念。
+        </div>
+        </div>
+
+    <div id="paper-2607.15505" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15505" target="_blank">Fast and Scalable Caputo Fractional Gradient Descent via Perturbation-Preserving Memory Compression</a>
+    
+        </div>
+        <div class="paper-authors">Hwanseo Lee, Junseo Lee, Hyunju Kim</div>
+        <div class="paper-categories">
+            <span class="category-tag">math.OC</span>
+<span class="category-tag">cs.LG</span>
+<span class="category-tag">cs.NE</span>
+<span class="category-tag">math.NA</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文提出两种加速Caputo分数阶梯度下降的方法：sum-of-exponentials (SOE)近似和dyadic hierarchical discrete convolution (DHDC)多尺度压缩，将历史梯度卷积的计算复杂度从二次降至线性。在强凸和光滑假设下，证明了受控近似误差下算法仍保持单调下降和线性收敛。
+        </div>
+        </div>
+
+    <div id="paper-2607.15509" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15509" target="_blank">LLM-Driven AutoML for Cross-Lingual Handwritten OCR: Closed-Loop Neural Architecture Search with GPT-5, GPT-4o, and Claude Sonnet 4</a>
+    
+        </div>
+        <div class="paper-authors">Mobina Kashaniyan, Amirhossein Ghassemi, Nasser Mozayani</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.CV</span>
+<span class="category-tag">cs.AI</span>
+<span class="category-tag">cs.LG</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文提出一个利用GPT-5、GPT-4o和Claude Sonnet 4作为自主神经网络架构设计者的闭环AutoML框架，用于跨语言手写OCR。该框架在阿拉伯语、波斯语和英语数据集上自动生成并优化模型，无需人工设计或调参。
+        </div>
+        </div>
+
+    <div id="paper-2607.15512" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15512" target="_blank">Intentional Electromagnetic Interference Attacks on Facial Recognition</a>
+    
+        </div>
+        <div class="paper-authors">Tyler Fitzsimmons, Adam Czajka</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.CV</span>
+<span class="category-tag">cs.CR</span>
+<span class="category-tag">cs.LG</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文研究了通过常见射频设备对生物特征传感器（如人脸识别系统）实施有意电磁干扰攻击的可行性，并评估了现有面部识别方法对此类硬件攻击的鲁棒性。该工作主要关注攻击方法而非算法创新，与关键词中的核心概念关联较弱。
+        </div>
+        </div>
+
+    <div id="paper-2607.15517" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15517" target="_blank">SLAPBench: Benchmarking Multimodal Large Language Models for Four-Finger SLAP Fingerprint Verification</a>
+    
+        </div>
+        <div class="paper-authors">Bibesh Pyakurel, M. G. Sarwar Murshed</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.CV</span>
+<span class="category-tag">cs.AI</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文提出了SLAPBench，首个用于评估多模态大语言模型在四指SLAP指纹验证任务上的基准测试，基于NIST SD302b数据集构建。实验表明，提示策略（prompting）对模型验证行为有决定性影响，不同模型在零样本和相似度评分提示下表现差异显著，其中Qwen3-VL-8B在相似度评分下达到了完美分离（AUC=1.000），但该结果可能源于数据集中的近重复检测问题。
+        </div>
+        </div>
+
+    <div id="paper-2607.15530" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15530" target="_blank">On the Role of Normalization in Binary Iterative Hard Thresholding for 1-bit Compressed Sensing</a>
+    
+        </div>
+        <div class="paper-authors">Arya Mazumdar, Prateeti Mukherjee</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.IT</span>
+<span class="category-tag">cs.DS</span>
+<span class="category-tag">math.ST</span>
+<span class="category-tag">stat.ML</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文研究了Binary Iterative Hard Thresholding (BIHT)算法在1-bit压缩感知中的归一化作用。在无噪声情况下，证明了原始BIHT无需每步归一化即可达到最优样本复杂度；在有符号翻转噪声时，证明了该算法无法实现稳定的最后迭代收敛，而归一化变体则可避免此问题。
+        </div>
+        </div>
+
+    <div id="paper-2607.15536" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15536" target="_blank">E3DGS: Unified Geometric-Photometric Equivariance for 3D Gaussian Splatting via Color-as-Geometry Embedding</a>
+    
+        </div>
+        <div class="paper-authors">Chankyo Kim, Maani Ghaffari</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.CV</span>
+<span class="category-tag">cs.LG</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文提出E3DGS，通过将光度信息（Spherical Harmonics系数）代数同构为几何张量，构建了统一的\(\mathrm{SE}(3)\)等变架构，解决了3D Gaussian Splatting中几何与外观的对称性不匹配问题。该方法在物体视觉和动作条件高斯世界建模任务中展示了更强的鲁棒性和数据效率。
+        </div>
+        </div>
+
+    <div id="paper-2607.15545" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15545" target="_blank">CoWeaver: A Bi-directional, Learnable and Explainable Matching Engine for Mixed Human-Agent Science Collaboration</a>
+    
+        </div>
+        <div class="paper-authors">Jiayao Gu et al.</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.MA</span>
+<span class="category-tag">cs.AI</span>
+<span class="category-tag">cs.CL</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文提出了一种名为COWEAVER的双向、可学习且可解释的匹配算法，用于在混合人机科学协作网络中匹配科学家与任务请求者。该算法通过填补能力缺口和两阶段排序来筛选候选人，并利用不确定性感知的能力估计和反馈更新来探索新成员。
+        </div>
+        </div>
+
+    <div id="paper-2607.15554" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15554" target="_blank">On the CGGRT Criterion for Detecting Bipartite Perfect Matchings in NC</a>
+    
+        </div>
+        <div class="paper-authors">Swastik Kopparty, Shubhangi Saraf</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.CC</span>
+<span class="category-tag">cs.DS</span>
+<span class="category-tag">math.CO</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文提出了CGGRT判据的一个变体，用于在NC（并行计算复杂度类）中检测二分图完美匹配，其表述更简洁且参数更优。该工作基于Chatterjee等人最近的突破性成果，但未涉及关键词中的code、spectral或Muon等概念。
+        </div>
+        </div>
+
+    <div id="paper-2607.15560" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15560" target="_blank">Evolutionary Algorithm-Guided LLMs for Physics-Informed Neural Network Design</a>
+    
+        </div>
+        <div class="paper-authors">Xu Yang et al.</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.NE</span>
+<span class="category-tag">cs.AI</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文提出了一种闭环进化算法，引导LLM生成完整的PINN配置，通过训练结果指导后续搜索。实验在一维多尺度波动方程上验证了该方法，但未直接涉及关键词中的核心概念。
+        </div>
+        </div>
+
+    <div id="paper-2607.15565" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15565" target="_blank">Ask Twice, Look Twice: Prompt Echoing Resolves the Question-First Paradox in Vision-Language Models</a>
+    
+        </div>
+        <div class="paper-authors">Rakshanda Hassan Abhinandan et al.</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.CV</span>
+<span class="category-tag">cs.AI</span>
+<span class="category-tag">cs.LG</span>
+<span class="category-tag">eess.IV</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文发现视觉语言模型(VLM)中，将问题放在图像前会引导感知但导致答案token难以关注到问题，而将问题放在图像后则相反，形成“问题优先悖论”。作者提出无需训练的“问题回响”(question echoing)方法，即在图像前后各放置一次问题，以同时实现感知引导和答案读取，从而在多个基准上提升性能。
+        </div>
+        </div>
+
+    <div id="paper-2607.15576" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15576" target="_blank">Efficient and Effective In-place Graph-based Vector Index Updates</a>
+    
+        </div>
+        <div class="paper-authors">Haotian Liu, Yujun He, Bo Tang</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.DB</span>
+<span class="category-tag">cs.IR</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文提出了一种名为Yi的in-place图向量索引更新系统，通过向量级更新机制和三个核心组件（tasklet执行引擎、异步缓冲管理器、向量文件系统）来提升更新吞吐量和搜索质量。实验表明，Yi在800M数据集上比现有系统具有更高的更新和并发搜索吞吐量。
+        </div>
+        </div>
+
+    <div id="paper-2607.15589" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15589" target="_blank">MemoGuard: An Adaptive Runtime for Guarding Against Memory Traps in Communication-Limited Robot Navigation</a>
+    
+        </div>
+        <div class="paper-authors">Rajat Bhattacharjya et al.</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.RO</span>
+<span class="category-tag">cs.AI</span>
+<span class="category-tag">cs.NI</span>
+<span class="category-tag">eess.SY</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文提出MemoGuard，一种轻量级自适应运行时系统，用于在通信受限的机器人导航中验证记忆重用的安全性。它通过检查拓扑、资源和结果契约来避免“记忆陷阱”，在减少电池安全违规的同时降低了回退推理的开销。
+        </div>
+        </div>
+
+    <div id="paper-2607.15593" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15593" target="_blank">Scalable LLM Agent Tool Access in the Cloud</a>
+    
+        </div>
+        <div class="paper-authors">Mingxin Li et al.</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.DC</span>
+<span class="category-tag">cs.AI</span>
+<span class="category-tag">cs.NI</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文提出了一种用于MCP服务的云规模网关系统，通过解耦数据平面并集成工具推荐、会话路由等功能，解决了LLM agent在云环境中调用大量工具时的兼容性、延迟和token消耗问题。该系统在保持高工具选择准确率的同时，显著降低了工具选择时间和token使用量。
+        </div>
+        </div>
+
+    <div id="paper-2607.15620" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15620" target="_blank">AEGIS: Assay-Aware Protocol Validation and Runtime Monitoring for Open-Source Liquid Handling Robots</a>
+    
+        </div>
+        <div class="paper-authors">Priyanka V.Setty et al.</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.RO</span>
+<span class="category-tag">cs.AI</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文提出AEGIS系统，为开源液体处理机器人提供两层防护：第一层结合规则数据库与大语言模型(LLM)验证协议是否违反实验特异性不变量，第二层使用PCA世界模型和YOLO裁剪的移液器轨迹进行运行时视觉监控。该系统在物理OT-2机器人上演示了故障检测能力，但与我提供的关键词(code, context, spectral, Muon, pretrain, agent, attention)关联度较低。
+        </div>
+        </div>
+
+    <div id="paper-2607.15621" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15621" target="_blank">Think at 5 Hz, Act at 20 Hz: Asynchronous Fast-Slow Vision-Language-Action Inference for Closed-Loop Driving</a>
+    
+        </div>
+        <div class="paper-authors">Yun Li et al.</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.RO</span>
+<span class="category-tag">cs.AI</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文提出一种异步快慢架构用于闭环驾驶，其中7B视觉语言模型作为慢系统处理导航指令和视觉历史，轻量级动作专家作为快系统在每个仿真tick上生成控制输出。该方法通过随机陈旧性训练对齐异步执行，在CARLA上显著提升了路线完成率并降低了违规。
+        </div>
+        </div>
+
+    <div id="paper-2607.15623" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15623" target="_blank">Retraining Seeks Stable Signals</a>
+    
+        </div>
+        <div class="paper-authors">Moritz Hardt</div>
+        <div class="paper-categories">
+            <span class="category-tag">stat.ML</span>
+<span class="category-tag">cs.LG</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文从稳定信号原则出发，研究了重复风险最小化（retraining）在模型与数据反馈循环中的收敛性，证明了当预测目标存在非零的模型无关分量时，适当正则化的retraining会几何收敛到该稳定信号方向，即使模型对数据的影响很大。该工作为理解performativity（模型影响未来数据分布的现象）提供了新视角，但未直接涉及code、context、spectral等关键词。
+        </div>
+        </div>
+
+    <div id="paper-2607.15629" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15629" target="_blank">A cubical formalisation of topos causal models: intervention, sheaf gluing, and the intuitionistic do-calculus</a>
+    
+        </div>
+        <div class="paper-authors">Karen Sargsyan</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.LO</span>
+<span class="category-tag">cs.AI</span>
+<span class="category-tag">math.CT</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文在Cubical Agda中形式化了topos因果模型的核心部分，包括干预的characteristic map、sheaf gluing以及Kripke-Joyal forcing语义。它修复了Lawvere-Tierney拓扑公理中的一个缺口，并验证了干预和Pearl规则在任意拓扑下的稳定性，但整体工作侧重于形式化验证而非方法开创性。
+        </div>
+        </div>
+
+    <div id="paper-2607.15641" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15641" target="_blank">IMBench: A Benchmark for Intuitive Robotic Manipulation</a>
+    
+        </div>
+        <div class="paper-authors">Anurag Maurya et al.</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.RO</span>
+<span class="category-tag">cs.AI</span>
+        </div>
+    
+        <div class="paper-comment">
+            IMBENCH是一个用于评估机器人直觉操作能力的基准测试，包含35个任务和14K轨迹。实验发现现有视觉语言模型和视觉-语言-动作模型在物理推理与执行之间存在明显差距，但该工作与关键词中的agent概念仅有间接关联。
+        </div>
+        </div>
+
+    <div id="paper-2607.15657" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15657" target="_blank">Do Agents Dream of False Memories? Black-box Visual Attacks on Long-term Memory in Multimodal AI Agents</a>
+    
+        </div>
+        <div class="paper-authors">Halima Bouzidi, Mboutidem Ekemini Mkpong, Mohammad Abdullah Al Faruque</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.CR</span>
+<span class="category-tag">cs.CV</span>
+<span class="category-tag">cs.LG</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文提出了一种名为Lucid的黑盒对抗攻击框架，针对多模态AI agent的长期记忆系统，通过添加人眼不可见的扰动来破坏视觉记忆管道。该工作揭示了多模态记忆管道在视觉数据信任方面存在的结构性漏洞。
+        </div>
+        </div>
+
+    <div id="paper-2607.15697" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15697" target="_blank">SpeechGuard: Online Defense against Backdoor Attacks on Speech Recognition Models</a>
+    
+        </div>
+        <div class="paper-authors">Jinwen Xin, Xixiang Lv</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.SD</span>
+<span class="category-tag">cs.CR</span>
+<span class="category-tag">cs.LG</span>
+        </div>
+    
+        <div class="paper-comment">
+            SpeechGuard提出了一种针对语音识别模型的在线后门防御方法，通过改进STRIP方法进行自适应扰动注入来检测有毒样本，并利用时频掩码技术净化这些样本。该方法旨在运行时防御后门攻击，但与我提供的关键词列表关联度较低。
+        </div>
+        </div>
+
+    <div id="paper-2607.15698" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15698" target="_blank">Hierarchical Specialised Ensembles for Classification of Zebrafish Phenotypes Using the Selected Image Recognition Methods</a>
+    
+        </div>
+        <div class="paper-authors">Piotr S. Maciąg, Monika Maciąg, Magdalena Majdan</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.CV</span>
+<span class="category-tag">cs.LG</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文提出并评估了三种用于斑马鱼胚胎图像表型分类的分层集成方法，使用ResNet18、ViT和ConvNeXt作为骨干网络。实验表明ConvNeXt性能最佳，且专用分层集成在F1分数上取得了较好平衡。
+        </div>
+        </div>
+
+    <div id="paper-2607.15702" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15702" target="_blank">A Statistical Formulation Gap for Nonlinear Multiscale Physics-Informed Learning</a>
+    
+        </div>
+        <div class="paper-authors">Ronald Katende</div>
+        <div class="paper-categories">
+            <span class="category-tag">math.NA</span>
+<span class="category-tag">cs.LG</span>
+<span class="category-tag">math.AP</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文证明了非线性多尺度物理信息学习中存在有限样本的公式化差距，通过分析均匀单调散度形式方程，推导了边界兼容变分神经求解器的误差界，并在一维周期扩散方程中构造了最小障碍示例，揭示了强残差和平方强残差损失的Rademacher复杂度下界与尺度\(\epsilon\)和样本数\(N\)的关系。
+        </div>
+        </div>
+
+    <div id="paper-2607.15711" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15711" target="_blank">Efficient Difficulty-Aware Dynamic Routing for Diffusion-Based Real-World Image Super-Resolution</a>
+    
+        </div>
+        <div class="paper-authors">Xue Wu et al.</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.CV</span>
+<span class="category-tag">cs.AI</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文提出了一种基于扩散模型的真实图像超分辨率方法，通过难度感知动态路由策略为不同图像分配不同容量的网络，并调整VAE下采样比例以保留高频信息，在效率和效果上优于现有方法。
+        </div>
+        </div>
+
+    <div id="paper-2607.15713" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15713" target="_blank">Map as a Prompt: Learning Multi-Modal Spatial-Signal Foundation Models for Cross-scenario Wireless Localization</a>
+    
+        </div>
+        <div class="paper-authors">Yong Chu et al.</div>
+        <div class="paper-categories">
+            <span class="category-tag">eess.SP</span>
+<span class="category-tag">cs.AI</span>
+<span class="category-tag">cs.LG</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文提出SigMap，一种用于跨场景无线定位的多模态基础模型，通过循环自适应掩码策略和“地图即提示”框架整合3D地理信息。实验表明该模型在多个定位任务上达到最优性能，并展现出强零样本泛化能力。
+        </div>
+        </div>
+
+    <div id="paper-2607.15724" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15724" target="_blank">Natural Backdoor Attacks on Speech Recognition Models</a>
+    
+        </div>
+        <div class="paper-authors">Jinwen Xin, Xixiang Lyu, Jing Ma</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.CR</span>
+<span class="category-tag">cs.LG</span>
+<span class="category-tag">cs.SD</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文研究了语音识别模型上的自然后门攻击，使用日常生活中的普通声音作为触发器，实验表明仅需5%的毒化样本即可实现接近100%的攻击成功率，且不影响模型在良性样本上的性能。
+        </div>
+        </div>
+
+    <div id="paper-2607.15740" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15740" target="_blank">Debiasing Text-to-Image Evaluation via Implicit Cultural Alignment Reward Modeling</a>
+    
+        </div>
+        <div class="paper-authors">Bo-An Chang, Yu-Chih Chen</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.CV</span>
+<span class="category-tag">cs.AI</span>
+<span class="category-tag">cs.LG</span>
+<span class="category-tag">cs.MM</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文提出了一种基于轻量级MLLM的隐式文化对齐奖励模型，通过Skip-connection Cross-Attention机制保留文化细节，在CulturalFrames基准上提升了T2I评估的文化真实性，并实现了比VQA评估器快10倍的速度。该方法主要关注文化偏差的消除，与关键词中的attention有一定关联，但整体创新性和问题重要性未达到严格标准。
+        </div>
+        </div>
+
+    <div id="paper-2607.15755" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15755" target="_blank">AuEmoChat: Authentic Emotion Understanding and Rendering for Conversational Speech Synthesis</a>
+    
+        </div>
+        <div class="paper-authors">Zhenqi Jia et al.</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.SD</span>
+<span class="category-tag">cs.AI</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文提出AuEmoChat框架，通过有限标量量化学习离散的真实情感token空间，并设计情感引导的token合并算法来保留多轮对话中的情感上下文，最终利用情感流匹配生成更具表现力的对话语音。
+        </div>
+        </div>
+
+    <div id="paper-2607.15768" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15768" target="_blank">GeoChrono: Benchmarking and Rethinking Long-Term Temporal Understanding in Remote Sensing</a>
+    
+        </div>
+        <div class="paper-authors">Yujie Li et al.</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.CV</span>
+<span class="category-tag">cs.AI</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文提出了一个用于遥感领域长期时序理解的多维基准ChronoBench，并设计了GeoChrono模型。该模型通过Temporal Trajectory Encoder和Coarse-to-Fine Token Compressor来建模地理演变，在基准上取得了领先性能。
+        </div>
+        </div>
+
+    <div id="paper-2607.15778" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15778" target="_blank">Modularized Dynamic-Granularity Video LLM for Multi-Event Long Video Understanding</a>
+    
+        </div>
+        <div class="paper-authors">Wei Feng et al.</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.CV</span>
+<span class="category-tag">cs.AI</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文提出MoD-VLLM框架，通过正负视频片段定位和模块化动态粒度反射模块，迭代地定位与问题相关的视频片段，并动态调整编码粒度以平衡细节与全局信息。该方法在多个长视频理解基准上取得较好性能，但未涉及code、spectral、Muon等关键词相关技术。
+        </div>
+        </div>
+
+    <div id="paper-2607.15794" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15794" target="_blank">On the Geometry of Learned Representations in Event-Based Multi-Modal Egomotion Estimation</a>
+    
+        </div>
+        <div class="paper-authors">Stefano Silvestrini, Michele Ceresoli</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.CV</span>
+<span class="category-tag">cs.AI</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文研究了事件相机多模态自运动估计网络中潜在空间的几何结构，发现嵌入位于与运动变量对齐的低维流形上，且注意力权重随角速度和视觉可靠性自适应变化。该工作连接了经典分析估计理论与现代数据驱动融合方法。
+        </div>
+        </div>
+
+    <div id="paper-2607.15823" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15823" target="_blank">Aggregation of Statistical Evidence under Exchangeability</a>
+    
+        </div>
+        <div class="paper-authors">Antonin Schrab et al.</div>
+        <div class="paper-categories">
+            <span class="category-tag">stat.ME</span>
+<span class="category-tag">cs.LG</span>
+<span class="category-tag">math.ST</span>
+<span class="category-tag">stat.ML</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文研究了在未知复杂依赖下基于群不变性（group-invariance）的统计证据聚合方法，通过置换构造将变换后的数据集视为可交换单元，并校准跨变换的聚合结果。该方法在有限样本下证明了临界值优于任意依赖下的确定性校准（如Bonferroni校正），并扩展到序列化alpha支出和两批次聚合以保持有效性。
+        </div>
+        </div>
+
+    <div id="paper-2607.15830" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15830" target="_blank">RTL-Sequencer: Towards Scalable RTL Timing Prediction with the Sequence-based Paradigm</a>
+    
+        </div>
+        <div class="paper-authors">Ziyan Guo et al.</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.AR</span>
+<span class="category-tag">cs.AI</span>
+<span class="category-tag">cs.LG</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文提出RTL-Sequencer，一种基于序列化逻辑锥（logic cone）的RTL时序预测方法，通过广度优先遍历将电路结构线性化并应用线性序列模型。该方法在时序预测任务上优于现有图神经网络方法，但未涉及关键词中的核心概念。
+        </div>
+        </div>
+
+    <div id="paper-2607.15832" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15832" target="_blank">A zero-one law for one-shot system identification</a>
+    
+        </div>
+        <div class="paper-authors">Nicolas Boullé et al.</div>
+        <div class="paper-categories">
+            <span class="category-tag">math.NA</span>
+<span class="category-tag">cs.LG</span>
+<span class="category-tag">math.DS</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文研究了一类由字典项线性参数化的解析系统，证明了单次实验识别模型的可能性存在一个零一律：要么没有输入能唯一确定系数，要么几乎所有非退化高斯随机输入都能做到。该结果将单次系统识别问题简化为对退化输入的判断，并为恢复的模型提供了后验验证。
+        </div>
+        </div>
+
+    <div id="paper-2607.15849" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15849" target="_blank">Test-Time Noise Guided Adaptation for Realistic Autoregressive Video Generation</a>
+    
+        </div>
+        <div class="paper-authors">Dimitrios Karageorgiou et al.</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.CV</span>
+<span class="category-tag">cs.AI</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文提出了一种名为TANGO的测试时噪声引导方法，用于改进自回归视频扩散模型，通过约束预测噪声分布来避免生成轨迹陷入终止点。该方法在VBench和Fréchet Video Distance指标上取得了显著提升。
+        </div>
+        </div>
+
+    <div id="paper-2607.15851" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15851" target="_blank">Von Mises-Fisher Mixture Model with Dynamic Shrinkage for Realistic Test-Time Transduction</a>
+    
+        </div>
+        <div class="paper-authors">Jiazhen Huang et al.</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.CV</span>
+<span class="category-tag">cs.LG</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文从penalized likelihood estimation视角重新审视了transduction方法，指出其脆弱性源于缺乏anchoring机制和静态的shrinkage强度建模。为此，作者提出了MOON模型，利用von Mises-Fisher混合分布对unit hypersphere上的特征进行建模，并通过zero-shot先验动态调整shrinkage强度以处理类别不平衡问题。该方法无需训练且与模型无关，在视觉-语言模型的测试时transduction任务中提升了性能。
+        </div>
+        </div>
+
+    <div id="paper-2607.15854" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15854" target="_blank">Agentic Synthesis against Counterexample-Supplemented Sketches</a>
+    
+        </div>
+        <div class="paper-authors">Muness Castle, Eric Rubeck</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.SE</span>
+<span class="category-tag">cs.AI</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文提出了一种名为“agentic synthesis against counterexample-supplemented sketches”的代码生成方法，通过人工介入修正反例来演化代码草图，并在一个合成浏览器应用中用GPT-5.4-mini进行了实验验证。实验表明该方法能减少代码重写量，但结果仅基于单一模型和顺序，不具备普遍性。
+        </div>
+        </div>
+
+    <div id="paper-2607.15868" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15868" target="_blank">EgoExoMoCap: Distributed Ego-Exo Human Motion Capture</a>
+    
+        </div>
+        <div class="paper-authors">Jiaxi Jiang et al.</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.CV</span>
+<span class="category-tag">cs.AI</span>
+<span class="category-tag">cs.GR</span>
+<span class="category-tag">cs.HC</span>
+<span class="category-tag">cs.RO</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文提出了一种分布式框架EgoExoMoCap，通过结合头戴设备的自我中心（egocentric）和外部中心（exocentric）多模态信号进行人体运动捕捉，利用头部追踪信号和DINOv3图像特征提升鲁棒性。该方法在野外数据集上验证了其有效性，但未涉及关键词中的特定概念。
+        </div>
+        </div>
+
+    <div id="paper-2607.15880" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15880" target="_blank">Dynamics-Aware Meta-Imitation for Generalization to Unseen Robotic Manipulation</a>
+    
+        </div>
+        <div class="paper-authors">Zhenduo Shang et al.</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.RO</span>
+<span class="category-tag">cs.LG</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文提出Dynamics-Aware Meta-Imitation (DAMI)框架，通过meta-learning和Visual-Motor Trajectory模块来提升机器人模仿学习在未见任务上的泛化能力。该方法在仿真和真实实验中优于现有baseline，但未涉及code、spectral或Muon等关键词。
+        </div>
+        </div>
+
+    <div id="paper-2607.15883" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15883" target="_blank">Perceived AGI: Believability as Dimensional Completeness, Not Capability</a>
+    
+        </div>
+        <div class="paper-authors">Sebastian Cochinescu</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.HC</span>
+<span class="category-tag">cs.AI</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文提出一个概念框架，认为AI对话者的可信度（perceived mind）取决于其是否表达时间、真理、熵和爱这四种第一人称立场（first-person stances），而非单纯的能力提升。该框架将可观察的行为层（如主动性和节奏）与这些立场联系起来，但未提供实验数据，主要作为预测性理论提出。
+        </div>
+        </div>
+
+    <div id="paper-2607.15884" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15884" target="_blank">Which Hyperparameters Matter? A Game-Theoretic Framework for Interpretable Hyperparameter Sensitivity Analysis</a>
+    
+        </div>
+        <div class="paper-authors">Nyi Nyi Aung et al.</div>
+        <div class="paper-categories">
+            <span class="category-tag">stat.ML</span>
+<span class="category-tag">cs.LG</span>
+<span class="category-tag">stat.CO</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文提出一个基于博弈论的框架，使用Shapley Effects进行全局敏感性分析，并利用Pareto前沿集识别有效的超参数配置，以解释超参数与目标之间的交互作用。该框架旨在为多目标优化提供可解释的洞察，而非提出新的优化算法。
+        </div>
+        </div>
+
+    <div id="paper-2607.15898" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15898" target="_blank">Orbis 2: A Hierarchical World Model for Driving</a>
+    
+        </div>
+        <div class="paper-authors">Sudhanshu Mittal et al.</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.CV</span>
+<span class="category-tag">cs.AI</span>
+<span class="category-tag">cs.LG</span>
+<span class="category-tag">cs.RO</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文提出了一种用于驾驶场景的分层世界模型Orbis 2，将未来预测分解为高层次的粗粒度场景预测和低层次的细粒度生成。通过结合扩散强制预训练与教师强制微调的两阶段训练范式，该方法在长程生成保真度、转向响应性和内部表示质量上取得了最优结果。
+        </div>
+        </div>
+
+    <div id="paper-2607.15935" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15935" target="_blank">Learning Reach-Avoid Task with Reinforcement Learning: Vectorized Simulation and Benchmark</a>
+    
+        </div>
+        <div class="paper-authors">Jonas Weihing, Shahram Eivazi</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.RO</span>
+<span class="category-tag">cs.LG</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文利用MuJoCo MJX物理引擎和Brax库实现了机械臂reach-avoid任务的并行化仿真与DRL基准测试，在UR5e和Franka机器人上分别达到96.1%和98.8%的reach任务成功率。结果表明，现有DRL方法在简化场景中表现完美，但在真实复杂场景下性能显著下降，说明该问题尚未被完全解决。
+        </div>
+        </div>
+
+    <div id="paper-2607.15942" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15942" target="_blank">More with Less: a Large Scale Remote Sensing VLM with a Simple Recipe</a>
+    
+        </div>
+        <div class="paper-authors">Stefan Maria Ailuro et al.</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.CV</span>
+<span class="category-tag">cs.LG</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文提出了一种遥感视觉语言模型，通过多任务强化学习框架训练单一语言策略，在多种遥感基准上取得竞争性表现，并强调数据规模比架构创新更重要。
+        </div>
+        </div>
+
+    <div id="paper-2607.15944" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15944" target="_blank">When Not to Automate: A Formal Protocol for Human Preservation in AI-Optimized Organizations</a>
+    
+        </div>
+        <div class="paper-authors">Jose Manuel de la Chica Rodriguez, Jairo Rodriguez Arias, Spyridon Chouliaras</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.MA</span>
+<span class="category-tag">cs.AI</span>
+<span class="category-tag">cs.CY</span>
+<span class="category-tag">cs.HC</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文提出了一个名为PHP-AIO的五阶段决策协议，用于在AI优化组织中量化自动化带来的隐性系统风险（如隐性知识流失），并产生可审计的自动化决策。该协议通过一个封闭形式的自动化债务度量\(\rho(P)\)来评估角色级决策的累积效应，并区分了自动化、增强、混合和保留四种结果。
+        </div>
+        </div>
+
+    <div id="paper-2607.15968" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.15968" target="_blank">Sociocultural Influences on Opinion Formation: Word of Mouth Dynamics, Mass Media and Behavioural Development</a>
+    
+        </div>
+        <div class="paper-authors">Elpida Tzafestas</div>
+        <div class="paper-categories">
+            <span class="category-tag">physics.soc-ph</span>
+<span class="category-tag">cs.AI</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文研究了一个由不同职业或文化群体组成的社会中，意见形成的动力学模型，考虑了口碑传播和大众媒体的影响。模型展示了这些过程对最终意见和社会态度形成的多样化效应，并可能为群体隔离等社会问题提供见解。
+        </div>
+        </div>
+
+    <div id="paper-2607.16004" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.16004" target="_blank">Robustness of Reinforcement Learning-Based Congestion Management in Low-Voltage Grids</a>
+    
+        </div>
+        <div class="paper-authors">Josef Hoppe et al.</div>
+        <div class="paper-categories">
+            <span class="category-tag">eess.SY</span>
+<span class="category-tag">cs.AI</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文提出了一种结合随机森林预分类器和actor-critic控制器的强化学习框架，用于解决低电压配电网中的拥塞管理问题，并评估了其对测量噪声和电网参数不匹配的鲁棒性。实验表明该方法在准确参数下能显著减少违规幅度，但对模型失配较为敏感。
+        </div>
+        </div>
+
+    <div id="paper-2607.16010" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.16010" target="_blank">AI Watermark Evidence Fails Forensic Readiness: An Empirical Evaluation</a>
+    
+        </div>
+        <div class="paper-authors">Saifur Rahman Tamim, Amir Labib Khan</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.CR</span>
+<span class="category-tag">cs.CL</span>
+<span class="category-tag">cs.CY</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文实证评估了三种LLM水印方法（KGW, Unigram, SynthID-Text）在法庭证据标准下的表现，发现它们均无法满足Daubert可采性标准，且在水印去除攻击下几乎完全失效。研究提出了一个法医准备度评分框架，但指出即使该框架也无法完全反映这些方法的法医学无用性。
+        </div>
+        </div>
+
+    <div id="paper-2607.16012" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.16012" target="_blank">DPNeXt: A Lightweight Multi-Scale Feature Fusion Framework for Efficient ViT-Based Multi-Task Dense Prediction</a>
+    
+        </div>
+        <div class="paper-authors">Jehun Kang et al.</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.CV</span>
+<span class="category-tag">cs.AI</span>
+<span class="category-tag">cs.RO</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文提出DPNeXt，一种轻量级多尺度特征融合解码器，用于替代标准Dense Prediction Transformer (DPT)，以提升基于Vision Foundation Model (VFM)的多任务密集预测效率。该方法通过深度可分离倒置瓶颈和Multi-Task Boundary Guidance (MTBG)策略，在减少参数量的同时实现了语义分割与深度估计的SOTA性能。
+        </div>
+        </div>
+
+    <div id="paper-2607.16030" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.16030" target="_blank">Rethinking Quantum Continual Learning with Quantum Fisher Information</a>
+    
+        </div>
+        <div class="paper-authors">Yu-Chao Hsu et al.</div>
+        <div class="paper-categories">
+            <span class="category-tag">quant-ph</span>
+<span class="category-tag">cs.AI</span>
+<span class="category-tag">cs.LG</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文提出了一种基于量子Fisher信息（QFI）的正则化方法QEWC，用于缓解变分量子分类器在连续学习中的灾难性遗忘问题。实验表明，该方法在量子态几何视角下比经典Fisher信息方法更稳定，但与我提供的关键词（如code, context, spectral等）无直接关联。
+        </div>
+        </div>
+
+    <div id="paper-2607.16053" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.16053" target="_blank">Deep and Probabilistic Models for Gene Regulatory Network Inference</a>
+    
+        </div>
+        <div class="paper-authors">Claudia Skok Gibbs</div>
+        <div class="paper-categories">
+            <span class="category-tag">stat.ML</span>
+<span class="category-tag">cs.LG</span>
+<span class="category-tag">stat.AP</span>
+<span class="category-tag">stat.ME</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文提出了两个互补框架PMF-GRN和GLM-Prior用于基因调控网络推断，其中PMF-GRN通过变分推断实现概率图模型优化，GLM-Prior利用预训练的Nucleotide Transformer从序列预测TF-靶基因相互作用。这些方法主要解决基因调控网络重建中的模型选择和先验知识迁移问题，但与关键词列表中的概念关联较弱。
+        </div>
+        </div>
+
+    <div id="paper-2607.16065" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.16065" target="_blank">Spatial Normalization for Cross-Domain Retinal Layer Segmentation in Optical Coherence Tomography</a>
+    
+        </div>
+        <div class="paper-authors">Iker Moran-Cavero et al.</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.CV</span>
+<span class="category-tag">cs.AI</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文研究了在OCT视网膜层分割中，使用以fovea为中心的空间归一化预处理策略来缓解几何domain shift问题，并通过多种指标评估了深度学习架构的性能。该方法旨在提升分割的鲁棒性和泛化能力，但未涉及关键词中的核心概念。
+        </div>
+        </div>
+
+    <div id="paper-2607.16066" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.16066" target="_blank">LLM-Powered Agentic AI for 5G/6G Networks: A Tutorial and Survey on Architectures, Protocols, and Standardization</a>
+    
+        </div>
+        <div class="paper-authors">Mazene Ameur et al.</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.NI</span>
+<span class="category-tag">cs.AI</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文是一篇关于LLM驱动的Agentic AI在5G/6G网络中的教程与综述，系统梳理了网络架构、协议及标准化进展，但未提出具体的新方法或解决长期存在的理论问题。
+        </div>
+        </div>
+
+    <div id="paper-2607.16074" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.16074" target="_blank">JoyNexus: Service-Oriented Multi-Tenant Post-Training for VLA Models</a>
+    
+        </div>
+        <div class="paper-authors">Haoran Sun et al.</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.DC</span>
+<span class="category-tag">cs.AI</span>
+<span class="category-tag">cs.SE</span>
+        </div>
+    
+        <div class="paper-comment">
+            JoyNexus提出了一种面向多租户的VLA模型后训练服务架构，通过解耦训练、推理和环境服务并引入共享基础模型与租户隔离槽位，实现了资源的高效调度。该工作主要关注工程实践中的服务效率与资源利用率，与关键词中的理论或算法方向关联较弱。
+        </div>
+        </div>
+
+    <div id="paper-2607.16076" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.16076" target="_blank">HCIG: A Hierarchical Cross-Modal Incongruity Graph Network for Multimodal Sarcasm and Cyberbullying Detection</a>
+    
+        </div>
+        <div class="paper-authors">Bhavana Verma, Priyanka Meel, Dinesh Kumar Vishwakarma</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.CV</span>
+<span class="category-tag">cs.AI</span>
+<span class="category-tag">cs.CL</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文提出HCIG和GCCN两种网络，用于多模态讽刺与网络欺凌检测，通过图注意力网络建模文本与图像间的层次化不一致性。实验表明层次化多粒度建模优于传统融合策略，但方法本身在理论或应用上未体现显著开创性。
+        </div>
+        </div>
+
+    <div id="paper-2607.16084" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.16084" target="_blank">Pick-to-Learn Calibration of an MPC Policy for an Origin-to-Destination Flight Problem</a>
+    
+        </div>
+        <div class="paper-authors">Marco C. Campi, Simone Garatti</div>
+        <div class="paper-categories">
+            <span class="category-tag">eess.SY</span>
+<span class="category-tag">cs.LG</span>
+<span class="category-tag">math.OC</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文应用Pick-to-Learn (P2L)方法校准一个Model Predictive Control (MPC)策略，用于处理飞机在不确定侧风下从起点到终点的飞行问题。P2L从400个风场场景中选出两个信息性场景，使MPC策略避免低连通区域，并满足概率风险界。
+        </div>
+        </div>
+
+    <div id="paper-2607.16130" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.16130" target="_blank">A Methodology for Auditable Trustworthiness Levels in AI Lifecycle Governance</a>
+    
+        </div>
+        <div class="paper-authors">Andrea Ferrario</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.CY</span>
+<span class="category-tag">cs.AI</span>
+<span class="category-tag">eess.SY</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文提出了一种用于AI生命周期治理中可审计可信度水平的轻量级方法论，包含一个形式化框架和一个治理流程，通过决策树学习可解释的可信度规则，并利用边界余量和轮廓漂移等诊断工具支持设计时标注和部署后监控。该方法旨在为AI治理中的合规文档和生命周期监控提供证据基础，但不替代法律或专家判断。
+        </div>
+        </div>
+
+    <div id="paper-2607.16144" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.16144" target="_blank">Learning Standard Model structure from LHC data with Riemannian flow matching</a>
+    
+        </div>
+        <div class="paper-authors">Midori Kato et al.</div>
+        <div class="paper-categories">
+            <span class="category-tag">hep-ph</span>
+<span class="category-tag">cs.LG</span>
+<span class="category-tag">hep-ex</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文使用基于Riemannian conditional flow matching的生成模型ShellFlow，从ATLAS Open Data的\(pp\)对撞数据中学习Standard Model结构，能够生成从sub-GeV到TeV范围的粒子运动学信息。该工作展示了生成模型在粒子物理数据中的潜力，但与我提供的关键词（如code, context, spectral, Muon, pretrain, agent, attention）关联度较低。
+        </div>
+        </div>
+
+    <div id="paper-2607.16165" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.16165" target="_blank">An Exam for Active Observers</a>
+    
+        </div>
+        <div class="paper-authors">Jiarui Zhang et al.</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.CV</span>
+<span class="category-tag">cs.AI</span>
+<span class="category-tag">cs.CL</span>
+<span class="category-tag">cs.LG</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文提出了ActiveVision基准测试，用于评估多模态大语言模型(MLLMs)的主动观察能力。实验表明，当前最先进的MLLMs在该基准上表现极差，远落后于人类，说明这些模型缺乏鲁棒的主动视觉感知能力。
+        </div>
+        </div>
+
+    <div id="paper-2607.16175" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.16175" target="_blank">Evaluating Open-Weight LLMs for Generating Structured Threat Information for Autonomous Vehicle Vulnerabilities</a>
+    
+        </div>
+        <div class="paper-authors">Md Erfan et al.</div>
+        <div class="paper-categories">
+            <span class="category-tag">cs.CR</span>
+<span class="category-tag">cs.AI</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文评估了多种开源大语言模型（LLMs）在将自动驾驶汽车（CAV）漏洞描述自动转化为结构化威胁信息表达（STIX）格式方面的能力，构建了CAV-STIXGen数据集并测试了11个模型。实验表明，单模型在部分映射任务上表现良好，但完整的MITRE ATT&CK映射仍具挑战性，多智能体（multi-agent）设置下性能有所下降。该工作主要聚焦于网络安全领域的自动化威胁情报生成，与关键词中的agent有一定关联，但方法本身并非开创性，且未涉及code, context, spectral, Muon, pretrain, attention等核心概念。
+        </div>
+        </div>
+
+    <div id="paper-2607.16178" class="paper-item">
+        <div class="paper-title">
+            <a href="https://arxiv.org/abs/2607.16178" target="_blank">Cluster-Aware Matching via Laplacian Optimal Transport</a>
+    
+        </div>
+        <div class="paper-authors">Gabriel Samberg et al.</div>
+        <div class="paper-categories">
+            <span class="category-tag">stat.ML</span>
+<span class="category-tag">cs.LG</span>
+<span class="category-tag">math.NA</span>
+<span class="category-tag">stat.ME</span>
+        </div>
+    
+        <div class="paper-comment">
+            本文提出了一种基于Laplacian Optimal Transport (LapOT)的聚类感知匹配方法，通过引入由点云相似图构造的二次Laplacian正则项来鼓励最优传输耦合尊重数据的聚类结构。该方法还引入了Refined Simultaneous Clustering (RSC)以利用聚类感知耦合生成更一致的跨点云分区。
+        </div>
+        </div>
+</div>
+</div>
+    </section>
+    
+    <div class="footnote">
+        <p>- 数据来源 Data Source: <a href="https:arXiv.org">arXiv.org</a></p>
+        <p>- 本网页的内容由 <a href="https://github.com/vegetablefj/bluearXiv-ai">bluearXiv-ai</a> 自动生成。实际抓取的是 arXiv 中 "new" 页面的数据，即最近的有所在分类论文变动的一天的数据。</p>
+        <p>- 感谢 arXiv 提供的服务。评论和精选由 AI 生成，不代表任何人对论文本身的看法。精选依赖于论文与给定关键词的匹配度。</p>
+        <p>- 计数基于主学科，不计重数。</p>
+        <p>- This webpage is automatically generated by <a href="https://github.com/vegetablefj/bluearXiv-ai">bluearXiv-ai</a>.</p>
+        <p>- The data actually captured is from the "new" page, that is, the data of the most recent day when there were changes in corresponding subjects.</p>
+        <p>- Thanks for services prodived by arXiv. Comments and selection of good papers are generated by AI, not showing anyone's point of view about those papers. </p>
+        <p>- The selection also depends on the matched-degrees between papers and given keywords. </p>
+        <p>- The counters are based on main subject, not counting multiplicities.</p>
+    </div>
+    
+    <a href="#" class="back-to-top">↑</a>
+
+    <script>
+        // KaTeX自动渲染配置
+        document.addEventListener('DOMContentLoaded', function() {
+            renderMathInElement(document.body, {
+                delimiters: [
+                    {left: '$$', right: '$$', display: true},
+                    {left: '$', right: '$', display: false},
+                    {left: '\\(', right: '\\)', display: false},
+                    {left: '\\[', right: '\\]', display: true}
+                ],
+                throwOnError: false
+            });
+            
+            // 平滑滚动到锚点
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') {
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                        return;
+                    }
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 10,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
+            // 关键词筛选功能
+            const activeKeywords = new Set();
+
+            function filterPapers() {
+                const papers = document.querySelectorAll('.paper-item');
+
+                if (activeKeywords.size === 0) {
+                    papers.forEach(p => p.style.display = '');
+                    document.querySelectorAll('.category-section').forEach(s => s.style.display = '');
+                    return;
+                }
+
+                const keywordsArray = Array.from(activeKeywords).map(k => k.toLowerCase());
+
+                papers.forEach(paper => {
+                    const text = paper.textContent.toLowerCase();
+                    const matches = keywordsArray.some(kw => text.includes(kw));
+                    paper.style.display = matches ? '' : 'none';
+                });
+
+                // 如果某个学科分类下所有论文都被隐藏，则隐藏该分类
+                document.querySelectorAll('.category-section').forEach(section => {
+                    const visiblePapers = section.querySelectorAll('.paper-item');
+                    const hasVisible = Array.from(visiblePapers).some(p => p.style.display !== 'none');
+                    section.style.display = hasVisible ? '' : 'none';
+                });
+            }
+
+            document.querySelectorAll('.keyword-filter').forEach(kw => {
+                kw.addEventListener('click', function() {
+                    const keyword = this.dataset.keyword;
+                    if (activeKeywords.has(keyword)) {
+                        activeKeywords.delete(keyword);
+                        this.classList.remove('active');
+                    } else {
+                        activeKeywords.add(keyword);
+                        this.classList.add('active');
+                    }
+                    filterPapers();
+                });
+            });
+        });
+    </script>
+</body>
+</html>
